@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LumiMind · 智能健康检测与疗愈平台</title>
+    <style>
+        :root {
+            --bg-base: #F7F8FA;
+            --bg-card: #FFFFFF;
+            --bg-glass: rgba(255,255,255,0.75);
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-dim: #94A3B8;
+            --border: #E2E8F0;
+            --border-subtle: #F1F5F9;
+            --accent: #0D9488;
+            --accent-hover: #0F766E;
+            --accent-muted: #F0FDFA;
+            --accent-border: #99F6E4;
+            --danger: #EF4444;
+            --danger-muted: #FEF2F2;
+            --danger-border: #FECACA;
+            --success: #10B981;
+            --success-muted: #ECFDF5;
+            --success-border: #A7F3D0;
+            --warning: #F59E0B;
+            --warning-muted: #FFFBEB;
+            --warning-border: #FDE68A;
+            --blue: #3B82F6;
+            --blue-muted: #EFF6FF;
+            --purple: #8B5CF6;
+            --purple-muted: #F5F3FF;
+            --radius: 1rem;
+            --radius-lg: 1.25rem;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+            --font-mono: 'SF Mono','JetBrains Mono','Fira Code',monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg-base);
+            font-family: 'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+            padding: 1.2rem;
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .dashboard {
+            max-width: 1480px;
+            margin: 0 auto;
+        }
+
+        /* ── Sticky Top Bar ── */
+        .sticky-top {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--bg-base);
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ── System Ribbon ── */
+        .ribbon {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.55rem 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 1rem;
+        }
+        .ribbon .led { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+        .ribbon .led.green { background: #10B981; box-shadow: 0 0 5px #10B981; animation: pulse2 2s infinite; }
+        .ribbon .led.amber { background: #F59E0B; box-shadow: 0 0 5px #F59E0B; }
+        @keyframes pulse2 { 0%,100%{opacity:0.6} 50%{opacity:1} }
+
+        /* ── Header ── */
+        .header {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+            padding-bottom: 0.9rem; margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border); gap: 0.8rem;
+        }
+        .header-brand { display: flex; align-items: center; gap: 0.5rem; }
+        .header-logo { font-size: 1.5rem; }
+        .header-title {
+            font-size: 1.2rem; font-weight: 700;
+            background: linear-gradient(135deg, #0D9488, #0891B2);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header-sub { font-size: 0.72rem; color: var(--text-dim); }
+        .nav-links { display: flex; gap: 0.25rem; }
+        .nav-link {
+            padding: 0.4rem 0.8rem; border-radius: 0.5rem; text-decoration: none;
+            font-size: 0.78rem; font-weight: 500; color: var(--text-secondary);
+            transition: all 0.15s; border: 1px solid transparent; cursor: pointer;
+            background: none; font-family: inherit; white-space: nowrap;
+        }
+        .nav-link:hover { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-border); }
+        .nav-link.active { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-border); font-weight: 600; }
+
+        /* ── Stats Overview Row ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.1rem;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: all 0.2s; cursor: default;
+            box-shadow: var(--shadow);
+        }
+        .stat-card:hover { border-color: var(--accent-border); box-shadow: var(--shadow-lg); }
+        .stat-card.clickable { cursor: pointer; }
+        .stat-card.clickable:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(13,148,136,0.12), var(--shadow-lg); transform: translateY(-2px); }
+        .stat-card.clickable:active { transform: translateY(0); }
+        .stat-info { display: flex; flex-direction: column; gap: 0.2rem; }
+        .stat-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-dim); }
+        .stat-value { font-size: 1.65rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-primary); }
+        .stat-sub { font-size: 0.65rem; color: var(--text-dim); font-family: var(--font-mono); }
+        .stat-icon {
+            width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .stat-icon.light { background: #FFF7ED; }
+        .stat-icon.office-temp { background: var(--warning-muted); }
+        .stat-icon.noise { background: var(--blue-muted); }
+        .stat-icon.humidity { background: var(--success-muted); }
+        .stat-card .light-on { color: var(--warning); font-weight: 700; }
+        .stat-card .light-off { color: var(--text-dim); }
+
+        .light-status-dot {
+            display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+            margin-right: 4px; vertical-align: middle;
+        }
+        .light-status-dot.on { background: #F59E0B; box-shadow: 0 0 8px #F59E0B; animation: pulse2 1.5s infinite; }
+        .light-status-dot.off { background: #CBD5E1; }
+
+        /* ── Section Title ── */
+        .section-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 0.8rem; margin-top: 0.3rem;
+        }
+        .section-title {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .section-count {
+            font-size: 0.65rem; color: var(--text-dim); font-family: var(--font-mono);
+            background: var(--bg-card); padding: 0.2rem 0.6rem; border-radius: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        /* ── Physiology Cards Grid ── */
+        .physio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        .physio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.1rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .physio-card:hover { border-color: var(--accent-border); box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+        .physio-card.expanded {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(13,148,136,0.1), var(--shadow-lg);
+            grid-row: span 2;
+        }
+        .physio-card-header {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem;
+        }
+        .physio-card-icon { font-size: 1.3rem; }
+        .physio-card-status {
+            font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+            padding: 0.2rem 0.55rem; border-radius: 1rem;
+        }
+        .physio-card-status.normal { background: var(--success-muted); color: var(--success); border: 1px solid var(--success-border); }
+        .physio-card-status.warning { background: var(--warning-muted); color: var(--warning); border: 1px solid var(--warning-border); }
+        .physio-card-status.alert { background: var(--danger-muted); color: var(--danger); border: 1px solid var(--danger-border); }
+        .physio-card-title {
+            font-size: 0.78rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .physio-card-value {
+            font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-primary);
+            margin: 0.3rem 0;
+        }
+        .physio-card-value .unit { font-size: 0.7rem; font-weight: 400; color: var(--text-dim); margin-left: 2px; }
+        .physio-card-sub {
+            font-size: 0.65rem; color: var(--text-dim); font-family: var(--font-mono);
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .physio-card-sub .trend-up { color: var(--danger); }
+        .physio-card-sub .trend-down { color: var(--success); }
+        .physio-card-sub .trend-stable { color: var(--text-dim); }
+
+        /* Mini waveform in card */
+        .mini-wave {
+            height: 38px; margin: 0.5rem 0 0.3rem; border-radius: 0.5rem;
+            background: #F8FAFC; border: 1px solid var(--border-subtle);
+            overflow: hidden; position: relative;
+        }
+        .mini-wave canvas { width: 100%; height: 100%; display: block; }
+
+        /* Expandable detail area */
+        .physio-detail {
+            display: none;
+            margin-top: 0.9rem; padding-top: 0.9rem;
+            border-top: 1px solid var(--border);
+            animation: fadeSlideIn 0.3s ease;
+        }
+        .physio-card.expanded .physio-detail { display: block; }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .detail-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
+            font-size: 0.7rem;
+        }
+        .detail-item {
+            background: #F8FAFC; border-radius: 0.55rem; padding: 0.5rem 0.7rem;
+            border: 1px solid var(--border-subtle);
+        }
+        .detail-item .dl { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; letter-spacing: 0.4px; }
+        .detail-item .dv { font-size: 0.85rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-primary); margin-top: 2px; }
+        .detail-bar {
+            height: 4px; background: var(--border); border-radius: 2px; margin-top: 0.6rem; overflow: hidden;
+        }
+        .detail-bar-fill {
+            height: 100%; border-radius: 2px; transition: width 0.6s ease;
+        }
+        .detail-expand-hint {
+            font-size: 0.6rem; color: var(--text-dim); text-align: center; margin-top: 0.3rem;
+            font-family: var(--font-mono); letter-spacing: 0.5px;
+        }
+
+        /* ── Bottom Row: Spectrum + Light Preview ── */
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        .panel {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .panel-header {
+            padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            background: #FAFBFC;
+        }
+        .panel-title {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.8px; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .panel-badge {
+            font-size: 0.6rem; font-family: var(--font-mono); color: var(--accent);
+            background: var(--accent-muted); padding: 0.15rem 0.5rem;
+            border-radius: 0.8rem; border: 1px solid var(--accent-border);
+        }
+        .panel-body { padding: 1rem 1.1rem; }
+
+        /* Spectrum Chart */
+        .spectrum-chart-wrapper {
+            display: flex; gap: 0;
+        }
+        .spectrum-yaxis {
+            display: flex; flex-direction: column; justify-content: space-between;
+            align-items: flex-end; padding: 0.5rem 0.4rem 0.1rem 0;
+            font-size: 0.58rem; font-family: var(--font-mono); color: var(--text-dim);
+            width: 42px; flex-shrink: 0; text-align: right; line-height: 1;
+        }
+        .spectrum-container {
+            position: relative; height: 260px; flex: 1;
+            background: #FAFBFC; border-radius: 0.75rem; overflow: hidden;
+            cursor: crosshair; border: 1px solid var(--border);
+        }
+        .spectrum-container canvas { width: 100%; height: 100%; display: block; }
+        .spectrum-container .crosshair-x {
+            position: absolute; top: 0; width: 1px; height: 100%;
+            background: rgba(0,0,0,0.28); pointer-events: none; display: none;
+        }
+        .spectrum-container .crosshair-y {
+            position: absolute; left: 0; height: 1px; width: 100%;
+            background: rgba(0,0,0,0.28); pointer-events: none; display: none;
+        }
+        .spectrum-container .crosshair-dot {
+            position: absolute; width: 7px; height: 7px; border-radius: 50%;
+            background: #0D9488; pointer-events: none; display: none;
+            transform: translate(-50%, -50%); box-shadow: 0 0 8px rgba(13,148,136,0.7);
+            z-index: 5;
+        }
+        .spectrum-tooltip {
+            position: absolute; pointer-events: none; display: none;
+            background: rgba(255,255,255,0.95); color: #1a1a2e; padding: 4px 10px;
+            border-radius: 4px; font-size: 0.65rem; font-family: var(--font-mono);
+            white-space: nowrap; z-index: 10;
+            border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+        .spectrum-xlabels {
+            display: flex; justify-content: space-between; padding: 0.3rem 0.4rem 0;
+            font-size: 0.6rem; font-family: var(--font-mono); color: var(--text-dim);
+        }
+        .spectrum-xlabels.offset { padding-left: 48px; }
+        .spectrum-summary {
+            display: flex; justify-content: space-between; margin-top: 0.5rem;
+            font-size: 0.65rem; color: var(--text-dim);
+        }
+        .spectrum-summary strong { color: var(--text-primary); }
+
+        /* ── Light Preview Panel (expandable inline) ── */
+        #lightPreviewPanel { cursor: pointer; transition: all 0.25s; }
+        #lightPreviewPanel:hover { border-color: var(--accent-border); box-shadow: var(--shadow-lg); }
+        #lightPreviewPanel.expanded {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(13,148,136,0.1), var(--shadow-lg);
+        }
+        .light-detail-expand {
+            display: none; padding: 0 1.1rem 1rem 1.1rem;
+            animation: fadeSlideIn 0.3s ease;
+            border-top: 1px solid var(--border);
+        }
+        #lightPreviewPanel.expanded .light-detail-expand { display: block; }
+        .light-detail-expand .param-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 0.45rem 0; border-bottom: 1px dashed var(--border-subtle);
+            font-size: 0.75rem;
+        }
+        .light-detail-expand .param-row .pn { color: var(--text-secondary); }
+        .light-detail-expand .param-row .pv {
+            font-weight: 700; font-family: var(--font-mono); color: var(--accent);
+            background: var(--accent-muted); padding: 0.1rem 0.5rem; border-radius: 0.4rem;
+            font-size: 0.75rem;
+        }
+        .light-detail-control {
+            display: flex; flex-direction: column; gap: 0.3rem; margin: 0.5rem 0;
+        }
+        .light-detail-control label {
+            font-size: 0.68rem; font-weight: 600; color: var(--text-secondary);
+            display: flex; justify-content: space-between;
+        }
+        .light-detail-control input[type="range"] {
+            width: 100%; height: 5px; -webkit-appearance: none;
+            background: var(--border); border-radius: 10px; outline: none;
+        }
+        .light-detail-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 18px; height: 18px;
+            background: var(--accent); border-radius: 50%; cursor: pointer;
+            box-shadow: 0 0 6px rgba(13,148,136,0.4);
+        }
+
+        /* Light Preview Area */
+        .light-preview-inner {
+            display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+            padding: 0.5rem 0;
+        }
+        .light-bulb-main {
+            width: 130px; height: 130px; border-radius: 22px;
+            background: #FFD966;
+            box-shadow: 0 0 35px rgba(255,200,80,0.5), inset 0 1px 2px rgba(255,255,240,0.6);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .light-bulb-main.breathing {
+            animation: breatheBulb 3s ease-in-out infinite;
+        }
+        @keyframes breatheBulb {
+            0%,100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.04); filter: brightness(1.12); }
+        }
+        .light-preview-label {
+            font-size: 0.7rem; color: var(--text-secondary); text-align: center;
+        }
+        .light-preview-hint {
+            font-size: 0.6rem; color: var(--accent); font-family: var(--font-mono);
+            background: var(--accent-muted); padding: 0.2rem 0.7rem;
+            border-radius: 1rem; border: 1px solid var(--accent-border);
+        }
+
+        /* ── Footer ── */
+        .footer-bar {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+            padding: 0.7rem 1rem; background: var(--bg-card); border-radius: var(--radius);
+            border: 1px solid var(--border); font-size: 0.7rem; color: var(--text-dim);
+            font-family: var(--font-mono); gap: 0.5rem;
+        }
+        .footer-status { display: flex; align-items: center; gap: 0.4rem; }
+        #globalStatus { font-size: 0.7rem; }
+        #globalStatus.ok { color: var(--success); }
+        #globalStatus.error { color: var(--danger); }
+
+        /* ── Session Bar ── */
+        .session-bar {
+            display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-end;
+            margin-bottom: 1rem; padding: 0.7rem 1rem;
+            background: var(--bg-card); border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .session-bar label {
+            display: flex; flex-direction: column; gap: 3px;
+            font-size: 0.65rem; color: var(--text-dim); font-weight: 600;
+        }
+        .session-bar input, .session-bar select {
+            padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border);
+            background: #fff; font-size: 0.78rem; color: var(--text-primary);
+        }
+        .btn {
+            padding: 7px 14px; border-radius: 2rem; border: 1px solid var(--accent-border);
+            background: var(--accent-muted); color: var(--accent);
+            font-size: 0.72rem; font-weight: 600; cursor: pointer;
+            transition: all 0.15s; white-space: nowrap; font-family: inherit;
+        }
+        .btn:hover:not(:disabled) { background: var(--accent); color: #fff; }
+        .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+        .btn.secondary { border-color: var(--border); background: #fff; color: var(--text-secondary); }
+        .btn.secondary:hover:not(:disabled) { border-color: var(--accent-border); background: var(--accent-muted); color: var(--accent); }
+
+        /* ── Responsive ── */
+        @media (max-width: 1100px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .physio-grid { grid-template-columns: repeat(2, 1fr); }
+            .bottom-row { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 700px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .physio-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; align-items: flex-start; }
+            body { padding: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+
+    <!-- ══════ Sticky Top: Ribbon + Header + Session ══════ -->
+    <div class="sticky-top">
+
+    <!-- ── System Ribbon ── -->
+    <div class="ribbon">
+        <div>
+            <span class="led green"></span> HL7 STREAM ACTIVE &nbsp;|&nbsp;
+            NODE: LUMI-HEALTH-01 &nbsp;|&nbsp;
+            AUTH: JWT SESSION
+        </div>
+        <div>
+            LATENCY: <span id="sysLatency">--</span>ms &nbsp;|&nbsp;
+            UPTIME: 99.99% &nbsp;|&nbsp;
+            <span id="wsStatus"><span class="led green"></span> LIVE</span>
+        </div>
+    </div>
+
+    <!-- ── Header ── -->
+    <div class="header">
+        <div>
+            <div class="header-brand">
+                <span class="header-logo">💡</span>
+                <span class="header-title">LumiMind</span>
+            </div>
+            <div class="header-sub">智能健康检测与疗愈平台 · melanopic 全参数闭环调节</div>
+        </div>
+        <nav class="nav-links">
+            <a href="/page/home" class="nav-link active">🏠 首页</a>
+            <a href="/page/monitor" class="nav-link">📊 数据监测</a>
+            <a href="/page/chat" class="nav-link">💬 AI问答</a>
+            <a href="/page/settings" class="nav-link">⚙️ 设置</a>
+        </nav>
+    </div>
+
+    </div><!-- /sticky-top -->
+
+    <!-- ── Session Bar ── -->
+    <div class="session-bar">
+        <label>Session ID<input type="text" id="sessionId" value="demo_001"></label>
+        <label>实验模式<select id="sessionMode"><option value="demo">demo</option><option value="formal">formal</option></select></label>
+        <button class="btn" id="btnStartSession">▶ 开始实验</button>
+        <span style="font-size:0.62rem;color:var(--text-dim);align-self:center;" id="apiBaseHint"></span>
+    </div>
+
+    <!-- ══════ External Environment Monitoring ══════ -->
+    <div class="stats-row">
+        <div class="stat-card clickable" id="statLighting" onclick="scrollToSpectrum()" title="点击查看光谱图">
+            <div class="stat-info">
+                <span class="stat-label">💡 照明状态</span>
+                <span class="stat-value"><span class="light-status-dot on" id="lightStatusDot"></span><span id="statLightState">开启</span></span>
+                <span class="stat-sub"><span id="statLightIntensity">72%</span> · <span id="statLightCCT">4500K</span></span>
+            </div>
+            <div class="stat-icon light">💡</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">🌡️ 办公室温度</span>
+                <span class="stat-value" id="statOfficeTemp">23.6<span style="font-size:0.75rem;font-weight:400;">°C</span></span>
+                <span class="stat-sub">湿度 <span id="statOfficeHumidity">48%</span> · <span id="statTempTrend2">舒适</span></span>
+            </div>
+            <div class="stat-icon office-temp">🌡️</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">🔊 外界声音</span>
+                <span class="stat-value" id="statNoise">42<span style="font-size:0.75rem;font-weight:400;">dB</span></span>
+                <span class="stat-sub">环境噪音 · <span id="statNoiseLabel">安静</span></span>
+            </div>
+            <div class="stat-icon noise">🔊</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="stat-label">☀️ 自然光照度</span>
+                <span class="stat-value" id="statAmbient">850<span style="font-size:0.75rem;font-weight:400;">lx</span></span>
+                <span class="stat-sub">窗边传感器 · <span id="statAmbientLabel">日间</span></span>
+            </div>
+            <div class="stat-icon humidity">☀️</div>
+        </div>
+    </div>
+
+    <!-- ══════ Physiology Modules Grid ══════ -->
+    <div class="section-header">
+        <span class="section-title">📋 生理监测模块</span>
+        <span class="section-count">9 项指标监测中</span>
+    </div>
+    <div class="physio-grid" id="physioGrid">
+        <!-- Cards generated by JS -->
+    </div>
+
+    <!-- ══════ Bottom Row: Spectrum Chart + Light Preview ══════ -->
+    <div class="bottom-row">
+        <!-- Spectrum Chart (interactive) -->
+        <div class="panel" id="spectrumPanel">
+            <div class="panel-header">
+                <span class="panel-title">🌈 光谱能量分布图</span>
+                <span class="panel-badge">380-780nm · 0.1nm绘制</span>
+            </div>
+            <div class="panel-body">
+                <div class="spectrum-chart-wrapper">
+                    <div class="spectrum-yaxis" id="spectrumYaxis">
+                        <span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span>
+                    </div>
+                    <div class="spectrum-container" id="spectrumContainer">
+                        <canvas id="spectrumCanvas"></canvas>
+                        <div class="crosshair-x" id="crosshairX"></div>
+                        <div class="crosshair-y" id="crosshairY"></div>
+                        <div class="crosshair-dot" id="crosshairDot"></div>
+                        <div class="spectrum-tooltip" id="spectrumTooltip"></div>
+                    </div>
+                </div>
+                <div class="spectrum-xlabels offset">
+                    <span>380</span><span>480</span><span>580</span><span>680</span><span>780 nm</span>
+                </div>
+                <div class="spectrum-summary">
+                    <span>峰值: <strong id="specPeak">555nm</strong></span>
+                    <span>mEDI占比: <strong id="specMedi">68%</strong></span>
+                    <span>CCT: <strong id="specCCT">4500K</strong></span>
+                    <span id="specHover" style="color:var(--accent);">悬停查看详情</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Light Preview (expandable inline, not modal) -->
+        <div class="panel" id="lightPreviewPanel">
+            <div class="panel-header">
+                <span class="panel-title">💡 环境光效实时预览</span>
+                <span class="panel-badge" id="lightModeBadge">normal_office</span>
+            </div>
+            <div class="panel-body" onclick="toggleLightPreview(event)">
+                <div class="light-preview-inner">
+                    <div class="light-bulb-main" id="lightBulbMain"></div>
+                    <div class="light-preview-label" id="lightPreviewLabel">正常办公光 · 4500K · 72%</div>
+                    <div class="light-preview-hint">👆 点击展开光疗参数详情</div>
+                </div>
+            </div>
+            <!-- Expandable detail inline -->
+            <div class="light-detail-expand" id="lightDetailExpand">
+                <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.6rem;">
+                    <div class="light-detail-control">
+                        <label>💡 亮度模拟 <span id="detailBrightnessVal">72%</span></label>
+                        <input type="range" id="detailBrightness" min="10" max="100" value="72">
+                    </div>
+                    <div class="light-detail-control">
+                        <label>🌡️ 色温微调 (K) <span id="detailTempVal">4500K</span></label>
+                        <input type="range" id="detailTemp" min="2700" max="6500" step="50" value="4500">
+                    </div>
+                </div>
+                <div style="border-top:1px solid var(--border);padding-top:0.5rem;">
+                    <div style="font-size:0.68rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">📊 核心光疗参数</div>
+                    <div class="param-row"><span class="pn">当前光模式</span><span class="pv" id="detailLightMode">正常办公光</span></div>
+                    <div class="param-row"><span class="pn">照度 (lx)</span><span class="pv" id="detailLux">620</span></div>
+                    <div class="param-row"><span class="pn">色温 (K)</span><span class="pv" id="detailCCT">4500</span></div>
+                    <div class="param-row"><span class="pn">mEDI</span><span class="pv" id="detailMedi">210</span></div>
+                    <div class="param-row"><span class="pn">E<sub>v,sc</sub><sup>D65</sup></span><span class="pv" id="detailEvSc">—</span></div>
+                    <div class="param-row"><span class="pn">E<sub>v,mc</sub><sup>D65</sup></span><span class="pv" id="detailEvMc">—</span></div>
+                    <div class="param-row"><span class="pn">E<sub>v,lc</sub><sup>D65</sup></span><span class="pv" id="detailEvLc">—</span></div>
+                    <div class="param-row"><span class="pn">E<sub>v,rh</sub><sup>D65</sup></span><span class="pv" id="detailEvRh">—</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Footer ── -->
+    <div class="footer-bar">
+        <div class="footer-status">
+            <span class="led green" id="statusLedFooter"></span>
+            <span id="backendStatusText">等待连接后端</span>
+        </div>
+        <span>session · agent · model/emotion · light-mode · feedback</span>
+        <span id="globalStatus"></span>
+    </div>
+</div>
+
+<script>
+(function() {
+    const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
+    document.getElementById("apiBaseHint").textContent = "API → " + (API_BASE || location.origin);
+
+    // ──────── Physiology Data ────────
+    const physioModules = [
+        {
+            id: "heart", icon: "❤️", title: "心率监测", unit: "bpm", color: "danger",
+            status: "normal", statusText: "正常",
+            value: 72, minV: 55, maxV: 130,
+            sub: "静息心率 · 过去5分钟",
+            detail: [
+                { label: "当前心率", value: "72 bpm" },
+                { label: "静息心率", value: "62 bpm" },
+                { label: "最大心率(今日)", value: "118 bpm" },
+                { label: "心率变异性(HRV)", value: "48 ms" },
+                { label: "心律失常检测", value: "未检出" },
+                { label: "趋势", value: "稳定 ↓" },
+            ],
+            barPct: 55, barColor: "var(--danger)",
+            hasWave: true, waveType: "ecg"
+        },
+        {
+            id: "steps", icon: "👟", title: "运动与步数", unit: "步", color: "blue",
+            status: "normal", statusText: "活跃",
+            value: 8420, minV: 0, maxV: 15000,
+            sub: "目标 10,000 · 已达成 84%",
+            detail: [
+                { label: "今日步数", value: "8,420 步" },
+                { label: "运动距离", value: "5.8 km" },
+                { label: "活跃分钟数", value: "42 min" },
+                { label: "消耗卡路里", value: "320 kcal" },
+                { label: "久坐提醒", value: "已站立 6/12h" },
+                { label: "周均步数", value: "7,890 步" },
+            ],
+            barPct: 84, barColor: "var(--blue)",
+            hasWave: false
+        },
+        {
+            id: "sleep", icon: "😴", title: "睡眠质量", unit: "h", color: "purple",
+            status: "normal", statusText: "良好",
+            value: 7.2, minV: 0, maxV: 12,
+            sub: "深度睡眠 2.1h · REM 1.8h",
+            detail: [
+                { label: "总睡眠时长", value: "7h 12min" },
+                { label: "深度睡眠", value: "2h 6min (29%)" },
+                { label: "REM睡眠", value: "1h 48min (25%)" },
+                { label: "入睡时间", value: "23:15" },
+                { label: "醒来时间", value: "06:27" },
+                { label: "睡眠评分", value: "85/100" },
+            ],
+            barPct: 72, barColor: "var(--purple)",
+            hasWave: true, waveType: "sleep"
+        },
+        {
+            id: "temp", icon: "🌡️", title: "体温监测", unit: "°C", color: "warning",
+            status: "normal", statusText: "正常",
+            value: 36.5, minV: 35.0, maxV: 42.0,
+            sub: "基础体温 · 波动 ±0.3°C",
+            detail: [
+                { label: "当前体温", value: "36.5 °C" },
+                { label: "今日最低", value: "36.2 °C" },
+                { label: "今日最高", value: "36.8 °C" },
+                { label: "测量时间", value: "10:30 AM" },
+                { label: "测量方式", value: "红外额温" },
+                { label: "趋势", value: "稳定 →" },
+            ],
+            barPct: 45, barColor: "var(--warning)",
+            hasWave: false
+        },
+        {
+            id: "spo2", icon: "🫁", title: "血氧饱和度", unit: "%", color: "success",
+            status: "normal", statusText: "正常",
+            value: 98, minV: 85, maxV: 100,
+            sub: "SpO₂ · 灌注指数 2.1%",
+            detail: [
+                { label: "当前SpO₂", value: "98 %" },
+                { label: "最低SpO₂(24h)", value: "95 %" },
+                { label: "平均SpO₂", value: "97.5 %" },
+                { label: "灌注指数(PI)", value: "2.1 %" },
+                { label: "低氧事件", value: "0 次/24h" },
+                { label: "趋势", value: "稳定 →" },
+            ],
+            barPct: 92, barColor: "var(--success)",
+            hasWave: true, waveType: "spo2"
+        },
+        {
+            id: "bp", icon: "🩸", title: "血压监测", unit: "mmHg", color: "danger",
+            status: "normal", statusText: "正常",
+            value: "120/80", minV: null, maxV: null,
+            sub: "收缩压/舒张压 · 上次 08:15",
+            detail: [
+                { label: "收缩压", value: "120 mmHg" },
+                { label: "舒张压", value: "80 mmHg" },
+                { label: "平均动脉压", value: "93 mmHg" },
+                { label: "脉压差", value: "40 mmHg" },
+                { label: "测量时间", value: "08:15 AM" },
+                { label: "分级", value: "理想血压" },
+            ],
+            barPct: 60, barColor: "#3B82F6",
+            hasWave: true, waveType: "bp"
+        },
+        {
+            id: "resp", icon: "🫁", title: "呼吸频率", unit: "rpm", color: "blue",
+            status: "normal", statusText: "正常",
+            value: 16, minV: 8, maxV: 30,
+            sub: "静息呼吸 · 规律",
+            detail: [
+                { label: "当前呼吸频率", value: "16 rpm" },
+                { label: "静息均值", value: "15 rpm" },
+                { label: "呼吸深度", value: "正常" },
+                { label: "呼吸暂停事件", value: "0 次" },
+                { label: "趋势", value: "稳定 →" },
+                { label: "模式", value: "胸腹式" },
+            ],
+            barPct: 40, barColor: "var(--blue)",
+            hasWave: true, waveType: "resp"
+        },
+        {
+            id: "stress", icon: "🧘", title: "压力指数", unit: "级", color: "purple",
+            status: "warning", statusText: "轻度",
+            value: 3, minV: 1, maxV: 10,
+            sub: "HRV-based · 中等偏下",
+            detail: [
+                { label: "压力等级", value: "3/10 (轻度)" },
+                { label: "SDNN", value: "52 ms" },
+                { label: "RMSSD", value: "38 ms" },
+                { label: "LF/HF比值", value: "2.1" },
+                { label: "皮质醇估计", value: "正常范围" },
+                { label: "建议", value: "适度放松" },
+            ],
+            barPct: 30, barColor: "var(--purple)",
+            hasWave: false
+        },
+        {
+            id: "hrv", icon: "📈", title: "HRV 分析", unit: "ms", color: "success",
+            status: "normal", statusText: "良好",
+            value: 48, minV: 10, maxV: 100,
+            sub: "心率变异性 · 自主神经平衡",
+            detail: [
+                { label: "当前HRV", value: "48 ms" },
+                { label: "SDNN(24h)", value: "62 ms" },
+                { label: "pNN50", value: "18 %" },
+                { label: "自主神经平衡", value: "副交感占优" },
+                { label: "恢复状态", value: "良好" },
+                { label: "趋势", value: "上升 ↑" },
+            ],
+            barPct: 48, barColor: "var(--success)",
+            hasWave: true, waveType: "hrv"
+        },
+    ];
+
+    // ──────── State ────────
+    let sessionReady = false;
+    let currentLightMode = "normal_office_light";
+    let currentBrightness = 0.72;
+    let currentTemp = 4500;
+    let previewOverride = false;
+    let pollTimer = null;
+
+    const LIGHT_MODE_VISUAL = {
+        normal_office_light: { kelvin: 4500, brightness: 0.72, label: "正常办公光", breathing: false },
+        adjustment_light: { kelvin: 3800, brightness: 0.55, label: "光辅助调节", breathing: true },
+    };
+
+    // ──────── Build Physiology Cards ────────
+    function buildPhysioCards() {
+        const grid = document.getElementById("physioGrid");
+        grid.innerHTML = "";
+        physioModules.forEach((mod, idx) => {
+            const isBP = mod.id === "bp";
+            const card = document.createElement("div");
+            card.className = "physio-card";
+            card.setAttribute("data-idx", idx);
+            card.onclick = function(e) {
+                if (e.target.tagName === "CANVAS") return;
+                toggleCard(card, mod, idx);
+            };
+
+            let valueHTML;
+            if (isBP) {
+                valueHTML = `<span class="physio-card-value" style="font-size:1.5rem;">${mod.value}<span class="unit">${mod.unit}</span></span>`;
+            } else if (mod.id === "steps") {
+                valueHTML = `<span class="physio-card-value">${mod.value.toLocaleString()}<span class="unit">${mod.unit}</span></span>`;
+            } else if (typeof mod.value === "number") {
+                valueHTML = `<span class="physio-card-value">${mod.value}<span class="unit">${mod.unit}</span></span>`;
+            } else {
+                valueHTML = `<span class="physio-card-value" style="font-size:1.5rem;">${mod.value}<span class="unit">${mod.unit}</span></span>`;
+            }
+
+            let waveHTML = "";
+            if (mod.hasWave) {
+                waveHTML = `<div class="mini-wave"><canvas id="wave_${mod.id}" data-wave="${mod.waveType}"></canvas></div>`;
+            }
+
+            card.innerHTML = `
+                <div class="physio-card-header">
+                    <span class="physio-card-icon">${mod.icon}</span>
+                    <span class="physio-card-status ${mod.status}">${mod.statusText}</span>
+                </div>
+                <div class="physio-card-title">${mod.title}</div>
+                ${valueHTML}
+                ${waveHTML}
+                <div class="physio-card-sub">${mod.sub}</div>
+                <div class="physio-detail">
+                    <div class="detail-grid">
+                        ${mod.detail.map(d => `
+                            <div class="detail-item">
+                                <div class="dl">${d.label}</div>
+                                <div class="dv">${d.value}</div>
+                            </div>
+                        `).join("")}
+                    </div>
+                    <div class="detail-bar"><div class="detail-bar-fill" style="width:${mod.barPct}%;background:${mod.barColor};"></div></div>
+                </div>
+                <div class="detail-expand-hint">👆 点击${card.classList.contains("expanded")?"收起":"展开"}详情</div>
+            `;
+            grid.appendChild(card);
+        });
+        // Draw mini waveforms after DOM rendered
+        setTimeout(drawAllMiniWaves, 100);
+    }
+
+    function toggleCard(card, mod, idx) {
+        const isExpanded = card.classList.contains("expanded");
+        // Close all others
+        document.querySelectorAll(".physio-card.expanded").forEach(c => c.classList.remove("expanded"));
+        if (!isExpanded) {
+            card.classList.add("expanded");
+            card.querySelector(".detail-expand-hint").textContent = "👆 点击收起详情";
+            // Redraw wave after expand
+            const canvas = card.querySelector("canvas");
+            if (canvas) drawMiniWave(canvas, canvas.dataset.wave);
+        }
+    }
+
+    // ──────── Mini Waveforms ────────
+    function drawAllMiniWaves() {
+        document.querySelectorAll(".mini-wave canvas").forEach(canvas => {
+            drawMiniWave(canvas, canvas.dataset.wave);
+        });
+    }
+    function drawMiniWave(canvas, type) {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * 2;
+        canvas.height = rect.height * 2;
+        const ctx = canvas.getContext("2d");
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.lineWidth = 2;
+
+        if (type === "ecg") {
+            ctx.strokeStyle = "#EF4444";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            const segW = w / 8;
+            for (let i = 0; i < 8; i++) {
+                const sx = i * segW;
+                ctx.lineTo(sx + segW * 0.7, h/2);
+                ctx.lineTo(sx + segW * 0.75, h * 0.2);
+                ctx.lineTo(sx + segW * 0.85, h * 0.8);
+                ctx.lineTo(sx + segW * 0.95, h/2);
+            }
+            ctx.stroke();
+        } else if (type === "spo2") {
+            ctx.strokeStyle = "#10B981";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            for (let x = 0; x < w; x += 4) {
+                ctx.lineTo(x, h/2 + Math.sin(x * 0.04) * h * 0.35 + Math.sin(x * 0.12) * h * 0.15);
+            }
+            ctx.stroke();
+        } else if (type === "resp") {
+            ctx.strokeStyle = "#3B82F6";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            for (let x = 0; x < w; x += 3) {
+                ctx.lineTo(x, h/2 + Math.sin(x * 0.025) * h * 0.4);
+            }
+            ctx.stroke();
+        } else if (type === "bp") {
+            ctx.strokeStyle = "#3B82F6";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            for (let x = 0; x < w; x += 3) {
+                ctx.lineTo(x, h/2 + Math.sin(x * 0.03) * h * 0.25 + Math.cos(x * 0.08) * h * 0.15);
+            }
+            ctx.stroke();
+        } else if (type === "hrv") {
+            ctx.strokeStyle = "#10B981";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            for (let x = 0; x < w; x += 2) {
+                const y = h/2 + Math.sin(x * 0.035) * h * 0.3 + Math.sin(x * 0.09 + 1.5) * h * 0.2 + Math.sin(x * 0.15 + 3) * h * 0.15;
+                ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        } else if (type === "sleep") {
+            ctx.strokeStyle = "#8B5CF6";
+            ctx.beginPath(); ctx.moveTo(0, h/2);
+            for (let x = 0; x < w; x += 3) {
+                const y = h/2 + Math.sin(x * 0.015) * h * 0.35;
+                ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+    }
+
+    // ──────── Interactive Spectrum Chart (0.1nm curve, 1nm hover, external axes) ────────
+    const SPECTRUM_WL_START = 380, SPECTRUM_WL_END = 780;
+    const SPECTRUM_POINTS = (SPECTRUM_WL_END - SPECTRUM_WL_START) * 10 + 1; // 4001 points, 0.1nm
+    let spectrumData = null; // {wavelengths:[], intensities:[]}
+
+    function generateSpectrumData() {
+        const wavelengths = [];
+        const intensities = [];
+        for (let i = 0; i < SPECTRUM_POINTS; i++) {
+            const wl = SPECTRUM_WL_START + i * 0.1;
+            wavelengths.push(wl);
+            const bluePeak = 0.85 * Math.exp(-Math.pow((wl - 450) / 25, 2));
+            const phosphor = 1.0 * Math.exp(-Math.pow((wl - 560) / 95, 2));
+            const redTail = 0.35 * Math.exp(-Math.pow((wl - 630) / 70, 2));
+            const cyanDip = 1 - 0.25 * Math.exp(-Math.pow((wl - 485) / 35, 2));
+            let intensity = (bluePeak * 0.45 + phosphor * 0.55 + redTail * 0.2) * cyanDip;
+            intensity += (Math.sin(wl * 0.7 + 0.3) * 0.02);
+            intensity = Math.max(0, Math.min(1, intensity));
+            intensities.push(intensity);
+        }
+        return { wavelengths, intensities };
+    }
+
+    function drawSpectrum() {
+        const canvas = document.getElementById("spectrumCanvas");
+        const container = document.getElementById("spectrumContainer");
+        const rect = container.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 2;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
+        const ctx = canvas.getContext("2d");
+        ctx.scale(dpr, dpr);
+        const w = rect.width, h = rect.height;
+
+        if (!spectrumData) spectrumData = generateSpectrumData();
+
+        // Clear with light bg
+        ctx.fillStyle = "#FAFBFC";
+        ctx.fillRect(0, 0, w, h);
+
+        // Visible spectrum color band (thin strip at top)
+        const bandH = 14;
+        const bandGrad = ctx.createLinearGradient(0, 0, w, 0);
+        const stops = [
+            [0.00,"#8B00FF"],[0.08,"#2E00FF"],[0.20,"#0080FF"],
+            [0.32,"#00CCCC"],[0.42,"#00FF40"],[0.55,"#FFFF00"],
+            [0.66,"#FFCC00"],[0.78,"#FF8800"],[0.88,"#FF4400"],[1.0,"#FF0000"]
+        ];
+        stops.forEach(([p,c]) => bandGrad.addColorStop(p, c));
+        ctx.fillStyle = bandGrad;
+        ctx.fillRect(0, 4, w, bandH);
+
+        // Chart area
+        const margin = { top: 22, right: 8, bottom: 4, left: 4 };
+        const chartW = w - margin.left - margin.right;
+        const chartH = h - margin.top - margin.bottom;
+
+        // Grid lines
+        ctx.strokeStyle = "rgba(0,0,0,0.08)";
+        ctx.lineWidth = 0.5;
+        for (let i = 0; i <= 4; i++) {
+            const gy = margin.top + chartH * i / 4;
+            ctx.beginPath(); ctx.moveTo(margin.left, gy); ctx.lineTo(w - margin.right, gy); ctx.stroke();
+        }
+
+        // Fill under curve
+        ctx.beginPath();
+        ctx.moveTo(margin.left, margin.top + chartH);
+        for (let i = 0; i < spectrumData.wavelengths.length; i++) {
+            const x = margin.left + (i / (spectrumData.wavelengths.length - 1)) * chartW;
+            const y = margin.top + chartH - spectrumData.intensities[i] * chartH;
+            ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w - margin.right, margin.top + chartH);
+        ctx.closePath();
+        const fillGrad = ctx.createLinearGradient(0, margin.top, 0, margin.top + chartH);
+        fillGrad.addColorStop(0, "rgba(13,148,136,0.20)");
+        fillGrad.addColorStop(1, "rgba(13,148,136,0.01)");
+        ctx.fillStyle = fillGrad;
+        ctx.fill();
+
+        // Stroke curve (smooth via many points)
+        ctx.beginPath();
+        ctx.strokeStyle = "#0D9488";
+        ctx.lineWidth = 2.2;
+        ctx.lineJoin = "round";
+        for (let i = 0; i < spectrumData.wavelengths.length; i++) {
+            const x = margin.left + (i / (spectrumData.wavelengths.length - 1)) * chartW;
+            const y = margin.top + chartH - spectrumData.intensities[i] * chartH;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // Peak marker
+        let maxI = 0, maxIdx = 0;
+        spectrumData.intensities.forEach((v,i) => { if (v > maxI) { maxI = v; maxIdx = i; } });
+        const peakWl = Math.round(spectrumData.wavelengths[maxIdx]);
+        document.getElementById("specPeak").textContent = peakWl + "nm";
+        document.getElementById("specMedi").textContent = Math.round(maxI * 100) + "%";
+        document.getElementById("specCCT").textContent = Math.round(2700 + maxI * 3800) + "K";
+    }
+
+    // Spectrum mouse interaction (snap to 1nm for display)
+    function setupSpectrumInteraction() {
+        const container = document.getElementById("spectrumContainer");
+        const cx = document.getElementById("crosshairX");
+        const cy = document.getElementById("crosshairY");
+        const dot = document.getElementById("crosshairDot");
+        const tooltip = document.getElementById("spectrumTooltip");
+        const hoverLabel = document.getElementById("specHover");
+
+        container.addEventListener("mousemove", function(e) {
+            if (!spectrumData) return;
+            const rect = container.getBoundingClientRect();
+            const mx = e.clientX - rect.left;
+            const my = e.clientY - rect.top;
+            const w = rect.width, h = rect.height;
+
+            const margin = { top: 22, right: 8, bottom: 4, left: 4 };
+            const chartW = w - margin.left - margin.right;
+            const chartH = h - margin.top - margin.bottom;
+
+            // Mouse to wavelength (0.1nm resolution)
+            const t = (mx - margin.left) / chartW;
+            const rawIdx = Math.max(0, Math.min(spectrumData.wavelengths.length - 1, Math.round(t * (spectrumData.wavelengths.length - 1))));
+            const rawWl = spectrumData.wavelengths[rawIdx];
+            // Snap to nearest 1nm
+            const wlRounded = Math.round(rawWl);
+            const idx1nm = Math.round((wlRounded - SPECTRUM_WL_START) * 10);
+            const idx = Math.max(0, Math.min(spectrumData.wavelengths.length - 1, idx1nm));
+            const wl = Math.round(spectrumData.wavelengths[idx]);
+            const intensity = spectrumData.intensities[idx];
+
+            const curveX = margin.left + (idx / (spectrumData.wavelengths.length - 1)) * chartW;
+            const curveY = margin.top + chartH - intensity * chartH;
+
+            cx.style.display = "block";
+            cx.style.left = curveX + "px";
+            cy.style.display = "block";
+            cy.style.top = curveY + "px";
+            dot.style.display = "block";
+            dot.style.left = curveX + "px";
+            dot.style.top = curveY + "px";
+
+            tooltip.style.display = "block";
+            tooltip.textContent = `λ=${wl}nm  I=${(intensity*100).toFixed(1)}%`;
+            const tooltipX = curveX + 12;
+            const tooltipY = curveY - 20;
+            tooltip.style.left = Math.min(tooltipX, w - 120) + "px";
+            tooltip.style.top = Math.max(4, tooltipY) + "px";
+
+            hoverLabel.textContent = `λ=${wl}nm  I=${(intensity*100).toFixed(1)}%`;
+        });
+
+        container.addEventListener("mouseleave", function() {
+            cx.style.display = "none";
+            cy.style.display = "none";
+            dot.style.display = "none";
+            tooltip.style.display = "none";
+            hoverLabel.textContent = "悬停查看详情";
+        });
+    }
+
+    // Scroll to spectrum chart (from lighting card click)
+    function scrollToSpectrum() {
+        const panel = document.getElementById("spectrumPanel");
+        if (panel) {
+            panel.scrollIntoView({ behavior: "smooth", block: "start" });
+            panel.style.transition = "box-shadow 0.3s";
+            panel.style.boxShadow = "0 0 0 4px rgba(13,148,136,0.3), var(--shadow-lg)";
+            setTimeout(() => { panel.style.boxShadow = ""; }, 1500);
+        }
+    }
+    window.scrollToSpectrum = scrollToSpectrum;
+
+    // ──────── Light Functions ────────
+    function kelvinToRGB(kelvin, brightness) {
+        let temp = kelvin / 100;
+        let r, g, b;
+        if (temp <= 66) {
+            r = 255;
+            g = 99.4708025861 * Math.log(temp) - 161.1195681661;
+        } else {
+            r = 329.698727446 * Math.pow(temp - 60, -0.1332047592);
+            g = 288.1221695283 * Math.pow(temp - 60, -0.0755148492);
+        }
+        if (temp <= 66) { b = temp <= 19 ? 0 : 138.5177312231 * Math.log(temp - 10) - 305.0447927307; }
+        else { b = 255; }
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
+        const f = brightness;
+        return { r: Math.floor(r * f), g: Math.floor(g * f), b: Math.floor(b * f) };
+    }
+
+    function applyLightVisual(kelvin, brightness, mode) {
+        const rgb = kelvinToRGB(kelvin, brightness);
+        const shadowIntensity = Math.min(45, 20 + brightness * 25);
+        const colorStr = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+        const shadowStr = `0 0 ${shadowIntensity}px rgba(${rgb.r},${rgb.g},${rgb.b},0.7), inset 0 1px 2px rgba(255,255,210,0.4)`;
+        const bulb = document.getElementById("lightBulbMain");
+        if (bulb) {
+            bulb.style.backgroundColor = colorStr;
+            bulb.style.boxShadow = shadowStr;
+            const preset = LIGHT_MODE_VISUAL[mode];
+            bulb.classList.toggle("breathing", preset?.breathing);
+        }
+    }
+
+    function updateDetailLightMetrics(kelvin, brightness) {
+        const ev = Math.floor(200 + brightness * 650);
+        const medi = Math.floor(210 * (0.85 + brightness * 0.4));
+        const tNorm = Math.min(1, Math.max(0, (kelvin - 2700) / (6500 - 2700)));
+        const setEl = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+        setEl("detailLux", ev);
+        setEl("detailCCT", kelvin);
+        setEl("detailMedi", medi);
+        setEl("detailEvSc", Math.floor(ev * (0.12 + tNorm * 0.22)));
+        setEl("detailEvMc", Math.floor(ev * (0.26 + tNorm * 0.14)));
+        setEl("detailEvLc", Math.floor(ev * (0.38 - tNorm * 0.08)));
+        setEl("detailEvRh", Math.floor(medi * (0.92 + tNorm * 0.06)));
+        // Update stats row lighting card too
+        setEl("statLightIntensity", Math.round(brightness * 100) + "%");
+        setEl("statLightCCT", kelvin + "K");
+    }
+
+    function updateLightPreviewLabel() {
+        const preset = LIGHT_MODE_VISUAL[currentLightMode] || LIGHT_MODE_VISUAL.normal_office_light;
+        const lbl = document.getElementById("lightPreviewLabel");
+        if (lbl) lbl.textContent = `${preset.label} · ${currentTemp}K · ${Math.round(currentBrightness * 100)}%`;
+        const badge = document.getElementById("lightModeBadge");
+        if (badge) badge.textContent = currentLightMode;
+        const modeEl = document.getElementById("detailLightMode");
+        if (modeEl) modeEl.textContent = preset?.label || currentLightMode;
+    }
+
+    function refreshAllLight() {
+        applyLightVisual(currentTemp, currentBrightness, currentLightMode);
+        updateLightPreviewLabel();
+        updateDetailLightMetrics(currentTemp, currentBrightness);
+    }
+
+    // ──────── Light Preview Expand (inline, replaces modal) ────────
+    function toggleLightPreview(e) {
+        e.stopPropagation();
+        const panel = document.getElementById("lightPreviewPanel");
+        const isExpanded = panel.classList.contains("expanded");
+        if (isExpanded) {
+            panel.classList.remove("expanded");
+            return;
+        }
+        panel.classList.add("expanded");
+        // Sync detail sliders
+        document.getElementById("detailBrightness").value = Math.round(currentBrightness * 100);
+        document.getElementById("detailBrightnessVal").textContent = Math.round(currentBrightness * 100) + "%";
+        document.getElementById("detailTemp").value = currentTemp;
+        document.getElementById("detailTempVal").textContent = currentTemp + "K";
+        updateDetailLightMetrics(currentTemp, currentBrightness);
+    }
+    window.toggleLightPreview = toggleLightPreview;
+
+    // Detail sliders event listeners
+    (function setupDetailSliders() {
+        const dBright = document.getElementById("detailBrightness");
+        const dTemp = document.getElementById("detailTemp");
+        if (dBright) {
+            dBright.addEventListener("input", function() {
+                const val = parseInt(this.value, 10);
+                currentBrightness = val / 100;
+                previewOverride = true;
+                document.getElementById("detailBrightnessVal").textContent = val + "%";
+                applyLightVisual(currentTemp, currentBrightness, currentLightMode);
+                updateDetailLightMetrics(currentTemp, currentBrightness);
+                updateLightPreviewLabel();
+            });
+        }
+        if (dTemp) {
+            dTemp.addEventListener("input", function() {
+                currentTemp = parseInt(this.value, 10);
+                previewOverride = true;
+                document.getElementById("detailTempVal").textContent = currentTemp + "K";
+                applyLightVisual(currentTemp, currentBrightness, currentLightMode);
+                updateDetailLightMetrics(currentTemp, currentBrightness);
+                updateLightPreviewLabel();
+            });
+        }
+    })();
+
+    // ──────── API Functions ────────
+    async function api(path, options = {}) {
+        const res = await fetch(`${API_BASE}${path}`, {
+            headers: { "Content-Type": "application/json", ...options.headers },
+            ...options,
+        });
+        let data = null;
+        const text = await res.text();
+        if (text) { try { data = JSON.parse(text); } catch { data = { detail: text }; } }
+        if (!res.ok) {
+            const msg = data?.detail || `请求失败 (${res.status})`;
+            throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
+        }
+        return data;
+    }
+
+    function setGlobalStatus(msg, type) {
+        const el = document.getElementById("globalStatus");
+        el.textContent = msg || "";
+        el.className = type || "";
+    }
+
+    function setBackendOnline(online) {
+        const led = document.getElementById("statusLedFooter");
+        led.classList.toggle("led-offline", !online);
+        document.getElementById("backendStatusText").textContent = online ? "后端已连接" : "后端未连接";
+        document.getElementById("wsStatus").innerHTML = online
+            ? '<span class="led green"></span> LIVE'
+            : '<span class="led amber"></span> OFFLINE';
+    }
+
+    async function refreshAgentState() {
+        if (!sessionReady) return;
+        const session_id = document.getElementById("sessionId").value.trim();
+        try {
+            const state = await api(`/api/agent/current?session_id=${encodeURIComponent(session_id)}`);
+            if (state.current_light_mode) {
+                currentLightMode = state.current_light_mode;
+                const preset = LIGHT_MODE_VISUAL[currentLightMode];
+                if (preset && !previewOverride) {
+                    currentTemp = preset.kelvin;
+                    currentBrightness = preset.brightness;
+                }
+                refreshAllLight();
+            }
+            setBackendOnline(true);
+        } catch (err) {
+            setBackendOnline(false);
+        }
+    }
+
+    async function startSession() {
+        const session_id = document.getElementById("sessionId").value.trim();
+        const mode = document.getElementById("sessionMode").value;
+        if (!session_id) return setGlobalStatus("请填写 Session ID", "error");
+
+        const btn = document.getElementById("btnStartSession");
+        btn.disabled = true;
+        setGlobalStatus("正在初始化 Session…");
+
+        try {
+            await api("/api/session/start", {
+                method: "POST",
+                body: JSON.stringify({ session_id, mode, initial_light_mode: "normal_office_light" }),
+            });
+            sessionReady = true;
+            currentLightMode = "normal_office_light";
+            previewOverride = false;
+            setBackendOnline(true);
+            setGlobalStatus(`Session 就绪：${session_id}`, "ok");
+            await refreshAgentState();
+            if (pollTimer) clearInterval(pollTimer);
+            pollTimer = setInterval(refreshAgentState, 3000);
+        } catch (err) {
+            setBackendOnline(false);
+            setGlobalStatus(err.message, "error");
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    document.getElementById("btnStartSession").addEventListener("click", startSession);
+
+    // ──────── Dynamic data simulation (external environment) ────────
+    function simulateExternalUpdates() {
+        // Office temp: 22-26°C range
+        const officeTemp = (23.0 + Math.sin(Date.now() / 18000) * 1.5 + Math.sin(Date.now() / 7000) * 0.3).toFixed(1);
+        const el = document.getElementById("statOfficeTemp");
+        if (el) el.innerHTML = officeTemp + '<span style="font-size:0.75rem;font-weight:400;">°C</span>';
+        const humidity = Math.round(45 + Math.sin(Date.now() / 25000) * 8);
+        const hEl = document.getElementById("statOfficeHumidity");
+        if (hEl) hEl.textContent = humidity + "%";
+
+        // Ambient noise: 35-55 dB
+        const noise = Math.round(38 + Math.sin(Date.now() / 12000) * 8 + Math.random() * 4);
+        const nEl = document.getElementById("statNoise");
+        if (nEl) nEl.innerHTML = noise + '<span style="font-size:0.75rem;font-weight:400;">dB</span>';
+        const nlEl = document.getElementById("statNoiseLabel");
+        if (nlEl) nlEl.textContent = noise < 40 ? "非常安静" : noise < 50 ? "安静" : "正常";
+
+        // Ambient light
+        const ambLux = Math.round(600 + Math.sin(Date.now() / 20000) * 400);
+        const aEl = document.getElementById("statAmbient");
+        if (aEl) aEl.innerHTML = ambLux + '<span style="font-size:0.75rem;font-weight:400;">lx</span>';
+        const alEl = document.getElementById("statAmbientLabel");
+        if (alEl) alEl.textContent = ambLux > 800 ? "明亮" : ambLux > 400 ? "日间" : "较暗";
+
+        // Lighting status updates
+        const lightInt = Math.round(currentBrightness * 100);
+        const liEl = document.getElementById("statLightIntensity");
+        if (liEl) liEl.textContent = lightInt + "%";
+        const lcEl = document.getElementById("statLightCCT");
+        if (lcEl) lcEl.textContent = currentTemp + "K";
+
+        // Update system latency
+        const latEl = document.getElementById("sysLatency");
+        if (latEl) latEl.textContent = Math.floor(Math.random() * 15 + 4);
+    }
+
+    setInterval(simulateExternalUpdates, 3000);
+
+    // ──────── Init ────────
+    function init() {
+        buildPhysioCards();
+        drawSpectrum();
+        setupSpectrumInteraction();
+        refreshAllLight();
+        setBackendOnline(false);
+        document.getElementById("sysLatency").textContent = Math.floor(Math.random() * 15 + 4);
+        simulateExternalUpdates();
+    }
+
+    // Debounced resize
+    let resizeTimeout;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            drawSpectrum();
+            drawAllMiniWaves();
+        }, 300);
+    });
+
+    init();
+
+    // Redraw spectrum periodically for animation
+    setInterval(() => {
+        spectrumData = generateSpectrumData();
+        drawSpectrum();
+    }, 5000);
+})();
+</script>
+</body>
+</html>

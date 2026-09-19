@@ -1,0 +1,40 @@
+# ai_agent 依赖清单
+# 基于当前虚拟环境（项目主体/.venv，Python 3.11.7）实测验证：
+#   - 后端 uvicorn 启动成功（/docs、/openapi.json 返回 200）
+#   - agent_framework 全模块（core_ai/rag_pipeline/workflow/semantic_cache 等）导入成功
+# 所有版本号均为该环境中实际运行可用的版本。
+
+# --- Web 后端（backend/，FastAPI 服务） ---
+fastapi==0.138.0
+uvicorn==0.49.0
+pydantic==2.13.4
+SQLAlchemy==2.0.25
+
+# --- Agent 框架（agent_framework/） ---
+langchain-core==1.4.8
+langgraph==1.2.8
+httpx==0.28.1
+requests==2.34.2
+python-dotenv==1.2.2
+google-generativeai==0.8.6   # 已被 Google 官方弃用，建议后续迁移到 google-genai
+
+# --- RAG / 知识库构建（ingest_knowledge_base.py） ---
+pdfplumber==0.11.10
+PyPDF2==3.0.1
+python-docx==1.2.0
+
+# --- 数据处理与可视化 ---
+numpy==1.25.2
+pandas==2.1.0
+matplotlib==3.8.0
+scikit-learn==1.2.2
+
+# --- 深度学习模型（Oupu_Lighting/scripts/） ---
+# 本环境为 CUDA 12.9 本地构建版本；无 GPU 环境请改用官方 CPU 版：
+#   pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0
+
+# --- 生理数据读取（Oupu_Lighting/scripts/data_ECG.py、get_data.py） ---
+# 当前环境未安装，仅在运行 ECG/生理数据脚本时需要：
+# bioread
+# pyreadstat

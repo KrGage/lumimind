@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LumiMind · 医学健康智能问答</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(160deg, #F0F4F8 0%, #E8EEF4 50%, #F7FAFC 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
+        }
+
+        .dashboard {
+            max-width: 1400px; width: 100%;
+            background: #FFFFFF; border-radius: 2rem;
+            box-shadow: 0 20px 50px -12px rgba(15,23,42,0.12), 0 0 0 1px rgba(148,163,184,0.25);
+            display: flex; flex-direction: column;
+            height: 90vh; max-height: 900px; overflow: hidden;
+        }
+
+        /* ── 顶部 ── */
+        .header {
+            flex-shrink: 0; padding: 1.2rem 1.8rem 0.75rem 1.8rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .nav-brand { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+        .nav-logo { font-size: 1.5rem; line-height: 1; }
+        .nav-title {
+            font-size: 1.2rem; font-weight: 700;
+            background: linear-gradient(135deg, #0F766E 0%, #0891B2 100%);
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; letter-spacing: -0.3px; white-space: nowrap;
+        }
+        .nav-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+        .nav-user {
+            display: flex; align-items: center; gap: 0.35rem;
+            padding: 0.3rem 0.65rem; border-radius: 0.6rem;
+            background: #F8FAFC; border: 1px solid #E2E8F0; cursor: pointer;
+        }
+        .user-avatar { font-size: 1.1rem; line-height: 1; }
+        .user-name { font-size: 0.8rem; font-weight: 500; color: #334155; max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .badge {
+            background: #F0FDFA; padding: 0.28rem 0.75rem; border-radius: 40px;
+            font-size: 0.7rem; font-weight: 500; border: 1px solid #99F6E4; color: #0F766E; white-space: nowrap;
+        }
+        .sub { font-size: 0.78rem; color: #64748B; margin-top: 0.35rem; letter-spacing: 0.3px; }
+
+        /* ── 主体 ── */
+        .main-layout { flex: 1; display: flex; min-height: 0; overflow: hidden; }
+
+        /* ── 侧边栏 ── */
+        .sidebar {
+            width: 270px; flex-shrink: 0; background: #F8FAFC;
+            border-right: 1px solid #E2E8F0;
+            display: flex; flex-direction: column; overflow: hidden;
+            transition: width 0.25s ease, padding 0.25s ease;
+        }
+        .sidebar.collapsed { width: 0; border-right: none; overflow: hidden; padding: 0; }
+        .sidebar-inner {
+            display: flex; flex-direction: column; height: 100%;
+            padding: 1rem 0.9rem; gap: 0.7rem; overflow: hidden;
+        }
+        .btn-new-chat {
+            display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+            padding: 0.6rem 1rem; border-radius: 0.7rem;
+            border: 1px solid #14B8A6; background: #F0FDFA; color: #0F766E;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            font-family: inherit; transition: all 0.2s; flex-shrink: 0;
+        }
+        .btn-new-chat:hover { background: #14B8A6; color: #fff; }
+        .sidebar-section-title {
+            font-size: 0.7rem; font-weight: 600; color: #94A3B8;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.3rem 0.3rem 0.2rem 0.3rem; flex-shrink: 0;
+        }
+        .history-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.2rem; min-height: 0; }
+        .history-list::-webkit-scrollbar { width: 4px; }
+        .history-list::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        .history-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.5rem 0.6rem; border-radius: 0.5rem; cursor: pointer;
+            font-size: 0.8rem; color: #475569; transition: all 0.15s;
+            gap: 0.3rem; border: 1px solid transparent;
+        }
+        .history-item:hover { background: #E2E8F0; }
+        .history-item.active { background: #E0F2FE; border-color: #BAE6FD; color: #0369A1; font-weight: 500; }
+        .history-item-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+        .history-item-del {
+            opacity: 0; font-size: 0.9rem; color: #94A3B8; cursor: pointer;
+            padding: 2px; border-radius: 4px; flex-shrink: 0;
+            transition: opacity 0.15s, color 0.15s; line-height: 1;
+        }
+        .history-item:hover .history-item-del { opacity: 1; }
+        .history-item-del:hover { color: #DC2626; background: #FEF2F2; }
+        .history-empty { font-size: 0.75rem; color: #94A3B8; text-align: center; padding: 1rem 0; }
+
+        .sidebar-toggle {
+            display: none; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border-radius: 0.5rem;
+            border: 1px solid #CBD5E1; background: #FFFFFF;
+            font-size: 1rem; cursor: pointer; flex-shrink: 0;
+            color: #475569; transition: all 0.15s;
+        }
+        .sidebar-toggle:hover { background: #F1F5F9; border-color: #94A3B8; }
+
+        /* ── 聊天区 ── */
+        .chat-area { flex: 1; display: flex; flex-direction: column; min-width: 0; background: #FFFFFF; }
+        .chat-messages {
+            flex: 1; overflow-y: auto;
+            padding: 1.2rem 2rem 0.5rem 2rem;
+            display: flex; flex-direction: column; gap: 1rem;
+            scroll-behavior: smooth;
+        }
+        .chat-messages::-webkit-scrollbar { width: 5px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+
+        .chat-welcome {
+            text-align: center; padding: 2rem 1rem; color: #94A3B8;
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.8rem;
+        }
+        .chat-welcome .welcome-icon { font-size: 3rem; opacity: 0.6; }
+        .chat-welcome .welcome-title { font-size: 1.2rem; font-weight: 600; color: #64748B; }
+        .chat-welcome .welcome-hint { font-size: 0.85rem; max-width: 400px; line-height: 1.5; }
+        .quick-questions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 0.5rem; }
+        .quick-btn {
+            padding: 0.45rem 0.9rem; border-radius: 20px;
+            border: 1px solid #CBD5E1; background: #FFFFFF;
+            color: #475569; font-size: 0.78rem; cursor: pointer;
+            transition: all 0.2s; font-family: inherit;
+        }
+        .quick-btn:hover { border-color: #14B8A6; background: #F0FDFA; color: #0F766E; }
+
+        /* 消息气泡 */
+        .message { display: flex; gap: 0.7rem; max-width: 82%; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .message.user { align-self: flex-end; flex-direction: row-reverse; }
+        .message.assistant { align-self: flex-start; }
+        .msg-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.95rem; flex-shrink: 0;
+        }
+        .message.user .msg-avatar { background: #E0F2FE; }
+        .message.assistant .msg-avatar { background: #F0FDFA; }
+        .msg-bubble {
+            padding: 0.7rem 0.95rem; border-radius: 1rem;
+            font-size: 0.88rem; line-height: 1.55;
+            word-break: break-word; white-space: pre-wrap;
+        }
+        .message.user .msg-bubble { background: #0F766E; color: #FFFFFF; border-bottom-right-radius: 0.3rem; }
+        .message.assistant .msg-bubble { background: #F1F5F9; color: #1E293B; border: 1px solid #E2E8F0; border-bottom-left-radius: 0.3rem; }
+
+        /* Markdown */
+        .msg-bubble.md-content { white-space: normal; }
+        .msg-bubble.md-content h1,.msg-bubble.md-content h2,.msg-bubble.md-content h3,
+        .msg-bubble.md-content h4,.msg-bubble.md-content h5,.msg-bubble.md-content h6 { margin: 0.6em 0 0.3em; font-weight: 600; line-height: 1.3; }
+        .msg-bubble.md-content h1 { font-size: 1.15em; } .msg-bubble.md-content h2 { font-size: 1.08em; } .msg-bubble.md-content h3 { font-size: 1.02em; }
+        .msg-bubble.md-content p { margin: 0.35em 0; } .msg-bubble.md-content p:first-child { margin-top: 0; } .msg-bubble.md-content p:last-child { margin-bottom: 0; }
+        .msg-bubble.md-content ul,.msg-bubble.md-content ol { margin: 0.3em 0; padding-left: 1.4em; }
+        .msg-bubble.md-content li { margin: 0.15em 0; }
+        .msg-bubble.md-content code { background: rgba(0,0,0,0.06); padding: 0.15em 0.4em; border-radius: 0.3em; font-size: 0.85em; font-family: 'SF Mono','JetBrains Mono','Fira Code',monospace; }
+        .msg-bubble.md-content pre { background: #1E293B; color: #E2E8F0; padding: 0.7em 0.9em; border-radius: 0.5em; overflow-x: auto; margin: 0.4em 0; font-size: 0.82em; line-height: 1.5; }
+        .msg-bubble.md-content pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+        .msg-bubble.md-content blockquote { border-left: 3px solid #14B8A6; margin: 0.4em 0; padding: 0.2em 0.7em; color: #475569; background: rgba(20,184,166,0.05); border-radius: 0 0.3em 0.3em 0; }
+        .msg-bubble.md-content table { border-collapse: collapse; margin: 0.4em 0; width: 100%; font-size: 0.85em; }
+        .msg-bubble.md-content th,.msg-bubble.md-content td { border: 1px solid #CBD5E1; padding: 0.3em 0.6em; text-align: left; }
+        .msg-bubble.md-content th { background: #E2E8F0; font-weight: 600; }
+        .msg-bubble.md-content tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+        .msg-bubble.md-content hr { border: none; border-top: 1px solid #CBD5E1; margin: 0.5em 0; }
+        .msg-bubble.md-content a { color: #0F766E; text-decoration: underline; }
+        .msg-bubble.md-content strong { font-weight: 600; } .msg-bubble.md-content em { font-style: italic; }
+        .msg-time { font-size: 0.66rem; color: #94A3B8; margin-top: 0.15rem; padding: 0 0.6rem; }
+        .message.user .msg-time { text-align: right; }
+
+        .typing-indicator { display: flex; align-items: center; gap: 0.7rem; padding: 0.3rem 0.6rem; align-self: flex-start; }
+        .typing-dots { display: flex; gap: 4px; padding: 0.55rem 0.9rem; background: #F1F5F9; border-radius: 1rem; border: 1px solid #E2E8F0; }
+        .typing-dots span { width: 7px; height: 7px; background: #94A3B8; border-radius: 50%; animation: typingBounce 1.4s infinite ease-in-out; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; } .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
+        .message.error .msg-bubble { background: #FEF2F2; color: #DC2626; border-color: #FECACA; }
+
+        /* ── 输入区 ── */
+        .chat-input-wrapper { flex-shrink: 0; padding: 0.8rem 1.5rem 1rem 1.5rem; border-top: 1px solid #E2E8F0; background: #FFFFFF; }
+        .chat-input-area { display: flex; gap: 0.6rem; align-items: flex-end; }
+        .chat-input-area textarea {
+            flex: 1; resize: none; padding: 0.65rem 0.9rem; border-radius: 1rem;
+            border: 1px solid #CBD5E1; background: #FAFBFC;
+            font-family: inherit; font-size: 0.88rem; color: #1E293B;
+            line-height: 1.5; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+            min-height: 42px; max-height: 130px;
+        }
+        .chat-input-area textarea:focus { border-color: #14B8A6; box-shadow: 0 0 0 3px rgba(20,184,166,0.12); }
+        .chat-input-area textarea::placeholder { color: #94A3B8; }
+        .send-btn {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: none; background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+            color: #FFFFFF; font-size: 1.1rem; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(15,118,110,0.25);
+        }
+        .send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 14px rgba(15,118,110,0.35); }
+        .send-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+        .send-btn svg { width: 17px; height: 17px; }
+
+        .chat-footer { display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 1.5rem 0 1.5rem; flex-shrink: 0; }
+        .model-badge { font-size: 0.7rem; color: #64748B; background: #F1F5F9; padding: 0.18rem 0.6rem; border-radius: 20px; border: 1px solid #E2E8F0; }
+        .status-led { display: flex; align-items: center; gap: 5px; font-size: 0.7rem; color: #64748B; }
+        .led-green { width: 8px; height: 8px; background: #2ECC71; border-radius: 50%; box-shadow: 0 0 6px #2ECC71; animation: pulse 1.8s infinite; }
+        .led-offline { background: #E74C3C; box-shadow: 0 0 6px #E74C3C; animation: none; }
+        @keyframes pulse { 0% { opacity: 0.5; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1.2); } }
+
+        /* 打字机光标 */
+        .typing-cursor {
+            display: inline; color: #0F766E; font-weight: 300;
+            animation: cursorBlink 0.6s infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ── 配置面板（首次使用 / 设置按钮） ── */
+        .config-overlay {
+            position: fixed; inset: 0; background: rgba(15,23,42,0.45);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; animation: fadeIn 0.2s ease;
+        }
+        .config-overlay.hidden { display: none; }
+        .config-panel {
+            background: #fff; border-radius: 1.2rem; padding: 2rem 2.2rem;
+            width: 480px; max-width: 92vw;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+        }
+        .config-panel h2 { font-size: 1.1rem; margin-bottom: 0.3rem; color: #0F766E; }
+        .config-panel .config-desc { font-size: 0.82rem; color: #64748B; margin-bottom: 1.2rem; line-height: 1.5; }
+        .config-field { margin-bottom: 1rem; }
+        .config-field label { display: block; font-size: 0.8rem; font-weight: 600; color: #334155; margin-bottom: 0.3rem; }
+        .config-field input {
+            width: 100%; padding: 0.55rem 0.8rem; border-radius: 0.6rem;
+            border: 1px solid #CBD5E1; font-size: 0.85rem; font-family: inherit;
+            outline: none; transition: border-color 0.2s;
+        }
+        .config-field input:focus { border-color: #14B8A6; }
+        .config-field .field-hint { font-size: 0.72rem; color: #94A3B8; margin-top: 0.2rem; }
+        .config-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.4rem; }
+        .config-actions button {
+            padding: 0.55rem 1.3rem; border-radius: 0.6rem; font-size: 0.85rem;
+            font-weight: 600; cursor: pointer; font-family: inherit; border: 1px solid #CBD5E1;
+            background: #F8FAFC; color: #475569; transition: all 0.15s;
+        }
+        .config-actions button:hover { background: #E2E8F0; }
+        .config-actions .btn-primary { background: linear-gradient(135deg,#0F766E,#14B8A6); color: #fff; border: none; }
+        .config-actions .btn-primary:hover { opacity: 0.9; }
+
+        /* ── 响应式 ── */
+        @media (max-width: 900px) {
+            body { padding: 0.3rem; }
+            .dashboard { border-radius: 1rem; height: 98vh; max-height: none; }
+            .header { padding: 0.7rem 0.8rem 0.5rem 0.8rem; }
+            .nav-bar { flex-wrap: wrap; gap: 0.4rem; }
+            .sidebar {
+                position: absolute; z-index: 100; height: calc(100% - 100px);
+                border-radius: 0 1rem 1rem 0; box-shadow: 4px 0 20px rgba(0,0,0,0.1); width: 260px;
+            }
+            .sidebar.collapsed { width: 0; }
+            .sidebar-toggle { display: flex; }
+            .chat-messages { padding: 0.8rem 0.8rem 0.3rem 0.8rem; }
+            .chat-input-wrapper { padding: 0.6rem 0.8rem 0.7rem 0.8rem; }
+            .chat-footer { padding: 0 0.8rem 0 0.8rem; }
+            .message { max-width: 92%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     ██  配置面板 — 需要你提供以下信息后填入
+     ════════════════════════════════════════════════════════════ -->
+<div class="config-overlay" id="configOverlay">
+    <div class="config-panel">
+        <h2>⚙️ Dify 应用配置</h2>
+        <p class="config-desc">
+            本页面直接调用 Dify 云端 API，无需后端服务。<br>
+            请填写以下配置信息（保存后自动存储在浏览器 localStorage 中）：
+        </p>
+
+        <div class="config-field">
+            <label>1️⃣ 应用类型</label>
+            <select id="cfgAppType" style="width:100%;padding:0.55rem 0.8rem;border-radius:0.6rem;border:1px solid #CBD5E1;font-size:0.85rem;font-family:inherit;outline:none;background:#fff;">
+                <option value="chatflow">聊天助手 / Chatflow（推荐，支持流式逐字输出）</option>
+                <option value="workflow">工作流 / Workflow（单次执行）</option>
+            </select>
+            <div class="field-hint">在 Dify 应用详情页查看应用类型。聊天助手和 Chatflow 选第一个，纯工作流选第二个</div>
+        </div>
+
+        <div class="config-field">
+            <label>2️⃣ Dify API Base URL</label>
+            <input id="cfgApiBase" type="text" placeholder="例如: https://api.dify.ai/v1">
+            <div class="field-hint">Dify 平台的 API 根地址（云版通常为 https://api.dify.ai/v1，自部署版填你的域名 + /v1）</div>
+        </div>
+
+        <div class="config-field">
+            <label>3️⃣ Dify API Key</label>
+            <input id="cfgApiKey" type="password" placeholder="例如: app-xxxxxxxxxxxxxxxxxxxx">
+            <div class="field-hint">在 Dify 应用的「访问 API」页面获取，格式通常为 app-xxxx</div>
+        </div>
+
+        <div class="config-field">
+            <label>4️⃣ 输入变量名（仅工作流模式需要）</label>
+            <input id="cfgInputVar" type="text" placeholder="例如: query 或 input（聊天助手模式可留空）">
+            <div class="field-hint">工作流「开始」节点中接收用户输入的变量名。聊天助手模式自动使用 query 参数，无需填写</div>
+        </div>
+
+        <div class="config-field">
+            <label>5️⃣ 输出变量名（可选，仅工作流模式）</label>
+            <input id="cfgOutputVar" type="text" placeholder="例如: text 或 result（留空则自动检测）">
+            <div class="field-hint">工作流「结束」节点的输出变量名。聊天助手模式自动获取，无需填写</div>
+        </div>
+
+        <div class="config-actions">
+            <button id="cfgCancel">取消</button>
+            <button class="btn-primary" id="cfgSave">保存并开始</button>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard">
+    <div class="header">
+        <div class="nav-bar">
+            <div style="display:flex;align-items:center;gap:0.6rem;flex-shrink:0;">
+                <button class="sidebar-toggle" id="sidebarToggle" title="展开/收起侧边栏">☰</button>
+                <div class="nav-brand">
+                    <span class="nav-logo">💡</span>
+                    <span class="nav-title">Lumimind</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-user" id="settingsBtn" title="打开 Dify 配置" style="border:none;background:none;cursor:pointer;font-size:0.9rem;">⚙️</button>
+                <div class="nav-user" id="userDisplay" title="点击切换用户">
+                    <span class="user-avatar">👤</span>
+                    <span class="user-name" id="displayUserName">实验员</span>
+                </div>
+                <div class="badge" id="apiBadge">Dify 工作流</div>
+            </div>
+        </div>
+        <div class="sub">基于 Dify 工作流 · 光环境与人体健康智慧问答</div>
+    </div>
+
+    <div class="main-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <button class="btn-new-chat" id="btnNewChat">＋ 新对话</button>
+                <div class="sidebar-section-title">📝 对话历史</div>
+                <div class="history-list" id="historyList">
+                    <div class="history-empty" id="historyEmpty">暂无对话记录</div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="chat-area">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-welcome" id="chatWelcome">
+                    <div class="welcome-icon">🏥</div>
+                    <div class="welcome-title">欢迎使用 LumiMind 医学健康智能问答</div>
+                    <div class="welcome-hint">
+                        我是您的医学健康智能助手，专注于光环境与人体健康的关系咨询。我可以为您解答光照调节、情绪管理、睡眠健康、昼夜节律等相关问题。
+                    </div>
+                    <div class="quick-questions">
+                        <button class="quick-btn" data-question="光照对睡眠质量有什么影响？">光照与睡眠</button>
+                        <button class="quick-btn" data-question="什么样的光线可以帮助缓解焦虑？">缓解焦虑的光线</button>
+                        <button class="quick-btn" data-question="什么是黑视素等效照度(mEDI)？">什么是mEDI？</button>
+                        <button class="quick-btn" data-question="如何通过光照改善昼夜节律？">改善昼夜节律</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-wrapper">
+                <div class="chat-input-area">
+                    <textarea id="chatInput" placeholder="输入您的问题，按 Enter 发送，Shift+Enter 换行…" rows="1"></textarea>
+                    <button class="send-btn" id="sendBtn" title="发送消息">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <span class="model-badge" id="modelBadge">🤖 Dify 工作流</span>
+                <div class="status-led">
+                    <div class="led-green" id="statusLed"></div>
+                    <span id="backendStatusText">等待配置</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const $ = (id) => document.getElementById(id);
+
+    // ── DOM ──
+    const chatMessages   = $("chatMessages");
+    const chatInput      = $("chatInput");
+    const sendBtn        = $("sendBtn");
+    const modelBadge     = $("modelBadge");
+    const statusLed      = $("statusLed");
+    const backendStatus  = $("backendStatusText");
+    const displayUserName= $("displayUserName");
+    const historyList    = $("historyList");
+    const sidebar        = $("sidebar");
+    const sidebarToggle  = $("sidebarToggle");
+    const configOverlay  = $("configOverlay");
+
+    // ── 配置 ──
+    const CFG_KEY = "lumimind_dify_config";
+
+    function loadConfig() {
+        try { return JSON.parse(localStorage.getItem(CFG_KEY) || "null"); }
+        catch { return null; }
+    }
+    function saveConfig(cfg) {
+        localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+    }
+
+    let difyConfig = loadConfig();
+
+    // 默认配置（预填 API Key，用户只需填 Base URL）
+    const DEFAULTS = {
+        appType:  "chatflow",
+        apiBase:  "https://api.dify.ai/v1",
+        apiKey:   "app-TftIGg8vtC0RTAJuu7FCxT2X",
+        inputVar: "query",
+        outputVar:""
+    };
+
+    // 初始化配置面板
+    function initConfigPanel() {
+        if (difyConfig) {
+            $("cfgAppType").value  = difyConfig.appType  || DEFAULTS.appType;
+            $("cfgApiBase").value  = difyConfig.apiBase  || DEFAULTS.apiBase;
+            $("cfgApiKey").value   = difyConfig.apiKey   || DEFAULTS.apiKey;
+            $("cfgInputVar").value = difyConfig.inputVar || DEFAULTS.inputVar;
+            $("cfgOutputVar").value= difyConfig.outputVar|| DEFAULTS.outputVar;
+            configOverlay.classList.add("hidden");
+        } else {
+            // 首次使用：预填默认值
+            $("cfgAppType").value  = DEFAULTS.appType;
+            $("cfgApiBase").value  = DEFAULTS.apiBase;
+            $("cfgApiKey").value   = DEFAULTS.apiKey;
+            $("cfgInputVar").value = DEFAULTS.inputVar;
+            $("cfgOutputVar").value= DEFAULTS.outputVar;
+        }
+
+        // 应用类型切换时更新提示
+        $("cfgAppType").addEventListener("change", () => {
+            const t = $("cfgAppType").value;
+            $("modelBadge").textContent = t === "workflow" ? "🤖 Dify 工作流" : "🤖 Dify 聊天助手";
+        });
+
+        $("cfgSave").addEventListener("click", () => {
+            const cfg = {
+                appType:  $("cfgAppType").value,
+                apiBase:  $("cfgApiBase").value.trim().replace(/\/+$/, ""),
+                apiKey:   $("cfgApiKey").value.trim(),
+                inputVar: $("cfgInputVar").value.trim() || "query",
+                outputVar:$("cfgOutputVar").value.trim(),
+            };
+            if (!cfg.apiBase || !cfg.apiKey) {
+                alert("请填写 API Base URL 和 API Key");
+                return;
+            }
+            difyConfig = cfg;
+            saveConfig(cfg);
+            configOverlay.classList.add("hidden");
+            setStatus(true);
+            difyConversationId = ""; // 切换配置时重置会话
+            modelBadge.textContent = cfg.appType === "workflow" ? "🤖 Dify 工作流" : "🤖 Dify 聊天助手";
+            chatInput.focus();
+        });
+
+        $("cfgCancel").addEventListener("click", () => {
+            if (difyConfig) {
+                configOverlay.classList.add("hidden");
+            } else {
+                alert("首次使用需要配置 Dify 工作流信息，请填写后点击「保存并开始」");
+            }
+        });
+
+        $("settingsBtn").addEventListener("click", () => {
+            configOverlay.classList.remove("hidden");
+        });
+    }
+
+    // ── 状态 ──
+    let conversationHistory = [];
+    let isWaiting = false;
+    let currentConvId = null;
+    const STORAGE_KEY = "lumimind_dify_conversations";
+
+    function setStatus(online) {
+        statusLed.classList.toggle("led-offline", !online);
+        backendStatus.textContent = online ? "Dify 已连接" : "Dify 未连接";
+    }
+
+    // ── 对话持久化 ──
+    function loadConversations() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
+    }
+    function saveConversations(convs) {
+        if (convs.length > 50) convs = convs.slice(-50);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(convs));
+    }
+    function createConversation(title) {
+        const conv = { id: "conv_" + Date.now(), title: title || "新对话", messages: [], createdAt: new Date().toISOString() };
+        const convs = loadConversations(); convs.push(conv); saveConversations(convs); return conv;
+    }
+    function updateConversation(id, updates) {
+        const convs = loadConversations(); const i = convs.findIndex(c => c.id === id);
+        if (i === -1) return; convs[i] = { ...convs[i], ...updates }; saveConversations(convs);
+    }
+    function deleteConversation(id) {
+        let convs = loadConversations(); convs = convs.filter(c => c.id !== id); saveConversations(convs);
+    }
+
+    // ── 侧边栏 ──
+    function renderHistoryList() {
+        const convs = loadConversations();
+        historyList.innerHTML = "";
+        if (convs.length === 0) { historyList.innerHTML = '<div class="history-empty">暂无对话记录</div>'; return; }
+        [...convs].reverse().forEach(conv => {
+            const item = document.createElement("div");
+            item.className = "history-item" + (conv.id === currentConvId ? " active" : "");
+            const title = document.createElement("span");
+            title.className = "history-item-title"; title.textContent = conv.title; title.title = conv.title;
+            const del = document.createElement("span");
+            del.className = "history-item-del"; del.textContent = "✕"; del.title = "删除";
+            del.addEventListener("click", e => {
+                e.stopPropagation();
+                if (confirm("确定删除此对话？")) { deleteConversation(conv.id); if (currentConvId === conv.id) startNewConversation(); renderHistoryList(); }
+            });
+            item.appendChild(title); item.appendChild(del);
+            item.addEventListener("click", () => switchConversation(conv.id));
+            historyList.appendChild(item);
+        });
+    }
+
+    function switchConversation(convId) {
+        if (currentConvId && conversationHistory.length > 0) {
+            updateConversation(currentConvId, { messages: [...conversationHistory], title: getConvTitle() });
+        }
+        const conv = loadConversations().find(c => c.id === convId);
+        if (!conv) return;
+        currentConvId = conv.id;
+        conversationHistory = [...(conv.messages || [])];
+        chatMessages.innerHTML = "";
+        if (conversationHistory.length === 0) { showWelcome(); }
+        else { conversationHistory.forEach(m => addMessage(m.role, m.content, false, false)); scrollToBottom(); }
+        renderHistoryList(); chatInput.focus();
+    }
+
+    function getConvTitle() {
+        const u = conversationHistory.find(m => m.role === "user");
+        if (u) { const t = u.content.substring(0, 30); return t.length < u.content.length ? t + "…" : t; }
+        return "新对话";
+    }
+
+    function startNewConversation() {
+        if (currentConvId && conversationHistory.length > 0) {
+            updateConversation(currentConvId, { messages: [...conversationHistory], title: getConvTitle() });
+        }
+        difyConversationId = ""; // 新对话重置 Dify conversation_id
+        const conv = createConversation("新对话");
+        currentConvId = conv.id; conversationHistory = [];
+        chatMessages.innerHTML = ""; showWelcome();
+        renderHistoryList(); chatInput.focus();
+    }
+
+    function showWelcome() {
+        chatMessages.innerHTML = `
+            <div class="chat-welcome" id="chatWelcome">
+                <div class="welcome-icon">💬</div>
+                <div class="welcome-title">欢迎使用 LumiMind AI 智慧问答</div>
+                <div class="welcome-hint">我是您的光环境智能助手，可以为您解答光照调节、情绪管理、光疗方案等相关问题。</div>
+                <div class="quick-questions">
+                    <button class="quick-btn" data-question="什么样的光线可以帮助缓解焦虑？">缓解焦虑的光线？</button>
+                    <button class="quick-btn" data-question="如何设计一个适合阅读的光环境？">适合阅读的光环境</button>
+                    <button class="quick-btn" data-question="光照对睡眠质量有什么影响？">光照对睡眠的影响</button>
+                    <button class="quick-btn" data-question="什么是黑视素等效照度(mEDI)？">什么是mEDI？</button>
+                </div>
+            </div>`;
+        rebindQuickButtons();
+    }
+
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        sidebarToggle.textContent = sidebar.classList.contains("collapsed") ? "☰" : "✕";
+    });
+
+    // 用户名
+    const savedName = localStorage.getItem("lumimind_username") || "实验员";
+    displayUserName.textContent = savedName;
+    $("userDisplay").addEventListener("click", () => {
+        const n = prompt("请输入您的名称:", savedName);
+        if (n && n.trim()) { localStorage.setItem("lumimind_username", n.trim().substring(0, 20)); displayUserName.textContent = n.trim().substring(0, 20); }
+    });
+
+    function formatTime() {
+        const d = new Date();
+        return d.getHours().toString().padStart(2,"0") + ":" + d.getMinutes().toString().padStart(2,"0");
+    }
+
+    // ── 过滤 <think> 标签 ──
+    function stripThinkTags(text) {
+        if (!text) return text;
+        // 移除完整的 <think>...</think> 块
+        let filtered = text.replace(/<think>[\s\S]*?<\/think>/gi, '');
+        // 移除未闭合的 <think> 标签及其后所有内容（流式过程中可能尚未收到闭合标签）
+        const thinkStart = filtered.toLowerCase().indexOf('<think>');
+        if (thinkStart !== -1) {
+            filtered = filtered.substring(0, thinkStart);
+        }
+        return filtered.trim();
+    }
+
+    // ── Markdown 渲染 ──
+    function renderMarkdown(text) {
+        if (!text) return '';
+        let h = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        h = h.replace(/```([\s\S]*?)```/g, (_,c) => '<pre><code>'+c.trim()+'</code></pre>');
+        h = h.replace(/`([^`]+)`/g, '<code>$1</code>');
+        h = h.replace(/^######\s+(.+)$/gm,'<h6>$1</h6>').replace(/^#####\s+(.+)$/gm,'<h5>$1</h5>')
+             .replace(/^####\s+(.+)$/gm,'<h4>$1</h4>').replace(/^###\s+(.+)$/gm,'<h3>$1</h3>')
+             .replace(/^##\s+(.+)$/gm,'<h2>$1</h2>').replace(/^#\s+(.+)$/gm,'<h1>$1</h1>');
+        h = h.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/__(.+?)__/g,'<strong>$1</strong>');
+        h = h.replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/_(.+?)_/g,'<em>$1</em>');
+        h = h.replace(/~~(.+?)~~/g,'<del>$1</del>');
+        h = h.replace(/^&gt;\s+(.+)$/gm,'<blockquote>$1</blockquote>');
+        h = h.replace(/^[\-\*]\s+(.+)$/gm,'<li>$1</li>');
+        h = h.replace(/(<li>.*<\/li>\n?)+/g, m => '<ul>'+m+'</ul>');
+        h = h.replace(/^\d+\.\s+(.+)$/gm,'<li>$1</li>');
+        h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>');
+        h = h.replace(/^---$/gm,'<hr>');
+        const lines = h.split('\n'); let result = '', inP = false;
+        for (let i = 0; i < lines.length; i++) {
+            const l = lines[i].trim();
+            const isBlock = /^<(h[1-6]|pre|ul|ol|li|blockquote|table|tr|hr|div)/.test(l) || /<\/(pre|ul|ol|table|blockquote)>$/.test(l);
+            if (l === '') { if (inP) { result += '</p>'; inP = false; } continue; }
+            if (isBlock) { if (inP) { result += '</p>'; inP = false; } result += l; }
+            else { if (!inP) { result += '<p>'; inP = true; } else { result += '<br>'; } result += l; }
+        }
+        if (inP) result += '</p>';
+        return result;
+    }
+
+    // ── 消息渲染 ──
+    function addMessage(role, content, isError, saveToHistory) {
+        if (saveToHistory !== false && role === "user") {
+            const w = chatMessages.querySelector(".chat-welcome"); if (w) w.remove();
+        }
+        const div = document.createElement("div");
+        div.className = "message " + role + (isError ? " error" : "");
+        const avatar = document.createElement("div"); avatar.className = "msg-avatar";
+        avatar.textContent = role === "user" ? "👤" : "🤖";
+        const wrap = document.createElement("div");
+        const bubble = document.createElement("div"); bubble.className = "msg-bubble";
+        if (role === "assistant") { bubble.classList.add("md-content"); bubble.innerHTML = renderMarkdown(content); }
+        else { bubble.textContent = content; }
+        const time = document.createElement("div"); time.className = "msg-time"; time.textContent = formatTime();
+        wrap.appendChild(bubble); wrap.appendChild(time);
+        div.appendChild(avatar); div.appendChild(wrap);
+        chatMessages.appendChild(div);
+        if (saveToHistory !== false) scrollToBottom();
+        return div;
+    }
+
+    function showTyping() {
+        const d = document.createElement("div"); d.className = "typing-indicator"; d.id = "typingIndicator";
+        const a = document.createElement("div"); a.className = "msg-avatar"; a.style.background = "#F0FDFA"; a.textContent = "🤖";
+        const dots = document.createElement("div"); dots.className = "typing-dots"; dots.innerHTML = "<span></span><span></span><span></span>";
+        d.appendChild(a); d.appendChild(dots); chatMessages.appendChild(d); scrollToBottom();
+    }
+    function hideTyping() { const el = $("typingIndicator"); if (el) el.remove(); }
+    function scrollToBottom() { setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 50); }
+
+    // ════════════════════════════════════════════════════════════
+    // ██  核心：调用 Dify API（支持 chatflow 聊天助手 + workflow 工作流）
+    // ════════════════════════════════════════════════════════════
+
+    // Dify chatflow / 聊天助手 的 conversation_id，用于多轮对话
+    let difyConversationId = "";
+
+    // 打字机动画：逐字符渲染文本
+    let typeTimer = null;
+    let typeQueue = "";       // 已收到但尚未显示的字符队列
+    let typeDisplayed = "";   // 当前已显示到气泡中的文本
+    const TYPE_SPEED = 20;    // 每帧渲染字符数（越大越快）
+
+    function startTypewriter(bubble) {
+        stopTypewriter();
+        typeQueue = "";
+        typeDisplayed = "";
+        typeTimer = setInterval(() => {
+            if (typeQueue.length === 0) return;
+            // 每次取 TYPE_SPEED 个字符追加
+            const chunk = typeQueue.substring(0, TYPE_SPEED);
+            typeQueue = typeQueue.substring(TYPE_SPEED);
+            typeDisplayed += chunk;
+            bubble.innerHTML = renderMarkdown(stripThinkTags(typeDisplayed)) + '<span class="typing-cursor">▌</span>';
+            scrollToBottom();
+        }, 30);
+    }
+
+    function feedTypewriter(newText) {
+        // newText 是当前累积的完整文本，计算增量
+        const totalProcessed = typeDisplayed.length + typeQueue.length;
+        if (newText.length <= totalProcessed) return; // 没有新增内容
+        // 安全检查：确保新文本是之前的超集，否则重置
+        const previous = typeDisplayed + typeQueue;
+        if (newText.startsWith(previous)) {
+            typeQueue += newText.substring(totalProcessed);
+        } else {
+            // 文本不一致，清空队列直接替换
+            typeQueue = newText.substring(typeDisplayed.length);
+        }
+    }
+
+    function finishTypewriter(bubble, finalText) {
+        stopTypewriter();
+        typeDisplayed = finalText;
+        bubble.innerHTML = renderMarkdown(stripThinkTags(finalText));
+        scrollToBottom();
+    }
+
+    function stopTypewriter() {
+        if (typeTimer) { clearInterval(typeTimer); typeTimer = null; }
+    }
+
+    // ── 解析 SSE 流（通用） ──
+    async function parseSSEStream(response, onChunk) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+        let finalText = "";
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop(); // 保留未完成的行
+
+            for (const line of lines) {
+                if (!line.startsWith("data: ")) continue;
+                const jsonStr = line.slice(6).trim();
+                if (!jsonStr || jsonStr === "[DONE]") continue;
+
+                try {
+                    const event = JSON.parse(jsonStr);
+                    const result = onChunk(event);
+                    if (result) finalText = result;
+                } catch (e) { /* 跳过非 JSON 行 */ }
+            }
+        }
+        return finalText;
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // ██  Chatflow 模式：POST /chat-messages（流式 SSE）
+    // ════════════════════════════════════════════════════════════
+    async function callDifyChatflow(userMessage, bubble) {
+        startTypewriter(bubble);
+
+        const body = {
+            inputs: {},
+            query: userMessage,
+            response_mode: "streaming",
+            user: localStorage.getItem("lumimind_username") || "user",
+            conversation_id: difyConversationId || ""  // 多轮对话
+        };
+
+        const response = await fetch(`${difyConfig.apiBase}/chat-messages`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${difyConfig.apiKey}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            let errMsg = `Dify 请求失败 (${response.status})`;
+            try { const d = JSON.parse(errText); errMsg = d.message || d.error || errMsg; } catch {}
+            throw new Error(errMsg);
+        }
+
+        // 累积的流式文本
+        let streamText = "";
+
+        const finalText = await parseSSEStream(response, (event) => {
+            const ev = event.event;
+
+            // ── 核心：message 事件（聊天助手的流式文本块） ──
+            if (ev === "message" || ev === "agent_message") {
+                // event.answer 是当前增量文本片段
+                const chunk = event.answer || "";
+                if (chunk) {
+                    streamText += chunk;
+                    feedTypewriter(streamText);
+                }
+            }
+
+            // ── message_end：消息结束，可能包含完整文本 ──
+            else if (ev === "message_end") {
+                // 某些版本在 message_end 中给完整 metadata
+                if (event.metadata && !streamText) {
+                    streamText = event.metadata.answer || streamText;
+                }
+                // 更新 conversation_id 用于多轮
+                if (event.conversation_id) {
+                    difyConversationId = event.conversation_id;
+                }
+            }
+
+            // ── workflow_finished：chatflow 中的工作流节点结束 ──
+            else if (ev === "workflow_finished") {
+                const outputs = event.data?.outputs || {};
+                if (difyConfig.outputVar && outputs[difyConfig.outputVar]) {
+                    streamText = outputs[difyConfig.outputVar];
+                } else if (outputs.text) {
+                    streamText = outputs.text;
+                } else if (!streamText) {
+                    for (const key of Object.keys(outputs)) {
+                        if (typeof outputs[key] === "string" && outputs[key].length > 0) {
+                            streamText = outputs[key]; break;
+                        }
+                    }
+                }
+                feedTypewriter(streamText);
+            }
+
+            // ── workflow_started / node_started / node_finished / ping：静默处理 ──
+            // 这些事件不包含文本内容，仅用于状态追踪
+
+            // ── conversation_created：首次对话创建 ──
+            else if (ev === "conversation_created") {
+                if (event.conversation_id) {
+                    difyConversationId = event.conversation_id;
+                }
+            }
+
+            // ── error 事件 ──
+            else if (ev === "error") {
+                throw new Error(event.message || event.data?.message || "Dify 返回错误");
+            }
+
+            return null; // 不在 onChunk 中返回最终值，由外层处理
+        });
+
+        return streamText;
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // ██  Workflow 模式：POST /workflows/run（流式 SSE）
+    // ════════════════════════════════════════════════════════════
+    async function callDifyWorkflow(userMessage, bubble) {
+        startTypewriter(bubble);
+
+        const inputVarName = difyConfig.inputVar || "query";
+        const body = {
+            inputs: { [inputVarName]: userMessage },
+            response_mode: "streaming",
+            user: localStorage.getItem("lumimind_username") || "user"
+        };
+
+        const response = await fetch(`${difyConfig.apiBase}/workflows/run`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${difyConfig.apiKey}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            let errMsg = `Dify 请求失败 (${response.status})`;
+            try { const d = JSON.parse(errText); errMsg = d.message || d.error || errMsg; } catch {}
+            throw new Error(errMsg);
+        }
+
+        let streamText = "";
+
+        await parseSSEStream(response, (event) => {
+            const ev = event.event;
+
+            if (ev === "workflow_finished") {
+                const outputs = event.data?.outputs || {};
+                if (difyConfig.outputVar && outputs[difyConfig.outputVar]) {
+                    streamText = outputs[difyConfig.outputVar];
+                } else if (outputs.text) {
+                    streamText = outputs.text;
+                } else {
+                    for (const key of Object.keys(outputs)) {
+                        if (typeof outputs[key] === "string" && outputs[key].length > 0) {
+                            streamText = outputs[key]; break;
+                        }
+                    }
+                }
+                feedTypewriter(streamText);
+            }
+            else if (ev === "node_finished") {
+                const outputs = event.data?.outputs || {};
+                if (!streamText) {
+                    if (difyConfig.outputVar && outputs[difyConfig.outputVar]) {
+                        streamText = outputs[difyConfig.outputVar];
+                    } else if (outputs.text && event.data?.node_type === "end") {
+                        streamText = outputs.text;
+                    }
+                }
+                if (streamText) feedTypewriter(streamText);
+            }
+            else if (ev === "text_chunk") {
+                streamText += event.data?.text || "";
+                feedTypewriter(streamText);
+            }
+        });
+
+        return streamText;
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // ██  统一入口
+    // ════════════════════════════════════════════════════════════
+    async function callDify(userMessage) {
+        if (isWaiting) return;
+        if (!difyConfig || !difyConfig.apiBase || !difyConfig.apiKey) {
+            configOverlay.classList.remove("hidden");
+            return;
+        }
+
+        isWaiting = true; sendBtn.disabled = true; chatInput.disabled = true;
+
+        if (!currentConvId) {
+            const conv = createConversation(userMessage.substring(0, 30));
+            currentConvId = conv.id;
+        }
+
+        addMessage("user", userMessage);
+        conversationHistory.push({ role: "user", content: userMessage });
+        showTyping(); setStatus(true);
+
+        try {
+            // 先创建 assistant 气泡
+            const msgDiv = addMessage("assistant", "", false, true);
+            const bubble = msgDiv.querySelector(".msg-bubble");
+            bubble.classList.add("md-content");
+            hideTyping(); // 有了气泡就不需要打字指示器了
+
+            // 根据应用类型选择调用方式
+            const isChatflow = difyConfig.appType !== "workflow";
+            let resultText;
+
+            if (isChatflow) {
+                resultText = await callDifyChatflow(userMessage, bubble);
+            } else {
+                resultText = await callDifyWorkflow(userMessage, bubble);
+            }
+
+            // 兜底
+            if (!resultText) resultText = "⚠️ 应用未返回有效内容，请检查 Dify 配置和工作流逻辑。";
+
+            // 完成打字机动画
+            finishTypewriter(bubble, resultText);
+
+            conversationHistory.push({ role: "assistant", content: resultText });
+            updateConversation(currentConvId, { messages: [...conversationHistory], title: getConvTitle() });
+            renderHistoryList();
+            setStatus(true);
+
+        } catch (err) {
+            hideTyping(); stopTypewriter();
+            setStatus(false);
+            conversationHistory.pop();
+            addMessage("assistant", `❌ 调用失败: ${err.message}\n\n请检查：\n1. API Base URL 是否正确\n2. API Key 是否有效\n3. 应用类型是否匹配（聊天助手 vs 工作流）\n\n点击右上角 ⚙️ 可重新配置。`, true);
+        } finally {
+            isWaiting = false; sendBtn.disabled = false; chatInput.disabled = false; chatInput.focus();
+        }
+    }
+
+    // ── 发送逻辑 ──
+    function handleSend() {
+        if (isWaiting) return;
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        chatInput.value = ""; chatInput.style.height = "auto";
+        callDify(msg);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+    chatInput.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleSend(); } });
+    chatInput.addEventListener("input", () => { chatInput.style.height = "auto"; chatInput.style.height = Math.min(chatInput.scrollHeight, 130) + "px"; });
+
+    function rebindQuickButtons() {
+        document.querySelectorAll(".quick-btn").forEach(btn => {
+            btn.addEventListener("click", () => { chatInput.value = btn.dataset.question; handleSend(); });
+        });
+    }
+    rebindQuickButtons();
+
+    $("btnNewChat").addEventListener("click", startNewConversation);
+
+    // ── 初始化 ──
+    function init() {
+        initConfigPanel();
+        renderHistoryList();
+        const convs = loadConversations();
+        if (convs.length > 0) { switchConversation(convs[convs.length - 1].id); }
+        else { startNewConversation(); }
+        if (difyConfig) { setStatus(true); modelBadge.textContent = difyConfig.appType === "workflow" ? "🤖 Dify 工作流" : "🤖 Dify 聊天助手"; }
+        else { setStatus(false); }
+        chatInput.focus();
+    }
+    init();
+})();
+</script>
+</body>
+</html>

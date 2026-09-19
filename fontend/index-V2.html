@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LumiMind · 光疗引擎控制面板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(160deg, #F0F4F8 0%, #E8EEF4 50%, #F7FAFC 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem 2rem 2rem;
+            box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(148, 163, 184, 0.25);
+            transition: all 0.2s;
+        }
+
+        /* 头部区域 */
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        /* ── 导航栏 ── */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.25rem 0 0.5rem 0;
+            gap: 1.2rem;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .nav-logo {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .nav-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0F766E 0%, #0891B2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .nav-link {
+            padding: 0.45rem 0.85rem;
+            border-radius: 0.6rem;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            cursor: pointer;
+            background: none;
+            font-family: inherit;
+        }
+        .nav-link:hover {
+            background: #F0FDFA;
+            color: #0F766E;
+            border-color: #99F6E4;
+        }
+        .nav-link.active {
+            background: #F0FDFA;
+            color: #0F766E;
+            border-color: #14B8A6;
+            font-weight: 600;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 0.6rem;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            cursor: default;
+        }
+        .user-avatar {
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+        .user-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #334155;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sub {
+            font-size: 0.82rem;
+            color: #64748B;
+            margin-top: 0.4rem;
+            letter-spacing: 0.3px;
+            padding-left: 0.2rem;
+        }
+        .badge {
+            background: #F0FDFA;
+            padding: 0.3rem 0.85rem;
+            border-radius: 40px;
+            font-size: 0.73rem;
+            font-weight: 500;
+            border: 1px solid #99F6E4;
+            color: #0F766E;
+            white-space: nowrap;
+        }
+
+        /* 三列网格 - 紧凑清晰 */
+        .grid-3cols {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr 1.1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 公用卡片样式 */
+        .card {
+            background: #FAFBFC;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.4rem;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+            border: 1px solid #E2E8F0;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            border-color: #CBD5E1;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0F172A;
+            letter-spacing: -0.2px;
+            border-left: 3px solid #14B8A6;
+            padding-left: 10px;
+        }
+
+        /* 左侧情感区 */
+        .emotion-badge {
+            background: linear-gradient(105deg, #FFFFFF, #F0FDFA);
+            border-radius: 1.25rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border: 1px solid #99F6E4;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+        }
+        .emotion-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #64748B;
+        }
+        .emotion-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #D97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .heart-rate {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border: 1px solid #E2E8F0;
+        }
+        .hr-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+        .hr-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #E11D48;
+            line-height: 1;
+        }
+        .hr-value span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #64748B;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 5px;
+            -webkit-appearance: none;
+            background: #E2E8F0;
+            border-radius: 10px;
+            outline: none;
+            margin: 12px 0 6px;
+        }
+        input[type="range"]:focus {
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #14B8A6;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(20, 184, 166, 0.4);
+            border: none;
+        }
+        .sim-tip {
+            font-size: 0.7rem;
+            color: #94A3B8;
+            margin-top: 5px;
+        }
+
+        /* 中间预览区 - 光效核心 */
+        .preview-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .light-simulator {
+            background: #F1F5F9;
+            border-radius: 1.8rem;
+            padding: 1.2rem;
+            margin: 0.5rem 0 1.2rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #E2E8F0;
+        }
+        .light-bulb {
+            width: 180px;
+            height: 180px;
+            border-radius: 28px;
+            background: #FFD966;
+            box-shadow: 0 0 30px rgba(255, 200, 80, 0.5), inset 0 1px 2px rgba(255,255,240,0.6);
+            transition: background 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(255,255,200,0.3);
+        }
+        .brightness-control {
+            width: 100%;
+            margin-top: 12px;
+        }
+        .brightness-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+        .param-hint {
+            font-size: 0.7rem;
+            background: #F1F5F9;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            display: inline-block;
+            margin-top: 12px;
+            color: #0369A1;
+            border: 1px solid #E2E8F0;
+        }
+
+        /* 右侧参数区 – 数值清晰高亮 */
+        .param-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .param-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #E2E8F0;
+        }
+        .param-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #475569;
+        }
+        .param-name sub, .param-name sup {
+            font-size: 0.72em;
+        }
+        .param-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: #0F766E;
+            background: #FFFFFF;
+            padding: 0.1rem 0.65rem;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            border: 1px solid #E2E8F0;
+        }
+        .highlight {
+            color: #B45309;
+        }
+
+        .api-footer {
+            background: #F8FAFC;
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #E2E8F0;
+            margin-top: 0.5rem;
+        }
+        .api-endpoint {
+            font-family: monospace;
+            font-size: 0.85rem;
+            background: #FFFFFF;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            color: #0369A1;
+            border: 1px solid #E2E8F0;
+        }
+        .status-led {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .led-green {
+            width: 10px;
+            height: 10px;
+            background: #2ECC71;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #2ECC71;
+            animation: pulse 1.8s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.95);}
+            100% { opacity: 1; transform: scale(1.2);}
+        }
+        .mock-slider-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 12px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1000px) {
+            .grid-3cols {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            body { padding: 1rem; }
+            .dashboard { padding: 1.2rem; }
+        }
+        button {
+            background: none;
+            border: none;
+        }
+        .footer-note {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 1.8rem;
+            color: #94A3B8;
+        }
+
+        .session-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.2rem;
+            background: #F8FAFC;
+            border-radius: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+        .session-bar label {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.72rem;
+            color: #64748B;
+        }
+        .session-bar input, .session-bar select {
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid #CBD5E1;
+            background: #FFFFFF;
+            color: #1E293B;
+            font-size: 0.85rem;
+            min-width: 120px;
+        }
+        .btn-action {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid #14B8A6;
+            background: #F0FDFA;
+            color: #0F766E;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+        .btn-action:disabled { opacity: 0.45; cursor: not-allowed; }
+        .btn-action.secondary {
+            border-color: #CBD5E1;
+            background: #FFFFFF;
+            color: #475569;
+        }
+        .emotion-sim {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .emotion-sim button {
+            padding: 6px 10px;
+            border-radius: 20px;
+            border: 1px solid #CBD5E1;
+            background: #FFFFFF;
+            color: #334155;
+            font-size: 0.72rem;
+            cursor: pointer;
+        }
+        .emotion-sim button:hover:not(:disabled) {
+            border-color: #14B8A6;
+            background: #F0FDFA;
+        }
+        .emotion-sim button small {
+            display: block;
+            font-size: 0.62rem;
+            color: #94A3B8;
+        }
+        .agent-hint {
+            font-size: 0.75rem;
+            color: #475569;
+            line-height: 1.45;
+            margin-top: 8px;
+            padding: 8px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+        }
+        .light-bulb.breathing {
+            animation: breatheBulb 3s ease-in-out infinite;
+        }
+        @keyframes breatheBulb {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.03); filter: brightness(1.1); }
+        }
+        .led-offline { background: #E74C3C; box-shadow: 0 0 6px #E74C3C; animation: none; }
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 20px;
+        }
+        .overlay.open { display: flex; }
+        .modal-box {
+            max-width: 420px;
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #99F6E4;
+            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.15);
+        }
+        .modal-box h3 { margin-bottom: 12px; color: #0F172A; }
+        .modal-box p { color: #475569; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px; }
+        .modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+        .feedback-bar {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #F8FAFC;
+            border-radius: 1rem;
+            border: 1px solid #E2E8F0;
+        }
+        .feedback-bar.open { display: block; }
+        .feedback-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+        .feedback-tags .btn-action.active { background: #DCFCE7; border-color: #22C55E; color: #166534; }
+        #globalStatus { text-align: center; margin-top: 8px; font-size: 0.78rem; color: #64748B; }
+        #globalStatus.error { color: #DC2626; }
+        #globalStatus.ok { color: #059669; }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="header">
+        <div class="nav-bar">
+            <div class="nav-brand">
+                <span class="nav-logo">💡</span>
+                <span class="nav-title">Lumimind</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/page/home" class="nav-link">🏠 首页</a>
+                <a href="/page/monitor" class="nav-link active">📊 数据监测</a>
+                <a href="/page/chat" class="nav-link">💬 AI问答</a>
+                <a href="/page/settings" class="nav-link">⚙️ 设置</a>
+            </nav>
+            <div class="nav-right">
+                <div class="nav-user" id="userDisplay" title="点击切换用户">
+                    <span class="user-avatar">👤</span>
+                    <span class="user-name" id="displayUserName">实验员</span>
+                </div>
+                <div class="badge" id="sessionBadge">未启动</div>
+            </div>
+        </div>
+        <div class="sub">melanopic / 全参数闭环调节 · 情绪光疗协同</div>
+    </div>
+
+    <div class="session-bar">
+        <label>Session ID
+            <input type="text" id="sessionId" value="demo_001" />
+        </label>
+        <label>实验模式
+            <select id="sessionMode">
+                <option value="demo">demo</option>
+                <option value="formal">formal</option>
+            </select>
+        </label>
+        <button type="button" class="btn-action" id="btnStartSession">开始实验</button>
+        <span style="font-size:0.7rem;color:#94A3B8;" id="apiBaseHint"></span>
+    </div>
+
+    <!-- 三列核心布局 情感 | 光效预览 | 参数 -->
+    <div class="grid-3cols">
+        <!-- 左侧：情感与生理 -->
+        <div class="card">
+            <div class="card-title">
+                <span>🧠</span> 感知层 · 情感与生理
+            </div>
+            <div class="emotion-badge">
+                <div class="emotion-label">模型情绪（后端窗口统计）</div>
+                <div class="emotion-value" id="emotionDisplay">
+                    <span id="emotionText">—</span> <span id="emotionEmoji" style="font-size: 1.8rem;">😐</span>
+                </div>
+                <div style="font-size:0.7rem; color:#FFB347; margin-top:6px;" id="emotionSub">请先开始实验</div>
+            </div>
+            <div style="margin-top:10px;">
+                <div class="emotion-label" style="margin-bottom:6px;">模拟模型上报 · POST /api/model/emotion</div>
+                <div class="emotion-sim" id="emotionButtons">
+                    <button type="button" class="emotion-btn" data-label="positive" data-score="0.85" data-name="开心">开心<small>positive</small></button>
+                    <button type="button" class="emotion-btn" data-label="neutral" data-score="0.5" data-name="平静">平静<small>neutral</small></button>
+                    <button type="button" class="emotion-btn" data-label="negative" data-score="0.3" data-name="焦虑">焦虑<small>negative</small></button>
+                    <button type="button" class="emotion-btn" data-label="negative" data-score="0.35" data-name="疲倦">疲倦<small>negative</small></button>
+                    <button type="button" class="emotion-btn" data-label="positive" data-score="0.72" data-name="专注">专注<small>positive</small></button>
+                </div>
+            </div>
+            <div class="heart-rate">
+                <div class="hr-header">
+                    <span>❤️ 心率监测</span>
+                    <span>真实设备 / 模拟模式</span>
+                </div>
+                <div class="hr-value" id="heartRateDisplay">87 <span>bpm</span></div>
+                <input type="range" id="heartSlider" min="55" max="130" step="1" value="87">
+                <div class="sim-tip">⚡ 心率模拟滑条（真实设备可替换）</div>
+            </div>
+            <div class="agent-hint" id="agentMessage">Agent 消息：等待 Session…</div>
+        </div>
+
+        <!-- 中部：环境光效实时预览 + 光效模拟 -->
+        <div class="card">
+            <div class="card-title">
+                <span>🎨</span> 环境光效实时预览
+            </div>
+            <div class="preview-area">
+                <div class="light-simulator">
+                    <div class="light-bulb" id="lightBulb"></div>
+                </div>
+                <div class="brightness-control">
+                    <div class="brightness-label">
+                        <span>💡 亮度模拟</span>
+                        <span id="brightnessValue">72%</span>
+                    </div>
+                    <input type="range" id="brightnessSlider" min="10" max="100" value="72">
+                </div>
+                <div class="param-hint" style="margin-top: 5px;" id="lightModeHint">
+                    cube 示意 · normal_office_light
+                </div>
+                <!-- 手动色温辅助控制（为了体验） -->
+                <div class="mock-slider-row">
+                    <div style="flex:1">
+                        <div style="font-size:0.7rem; margin: 8px 0 4px 0;">色温微调 (K)</div>
+                        <input type="range" id="tempSlider" min="2700" max="6500" step="50" value="4500" style="width:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：光疗参数全展示 (黑底黑字完全修复) -->
+        <div class="card">
+            <div class="card-title">
+                <span>📊</span> 光疗参数 · melanopic 全参数
+            </div>
+            <div class="param-grid">
+                <div class="param-row">
+                    <span class="param-name">当前光模式</span>
+                    <span class="param-value highlight" id="statLightMode">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">NA%</span>
+                    <span class="param-value" id="statNegativeRatio">NA%</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">平均情绪分</span>
+                    <span class="param-value" id="statAvgScore">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">趋势 / 样本</span>
+                    <span class="param-value" id="statTrend" style="font-size:0.95rem;">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">冷却状态</span>
+                    <span class="param-value" id="statCooldown">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">照度 (lx)</span>
+                    <span class="param-value" id="luxVal">620</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">色温 (K)</span>
+                    <span class="param-value" id="cctVal">4500</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">mEDI（黑视素等效照度）</span>
+                    <span class="param-value" id="mediVal">210</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">E<sub>v,sc</sub><sup>D65</sup></span>
+                    <span class="param-value" id="evScVal">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">E<sub>v,mc</sub><sup>D65</sup></span>
+                    <span class="param-value" id="evMcVal">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">E<sub>v,lc</sub><sup>D65</sup></span>
+                    <span class="param-value" id="evLcVal">—</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">E<sub>v,rh</sub><sup>D65</sup></span>
+                    <span class="param-value" id="evRhVal">—</span>
+                </div>
+            </div>
+            <div style="margin-top: 0.8rem; font-size: 0.7rem; border-top: 1px solid #E2E8F0; padding-top: 12px; color: #64748B;">
+                <span>⚙️ Agent 策略 · GET /api/agent/current 轮询</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-bar" id="feedbackPanel">
+        <div style="font-size:0.85rem;color:#0F172A;margin-bottom:8px;">调节后反馈 · POST /api/feedback</div>
+        <div class="feedback-tags" id="feedbackTags">
+            <button type="button" class="btn-action secondary" data-label="better">更好</button>
+            <button type="button" class="btn-action secondary" data-label="no_change">无变化</button>
+            <button type="button" class="btn-action secondary" data-label="worse">更差</button>
+        </div>
+        <div class="session-bar" style="margin:0;padding:0.5rem 0;background:none;border:none;">
+            <label>评分 1–5（可选）<input type="text" id="feedbackScore" placeholder="4" style="min-width:60px;" /></label>
+            <label>备注<input type="text" id="feedbackComment" placeholder="调节后感觉…" style="min-width:160px;" /></label>
+            <button type="button" class="btn-action" id="btnSubmitFeedback">提交反馈</button>
+        </div>
+    </div>
+
+    <!-- API 对接模块 -->
+    <div class="api-footer">
+        <div class="api-endpoint" id="apiEndpointText">
+            session · agent · model/emotion · light-mode · feedback
+        </div>
+        <div class="status-led">
+            <div class="led-green" id="statusLed"></div>
+            <span style="font-size: 0.8rem;" id="backendStatusText">等待连接后端</span>
+        </div>
+    </div>
+    <p id="globalStatus"></p>
+    <div class="footer-note">
+        💡 cube 由实验员手动切换 · 前端同步光模式至后端 · 心率滑条仅本地示意
+    </div>
+</div>
+
+<div class="overlay" id="strategyOverlay" role="dialog" aria-modal="true">
+    <div class="modal-box">
+        <h3>Agent 调光建议</h3>
+        <p id="popupMessage"></p>
+        <p style="font-size:0.78rem;color:#64748B;margin-bottom:12px;" id="popupActionHint"></p>
+        <div class="modal-actions" id="popupStepAccept">
+            <button type="button" class="btn-action secondary" id="btnReject">暂不接受</button>
+            <button type="button" class="btn-action" id="btnAccept">接受建议</button>
+        </div>
+        <div class="modal-actions" id="popupStepExecute" style="display:none;">
+            <button type="button" class="btn-action" id="btnExecuted">实验员已完成 cube 切换</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
+
+    const LIGHT_MODE_VISUAL = {
+        normal_office_light: { kelvin: 4500, brightness: 0.72, label: "正常办公光", breathing: false },
+        adjustment_light: { kelvin: 3800, brightness: 0.55, label: "光辅助调节", breathing: true },
+    };
+
+    const EMOTION_UI = {
+        positive: { text: "积极", emoji: "😊", sub: "positive" },
+        neutral: { text: "中性", emoji: "😐", sub: "neutral" },
+        negative: { text: "消极", emoji: "😔", sub: "negative" },
+    };
+
+    const ACTION_LABELS = {
+        switch_to_adjustment_light: "建议切换至调节光",
+        switch_to_normal_office_light: "建议切回正常办公光",
+        keep_adjustment_light: "维持调节光",
+        keep_normal_office_light: "维持正常办公光",
+    };
+
+    const TARGET_LIGHT_MODE = {
+        switch_to_adjustment_light: "adjustment_light",
+        switch_to_normal_office_light: "normal_office_light",
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const heartSlider = $("heartSlider");
+    const heartDisplay = $("heartRateDisplay");
+    const brightnessSlider = $("brightnessSlider");
+    const brightnessVal = $("brightnessValue");
+    const tempSlider = $("tempSlider");
+    const lightBulb = $("lightBulb");
+    const luxSpan = $("luxVal");
+    const cctSpan = $("cctVal");
+    const mediSpan = $("mediVal");
+    const evScSpan = $("evScVal");
+    const evMcSpan = $("evMcVal");
+    const evLcSpan = $("evLcVal");
+    const evRhSpan = $("evRhVal");
+
+    let sessionReady = false;
+    let currentLightMode = "normal_office_light";
+    let currentHeartRate = 87;
+    let currentBrightness = 0.72;
+    let currentTemp = 4500;
+    let previewOverride = false;
+    let pendingStrategy = null;
+    let lastFeedbackStrategyId = null;
+    let pendingAccepted = false;
+    let selectedFeedbackLabel = null;
+    let pollTimer = null;
+
+    $("apiBaseHint").textContent = "API → " + (API_BASE || location.origin);
+
+    async function api(path, options = {}) {
+        const res = await fetch(`${API_BASE}${path}`, {
+            headers: { "Content-Type": "application/json", ...options.headers },
+            ...options,
+        });
+        let data = null;
+        const text = await res.text();
+        if (text) {
+            try { data = JSON.parse(text); } catch { data = { detail: text }; }
+        }
+        if (!res.ok) {
+            const msg = data?.detail || `请求失败 (${res.status})`;
+            throw new Error(typeof msg === "string" ? msg : JSON.stringify(msg));
+        }
+        return data;
+    }
+
+    function setGlobalStatus(msg, type) {
+        const el = $("globalStatus");
+        el.textContent = msg || "";
+        el.className = type || "";
+    }
+
+    function setBackendOnline(online) {
+        $("statusLed").classList.toggle("led-offline", !online);
+        $("backendStatusText").textContent = online ? "后端已连接 · Lumimind API" : "后端未连接";
+    }
+
+    function kelvinToRGB(kelvin, brightness) {
+        let temp = kelvin / 100;
+        let r, g, b;
+        if (temp <= 66) {
+            r = 255;
+            g = 99.4708025861 * Math.log(temp) - 161.1195681661;
+        } else {
+            r = 329.698727446 * Math.pow(temp - 60, -0.1332047592);
+            g = 288.1221695283 * Math.pow(temp - 60, -0.0755148492);
+        }
+        if (temp <= 66) {
+            b = temp <= 19 ? 0 : 138.5177312231 * Math.log(temp - 10) - 305.0447927307;
+        } else {
+            b = 255;
+        }
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
+        const f = brightness;
+        return { r: Math.floor(r * f), g: Math.floor(g * f), b: Math.floor(b * f) };
+    }
+
+    function updateLightMetrics() {
+        const heartFactor = (currentHeartRate - 70) / 55;
+        const intensity = Math.min(1.35, Math.max(0.65, 0.85 + heartFactor * 0.4));
+        const modeBoost = currentLightMode === "adjustment_light" ? 1.08 : 1.0;
+        const tNorm = Math.min(1, Math.max(0, (currentTemp - 2700) / (6500 - 2700)));
+
+        const ev = Math.floor(200 + currentBrightness * 650);
+        const medi = Math.floor(210 * intensity * modeBoost);
+
+        luxSpan.innerText = ev;
+        cctSpan.innerText = currentTemp;
+        mediSpan.innerText = medi;
+        evScSpan.innerText = Math.floor(ev * (0.12 + tNorm * 0.22));
+        evMcSpan.innerText = Math.floor(ev * (0.26 + tNorm * 0.14));
+        evLcSpan.innerText = Math.floor(ev * (0.38 - tNorm * 0.08));
+        evRhSpan.innerText = Math.floor(medi * (0.92 + tNorm * 0.06));
+    }
+
+    function applyLightModeVisual(lightMode) {
+        const preset = LIGHT_MODE_VISUAL[lightMode] || LIGHT_MODE_VISUAL.normal_office_light;
+        if (!previewOverride) {
+            currentTemp = preset.kelvin;
+            currentBrightness = preset.brightness;
+            tempSlider.value = currentTemp;
+            brightnessSlider.value = Math.round(currentBrightness * 100);
+            brightnessVal.innerText = Math.round(currentBrightness * 100) + "%";
+        }
+        const rgb = kelvinToRGB(currentTemp, currentBrightness);
+        const shadowIntensity = Math.min(45, 20 + currentBrightness * 25);
+        lightBulb.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+        lightBulb.style.boxShadow = `0 0 ${shadowIntensity}px rgba(${rgb.r},${rgb.g},${rgb.b},0.7), inset 0 1px 2px rgba(255,255,210,0.4)`;
+        lightBulb.classList.toggle("breathing", preset.breathing);
+        $("lightModeHint").textContent = `cube · ${preset.label} (${lightMode})`;
+        updateLightMetrics();
+    }
+
+    function formatRatio(v) {
+        return v == null || Number.isNaN(v) ? "—" : (v * 100).toFixed(0) + "%";
+    }
+
+    function formatScore(v) {
+        return v == null ? "—" : v.toFixed(2);
+    }
+
+    function updateEmotionFromStats(stats) {
+        if (!stats || !stats.valid_count) return;
+        let label = "neutral";
+        if ((stats.negative_ratio || 0) >= 0.5) label = "negative";
+        else if ((stats.positive_ratio || 0) >= 0.5) label = "positive";
+        const ui = EMOTION_UI[label];
+        $("emotionText").textContent = ui.text;
+        $("emotionEmoji").textContent = ui.emoji;
+        $("emotionSub").textContent = `窗口 · ${ui.sub} · 消极 ${formatRatio(stats.negative_ratio)}`;
+    }
+
+    function updateAgentUI(state) {
+        if (!state) return;
+        currentLightMode = state.current_light_mode || currentLightMode;
+        const stats = state.recent_emotion_stats || {};
+        const preset = LIGHT_MODE_VISUAL[currentLightMode];
+
+        $("statLightMode").textContent = preset?.label || currentLightMode;
+        $("statNegativeRatio").textContent = "NA%";
+        $("statAvgScore").textContent = formatScore(stats.avg_emotion_score);
+        $("statTrend").textContent = `${stats.trend || "—"} · ${stats.valid_count ?? 0}/${stats.total_count ?? 0}`;
+        $("statCooldown").textContent = state.in_cooldown
+            ? `冷却 ${state.cooldown_remaining_seconds}s`
+            : "否";
+
+        $("sessionBadge").textContent = state.in_cooldown ? "冷却中" : (sessionReady ? "实验中" : "未启动");
+        $("agentMessage").textContent = "Agent：" + (state.last_strategy?.message || "等待情绪数据…");
+        updateEmotionFromStats(stats);
+        applyLightModeVisual(currentLightMode);
+    }
+
+    async function startSession() {
+        const session_id = $("sessionId").value.trim();
+        const mode = $("sessionMode").value;
+        if (!session_id) return setGlobalStatus("请填写 Session ID", "error");
+
+        $("btnStartSession").disabled = true;
+        setGlobalStatus("正在初始化 Session…");
+
+        try {
+            const info = await api("/api/session/start", {
+                method: "POST",
+                body: JSON.stringify({
+                    session_id,
+                    mode,
+                    initial_light_mode: "normal_office_light",
+                }),
+            });
+            sessionReady = true;
+            currentLightMode = info.current_light_mode;
+            previewOverride = false;
+            setBackendOnline(true);
+            setGlobalStatus(`Session 就绪：${session_id}`, "ok");
+            await refreshAgentState();
+            if (pollTimer) clearInterval(pollTimer);
+            pollTimer = setInterval(refreshAgentState, 3000);
+        } catch (err) {
+            setBackendOnline(false);
+            setGlobalStatus(err.message, "error");
+        } finally {
+            $("btnStartSession").disabled = false;
+        }
+    }
+
+    async function refreshAgentState() {
+        if (!sessionReady) return;
+        const session_id = $("sessionId").value.trim();
+        try {
+            const state = await api(`/api/agent/current?session_id=${encodeURIComponent(session_id)}`);
+            updateAgentUI(state);
+            setBackendOnline(true);
+        } catch (err) {
+            setBackendOnline(false);
+            setGlobalStatus(err.message, "error");
+        }
+    }
+
+    function openStrategyPopup(strategy) {
+        pendingStrategy = strategy;
+        pendingAccepted = false;
+        $("popupMessage").textContent = strategy.message;
+        $("popupActionHint").textContent = ACTION_LABELS[strategy.recommended_action] || strategy.recommended_action;
+        $("popupStepAccept").style.display = "flex";
+        $("popupStepExecute").style.display = "none";
+        $("strategyOverlay").classList.add("open");
+    }
+
+    function closeStrategyPopup() {
+        $("strategyOverlay").classList.remove("open");
+        pendingStrategy = null;
+    }
+
+    function handleStrategyResponse(strategy) {
+        lastFeedbackStrategyId = strategy.strategy_id;
+        updateAgentUI({
+            current_light_mode: strategy.current_light_mode,
+            recent_emotion_stats: strategy.emotion_stats,
+            in_cooldown: strategy.in_cooldown,
+            cooldown_remaining_seconds: strategy.cooldown_remaining_seconds,
+            last_strategy: strategy,
+        });
+        if (strategy.trigger_popup) openStrategyPopup(strategy);
+        else setGlobalStatus(strategy.message || "已更新 Agent 状态", "ok");
+    }
+
+    async function submitModelEmotion(btn) {
+        if (!sessionReady) return setGlobalStatus("请先点击「开始实验」", "error");
+
+        const session_id = $("sessionId").value.trim();
+        const ui = EMOTION_UI[btn.dataset.label] || { emoji: "🙂" };
+
+        $("emotionText").textContent = btn.dataset.name;
+        $("emotionEmoji").textContent = ui.emoji;
+        $("emotionSub").textContent = `上报 · ${btn.dataset.label} · ${btn.dataset.score}`;
+
+        btn.disabled = true;
+        setGlobalStatus("上报情绪中…");
+
+        try {
+            const strategy = await api("/api/model/emotion", {
+                method: "POST",
+                body: JSON.stringify({
+                    session_id,
+                    timestamp: new Date().toISOString(),
+                    emotion_label: btn.dataset.label,
+                    emotion_score: Number(btn.dataset.score),
+                    confidence: 0.9,
+                    face_detected: true,
+                }),
+            });
+            handleStrategyResponse(strategy);
+            setGlobalStatus("情绪已上报", "ok");
+        } catch (err) {
+            setGlobalStatus(err.message, "error");
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    async function updateLightMode(light_mode, operator_note) {
+        const session_id = $("sessionId").value.trim();
+        await api("/api/agent/light-mode", {
+            method: "POST",
+            body: JSON.stringify({ session_id, light_mode, operator_note }),
+        });
+        currentLightMode = light_mode;
+        previewOverride = false;
+        applyLightModeVisual(light_mode);
+        await refreshAgentState();
+    }
+
+    async function submitFeedback(payload) {
+        await api("/api/feedback", { method: "POST", body: JSON.stringify(payload) });
+        $("feedbackPanel").classList.remove("open");
+        selectedFeedbackLabel = null;
+        document.querySelectorAll("#feedbackTags .btn-action").forEach((b) => b.classList.remove("active"));
+        $("feedbackScore").value = "";
+        $("feedbackComment").value = "";
+        setGlobalStatus("反馈已提交", "ok");
+    }
+
+    function setHeartRate(bpm) {
+        currentHeartRate = bpm;
+        heartDisplay.innerHTML = bpm + " <span>bpm</span>";
+        updateLightMetrics();
+    }
+
+    function setBrightnessLocal(value) {
+        currentBrightness = value / 100;
+        previewOverride = true;
+        brightnessVal.innerText = Math.floor(value) + "%";
+        applyLightModeVisual(currentLightMode);
+    }
+
+    function setTemperatureLocal(value) {
+        currentTemp = parseInt(value, 10);
+        previewOverride = true;
+        applyLightModeVisual(currentLightMode);
+    }
+
+    $("btnStartSession").addEventListener("click", startSession);
+    document.querySelectorAll(".emotion-btn").forEach((btn) => {
+        btn.addEventListener("click", () => submitModelEmotion(btn));
+    });
+
+    heartSlider.addEventListener("input", (e) => setHeartRate(parseInt(e.target.value, 10)));
+    brightnessSlider.addEventListener("input", (e) => setBrightnessLocal(parseInt(e.target.value, 10)));
+    tempSlider.addEventListener("input", (e) => setTemperatureLocal(parseInt(e.target.value, 10)));
+
+    $("btnAccept").addEventListener("click", () => {
+        pendingAccepted = true;
+        $("popupStepAccept").style.display = "none";
+        $("popupStepExecute").style.display = "flex";
+        setGlobalStatus("请实验员手动调节 cube 后确认", "ok");
+    });
+
+    $("btnReject").addEventListener("click", async () => {
+        if (!pendingStrategy) return closeStrategyPopup();
+        try {
+            await submitFeedback({
+                session_id: $("sessionId").value.trim(),
+                strategy_id: pendingStrategy.strategy_id,
+                accepted: false,
+                executed: false,
+                feedback_label: "no_change",
+            });
+            closeStrategyPopup();
+            setGlobalStatus("已记录：暂不接受建议", "ok");
+        } catch (err) {
+            setGlobalStatus(err.message, "error");
+        }
+    });
+
+    $("btnExecuted").addEventListener("click", async () => {
+        if (!pendingStrategy) return;
+        const target = TARGET_LIGHT_MODE[pendingStrategy.recommended_action];
+        if (!target) {
+            closeStrategyPopup();
+            return setGlobalStatus("当前建议无需切换光模式", "ok");
+        }
+        try {
+            await updateLightMode(target, `V2 确认：${ACTION_LABELS[pendingStrategy.recommended_action]}`);
+            lastFeedbackStrategyId = pendingStrategy.strategy_id;
+            closeStrategyPopup();
+            $("feedbackPanel").classList.add("open");
+            setGlobalStatus("光模式已同步，请提交主观反馈", "ok");
+        } catch (err) {
+            setGlobalStatus(err.message, "error");
+        }
+    });
+
+    document.querySelectorAll("#feedbackTags .btn-action").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            selectedFeedbackLabel = btn.dataset.label;
+            document.querySelectorAll("#feedbackTags .btn-action").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+
+    $("btnSubmitFeedback").addEventListener("click", async () => {
+        if (!lastFeedbackStrategyId) return setGlobalStatus("请先完成情绪上报与光模式切换", "error");
+        if (!selectedFeedbackLabel) return setGlobalStatus("请选择反馈标签", "error");
+        const scoreRaw = $("feedbackScore").value.trim();
+        const feedback_score = scoreRaw ? Number(scoreRaw) : null;
+        if (scoreRaw && (feedback_score < 1 || feedback_score > 5)) {
+            return setGlobalStatus("评分需在 1–5", "error");
+        }
+        try {
+            await submitFeedback({
+                session_id: $("sessionId").value.trim(),
+                strategy_id: lastFeedbackStrategyId,
+                accepted: pendingAccepted,
+                executed: true,
+                feedback_label: selectedFeedbackLabel,
+                feedback_score,
+                comment: $("feedbackComment").value.trim() || null,
+            });
+        } catch (err) {
+            setGlobalStatus(err.message, "error");
+        }
+    });
+
+    setHeartRate(87);
+    applyLightModeVisual("normal_office_light");
+})();
+
+</script>
+</body>
+</html>

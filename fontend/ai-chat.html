@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LumiMind · 医学健康智能问答</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(160deg, #F0F4F8 0%, #E8EEF4 50%, #F7FAFC 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
+        }
+
+        /* ── 主容器 ── */
+        .dashboard {
+            max-width: 1400px;
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 2rem;
+            box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(148, 163, 184, 0.25);
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            max-height: 900px;
+            overflow: hidden;
+        }
+
+        /* ── 顶部导航栏 ── */
+        .header {
+            flex-shrink: 0;
+            padding: 1.2rem 1.8rem 0.75rem 1.8rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+        .nav-logo { font-size: 1.5rem; line-height: 1; }
+        .nav-title {
+            font-size: 1.2rem; font-weight: 700;
+            background: linear-gradient(135deg, #0F766E 0%, #0891B2 100%);
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; letter-spacing: -0.3px; white-space: nowrap;
+        }
+        .nav-links { display: flex; gap: 0.25rem; align-items: center; flex-shrink: 0; }
+        .nav-link {
+            padding: 0.4rem 0.8rem; border-radius: 0.6rem; text-decoration: none;
+            font-size: 0.82rem; font-weight: 500; color: #475569;
+            transition: all 0.2s; border: 1px solid transparent;
+            white-space: nowrap; cursor: pointer; background: none; font-family: inherit;
+        }
+        .nav-link:hover { background: #F0FDFA; color: #0F766E; border-color: #99F6E4; }
+        .nav-link.active { background: #F0FDFA; color: #0F766E; border-color: #14B8A6; font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+        .nav-user {
+            display: flex; align-items: center; gap: 0.35rem;
+            padding: 0.3rem 0.65rem; border-radius: 0.6rem;
+            background: #F8FAFC; border: 1px solid #E2E8F0; cursor: pointer;
+        }
+        .user-avatar { font-size: 1.1rem; line-height: 1; }
+        .user-name {
+            font-size: 0.8rem; font-weight: 500; color: #334155;
+            max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .badge {
+            background: #F0FDFA; padding: 0.28rem 0.75rem; border-radius: 40px;
+            font-size: 0.7rem; font-weight: 500; border: 1px solid #99F6E4;
+            color: #0F766E; white-space: nowrap;
+        }
+        .sub {
+            font-size: 0.78rem; color: #64748B; margin-top: 0.35rem; letter-spacing: 0.3px;
+        }
+
+        /* ── 主体区域：侧边栏 + 聊天 ── */
+        .main-layout {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        /* ── 左侧边栏 ── */
+        .sidebar {
+            width: 270px;
+            flex-shrink: 0;
+            background: #F8FAFC;
+            border-right: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: width 0.25s ease, padding 0.25s ease;
+        }
+        .sidebar.collapsed {
+            width: 0;
+            border-right: none;
+            overflow: hidden;
+            padding: 0;
+        }
+        .sidebar-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 1rem 0.9rem;
+            gap: 0.7rem;
+            overflow: hidden;
+        }
+
+        .btn-new-chat {
+            display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+            padding: 0.6rem 1rem; border-radius: 0.7rem;
+            border: 1px solid #14B8A6; background: #F0FDFA; color: #0F766E;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer;
+            font-family: inherit; transition: all 0.2s; flex-shrink: 0;
+        }
+        .btn-new-chat:hover { background: #14B8A6; color: #fff; }
+
+        .sidebar-section-title {
+            font-size: 0.7rem; font-weight: 600; color: #94A3B8;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: 0.3rem 0.3rem 0.2rem 0.3rem; flex-shrink: 0;
+        }
+
+        /* 对话历史列表 */
+        .history-list {
+            flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0.2rem;
+            min-height: 0;
+        }
+        .history-list::-webkit-scrollbar { width: 4px; }
+        .history-list::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+
+        .history-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.5rem 0.6rem; border-radius: 0.5rem; cursor: pointer;
+            font-size: 0.8rem; color: #475569; transition: all 0.15s;
+            gap: 0.3rem; border: 1px solid transparent;
+        }
+        .history-item:hover { background: #E2E8F0; }
+        .history-item.active { background: #E0F2FE; border-color: #BAE6FD; color: #0369A1; font-weight: 500; }
+        .history-item-title {
+            flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            min-width: 0;
+        }
+        .history-item-del {
+            opacity: 0; font-size: 0.9rem; color: #94A3B8; cursor: pointer;
+            padding: 2px; border-radius: 4px; flex-shrink: 0;
+            transition: opacity 0.15s, color 0.15s; line-height: 1;
+        }
+        .history-item:hover .history-item-del { opacity: 1; }
+        .history-item-del:hover { color: #DC2626; background: #FEF2F2; }
+
+        .history-empty {
+            font-size: 0.75rem; color: #94A3B8; text-align: center; padding: 1rem 0;
+        }
+
+        /* 侧边栏底部快捷区 */
+        .sidebar-footer {
+            flex-shrink: 0; display: flex; flex-direction: column; gap: 0.3rem;
+            border-top: 1px solid #E2E8F0; padding-top: 0.6rem;
+        }
+        .sidebar-quick-link {
+            display: flex; align-items: center; gap: 0.45rem;
+            padding: 0.45rem 0.6rem; border-radius: 0.5rem;
+            font-size: 0.78rem; color: #64748B; cursor: pointer;
+            text-decoration: none; transition: all 0.15s; border: 1px solid transparent;
+            background: none; font-family: inherit; width: 100%; text-align: left;
+        }
+        .sidebar-quick-link:hover { background: #E2E8F0; color: #334155; }
+        .sidebar-quick-link .q-icon { font-size: 0.95rem; width: 20px; text-align: center; }
+
+        /* ── 聊天区域 ── */
+        .chat-area {
+            flex: 1; display: flex; flex-direction: column; min-width: 0;
+            background: #FFFFFF;
+        }
+
+        /* 侧边栏切换按钮 */
+        .sidebar-toggle {
+            display: none; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border-radius: 0.5rem;
+            border: 1px solid #CBD5E1; background: #FFFFFF;
+            font-size: 1rem; cursor: pointer; flex-shrink: 0;
+            color: #475569; transition: all 0.15s;
+        }
+        .sidebar-toggle:hover { background: #F1F5F9; border-color: #94A3B8; }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto;
+            padding: 1.2rem 2rem 0.5rem 2rem;
+            display: flex; flex-direction: column; gap: 1rem;
+            scroll-behavior: smooth;
+        }
+        .chat-messages::-webkit-scrollbar { width: 5px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+
+        /* 欢迎提示 */
+        .chat-welcome {
+            text-align: center; padding: 2rem 1rem; color: #94A3B8;
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.8rem;
+        }
+        .chat-welcome .welcome-icon { font-size: 3rem; opacity: 0.6; }
+        .chat-welcome .welcome-title { font-size: 1.2rem; font-weight: 600; color: #64748B; }
+        .chat-welcome .welcome-hint { font-size: 0.85rem; max-width: 400px; line-height: 1.5; }
+        .quick-questions {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            justify-content: center; margin-top: 0.5rem;
+        }
+        .quick-btn {
+            padding: 0.45rem 0.9rem; border-radius: 20px;
+            border: 1px solid #CBD5E1; background: #FFFFFF;
+            color: #475569; font-size: 0.78rem; cursor: pointer;
+            transition: all 0.2s; font-family: inherit;
+        }
+        .quick-btn:hover { border-color: #14B8A6; background: #F0FDFA; color: #0F766E; }
+
+        /* 消息气泡 */
+        .message {
+            display: flex; gap: 0.7rem; max-width: 82%;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .message.user { align-self: flex-end; flex-direction: row-reverse; }
+        .message.assistant { align-self: flex-start; }
+        .msg-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.95rem; flex-shrink: 0;
+        }
+        .message.user .msg-avatar { background: #E0F2FE; }
+        .message.assistant .msg-avatar { background: #F0FDFA; }
+        .msg-bubble {
+            padding: 0.7rem 0.95rem; border-radius: 1rem;
+            font-size: 0.88rem; line-height: 1.55;
+            word-break: break-word; white-space: pre-wrap;
+        }
+        .message.user .msg-bubble {
+            background: #0F766E; color: #FFFFFF;
+            border-bottom-right-radius: 0.3rem;
+        }
+        .message.assistant .msg-bubble {
+            background: #F1F5F9; color: #1E293B;
+            border: 1px solid #E2E8F0; border-bottom-left-radius: 0.3rem;
+        }
+        /* ── Markdown 渲染样式 ── */
+        .msg-bubble.md-content { white-space: normal; }
+        .msg-bubble.md-content h1, .msg-bubble.md-content h2, .msg-bubble.md-content h3,
+        .msg-bubble.md-content h4, .msg-bubble.md-content h5, .msg-bubble.md-content h6 {
+            margin: 0.6em 0 0.3em 0; font-weight: 600; line-height: 1.3;
+        }
+        .msg-bubble.md-content h1 { font-size: 1.15em; }
+        .msg-bubble.md-content h2 { font-size: 1.08em; }
+        .msg-bubble.md-content h3 { font-size: 1.02em; }
+        .msg-bubble.md-content p { margin: 0.35em 0; }
+        .msg-bubble.md-content p:first-child { margin-top: 0; }
+        .msg-bubble.md-content p:last-child { margin-bottom: 0; }
+        .msg-bubble.md-content ul, .msg-bubble.md-content ol {
+            margin: 0.3em 0; padding-left: 1.4em;
+        }
+        .msg-bubble.md-content li { margin: 0.15em 0; }
+        .msg-bubble.md-content code {
+            background: rgba(0,0,0,0.06); padding: 0.15em 0.4em;
+            border-radius: 0.3em; font-size: 0.85em;
+            font-family: 'SF Mono','JetBrains Mono','Fira Code',monospace;
+        }
+        .msg-bubble.md-content pre {
+            background: #1E293B; color: #E2E8F0; padding: 0.7em 0.9em;
+            border-radius: 0.5em; overflow-x: auto; margin: 0.4em 0;
+            font-size: 0.82em; line-height: 1.5;
+        }
+        .msg-bubble.md-content pre code {
+            background: none; padding: 0; color: inherit; font-size: inherit;
+        }
+        .msg-bubble.md-content blockquote {
+            border-left: 3px solid #14B8A6; margin: 0.4em 0;
+            padding: 0.2em 0.7em; color: #475569; background: rgba(20,184,166,0.05);
+            border-radius: 0 0.3em 0.3em 0;
+        }
+        .msg-bubble.md-content table {
+            border-collapse: collapse; margin: 0.4em 0; width: 100%;
+            font-size: 0.85em;
+        }
+        .msg-bubble.md-content th, .msg-bubble.md-content td {
+            border: 1px solid #CBD5E1; padding: 0.3em 0.6em; text-align: left;
+        }
+        .msg-bubble.md-content th { background: #E2E8F0; font-weight: 600; }
+        .msg-bubble.md-content tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+        .msg-bubble.md-content hr {
+            border: none; border-top: 1px solid #CBD5E1; margin: 0.5em 0;
+        }
+        .msg-bubble.md-content a { color: #0F766E; text-decoration: underline; }
+        .msg-bubble.md-content strong { font-weight: 600; }
+        .msg-bubble.md-content em { font-style: italic; }
+        .msg-time {
+            font-size: 0.66rem; color: #94A3B8;
+            margin-top: 0.15rem; padding: 0 0.6rem;
+        }
+        .message.user .msg-time { text-align: right; }
+
+        /* 打字指示器 */
+        .typing-indicator {
+            display: flex; align-items: center; gap: 0.7rem;
+            padding: 0.3rem 0.6rem; align-self: flex-start;
+        }
+        .typing-dots {
+            display: flex; gap: 4px; padding: 0.55rem 0.9rem;
+            background: #F1F5F9; border-radius: 1rem; border: 1px solid #E2E8F0;
+        }
+        .typing-dots span {
+            width: 7px; height: 7px; background: #94A3B8;
+            border-radius: 50%; animation: typingBounce 1.4s infinite ease-in-out;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+        .message.error .msg-bubble { background: #FEF2F2; color: #DC2626; border-color: #FECACA; }
+
+        /* 引用来源样式 */
+        .citations-box {
+            margin-top: 0.5rem; padding: 0.5rem 0.7rem;
+            background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 0.6rem;
+            font-size: 0.75rem; color: #64748B;
+        }
+        .citations-title {
+            font-weight: 600; color: #475569; margin-bottom: 0.3rem;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .citation-item {
+            padding: 0.3rem 0; border-bottom: 1px dashed #E2E8F0;
+        }
+        .citation-item:last-child { border-bottom: none; }
+        .citation-source {
+            font-weight: 500; color: #0F766E;
+        }
+        .citation-excerpt {
+            color: #64748B; margin-top: 0.15rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .citation-score {
+            float: right; font-size: 0.7rem; color: #94A3B8;
+        }
+
+        /* ── 输入区域 ── */
+        .chat-input-wrapper {
+            flex-shrink: 0; padding: 0.8rem 1.5rem 1rem 1.5rem;
+            border-top: 1px solid #E2E8F0; background: #FFFFFF;
+        }
+        .chat-input-area {
+            display: flex; gap: 0.6rem; align-items: flex-end;
+        }
+        .chat-input-area textarea {
+            flex: 1; resize: none;
+            padding: 0.65rem 0.9rem; border-radius: 1rem;
+            border: 1px solid #CBD5E1; background: #FAFBFC;
+            font-family: inherit; font-size: 0.88rem; color: #1E293B;
+            line-height: 1.5; outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            min-height: 42px; max-height: 130px;
+        }
+        .chat-input-area textarea:focus {
+            border-color: #14B8A6;
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
+        }
+        .chat-input-area textarea::placeholder { color: #94A3B8; }
+        .send-btn {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: none; background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+            color: #FFFFFF; font-size: 1.1rem; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(15, 118, 110, 0.25);
+        }
+        .send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35); }
+        .send-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+        .send-btn svg { width: 17px; height: 17px; }
+
+        /* 状态栏 */
+        .chat-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.3rem 1.5rem 0 1.5rem; flex-shrink: 0;
+        }
+        .model-badge {
+            font-size: 0.7rem; color: #64748B; background: #F1F5F9;
+            padding: 0.18rem 0.6rem; border-radius: 20px; border: 1px solid #E2E8F0;
+        }
+        .status-led {
+            display: flex; align-items: center; gap: 5px;
+            font-size: 0.7rem; color: #64748B;
+        }
+        .led-green {
+            width: 8px; height: 8px; background: #2ECC71; border-radius: 50%;
+            box-shadow: 0 0 6px #2ECC71; animation: pulse 1.8s infinite;
+        }
+        .led-offline { background: #E74C3C; box-shadow: 0 0 6px #E74C3C; animation: none; }
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ── 响应式 ── */
+        @media (max-width: 900px) {
+            body { padding: 0.3rem; }
+            .dashboard { border-radius: 1rem; height: 98vh; max-height: none; }
+            .header { padding: 0.7rem 0.8rem 0.5rem 0.8rem; }
+            .nav-bar { flex-wrap: wrap; gap: 0.4rem; }
+            .nav-links { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
+            .nav-link { font-size: 0.74rem; padding: 0.3rem 0.55rem; }
+            .sidebar {
+                position: absolute; z-index: 100; height: calc(100% - 100px);
+                border-radius: 0 1rem 1rem 0; box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                width: 260px;
+            }
+            .sidebar.collapsed { width: 0; }
+            .sidebar-toggle { display: flex; }
+            .chat-messages { padding: 0.8rem 0.8rem 0.3rem 0.8rem; }
+            .chat-input-wrapper { padding: 0.6rem 0.8rem 0.7rem 0.8rem; }
+            .chat-footer { padding: 0 0.8rem 0 0.8rem; }
+            .message { max-width: 92%; }
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <!-- 导航栏 -->
+    <div class="header">
+        <div class="nav-bar">
+            <div style="display:flex;align-items:center;gap:0.6rem;flex-shrink:0;">
+                <button class="sidebar-toggle" id="sidebarToggle" title="展开/收起侧边栏">☰</button>
+                <div class="nav-brand">
+                    <span class="nav-logo">💡</span>
+                    <span class="nav-title">Lumimind</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="/page/home" class="nav-link">🏠 首页</a>
+                <a href="/page/monitor" class="nav-link">📊 数据监测</a>
+                <a href="/page/chat" class="nav-link active">💬 AI问答</a>
+                <a href="/page/settings" class="nav-link">⚙️ 设置</a>
+            </nav>
+            <div class="nav-right">
+                <div class="nav-user" id="userDisplay" title="点击切换用户">
+                    <span class="user-avatar">👤</span>
+                    <span class="user-name" id="displayUserName">实验员</span>
+                </div>
+                <div class="badge">AI 助手在线</div>
+            </div>
+        </div>
+        <div class="sub">基于 RAG 知识库 · 光环境与人体健康智慧问答</div>
+    </div>
+
+    <!-- 主体：侧边栏 + 聊天区 -->
+    <div class="main-layout">
+        <!-- 左侧边栏 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <button class="btn-new-chat" id="btnNewChat">＋ 新对话</button>
+
+                <div class="sidebar-section-title">📝 对话历史</div>
+                <div class="history-list" id="historyList">
+                    <div class="history-empty" id="historyEmpty">暂无对话记录</div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <div class="sidebar-section-title">🔧 快捷功能</div>
+                    <button class="sidebar-quick-link" onclick="document.getElementById('chatInput').value='请帮我分析当前的光环境参数';document.getElementById('chatInput').focus();">
+                        <span class="q-icon">📊</span> 分析光环境参数
+                    </button>
+                    <button class="sidebar-quick-link" onclick="document.getElementById('chatInput').value='推荐一个适合我当前情绪状态的光照方案';document.getElementById('chatInput').focus();">
+                        <span class="q-icon">💡</span> 推荐光照方案
+                    </button>
+                    <a href="/page/settings" class="sidebar-quick-link">
+                        <span class="q-icon">⚙️</span> 系统设置
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧聊天区 -->
+        <div class="chat-area">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-welcome" id="chatWelcome">
+                    <div class="welcome-icon">🏥</div>
+                    <div class="welcome-title">欢迎使用 LumiMind 医学健康智能问答</div>
+                    <div class="welcome-hint">
+                        我是您的医学健康智能助手，专注于光环境与人体健康的关系咨询。我可以为您解答光照调节、情绪管理、睡眠健康、昼夜节律等相关问题。
+                    </div>
+                    <div class="quick-questions">
+                        <button class="quick-btn" data-question="光照对睡眠质量有什么影响？">光照与睡眠</button>
+                        <button class="quick-btn" data-question="什么样的光线可以帮助缓解焦虑？">缓解焦虑的光线</button>
+                        <button class="quick-btn" data-question="什么是黑视素等效照度(mEDI)？">什么是mEDI？</button>
+                        <button class="quick-btn" data-question="如何通过光照改善昼夜节律？">改善昼夜节律</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 输入区 -->
+            <div class="chat-input-wrapper">
+                <div class="chat-input-area">
+                    <textarea id="chatInput" placeholder="输入您的问题，按 Enter 发送，Shift+Enter 换行…" rows="1"></textarea>
+                    <button class="send-btn" id="sendBtn" title="发送消息">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 状态栏 -->
+            <div class="chat-footer">
+                <span class="model-badge" id="modelBadge">🤖 模型: 自动检测</span>
+                <div class="status-led">
+                    <div class="led-green" id="statusLed"></div>
+                    <span id="backendStatusText">等待连接</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
+    const $ = (id) => document.getElementById(id);
+
+    // ── DOM 引用 ──
+    const chatMessages = $("chatMessages");
+    const chatWelcome = $("chatWelcome");
+    const chatInput = $("chatInput");
+    const sendBtn = $("sendBtn");
+    const modelBadge = $("modelBadge");
+    const statusLed = $("statusLed");
+    const backendStatusText = $("backendStatusText");
+    const displayUserName = $("displayUserName");
+    const historyList = $("historyList");
+    const historyEmpty = $("historyEmpty");
+    const sidebar = $("sidebar");
+    const sidebarToggle = $("sidebarToggle");
+
+    // ── 状态 ──
+    let conversationHistory = [];
+    let isWaiting = false;
+    let hasSentMessage = false;
+    let currentConvId = null;
+
+    // ── 对话管理（localStorage 持久化） ──
+    const STORAGE_KEY = "lumimind_conversations";
+
+    function loadConversations() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
+        catch { return []; }
+    }
+    function saveConversations(convs) {
+        // 只保留最近 50 条对话
+        if (convs.length > 50) convs = convs.slice(-50);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(convs));
+    }
+
+    function createConversation(title) {
+        const conv = {
+            id: "conv_" + Date.now(),
+            title: title || "新对话",
+            messages: [],
+            createdAt: new Date().toISOString(),
+        };
+        const convs = loadConversations();
+        convs.push(conv);
+        saveConversations(convs);
+        return conv;
+    }
+
+    function updateConversation(convId, updates) {
+        const convs = loadConversations();
+        const idx = convs.findIndex(c => c.id === convId);
+        if (idx === -1) return;
+        convs[idx] = { ...convs[idx], ...updates };
+        saveConversations(convs);
+    }
+
+    function deleteConversation(convId) {
+        let convs = loadConversations();
+        convs = convs.filter(c => c.id !== convId);
+        saveConversations(convs);
+    }
+
+    // ── 侧边栏历史列表 ──
+    function renderHistoryList() {
+        const convs = loadConversations();
+        historyList.innerHTML = "";
+
+        if (convs.length === 0) {
+            historyList.innerHTML = '<div class="history-empty">暂无对话记录</div>';
+            return;
+        }
+
+        // 最新的在前
+        const sorted = [...convs].reverse();
+        sorted.forEach(conv => {
+            const item = document.createElement("div");
+            item.className = "history-item" + (conv.id === currentConvId ? " active" : "");
+            item.dataset.convId = conv.id;
+
+            const title = document.createElement("span");
+            title.className = "history-item-title";
+            title.textContent = conv.title;
+            title.title = conv.title;
+
+            const del = document.createElement("span");
+            del.className = "history-item-del";
+            del.textContent = "✕";
+            del.title = "删除此对话";
+            del.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (confirm("确定删除此对话？")) {
+                    deleteConversation(conv.id);
+                    if (currentConvId === conv.id) {
+                        startNewConversation();
+                    }
+                    renderHistoryList();
+                }
+            });
+
+            item.appendChild(title);
+            item.appendChild(del);
+
+            item.addEventListener("click", () => switchConversation(conv.id));
+            historyList.appendChild(item);
+        });
+    }
+
+    // ── 切换对话 ──
+    function switchConversation(convId) {
+        // 保存当前对话
+        if (currentConvId && conversationHistory.length > 0) {
+            updateConversation(currentConvId, {
+                messages: [...conversationHistory],
+                title: getConversationTitle(),
+            });
+        }
+
+        const convs = loadConversations();
+        const conv = convs.find(c => c.id === convId);
+        if (!conv) return;
+
+        currentConvId = conv.id;
+        conversationHistory = [...(conv.messages || [])];
+        hasSentMessage = conversationHistory.length > 0;
+
+        // 重绘聊天区
+        chatMessages.innerHTML = "";
+        if (conversationHistory.length === 0) {
+            chatMessages.innerHTML = `
+                <div class="chat-welcome" id="chatWelcome">
+                    <div class="welcome-icon">💬</div>
+                    <div class="welcome-title">欢迎使用 Lumimind AI 智慧问答</div>
+                    <div class="welcome-hint">我是您的光环境智能助手，可以为您解答光照调节、情绪管理、光疗方案等相关问题。</div>
+                    <div class="quick-questions">
+                        <button class="quick-btn" data-question="什么样的光线可以帮助缓解焦虑？">缓解焦虑的光线？</button>
+                        <button class="quick-btn" data-question="如何设计一个适合阅读的光环境？">适合阅读的光环境</button>
+                        <button class="quick-btn" data-question="光照对睡眠质量有什么影响？">光照对睡眠的影响</button>
+                        <button class="quick-btn" data-question="什么是黑视素等效照度(mEDI)？">什么是mEDI？</button>
+                    </div>
+                </div>`;
+            rebindQuickButtons();
+        } else {
+            conversationHistory.forEach(msg => {
+                addMessage(msg.role, msg.content, false, false);
+            });
+            scrollToBottom();
+        }
+
+        renderHistoryList();
+        chatInput.focus();
+    }
+
+    function getConversationTitle() {
+        const userMsg = conversationHistory.find(m => m.role === "user");
+        if (userMsg) {
+            const t = userMsg.content.substring(0, 30);
+            return t.length < userMsg.content.length ? t + "…" : t;
+        }
+        return "新对话";
+    }
+
+    function startNewConversation() {
+        if (currentConvId && conversationHistory.length > 0) {
+            updateConversation(currentConvId, {
+                messages: [...conversationHistory],
+                title: getConversationTitle(),
+            });
+        }
+        const conv = createConversation("新对话");
+        currentConvId = conv.id;
+        conversationHistory = [];
+        hasSentMessage = false;
+        chatMessages.innerHTML = `
+            <div class="chat-welcome" id="chatWelcome">
+                <div class="welcome-icon">💬</div>
+                <div class="welcome-title">欢迎使用 Lumimind AI 智慧问答</div>
+                <div class="welcome-hint">我是您的光环境智能助手，可以为您解答光照调节、情绪管理、光疗方案等相关问题。</div>
+                <div class="quick-questions">
+                    <button class="quick-btn" data-question="什么样的光线可以帮助缓解焦虑？">缓解焦虑的光线？</button>
+                    <button class="quick-btn" data-question="如何设计一个适合阅读的光环境？">适合阅读的光环境</button>
+                    <button class="quick-btn" data-question="光照对睡眠质量有什么影响？">光照对睡眠的影响</button>
+                    <button class="quick-btn" data-question="什么是黑视素等效照度(mEDI)？">什么是mEDI？</button>
+                </div>
+            </div>`;
+        rebindQuickButtons();
+        renderHistoryList();
+        chatInput.focus();
+    }
+
+    // ── 侧边栏切换 ──
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        sidebarToggle.textContent = sidebar.classList.contains("collapsed") ? "☰" : "✕";
+    });
+
+    // ── 用户名称 ──
+    const savedName = localStorage.getItem("lumimind_username") || "实验员";
+    displayUserName.textContent = savedName;
+    $("userDisplay").addEventListener("click", () => {
+        const newName = prompt("请输入您的名称:", savedName);
+        if (newName && newName.trim()) {
+            const name = newName.trim().substring(0, 20);
+            localStorage.setItem("lumimind_username", name);
+            displayUserName.textContent = name;
+        }
+    });
+
+    // ── 格式化时间 ──
+    function formatTime() {
+        const now = new Date();
+        return now.getHours().toString().padStart(2, "0") + ":" +
+               now.getMinutes().toString().padStart(2, "0");
+    }
+
+    // ── 轻量 Markdown 渲染器（无外部依赖）──
+    function renderMarkdown(text) {
+        if (!text) return '';
+        let html = text;
+
+        // 转义 HTML 特殊字符（防止 XSS）
+        html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        // 代码块 ```code```
+        html = html.replace(/```([\s\S]*?)```/g, function(_, code) {
+            return '<pre><code>' + code.trim() + '</code></pre>';
+        });
+
+        // 行内代码 `code`
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+        // 标题 ### (支持 h1-h6)
+        html = html.replace(/^######\s+(.+)$/gm, '<h6>$1</h6>');
+        html = html.replace(/^#####\s+(.+)$/gm, '<h5>$1</h5>');
+        html = html.replace(/^####\s+(.+)$/gm, '<h4>$1</h4>');
+        html = html.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/^##\s+(.+)$/gm, '<h2>$1</h2>');
+        html = html.replace(/^#\s+(.+)$/gm, '<h1>$1</h1>');
+
+        // 粗体 **text** 或 __text__
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
+
+        // 斜体 *text* 或 _text_
+        html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        html = html.replace(/_(.+?)_/g, '<em>$1</em>');
+
+        // 删除线 ~~text~~
+        html = html.replace(/~~(.+?)~~/g, '<del>$1</del>');
+
+        // 引用 > text
+        html = html.replace(/^&gt;\s+(.+)$/gm, '<blockquote>$1</blockquote>');
+
+        // 无序列表 - item 或 * item
+        html = html.replace(/^[\-\*]\s+(.+)$/gm, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>\n?)+/g, function(match) {
+            return '<ul>' + match + '</ul>';
+        });
+
+        // 有序列表 1. item
+        html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+
+        // 链接 [text](url)
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+
+        // 分隔线 ---
+        html = html.replace(/^---$/gm, '<hr>');
+
+        // 表格处理（简单支持）
+        html = html.replace(/^(\|.+)\|$/gm, function(line) {
+            const cells = line.split('|').filter(c => c.trim());
+            if (cells.every(c => /^[\s\-:]+$/.test(c))) return ''; // 分隔行跳过
+            const tag = 'td';
+            const row = cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('');
+            return `<tr>${row}</tr>`;
+        });
+        html = html.replace(/(<tr>.*<\/tr>\n?)+/g, function(match) {
+            return '<table>' + match + '</table>';
+        });
+
+        // 段落：将连续的非空行包裹为 <p>
+        const lines = html.split('\n');
+        let result = '';
+        let inParagraph = false;
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            const isBlock = /^<(h[1-6]|pre|ul|ol|li|blockquote|table|tr|hr|div)/.test(line) || /<\/(pre|ul|ol|table|blockquote)>$/.test(line);
+            if (line === '') {
+                if (inParagraph) { result += '</p>'; inParagraph = false; }
+                continue;
+            }
+            if (isBlock) {
+                if (inParagraph) { result += '</p>'; inParagraph = false; }
+                result += line;
+            } else {
+                if (!inParagraph) { result += '<p>'; inParagraph = true; }
+                else { result += '<br>'; }
+                result += line;
+            }
+        }
+        if (inParagraph) result += '</p>';
+
+        return result;
+    }
+
+    // ── 渲染消息 ──
+    function addMessage(role, content, isError, saveToHistory) {
+        if (saveToHistory !== false) {
+            if (role === "user") {
+                hasSentMessage = true;
+                // 移除欢迎页
+                const welcome = chatMessages.querySelector(".chat-welcome");
+                if (welcome) welcome.remove();
+            }
+        }
+
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "message " + role + (isError ? " error" : "");
+
+        const avatar = document.createElement("div");
+        avatar.className = "msg-avatar";
+        avatar.textContent = role === "user" ? "👤" : "🤖";
+
+        const bubbleWrap = document.createElement("div");
+        const bubble = document.createElement("div");
+        bubble.className = "msg-bubble";
+        // assistant 消息渲染 Markdown，user 消息保持纯文本
+        if (role === "assistant") {
+            bubble.classList.add("md-content");
+            bubble.innerHTML = renderMarkdown(content);
+        } else {
+            bubble.textContent = content;
+        }
+
+        const time = document.createElement("div");
+        time.className = "msg-time";
+        time.textContent = formatTime();
+
+        bubbleWrap.appendChild(bubble);
+        bubbleWrap.appendChild(time);
+        msgDiv.appendChild(avatar);
+        msgDiv.appendChild(bubbleWrap);
+
+        chatMessages.appendChild(msgDiv);
+        if (saveToHistory !== false) scrollToBottom();
+        return msgDiv;
+    }
+
+    // ── 渲染消息 + 引用来源 ──
+    function addMessageWithCitations(role, content, citations, knowledgeUsed) {
+        const msgDiv = addMessage(role, content, false, true);
+        
+        // 如果有引用来源，添加引用框
+        if (citations && citations.length > 0 && knowledgeUsed) {
+            const bubbleWrap = msgDiv.querySelector(".msg-bubble").parentNode;
+            
+            const citationsBox = document.createElement("div");
+            citationsBox.className = "citations-box";
+            
+            const title = document.createElement("div");
+            title.className = "citations-title";
+            title.innerHTML = "📚 引用来源 <span style='font-weight:normal;color:#94A3B8'>(${citations.length})</span>";
+            citationsBox.appendChild(title);
+            
+            citations.forEach((cite, idx) => {
+                const item = document.createElement("div");
+                item.className = "citation-item";
+                
+                const source = document.createElement("span");
+                source.className = "citation-source";
+                source.textContent = `[来源${cite.index}] ${cite.source}`;
+                
+                const score = document.createElement("span");
+                score.className = "citation-score";
+                score.textContent = `相关度 ${(cite.relevance * 100).toFixed(0)}%`;
+                
+                const excerpt = document.createElement("div");
+                excerpt.className = "citation-excerpt";
+                excerpt.textContent = cite.excerpt;
+                
+                item.appendChild(source);
+                item.appendChild(score);
+                item.appendChild(excerpt);
+                citationsBox.appendChild(item);
+            });
+            
+            bubbleWrap.appendChild(citationsBox);
+        }
+        
+        scrollToBottom();
+        return msgDiv;
+    }
+
+    // ── 打字指示器 ──
+    function showTyping() {
+        const typingDiv = document.createElement("div");
+        typingDiv.className = "typing-indicator";
+        typingDiv.id = "typingIndicator";
+        const avatar = document.createElement("div");
+        avatar.className = "msg-avatar";
+        avatar.style.background = "#F0FDFA";
+        avatar.textContent = "🤖";
+        const dots = document.createElement("div");
+        dots.className = "typing-dots";
+        dots.innerHTML = "<span></span><span></span><span></span>";
+        typingDiv.appendChild(avatar);
+        typingDiv.appendChild(dots);
+        chatMessages.appendChild(typingDiv);
+        scrollToBottom();
+    }
+    function hideTyping() {
+        const el = document.getElementById("typingIndicator");
+        if (el) el.remove();
+    }
+    function scrollToBottom() {
+        setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 50);
+    }
+
+    // ── 后端状态 ──
+    function setBackendOnline(online, modelName) {
+        statusLed.classList.toggle("led-offline", !online);
+        backendStatusText.textContent = online ? "后端已连接" : "后端未连接";
+        if (modelName) modelBadge.textContent = "🤖 模型: " + modelName;
+        else if (online) modelBadge.textContent = "🤖 模型: 云端可用";
+        else modelBadge.textContent = "🤖 模型: 离线模式";
+    }
+
+    // ── API 调用 ──
+    async function sendChatMessage(message) {
+        if (isWaiting) return;
+        isWaiting = true;
+        sendBtn.disabled = true;
+        chatInput.disabled = true;
+
+        // 懒初始化对话
+        if (!currentConvId) {
+            const conv = createConversation(message.substring(0, 30));
+            currentConvId = conv.id;
+        }
+
+        addMessage("user", message);
+        conversationHistory.push({ role: "user", content: message });
+
+        showTyping();
+        setBackendOnline(true);
+
+        try {
+            const response = await fetch(`${API_BASE}/api/chat`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    messages: conversationHistory,
+                    // 系统提示词由后端默认提供，前端可不传或自定义
+                }),
+            });
+            hideTyping();
+
+            if (!response.ok) {
+                const errText = await response.text();
+                let errMsg = `请求失败 (${response.status})`;
+                try { const d = JSON.parse(errText); errMsg = d.detail || errMsg; } catch {}
+                throw new Error(errMsg);
+            }
+
+            const data = await response.json();
+            const reply = data.reply || "AI 返回了空回复，请稍后重试。";
+            if (data.model) modelBadge.textContent = "🤖 模型: " + data.model;
+
+            // 渲染回答 + 引用来源
+            addMessageWithCitations("assistant", reply, data.citations, data.knowledge_used);
+            conversationHistory.push({ role: "assistant", content: reply });
+            setBackendOnline(true, data.model || null);
+
+            // 更新 localStorage 中的对话
+            updateConversation(currentConvId, {
+                messages: [...conversationHistory],
+                title: getConversationTitle(),
+            });
+            renderHistoryList();
+
+        } catch (err) {
+            hideTyping();
+            setBackendOnline(false);
+            conversationHistory.pop();
+            const mockReply = generateMockReply(message);
+            addMessage("assistant", mockReply);
+            conversationHistory.push({ role: "assistant", content: mockReply });
+            updateConversation(currentConvId, {
+                messages: [...conversationHistory],
+                title: getConversationTitle(),
+            });
+            renderHistoryList();
+        } finally {
+            isWaiting = false;
+            sendBtn.disabled = false;
+            chatInput.disabled = false;
+            chatInput.focus();
+        }
+    }
+
+    // ── Mock 降级回复 ──
+    function generateMockReply(message) {
+        const msg = message.toLowerCase();
+        if (msg.includes("焦虑") || msg.includes("紧张") || msg.includes("放松")) {
+            return "根据光疗研究，暖白光（2700K-3000K）配合较低照度（100-200 lux）有助于缓解焦虑情绪。暖色调光照可以促进褪黑素分泌，帮助身心放松。建议在需要放松时使用柔和的暖光环境，持续20-30分钟。\n\n⚠️ 当前为离线模式回复。连接后端 API 可获取完整 AI 回复。";
+        }
+        if (msg.includes("阅读") || msg.includes("工作") || msg.includes("专注")) {
+            return "对于阅读和工作场景，推荐使用中性白光到冷白光（4000K-5500K），照度500-750 lux。较高的色温可以提升警觉性和注意力，有助于保持专注。同时建议使用高显色指数（CRI>90）的光源，减少视觉疲劳。\n\n⚠️ 当前为离线模式回复。连接后端 API 可获取完整 AI 回复。";
+        }
+        if (msg.includes("睡眠") || msg.includes("昼夜") || msg.includes("节律")) {
+            return "光照对睡眠质量有显著影响。早晨暴露于高色温蓝光（5000K-6500K）可以抑制褪黑素、帮助清醒；晚上应使用低色温暖光（2700K以下）、降低照度至50 lux以下，以促进褪黑素自然分泌。这与人体的昼夜节律系统密切相关。\n\n⚠️ 当前为离线模式回复。连接后端 API 可获取完整 AI 回复。";
+        }
+        if (msg.includes("medi") || msg.includes("黑视素")) {
+            return "黑视素等效照度（melanopic Equivalent Daylight Illuminance, mEDI）是衡量光照对非视觉效应（特别是昼夜节律调节）影响的关键指标。它量化了光照对ipRGC（内在光敏视网膜神经节细胞）的刺激程度，单位为勒克斯（lux）。较高的mEDI值意味着光照对昼夜节律系统有更强的影响。\n\n⚠️ 当前为离线模式回复。连接后端 API 可获取完整 AI 回复。";
+        }
+        return "您好！我是 LumiMind 医学健康智能助手。我可以帮您解答关于光环境与人体健康相关的问题，包括：\n• 光照对情绪、睡眠、昼夜节律的影响\n• 光疗方案设计与建议\n• 黑视素等效照度(mEDI)等专业指标\n• 基于生理学证据的光环境调节建议\n\n请尝试询问具体问题，例如：\n• 光照对睡眠质量有什么影响？\n• 什么样的光线可以帮助缓解焦虑？\n• 如何通过光照改善昼夜节律？\n\n⚠️ 当前为离线模式回复。请确保后端服务已启动，以获得完整的 AI 回复体验。";
+    }
+
+    // ── 发送消息 ──
+    function handleSend() {
+        if (isWaiting) return;
+        const message = chatInput.value.trim();
+        if (!message) return;
+        chatInput.value = "";
+        chatInput.style.height = "auto";
+        sendChatMessage(message);
+    }
+
+    // ── 事件监听 ──
+    sendBtn.addEventListener("click", handleSend);
+    chatInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
+        }
+    });
+    chatInput.addEventListener("input", () => {
+        chatInput.style.height = "auto";
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 130) + "px";
+    });
+
+    function rebindQuickButtons() {
+        document.querySelectorAll(".quick-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                chatInput.value = btn.dataset.question;
+                handleSend();
+            });
+        });
+    }
+    rebindQuickButtons();
+
+    $("btnNewChat").addEventListener("click", startNewConversation);
+
+    // ── 初始化 ──
+    function init() {
+        const convs = loadConversations();
+        renderHistoryList();
+
+        // 恢复最近的对话
+        if (convs.length > 0) {
+            const lastConv = convs[convs.length - 1];
+            switchConversation(lastConv.id);
+        } else {
+            startNewConversation();
+        }
+
+        // 检查后端状态
+        checkBackend();
+        chatInput.focus();
+    }
+
+    async function checkBackend() {
+        try {
+            const response = await fetch(`${API_BASE}/api/chat/health`, {
+                method: "GET",
+                signal: AbortSignal.timeout(3000),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setBackendOnline(true, data.model || null);
+            }
+        } catch { setBackendOnline(false); }
+    }
+
+    init();
+})();
+</script>
+</body>
+</html>

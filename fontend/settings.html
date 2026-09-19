@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LumiMind · 设置</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(160deg, #F0F4F8 0%, #E8EEF4 50%, #F7FAFC 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E293B;
+        }
+
+        .dashboard {
+            max-width: 800px;
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem 2rem 2rem;
+            box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(148, 163, 184, 0.25);
+        }
+
+        /* ── 导航栏 ── */
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.25rem 0 0.5rem 0;
+            gap: 1.2rem;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .nav-logo {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .nav-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0F766E 0%, #0891B2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.3rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .nav-link {
+            padding: 0.45rem 0.85rem;
+            border-radius: 0.6rem;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            cursor: pointer;
+            background: none;
+            font-family: inherit;
+        }
+        .nav-link:hover {
+            background: #F0FDFA;
+            color: #0F766E;
+            border-color: #99F6E4;
+        }
+        .nav-link.active {
+            background: #F0FDFA;
+            color: #0F766E;
+            border-color: #14B8A6;
+            font-weight: 600;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 0.6rem;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            cursor: pointer;
+        }
+        .user-avatar {
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+        .user-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #334155;
+            max-width: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .sub {
+            font-size: 0.82rem;
+            color: #64748B;
+            margin-top: 0.4rem;
+            letter-spacing: 0.3px;
+            padding-left: 0.2rem;
+        }
+
+        /* ── 设置内容 ── */
+        .settings-section {
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 3px solid #14B8A6;
+            padding-left: 10px;
+        }
+        .setting-card {
+            background: #FAFBFC;
+            border-radius: 1rem;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #E2E8F0;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        .setting-card:hover {
+            border-color: #CBD5E1;
+        }
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        .setting-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1E293B;
+        }
+        .setting-desc {
+            font-size: 0.75rem;
+            color: #94A3B8;
+            margin-top: 0.2rem;
+        }
+        .setting-row input[type="text"],
+        .setting-row input[type="number"],
+        .setting-row select {
+            padding: 0.45rem 0.8rem;
+            border-radius: 0.5rem;
+            border: 1px solid #CBD5E1;
+            background: #FFFFFF;
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: #1E293B;
+            min-width: 200px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .setting-row input:focus,
+        .setting-row select:focus {
+            border-color: #14B8A6;
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+        .setting-row input[type="text"] {
+            width: 280px;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background: #CBD5E1;
+            border-radius: 26px;
+            transition: 0.3s;
+        }
+        .toggle-slider::before {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            transition: 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background: #14B8A6;
+        }
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(22px);
+        }
+        .btn-save {
+            padding: 0.6rem 1.8rem;
+            border-radius: 0.6rem;
+            border: none;
+            background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            box-shadow: 0 2px 8px rgba(15, 118, 110, 0.2);
+        }
+        .btn-save:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(15, 118, 110, 0.3);
+        }
+        .btn-save:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .save-feedback {
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            color: #059669;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .save-feedback.show {
+            opacity: 1;
+        }
+
+        /* ── 用户信息卡片 ── */
+        .user-info-card {
+            background: linear-gradient(135deg, #F0FDFA 0%, #E0F2FE 100%);
+            border-radius: 1rem;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #99F6E4;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .user-info-avatar {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+        .user-info-detail {
+            flex: 1;
+        }
+        .user-info-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0F172A;
+        }
+        .user-info-role {
+            font-size: 0.8rem;
+            color: #64748B;
+            margin-top: 0.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            body { padding: 0.5rem; }
+            .dashboard { padding: 1rem; border-radius: 1.2rem; }
+            .nav-bar { flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                overflow-x: auto;
+            }
+            .nav-link { font-size: 0.78rem; padding: 0.35rem 0.65rem; }
+            .setting-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .setting-row input[type="text"] { width: 100%; }
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 1.8rem;
+            color: #94A3B8;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <!-- 导航栏 -->
+    <div class="header">
+        <div class="nav-bar">
+            <div class="nav-brand">
+                <span class="nav-logo">💡</span>
+                <span class="nav-title">Lumimind</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/page/home" class="nav-link">🏠 首页</a>
+                <a href="/page/monitor" class="nav-link">📊 数据监测</a>
+                <a href="/page/chat" class="nav-link">💬 AI问答</a>
+                <a href="/page/settings" class="nav-link active">⚙️ 设置</a>
+            </nav>
+            <div class="nav-right">
+                <div class="nav-user" id="userDisplay" title="点击切换用户">
+                    <span class="user-avatar">👤</span>
+                    <span class="user-name" id="displayUserName">实验员</span>
+                </div>
+            </div>
+        </div>
+        <div class="sub">系统配置 · 个性化设置 · API 连接管理</div>
+    </div>
+
+    <!-- 用户信息卡片 -->
+    <div class="user-info-card">
+        <div class="user-info-avatar">👤</div>
+        <div class="user-info-detail">
+            <div class="user-info-name" id="profileName">实验员</div>
+            <div class="user-info-role">Lumimind 光疗引擎 · 操作员</div>
+        </div>
+    </div>
+
+    <!-- 设置区域 -->
+    <div class="settings-section">
+        <div class="section-title">
+            <span>👤</span> 用户信息
+        </div>
+        <div class="setting-card">
+            <div class="setting-row">
+                <div>
+                    <div class="setting-label">用户名称</div>
+                    <div class="setting-desc">在系统中显示的名称</div>
+                </div>
+                <input type="text" id="inputUserName" placeholder="请输入用户名称" value="实验员" />
+            </div>
+            <div class="setting-row" style="margin-top: 1rem;">
+                <div>
+                    <div class="setting-label">角色/职位</div>
+                    <div class="setting-desc">用于实验记录标识</div>
+                </div>
+                <select id="inputUserRole">
+                    <option value="实验员">实验员</option>
+                    <option value="研究员">研究员</option>
+                    <option value="医生">医生</option>
+                    <option value="学生">学生</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <span>🔌</span> API 连接
+        </div>
+        <div class="setting-card">
+            <div class="setting-row">
+                <div>
+                    <div class="setting-label">后端 API 地址</div>
+                    <div class="setting-desc">Lumimind 后端服务地址</div>
+                </div>
+                <input type="text" id="inputApiBase" placeholder="http://127.0.0.1:8000" />
+            </div>
+            <div class="setting-row" style="margin-top: 1rem;">
+                <div>
+                    <div class="setting-label">AI 模型偏好</div>
+                    <div class="setting-desc">优先使用的 AI 模型（留空自动选择）</div>
+                </div>
+                <select id="inputModelPref">
+                    <option value="">自动检测</option>
+                    <option value="ollama">Ollama 本地模型</option>
+                    <option value="gemini">Gemini API</option>
+                    <option value="openai">OpenAI API</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <div class="section-title">
+            <span>🎨</span> 界面偏好
+        </div>
+        <div class="setting-card">
+            <div class="setting-row">
+                <div>
+                    <div class="setting-label">自动刷新数据</div>
+                    <div class="setting-desc">每 3 秒自动拉取最新 Agent 状态</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleAutoRefresh" checked />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-row" style="margin-top: 1rem;">
+                <div>
+                    <div class="setting-label">声音提醒</div>
+                    <div class="setting-desc">调节建议弹窗时播放提示音</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleSound" />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-row" style="margin-top: 1rem;">
+                <div>
+                    <div class="setting-label">AI 对话历史记录</div>
+                    <div class="setting-desc">保存对话历史到本地（浏览器存储）</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleSaveHistory" checked />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 保存按钮 -->
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 1rem;">
+        <span class="save-feedback" id="saveFeedback">✅ 设置已保存</span>
+        <button class="btn-save" id="btnSave">保存设置</button>
+    </div>
+
+    <div class="footer-note">
+        💡 Lumimind v2.0 · 设置将在所有页面间同步
+    </div>
+</div>
+
+<script>
+(function() {
+    const $ = (id) => document.getElementById(id);
+
+    // ── 默认设置 ──
+    const defaults = {
+        userName: "实验员",
+        userRole: "实验员",
+        apiBase: "http://127.0.0.1:8000",
+        modelPref: "",
+        autoRefresh: true,
+        soundEnabled: false,
+        saveHistory: true,
+    };
+
+    // ── 加载设置 ──
+    function loadSettings() {
+        try {
+            const saved = JSON.parse(localStorage.getItem("lumimind_settings") || "{}");
+            return { ...defaults, ...saved };
+        } catch {
+            return { ...defaults };
+        }
+    }
+
+    function saveSettings(settings) {
+        localStorage.setItem("lumimind_settings", JSON.stringify(settings));
+        localStorage.setItem("lumimind_username", settings.userName);
+    }
+
+    // ── 填充表单 ──
+    const settings = loadSettings();
+    $("inputUserName").value = settings.userName;
+    $("inputUserRole").value = settings.userRole;
+    $("inputApiBase").value = settings.apiBase;
+    $("inputModelPref").value = settings.modelPref;
+    $("toggleAutoRefresh").checked = settings.autoRefresh;
+    $("toggleSound").checked = settings.soundEnabled;
+    $("toggleSaveHistory").checked = settings.saveHistory;
+
+    // 更新导航栏用户名
+    $("displayUserName").textContent = settings.userName;
+    $("profileName").textContent = settings.userName;
+
+    // ── 用户名称弹窗 ──
+    $("userDisplay").addEventListener("click", () => {
+        const newName = prompt("请输入您的名称:", settings.userName);
+        if (newName && newName.trim()) {
+            const name = newName.trim().substring(0, 20);
+            $("inputUserName").value = name;
+            $("displayUserName").textContent = name;
+            $("profileName").textContent = name;
+        }
+    });
+
+    // ── 保存按钮 ──
+    $("btnSave").addEventListener("click", () => {
+        const newSettings = {
+            userName: $("inputUserName").value.trim() || "实验员",
+            userRole: $("inputUserRole").value,
+            apiBase: $("inputApiBase").value.trim() || "http://127.0.0.1:8000",
+            modelPref: $("inputModelPref").value,
+            autoRefresh: $("toggleAutoRefresh").checked,
+            soundEnabled: $("toggleSound").checked,
+            saveHistory: $("toggleSaveHistory").checked,
+        };
+
+        saveSettings(newSettings);
+
+        // 更新 UI
+        $("displayUserName").textContent = newSettings.userName;
+        $("profileName").textContent = newSettings.userName;
+
+        // 全局 API BASE（如果其他页面使用）
+        if (window.LUMIMIND_API_BASE !== undefined || true) {
+            window.LUMIMIND_API_BASE = newSettings.apiBase;
+        }
+
+        // 显示反馈
+        const feedback = $("saveFeedback");
+        feedback.classList.add("show");
+        setTimeout(() => feedback.classList.remove("show"), 2000);
+    });
+
+    // ── 实时同步用户名 ──
+    $("inputUserName").addEventListener("input", () => {
+        $("displayUserName").textContent = $("inputUserName").value.trim() || "实验员";
+        $("profileName").textContent = $("inputUserName").value.trim() || "实验员";
+    });
+})();
+</script>
+</body>
+</html>

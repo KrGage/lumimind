@@ -6,35 +6,36 @@
     <title>LumiMind · 智能健康检测与疗愈平台</title>
     <style>
         :root {
-            --bg-base: #F7F8FA;
-            --bg-card: #FFFFFF;
-            --bg-glass: rgba(255,255,255,0.75);
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --text-dim: #94A3B8;
-            --border: #E2E8F0;
-            --border-subtle: #F1F5F9;
-            --accent: #0D9488;
-            --accent-hover: #0F766E;
-            --accent-muted: #F0FDFA;
-            --accent-border: #99F6E4;
-            --danger: #EF4444;
-            --danger-muted: #FEF2F2;
-            --danger-border: #FECACA;
-            --success: #10B981;
-            --success-muted: #ECFDF5;
-            --success-border: #A7F3D0;
-            --warning: #F59E0B;
-            --warning-muted: #FFFBEB;
-            --warning-border: #FDE68A;
-            --blue: #3B82F6;
-            --blue-muted: #EFF6FF;
-            --purple: #8B5CF6;
-            --purple-muted: #F5F3FF;
+            /* LumiMind 深色主题（与 demo_record.html / PPT 统一） */
+            --bg-base: #0B1220;
+            --bg-card: #141E32;
+            --bg-glass: rgba(20,30,50,0.82);
+            --text-primary: #E8EEF7;
+            --text-secondary: #A9B7CC;
+            --text-dim: #6E7F99;
+            --border: #2A3A55;
+            --border-subtle: #1C2A44;
+            --accent: #5AA7FF;
+            --accent-hover: #7ABAFF;
+            --accent-muted: rgba(90,167,255,0.12);
+            --accent-border: rgba(90,167,255,0.45);
+            --danger: #F87171;
+            --danger-muted: rgba(248,113,113,0.12);
+            --danger-border: rgba(248,113,113,0.45);
+            --success: #4ADE80;
+            --success-muted: rgba(74,222,128,0.12);
+            --success-border: rgba(74,222,128,0.45);
+            --warning: #FFB547;
+            --warning-muted: rgba(255,181,71,0.12);
+            --warning-border: rgba(255,181,71,0.45);
+            --blue: #5AA7FF;
+            --blue-muted: rgba(90,167,255,0.12);
+            --purple: #63E6D2;
+            --purple-muted: rgba(99,230,210,0.12);
             --radius: 1rem;
             --radius-lg: 1.25rem;
-            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+            --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
             --font-mono: 'SF Mono','JetBrains Mono','Fira Code',monospace;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -92,7 +93,7 @@
         .header-logo { font-size: 1.5rem; }
         .header-title {
             font-size: 1.2rem; font-weight: 700;
-            background: linear-gradient(135deg, #0D9488, #0891B2);
+            background: linear-gradient(135deg, #5AA7FF, #63E6D2);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
         }
@@ -136,7 +137,7 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem; flex-shrink: 0;
         }
-        .stat-icon.light { background: #FFF7ED; }
+        .stat-icon.light { background: var(--warning-muted); }
         .stat-icon.office-temp { background: var(--warning-muted); }
         .stat-icon.noise { background: var(--blue-muted); }
         .stat-icon.humidity { background: var(--success-muted); }
@@ -148,7 +149,7 @@
             margin-right: 4px; vertical-align: middle;
         }
         .light-status-dot.on { background: #F59E0B; box-shadow: 0 0 8px #F59E0B; animation: pulse2 1.5s infinite; }
-        .light-status-dot.off { background: #CBD5E1; }
+        .light-status-dot.off { background: #6E7F99; }
 
         /* ── Section Title ── */
         .section-header {
@@ -164,6 +165,82 @@
             font-size: 0.65rem; color: var(--text-dim); font-family: var(--font-mono);
             background: var(--bg-card); padding: 0.2rem 0.6rem; border-radius: 1rem;
             border: 1px solid var(--border);
+        }
+
+        /* ── 生理监测（demo_record 风格 ECG/EEG 面板） ── */
+        .bio-signals-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+        @media (max-width: 1000px) { .bio-signals-grid { grid-template-columns: 1fr; } }
+        .bio-panel {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 10px 14px; display: flex; flex-direction: column; overflow: hidden;
+        }
+        .bio-panel h3 {
+            font-size: 13px; color: var(--text-secondary); margin-bottom: 6px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .bio-panel h3 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .bio-big { font-size: 20px; font-weight: bold; font-family: var(--font-mono); }
+        .bio-panel canvas { width: 100%; flex: 1; min-height: 120px; }
+        .bio-band-row { display: flex; gap: 12px; height: 52px; align-items: flex-end; margin-top: 6px; }
+        .bio-band { flex: 1; text-align: center; font-size: 11px; color: var(--text-dim); }
+        .bio-band .bar { border-radius: 3px 3px 0 0; transition: height .8s, background .8s; }
+
+        /* ── 心理检测模块（仿 index-V2 感知层） ── */
+        .psy-layout {
+            display: grid; grid-template-columns: 1fr 1.4fr; gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+        @media (max-width: 1000px) { .psy-layout { grid-template-columns: 1fr; } }
+        .psy-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .psy-label {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--text-dim); display: flex; align-items: center; gap: 8px;
+        }
+        .psy-value {
+            font-size: 1.8rem; font-weight: 800; color: var(--warning);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            margin: 8px 0 4px;
+        }
+        .psy-sub { font-size: 0.7rem; color: var(--text-dim); text-align: center; }
+        /* V-A 情绪显示（demo_record 风格） */
+        .psy-emoji { font-size: 2rem; line-height: 1; }
+        .psy-va-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .psy-va-head .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; flex-shrink: 0; }
+        .psy-va-head .t { font-size: 13px; color: var(--text-secondary); }
+        .va-now { display: flex; gap: 28px; margin: 4px 0 6px; }
+        .va-now .lab { font-size: 12px; color: var(--text-secondary); margin-right: 6px; }
+        .va-now .big { font-size: 26px; font-weight: bold; font-family: var(--font-mono); }
+        #mainVVal { color: #4ADE80; transition: color .8s; }
+        #mainAVal { color: #63E6D2; transition: color .8s; }
+        #mainVVal.bad, #mainAVal.bad { color: #F87171; }
+        .psy-card canvas { width: 100%; height: 110px; display: block; }
+        .emo-pill {
+            font-size: 0.72rem; font-weight: bold; padding: 2px 12px; border-radius: 10px;
+            letter-spacing: 0; text-transform: none;
+        }
+        .emo-pill.st-positive { background: rgba(74,222,128,.15); color: #4ADE80; border: 1px solid #4ADE80; }
+        .emo-pill.st-neutral  { background: rgba(255,181,71,.15); color: #FFB547; border: 1px solid #FFB547; }
+        .emo-pill.st-negative { background: rgba(248,113,113,.18); color: #F87171; border: 1px solid #F87171; animation: emoBlink 1s infinite; }
+        .emo-pill.st-idle     { background: rgba(110,127,153,.15); color: var(--text-secondary); border: 1px solid var(--text-dim); }
+        @keyframes emoBlink { 50% { opacity: .55; } }
+        .psy-sim { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .psy-sim button {
+            padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border);
+            background: #0F1A2E; color: var(--text-secondary);
+            font-size: 0.78rem; cursor: pointer; transition: all .15s;
+        }
+        .psy-sim button:hover { border-color: var(--accent); color: var(--accent); }
+        .psy-sim button small { display: block; font-size: 0.62rem; color: var(--text-dim); }
+        .psy-hint {
+            font-size: 0.72rem; color: var(--text-dim); line-height: 1.5;
+            margin-top: 10px; padding: 8px; background: #0F1A2E;
+            border-radius: 8px; border: 1px solid var(--border-subtle);
         }
 
         /* ── Physiology Cards Grid ── */
@@ -220,7 +297,7 @@
         /* Mini waveform in card */
         .mini-wave {
             height: 38px; margin: 0.5rem 0 0.3rem; border-radius: 0.5rem;
-            background: #F8FAFC; border: 1px solid var(--border-subtle);
+            background: #0F1A2E; border: 1px solid var(--border-subtle);
             overflow: hidden; position: relative;
         }
         .mini-wave canvas { width: 100%; height: 100%; display: block; }
@@ -240,7 +317,7 @@
             font-size: 0.7rem;
         }
         .detail-item {
-            background: #F8FAFC; border-radius: 0.55rem; padding: 0.5rem 0.7rem;
+            background: #0F1A2E; border-radius: 0.55rem; padding: 0.5rem 0.7rem;
             border: 1px solid var(--border-subtle);
         }
         .detail-item .dl { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; letter-spacing: 0.4px; }
@@ -271,7 +348,7 @@
         .panel-header {
             padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between;
-            background: #FAFBFC;
+            background: #0F1A2E;
         }
         .panel-title {
             font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
@@ -297,7 +374,7 @@
         }
         .spectrum-container {
             position: relative; height: 260px; flex: 1;
-            background: #FAFBFC; border-radius: 0.75rem; overflow: hidden;
+            background: #0F1A2E; border-radius: 0.75rem; overflow: hidden;
             cursor: crosshair; border: 1px solid var(--border);
         }
         .spectrum-container canvas { width: 100%; height: 100%; display: block; }
@@ -311,8 +388,8 @@
         }
         .spectrum-container .crosshair-dot {
             position: absolute; width: 7px; height: 7px; border-radius: 50%;
-            background: #0D9488; pointer-events: none; display: none;
-            transform: translate(-50%, -50%); box-shadow: 0 0 8px rgba(13,148,136,0.7);
+            background: #5AA7FF; pointer-events: none; display: none;
+            transform: translate(-50%, -50%); box-shadow: 0 0 8px rgba(90,167,255,0.7);
             z-index: 5;
         }
         .spectrum-tooltip {
@@ -426,7 +503,7 @@
         }
         .session-bar input, .session-bar select {
             padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border);
-            background: #fff; font-size: 0.78rem; color: var(--text-primary);
+            background: #0F1A2E; font-size: 0.78rem; color: var(--text-primary);
         }
         .btn {
             padding: 7px 14px; border-radius: 2rem; border: 1px solid var(--accent-border);
@@ -436,7 +513,7 @@
         }
         .btn:hover:not(:disabled) { background: var(--accent); color: #fff; }
         .btn:disabled { opacity: 0.45; cursor: not-allowed; }
-        .btn.secondary { border-color: var(--border); background: #fff; color: var(--text-secondary); }
+        .btn.secondary { border-color: var(--border); background: #141E32; color: var(--text-secondary); }
         .btn.secondary:hover:not(:disabled) { border-color: var(--accent-border); background: var(--accent-muted); color: var(--accent); }
 
         /* ── Responsive ── */
@@ -536,13 +613,59 @@
         </div>
     </div>
 
-    <!-- ══════ Physiology Modules Grid ══════ -->
+    <!-- ══════ 生理监测模块（demo_record 风格 ECG / EEG） ══════ -->
     <div class="section-header">
-        <span class="section-title">📋 生理监测模块</span>
-        <span class="section-count">9 项指标监测中</span>
+        <span class="section-title">📋 生理监测模块 · ECG / EEG 实时信号</span>
+        <span class="section-count">DEAP 真实数据 · 平静 / 低落双段</span>
     </div>
-    <div class="physio-grid" id="physioGrid">
-        <!-- Cards generated by JS -->
+    <div class="bio-signals-grid">
+        <div class="bio-panel">
+            <h3><span class="dot" style="background:#F87171"></span>ECG / 脉搏波（DEAP 真实 BVP）
+                <span style="margin-left:auto">心率 <span class="bio-big" id="mainHrVal" style="color:#F87171">75</span> bpm</span></h3>
+            <canvas id="mainEcgCanvas"></canvas>
+        </div>
+        <div class="bio-panel">
+            <h3><span class="dot" style="background:#63E6D2"></span>EEG 脑电（Fp1 通道 · DEAP）</h3>
+            <canvas id="mainEegCanvas"></canvas>
+            <div class="bio-band-row">
+                <div class="bio-band">θ<div class="bar" id="mainBarTheta" style="height:20px;background:#5AA7FF"></div>4-8Hz</div>
+                <div class="bio-band">α<div class="bar" id="mainBarAlpha" style="height:24px;background:#63E6D2"></div>8-13Hz</div>
+                <div class="bio-band">β<div class="bar" id="mainBarBeta" style="height:14px;background:#FFB547"></div>13-30Hz</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════ 心理检测模块（仿 index-V2 感知层） ══════ -->
+    <div class="section-header">
+        <span class="section-title">🧠 心理检测模块 · 情绪感知层</span>
+        <span class="section-count">情绪窗口统计 · 模型上报</span>
+    </div>
+    <div class="psy-layout">
+        <div class="psy-card">
+            <div class="psy-va-head">
+                <span class="dot"></span>
+                <span class="t">情绪状态（多模态融合输出）</span>
+                <span class="emo-pill st-idle" id="mainEmotionPill" style="margin-left:auto">待机</span>
+            </div>
+            <div class="va-now">
+                <div><span class="lab">Valence 效价</span><span class="big" id="mainVVal">0.68</span></div>
+                <div><span class="lab">Arousal 唤醒</span><span class="big" id="mainAVal">0.34</span></div>
+                <div class="psy-emoji" id="mainEmotionEmoji" title="情绪表情">😐</div>
+            </div>
+            <canvas id="mainVaCanvas"></canvas>
+            <div class="psy-sub" id="mainEmotionSub" style="margin-top:6px">点击下方按钮模拟模型上报情绪</div>
+        </div>
+        <div class="psy-card">
+            <div class="psy-label" style="margin-bottom:8px">模拟模型上报 · POST /api/model/emotion</div>
+            <div class="psy-sim" id="mainEmotionButtons">
+                <button data-label="positive" data-name="开心">开心<small>positive</small></button>
+                <button data-label="neutral" data-name="平静">平静<small>neutral</small></button>
+                <button data-label="negative" data-name="焦虑">焦虑<small>negative</small></button>
+                <button data-label="negative" data-name="疲倦">疲倦<small>negative</small></button>
+                <button data-label="positive" data-name="专注">专注<small>positive</small></button>
+            </div>
+            <div class="psy-hint" id="mainAgentMessage">情绪状态驱动光环境策略 · 异常持续 5s 触发调光提醒</div>
+        </div>
     </div>
 
     <!-- ══════ Bottom Row: Spectrum Chart + Light Preview ══════ -->
@@ -629,6 +752,7 @@
     </div>
 </div>
 
+<script src="demo_data.js"></script>
 <script>
 (function() {
     const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
@@ -795,9 +919,10 @@
         adjustment_light: { kelvin: 3800, brightness: 0.55, label: "光辅助调节", breathing: true },
     };
 
-    // ──────── Build Physiology Cards ────────
+    // ──────── Build Physiology Cards（旧卡片模块已由 demo_record 风格 ECG/EEG 面板取代，保留函数以防引用） ────────
     function buildPhysioCards() {
         const grid = document.getElementById("physioGrid");
+        if (!grid) return;
         grid.innerHTML = "";
         physioModules.forEach((mod, idx) => {
             const isBP = mod.id === "bp";
@@ -971,8 +1096,8 @@
 
         if (!spectrumData) spectrumData = generateSpectrumData();
 
-        // Clear with light bg
-        ctx.fillStyle = "#FAFBFC";
+        // Clear with dark bg
+        ctx.fillStyle = "#0F1A2E";
         ctx.fillRect(0, 0, w, h);
 
         // Visible spectrum color band (thin strip at top)
@@ -993,7 +1118,7 @@
         const chartH = h - margin.top - margin.bottom;
 
         // Grid lines
-        ctx.strokeStyle = "rgba(0,0,0,0.08)";
+        ctx.strokeStyle = "rgba(148,163,184,0.15)";
         ctx.lineWidth = 0.5;
         for (let i = 0; i <= 4; i++) {
             const gy = margin.top + chartH * i / 4;
@@ -1018,7 +1143,7 @@
 
         // Stroke curve (smooth via many points)
         ctx.beginPath();
-        ctx.strokeStyle = "#0D9488";
+        ctx.strokeStyle = "#5AA7FF";
         ctx.lineWidth = 2.2;
         ctx.lineJoin = "round";
         for (let i = 0; i < spectrumData.wavelengths.length; i++) {
@@ -1344,9 +1469,137 @@
 
     setInterval(simulateExternalUpdates, 3000);
 
+    // ──────── 生理监测（demo_record 风格）+ 心理检测模块 ────────
+    function initBioPsyModules() {
+        const D = window.DEMO_DATA;
+        if (!D) return;
+
+        const EMOJI = { positive: "😊", neutral: "😐", negative: "😟" };
+        let stressK = 0, targetK = 0;  // 平静(0) ↔ 低落(1)，随情绪按钮渐变
+
+        // ── V-A 情绪坐标（与 demo_record 一致：平静 0.68/0.34，低落 0.18/0.72）──
+        const VA = {
+            positive: [0.78, 0.45],
+            neutral:  [0.68, 0.34],
+            negative: [0.18, 0.72],
+        };
+        let vaTarget = VA.neutral, vaCur = [...VA.neutral], vaHist = [];
+        const noise = s => (Math.sin(Date.now() / (300 + s * 97)) * 0.5 + Math.random() - 0.5) * 0.02;
+        const clamp01 = x => Math.min(1, Math.max(0, x));
+
+        function fitCanvas(c) {
+            const r = c.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+            if (c.width !== Math.round(r.width * dpr)) {
+                c.width = r.width * dpr; c.height = r.height * dpr;
+            }
+            const ctx = c.getContext("2d");
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return [ctx, r.width, r.height];
+        }
+
+        function drawWave(c, dataA, dataB, k, color) {
+            const [ctx, W, H] = fitCanvas(c);
+            ctx.clearRect(0, 0, W, H);
+            ctx.strokeStyle = "#1C2A44"; ctx.lineWidth = 1;
+            for (let y = 0; y <= 4; y++) {
+                ctx.beginPath(); ctx.moveTo(0, H * y / 4); ctx.lineTo(W, H * y / 4); ctx.stroke();
+            }
+            const n = dataA.length;
+            const off = Math.floor((Date.now() / 60) % n);   // 慢速滚动（demo 为 /22）
+            ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 1.6;
+            for (let x = 0; x < W; x++) {
+                const i = (off + Math.floor(x / W * n)) % n;
+                const v = dataA[i] * (1 - k) + dataB[i] * k;
+                const y = H / 2 - v * H * 0.42;
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        function drawVA() {   // V/A 历史趋势 + 低落阈值线（demo_record 同款）
+            const c = document.getElementById("mainVaCanvas");
+            const [ctx, W, H] = fitCanvas(c);
+            ctx.clearRect(0, 0, W, H);
+            ctx.strokeStyle = "#1C2A44"; ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(0, H * 0.4); ctx.lineTo(W, H * 0.4); ctx.stroke();
+            ctx.fillStyle = "#6E7F99"; ctx.font = "10px sans-serif"; ctx.fillText("低落阈值", 4, H * 0.4 - 3);
+            const span = 65, n = vaHist.length;
+            const draw = (key, color) => {
+                ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 1.8;
+                for (let i = Math.max(0, n - span); i < n; i++) {
+                    const x = (i - (n - span)) / span * W, y = H - vaHist[i][key] * H;
+                    i === Math.max(0, n - span) ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+            };
+            draw("v", "#4ADE80"); draw("a", "#63E6D2");
+            ctx.font = "10px sans-serif";
+            ctx.fillStyle = "#4ADE80"; ctx.fillText("V", 4, 12);
+            ctx.fillStyle = "#63E6D2"; ctx.fillText("A", 18, 12);
+        }
+
+        function setEmotionPill(label, name) {
+            const pill = document.getElementById("mainEmotionPill");
+            const map = {
+                positive: ["积极", "st-positive"],
+                neutral: ["平静", "st-neutral"],
+                negative: ["情绪低落", "st-negative"],
+            };
+            const [txt, cls] = map[label] || ["待机", "st-idle"];
+            pill.textContent = txt;
+            pill.className = "emo-pill " + cls;
+            pill.style.marginLeft = "auto";
+            const emo = document.getElementById("mainEmotionEmoji");
+            if (emo) { emo.textContent = EMOJI[label] || "😐"; emo.title = name; }
+        }
+
+        document.querySelectorAll("#mainEmotionButtons button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const label = btn.dataset.label, name = btn.dataset.name;
+                targetK = label === "negative" ? 1 : 0;
+                vaTarget = VA[label] || VA.neutral;
+                setEmotionPill(label, name);
+                document.getElementById("mainEmotionSub").textContent =
+                    `上报 · ${label} · 信号切换为${label === "negative" ? "低落段（DEAP trial#28）" : "平静段（DEAP trial#20）"}`;
+            });
+        });
+
+        let lastPanel = 0;
+        function loop() {
+            stressK += (targetK - stressK) * 0.02;   // 信号渐变
+            // V-A 平滑靠近目标 + 微噪声，写入历史
+            vaCur[0] += (vaTarget[0] - vaCur[0]) * 0.02;
+            vaCur[1] += (vaTarget[1] - vaCur[1]) * 0.02;
+            vaHist.push({ v: clamp01(vaCur[0] + noise(1)), a: clamp01(vaCur[1] + noise(2)) });
+            if (vaHist.length > 400) vaHist.shift();
+            drawVA();
+            if (Date.now() - lastPanel > 250) {
+                lastPanel = Date.now();
+                const vEl = document.getElementById("mainVVal"), aEl = document.getElementById("mainAVal");
+                vEl.textContent = vaCur[0].toFixed(2);
+                aEl.textContent = vaCur[1].toFixed(2);
+                vEl.classList.toggle("bad", vaCur[0] < 0.35);
+                aEl.classList.toggle("bad", vaCur[1] > 0.65);
+                const hr = D.hr.calm * (1 - stressK) + D.hr.stress * stressK;
+                document.getElementById("mainHrVal").textContent = hr.toFixed(0);
+                const b = D.bands, k = stressK;
+                const mx = Math.max(b.calm.theta, b.calm.alpha, b.calm.beta, b.stress.theta, b.stress.alpha, b.stress.beta);
+                [["mainBarTheta", "theta"], ["mainBarAlpha", "alpha"], ["mainBarBeta", "beta"]].forEach(([id, key]) => {
+                    const val = b.calm[key] * (1 - k) + b.stress[key] * k;
+                    document.getElementById(id).style.height = (6 + val / mx * 34) + "px";
+                });
+            }
+            drawWave(document.getElementById("mainEcgCanvas"), D.ecg.calm, D.ecg.stress, stressK, "#F87171");
+            drawWave(document.getElementById("mainEegCanvas"), D.eeg.calm, D.eeg.stress, stressK, "#63E6D2");
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+    }
+
     // ──────── Init ────────
     function init() {
         buildPhysioCards();
+        initBioPsyModules();
         drawSpectrum();
         setupSpectrumInteraction();
         refreshAllLight();

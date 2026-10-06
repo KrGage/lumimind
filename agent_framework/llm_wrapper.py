@@ -27,14 +27,18 @@ class CoreAIWrapper:
     LangChain 兼容的 LLM 包装器，内部委托给 core_ai 多层级推理引擎。
 
     自动处理：
-      - 消息列表 → 文本拼接
+      - LangChain 消息列表 → core_ai.chat 结构化消息
       - 同步/异步上下文兼容
       - 三层降级（Ollama → Gemini → Cloud）
     """
 
     def invoke(self, messages: List[BaseMessage]) -> AIMessage:
         """
-        LangChain 风格同步调用。
+        LangGraph 风格同步调用。
+
+        优先用 core_ai.chat 结构化消息接口（system + 对话历史），
+        避免 generate 裸文本拼接导致部分模型回显 prompt；
+        无对话消息时降级 generate。
 
         Args:
             messages: LangChain 消息列表（SystemMessage, HumanMessage, AIMessage）
@@ -42,30 +46,31 @@ class CoreAIWrapper:
         Returns:
             AIMessage 包含 AI 回复
         """
-        full_prompt = ""
-        for msg in messages:
-            role = (
-                "User" if isinstance(msg, HumanMessage)
-                else "System" if isinstance(msg, SystemMessage)
-                else "AI"
-            )
-            full_prompt += f"{role}: {msg.content}\n\n"
+        system_parts = [m.content for m in messages if isinstance(m, SystemMessage)]
+        chat_messages = [
+            {
+                "role": "user" if isinstance(m, HumanMessage) else "assistant",
+                "content": m.content,
+            }
+            for m in messages
+            if isinstance(m, (HumanMessage, AIMessage))
+        ]
 
         try:
-            loop = None
-            try:
-                loop = asyncio.get_running_loop()
-            except RuntimeError:
-                pass
+            from .core_ai import chat as ai_chat, generate
 
-            if loop and loop.is_running():
-                import concurrent.futures
-                from .core_ai import generate
-                with concurrent.futures.ThreadPoolExecutor() as pool:
-                    result = pool.submit(asyncio.run, generate(full_prompt)).result()
+            if chat_messages:
+                system = "\n\n".join(system_parts) or None
+                coro = (
+                    ai_chat(messages=chat_messages, system=system)
+                    if system
+                    else ai_chat(messages=chat_messages)
+                )
             else:
-                from .core_ai import generate
-                result = asyncio.run(generate(full_prompt))
+                # 全是 SystemMessage 等无对话内容的退化情况
+                coro = generate("\n\n".join(system_parts))
+
+            result = self._run_async(coro)
 
             if result:
                 return AIMessage(content=result)
@@ -80,3 +85,17 @@ class CoreAIWrapper:
                 )
             logger.error("AI generation failed: %s", e)
             return AIMessage(content=AI_GENERATION_FAILURE_MESSAGE)
+
+    @staticmethod
+    def _run_async(coro):
+        """在同步上下文运行协程，兼容已有事件循环的线程池场景。"""
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = None
+
+        if loop and loop.is_running():
+            import concurrent.futures
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                return pool.submit(asyncio.run, coro).result()
+        return asyncio.run(coro)

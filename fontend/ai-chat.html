@@ -435,6 +435,8 @@
             .message { max-width: 92%; }
         }
     </style>
+
+<link rel="stylesheet" href="lumi_theme.css">
 </head>
 <body>
 <div class="dashboard">
@@ -984,11 +986,14 @@
         setBackendOnline(true);
 
         try {
+            // 会话记忆模式：后端通过 checkpointer 维护历史，前端只传新消息 + session_id
             const response = await fetch(`${API_BASE}/api/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    messages: conversationHistory,
+                    session_id: currentConvId,
+                    message,
+                    user_id: localStorage.getItem("lumimind_username") || "local_user",
                     // 系统提示词由后端默认提供，前端可不传或自定义
                 }),
             });

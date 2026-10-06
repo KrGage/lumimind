@@ -1,4 +1,6 @@
 from datetime import datetime
+import logging
+import os
 
 from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text, select
 from sqlalchemy.orm import Mapped, Session, mapped_column
@@ -9,6 +11,13 @@ from app.schemas.emotion import EmotionCreate
 from app.schemas.feedback import FeedbackCreate
 from app.schemas.session import ExperimentMode, SessionStart
 from app.utils.time_utils import utc_now
+
+logger = logging.getLogger(__name__)
+
+
+def _memory_user_id() -> str:
+    """长期记忆归属的用户 ID（当前单用户系统，可环境变量覆盖）。"""
+    return os.getenv("LUMIMIND_USER_ID", "local_user").strip() or "local_user"
 
 
 class SessionModel(Base):
@@ -113,6 +122,23 @@ def add_emotion(db: Session, payload: EmotionCreate) -> EmotionModel:
     db.add(emotion)
     db.commit()
     db.refresh(emotion)
+
+    # 同步写入用户长期记忆（生理+情绪，含时间信息），供 AI 问答检索
+    try:
+        from agent_framework.long_term_memory import record_physio_emotion
+
+        record_physio_emotion(
+            user_id=_memory_user_id(),
+            emotion_label=payload.emotion_label.value,
+            emotion_score=payload.emotion_score,
+            confidence=payload.confidence,
+            session_id=payload.session_id,
+            timestamp=payload.timestamp,
+            face_detected=payload.face_detected,
+        )
+    except Exception as exc:
+        logger.warning("Failed to record physio memory: %s", exc)
+
     return emotion
 
 
@@ -179,6 +205,21 @@ def update_light_mode(db: Session, session_id: str, light_mode: LightMode, opera
     db.add(update)
     db.commit()
     db.refresh(update)
+
+    # 同步写入用户光环境偏好长期记忆
+    try:
+        from agent_framework.long_term_memory import record_light_preference
+
+        record_light_preference(
+            user_id=_memory_user_id(),
+            light_mode=light_mode.value,
+            operator_note=operator_note,
+            session_id=session_id,
+            timestamp=now,
+        )
+    except Exception as exc:
+        logger.warning("Failed to record light preference memory: %s", exc)
+
     return update
 
 

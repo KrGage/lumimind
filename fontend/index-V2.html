@@ -179,22 +179,41 @@
             padding-left: 10px;
         }
 
-        /* 左侧情感区 */
+        /* 左侧情感区（demo_record 风格） */
         .emotion-badge {
-            background: linear-gradient(105deg, #FFFFFF, #F0FDFA);
+            background: #0F1A2E;
             border-radius: 1.25rem;
             padding: 1rem;
             margin-bottom: 1.5rem;
             text-align: center;
-            border: 1px solid #99F6E4;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+            border: 1px solid #2A3A55;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.35);
         }
         .emotion-label {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
+        /* 情绪状态胶囊（参照 demo_record 状态徽章） */
+        .emo-pill {
+            font-size: 0.72rem;
+            font-weight: bold;
+            padding: 2px 12px;
+            border-radius: 10px;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        .emo-pill.st-calm    { background: rgba(74,222,128,.15); color: #4ADE80; border: 1px solid #4ADE80; }
+        .emo-pill.st-positive { background: rgba(74,222,128,.15); color: #4ADE80; border: 1px solid #4ADE80; }
+        .emo-pill.st-neutral  { background: rgba(255,181,71,.15); color: #FFB547; border: 1px solid #FFB547; }
+        .emo-pill.st-negative { background: rgba(248,113,113,.18); color: #F87171; border: 1px solid #F87171; animation: emoBlink 1s infinite; }
+        .emo-pill.st-idle     { background: rgba(110,127,153,.15); color: #A9B7CC; border: 1px solid #6E7F99; }
+        @keyframes emoBlink { 50% { opacity: .55; } }
         .emotion-value {
             font-size: 2.2rem;
             font-weight: 800;
@@ -206,11 +225,11 @@
             margin-top: 6px;
         }
         .heart-rate {
-            background: #FFFFFF;
+            background: #0F1A2E;
             border-radius: 1.25rem;
             padding: 1rem;
             margin: 1.5rem 0;
-            border: 1px solid #E2E8F0;
+            border: 1px solid #2A3A55;
         }
         .hr-header {
             display: flex;
@@ -265,23 +284,24 @@
             align-items: center;
         }
         .light-simulator {
-            background: #F1F5F9;
+            background: radial-gradient(ellipse at 50% 40%, rgba(90,167,255,.05), transparent 70%), #0F1A2E;
             border-radius: 1.8rem;
             padding: 1.2rem;
             margin: 0.5rem 0 1.2rem;
             width: 100%;
             display: flex;
             justify-content: center;
-            border: 1px solid #E2E8F0;
+            border: 1px solid #1C2A44;
         }
+        /* demo_record 风格圆形灯泡，随色温变色发光（JS 控制 background/boxShadow） */
         .light-bulb {
-            width: 180px;
-            height: 180px;
-            border-radius: 28px;
-            background: #FFD966;
-            box-shadow: 0 0 30px rgba(255, 200, 80, 0.5), inset 0 1px 2px rgba(255,255,240,0.6);
-            transition: background 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid rgba(255,255,200,0.3);
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #DDEEFF;
+            box-shadow: 0 0 34px 8px rgba(200,225,255,.55);
+            transition: background 1.5s ease, box-shadow 1.5s ease;
+            border: none;
         }
         .brightness-control {
             width: 100%;
@@ -397,6 +417,113 @@
             background: none;
             border: none;
         }
+        /* ====== 生物信号波形区 ====== */
+        .bio-signals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        .wave-card {
+            background: #FAFBFC;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.4rem;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .wave-card:hover {
+            border-color: #CBD5E1;
+        }
+        .wave-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+        }
+        .wave-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #E8EEF7;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-left: 3px solid #5AA7FF;
+            padding-left: 10px;
+            letter-spacing: -0.2px;
+        }
+        .wave-card-title .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.8s infinite;
+        }
+        .dot-ecg { background: #F87171; box-shadow: 0 0 6px #F87171; }
+        .dot-eeg { background: #63E6D2; box-shadow: 0 0 6px #63E6D2; }
+        .wave-meta {
+            font-size: 0.7rem;
+            color: #64748B;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .wave-canvas-wrap {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            border-radius: 0.8rem;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+        }
+        .wave-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .wave-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0.6rem;
+        }
+        .wave-controls .btn-wave {
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #CBD5E1;
+            background: #FFFFFF;
+            color: #475569;
+            font-size: 0.72rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .wave-controls .btn-wave:hover { border-color: #14B8A6; color: #0F766E; }
+        .wave-controls .btn-wave.active { background: #F0FDFA; color: #0F766E; border-color: #14B8A6; }
+        .wave-progress {
+            flex: 1;
+            height: 3px;
+            background: #E2E8F0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .wave-progress-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s linear;
+        }
+        .progress-ecg { background: #F87171; }
+        .progress-eeg { background: #63E6D2; }
+        .wave-time {
+            font-size: 0.68rem;
+            color: #64748B;
+            font-family: 'JetBrains Mono', monospace;
+            min-width: 80px;
+            text-align: right;
+        }
+        @media (max-width: 1000px) {
+            .bio-signals-grid { grid-template-columns: 1fr; }
+        }
+
         .footer-note {
             font-size: 0.7rem;
             text-align: center;
@@ -526,6 +653,8 @@
         #globalStatus.error { color: #DC2626; }
         #globalStatus.ok { color: #059669; }
     </style>
+
+<link rel="stylesheet" href="lumi_theme.css">
 </head>
 <body>
 <div class="dashboard">
@@ -574,7 +703,7 @@
                 <span>🧠</span> 感知层 · 情感与生理
             </div>
             <div class="emotion-badge">
-                <div class="emotion-label">模型情绪（后端窗口统计）</div>
+                <div class="emotion-label">模型情绪（后端窗口统计）<span class="emo-pill st-idle" id="emotionPill">待机</span></div>
                 <div class="emotion-value" id="emotionDisplay">
                     <span id="emotionText">—</span> <span id="emotionEmoji" style="font-size: 1.8rem;">😐</span>
                 </div>
@@ -686,8 +815,44 @@
                     <span class="param-value" id="evRhVal">—</span>
                 </div>
             </div>
-            <div style="margin-top: 0.8rem; font-size: 0.7rem; border-top: 1px solid #E2E8F0; padding-top: 12px; color: #64748B;">
+            <div style="margin-top: 0.8rem; font-size: 0.7rem; border-top: 1px solid #2A3A55; padding-top: 12px; color: #64748B;">
                 <span>⚙️ Agent 策略 · GET /api/agent/current 轮询</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 生物信号实时波形 -->
+    <div class="bio-signals-grid">
+        <div class="wave-card">
+            <div class="wave-card-header">
+                <div class="wave-card-title"><span class="dot dot-ecg"></span> ECG 心电信号</div>
+                <div class="wave-meta" id="ecgMeta">加载中...</div>
+            </div>
+            <div class="wave-canvas-wrap">
+                <canvas id="ecgCanvas"></canvas>
+            </div>
+            <div class="wave-controls">
+                <button class="btn-wave active" id="ecgPlayBtn" onclick="toggleWave('ecg')">▶ 播放</button>
+                <button class="btn-wave" onclick="changeSpeed('ecg', -1)">−</button>
+                <button class="btn-wave" onclick="changeSpeed('ecg', 1)">+</button>
+                <div class="wave-progress"><div class="wave-progress-bar progress-ecg" id="ecgProgress"></div></div>
+                <div class="wave-time" id="ecgTime">0:00 / 0:00</div>
+            </div>
+        </div>
+        <div class="wave-card">
+            <div class="wave-card-header">
+                <div class="wave-card-title"><span class="dot dot-eeg"></span> EEG 脑电信号 · FP1-FP2</div>
+                <div class="wave-meta" id="eegMeta">加载中...</div>
+            </div>
+            <div class="wave-canvas-wrap">
+                <canvas id="eegCanvas"></canvas>
+            </div>
+            <div class="wave-controls">
+                <button class="btn-wave active" id="eegPlayBtn" onclick="toggleWave('eeg')">▶ 播放</button>
+                <button class="btn-wave" onclick="changeSpeed('eeg', -1)">−</button>
+                <button class="btn-wave" onclick="changeSpeed('eeg', 1)">+</button>
+                <div class="wave-progress"><div class="wave-progress-bar progress-eeg" id="eegProgress"></div></div>
+                <div class="wave-time" id="eegTime">0:00 / 0:00</div>
             </div>
         </div>
     </div>
@@ -896,6 +1061,21 @@
         $("emotionText").textContent = ui.text;
         $("emotionEmoji").textContent = ui.emoji;
         $("emotionSub").textContent = `窗口 · ${ui.sub} · 消极 ${formatRatio(stats.negative_ratio)}`;
+        setEmotionPill(label);
+    }
+
+    // 情绪状态胶囊（参照 demo_record 状态徽章）
+    function setEmotionPill(label) {
+        const pill = $("emotionPill");
+        if (!pill) return;
+        const map = {
+            positive: ["积极", "st-positive"],
+            neutral:  ["平静", "st-neutral"],
+            negative: ["情绪低落", "st-negative"],
+        };
+        const [txt, cls] = map[label] || ["待机", "st-idle"];
+        pill.textContent = txt;
+        pill.className = "emo-pill " + cls;
     }
 
     function updateAgentUI(state) {
@@ -1001,6 +1181,7 @@
         $("emotionText").textContent = btn.dataset.name;
         $("emotionEmoji").textContent = ui.emoji;
         $("emotionSub").textContent = `上报 · ${btn.dataset.label} · ${btn.dataset.score}`;
+                setEmotionPill(btn.dataset.label);
 
         btn.disabled = true;
         setGlobalStatus("上报情绪中…");
@@ -1151,6 +1332,306 @@
 
     setHeartRate(87);
     applyLightModeVisual("normal_office_light");
+})();
+
+/* ============================================================
+   生物信号滚动波形引擎 — 股票K线风格
+   ============================================================ */
+(function () {
+    const WINDOW_SEC = 10;       // 可见窗口宽度（秒）
+    const SPEEDS = [0.25, 0.5, 1, 2, 4]; // 可选播放倍速（默认 0.25x，曲线慢速滚动）
+    const TICK_MS = 50;          // 动画刷新间隔 (ms)
+
+    const Y_AXIS_W = 44; // 纵坐标区域宽度 (px)
+
+    const channels = {
+        ecg: {
+            canvas: null, ctx: null, data: [], rate: 100,
+            playing: true, speedIdx: 0, cursor: 0,
+            color: '#F87171',
+            gridColor: 'rgba(28,42,68,1)',
+            labelColor: '#F87171',
+            metaEl: null, progressEl: null, timeEl: null, playBtn: null,
+            duration: 0, yLabel: 'mV',
+        },
+        eeg: {
+            canvas: null, ctx: null, data: [], rate: 100,
+            playing: true, speedIdx: 0, cursor: 0,
+            color: '#63E6D2',
+            gridColor: 'rgba(28,42,68,1)',
+            labelColor: '#63E6D2',
+            metaEl: null, progressEl: null, timeEl: null, playBtn: null,
+            duration: 0, yLabel: 'μV',
+        },
+    };
+
+    function fmtTime(sec) {
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60);
+        return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function initChannel(key) {
+        const ch = channels[key];
+        ch.canvas = document.getElementById(key + 'Canvas');
+        ch.ctx = ch.canvas.getContext('2d');
+        ch.metaEl = document.getElementById(key + 'Meta');
+        ch.progressEl = document.getElementById(key + 'Progress');
+        ch.timeEl = document.getElementById(key + 'Time');
+        ch.playBtn = document.getElementById(key + 'PlayBtn');
+        resizeCanvas(ch);
+    }
+
+    function resizeCanvas(ch) {
+        const wrap = ch.canvas.parentElement;
+        const dpr = window.devicePixelRatio || 1;
+        ch.canvas.width = wrap.clientWidth * dpr;
+        ch.canvas.height = wrap.clientHeight * dpr;
+        ch.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ch._w = wrap.clientWidth;
+        ch._h = wrap.clientHeight;
+    }
+
+    async function loadWaveData(key, url) {
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            const json = await resp.json();
+            const ch = channels[key];
+            ch.data = json.data;
+            ch.rate = json.sampleRate;
+            ch.duration = json.durationSec;
+            ch.metaEl.textContent = json.sampleRate + ' Hz · ' + json.durationSec + 's · ' + (json.channel || '');
+            // 记录原始数据范围用于纵坐标
+            ch.origMin = json.origMin != null ? json.origMin : -1;
+            ch.origMax = json.origMax != null ? json.origMax : 1;
+            ch.cursor = 0;
+        } catch (e) {
+            const ch = channels[key];
+            ch.metaEl.textContent = '数据加载失败: ' + e.message;
+        }
+    }
+
+    function drawYAxis(ch) {
+        const ctx = ch.ctx;
+        const h = ch._h;
+        const pad = h * 0.08;
+        const drawH = h - pad * 2;
+        const midY = h / 2;
+
+        // 纵坐标背景（深色内嵌，参照 demo_record）
+        ctx.fillStyle = '#0F1A2E';
+        ctx.fillRect(0, 0, Y_AXIS_W, h);
+        // 分隔线
+        ctx.strokeStyle = '#2A3A55';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(Y_AXIS_W, 0);
+        ctx.lineTo(Y_AXIS_W, h);
+        ctx.stroke();
+
+        // 刻度标签
+        ctx.fillStyle = '#6E7F99';
+        ctx.font = '9px JetBrains Mono, monospace';
+        ctx.textAlign = 'right';
+        const ticks = 5; // 5 个刻度
+        for (let i = 0; i <= ticks; i++) {
+            const frac = i / ticks;             // 0 → 1 (top → bottom)
+            const y = pad + frac * drawH;
+            const val = 1 - frac * 2;           // 1 → -1
+            // 刻度短线
+            ctx.strokeStyle = '#2A3A55';
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(Y_AXIS_W - 4, y);
+            ctx.lineTo(Y_AXIS_W, y);
+            ctx.stroke();
+            // 数值
+            ctx.fillText(val.toFixed(1), Y_AXIS_W - 7, y + 3);
+        }
+
+        // 单位标签 (竖排)
+        ctx.save();
+        ctx.translate(10, midY);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillStyle = ch.labelColor;
+        ctx.font = 'bold 9px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(ch.yLabel, 0, 0);
+        ctx.restore();
+    }
+
+    function drawGrid(ch) {
+        const ctx = ch.ctx;
+        const w = ch._w, h = ch._h;
+        const drawLeft = Y_AXIS_W; // 波形绘制区左边界
+        const drawW = w - drawLeft;
+        // 水平网格线
+        ctx.strokeStyle = ch.gridColor;
+        ctx.lineWidth = 0.5;
+        const hLines = 6;
+        for (let i = 0; i <= hLines; i++) {
+            const y = (h / hLines) * i;
+            ctx.beginPath();
+            ctx.moveTo(drawLeft, y);
+            ctx.lineTo(w, y);
+            ctx.stroke();
+        }
+        // 垂直网格线 (每1秒)
+        const vLines = WINDOW_SEC;
+        for (let i = 0; i <= vLines; i++) {
+            const x = drawLeft + (drawW / vLines) * i;
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, h);
+            ctx.stroke();
+        }
+        // 中线
+        ctx.strokeStyle = 'rgba(90,167,255,0.22)';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(drawLeft, h / 2);
+        ctx.lineTo(w, h / 2);
+        ctx.stroke();
+    }
+
+    function drawWave(ch) {
+        const ctx = ch.ctx;
+        const w = ch._w, h = ch._h;
+        const data = ch.data;
+        if (!data || data.length === 0) {
+            ctx.fillStyle = '#6E7F99';
+            ctx.font = '13px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('等待数据加载…', w / 2, h / 2);
+            return;
+        }
+
+        ctx.clearRect(0, 0, w, h);
+        drawGrid(ch);
+        drawYAxis(ch);
+
+        const drawLeft = Y_AXIS_W;
+        const drawW = w - drawLeft;
+        const ptsPerWindow = ch.rate * WINDOW_SEC; // 窗口内显示的点数
+        const startIdx = Math.floor(ch.cursor);
+        const endIdx = Math.min(startIdx + ptsPerWindow, data.length);
+        const visibleCount = endIdx - startIdx;
+        if (visibleCount <= 0) return;
+
+        // 波形路径
+        ctx.beginPath();
+        ctx.strokeStyle = ch.color;
+        ctx.lineWidth = 1.5;
+        ctx.lineJoin = 'round';
+
+        const padding = h * 0.08;
+        const drawH = h - padding * 2;
+        const midY = h / 2;
+
+        for (let i = 0; i < visibleCount; i++) {
+            const x = drawLeft + (i / ptsPerWindow) * drawW;
+            const val = data[startIdx + i]; // 归一化值 [-1, 1]
+            const y = midY - val * (drawH / 2);
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // 柔和光晕
+        ctx.shadowColor = ch.color;
+        ctx.shadowBlur = 3;
+        ctx.strokeStyle = ch.color + '40';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // 当前位置指示线 (右侧)
+        const cursorX = drawLeft + (visibleCount / ptsPerWindow) * drawW;
+        ctx.strokeStyle = ch.color + '60';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(cursorX, 0);
+        ctx.lineTo(cursorX, h);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 左上角时间标签 (在波形区域内)
+        const curSec = startIdx / ch.rate;
+        ctx.fillStyle = ch.labelColor;
+        ctx.font = 'bold 11px JetBrains Mono, monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(fmtTime(curSec), drawLeft + 8, 16);
+
+        // 更新 UI 控件
+        const pct = Math.min(100, (startIdx / data.length) * 100);
+        ch.progressEl.style.width = pct + '%';
+        ch.timeEl.textContent = fmtTime(curSec) + ' / ' + fmtTime(ch.duration);
+    }
+
+    // 动画循环
+    let lastTick = 0;
+    function animationLoop(ts) {
+        if (!lastTick) lastTick = ts;
+        const dt = ts - lastTick;
+        lastTick = ts;
+
+        for (const key of ['ecg', 'eeg']) {
+            const ch = channels[key];
+            if (ch.playing && ch.data.length > 0) {
+                const speed = SPEEDS[ch.speedIdx];
+                const advance = (ch.rate * speed * dt) / 1000;
+                ch.cursor += advance;
+                // 循环播放
+                if (ch.cursor >= ch.data.length - ch.rate * WINDOW_SEC) {
+                    ch.cursor = 0;
+                }
+            }
+            drawWave(ch);
+        }
+        requestAnimationFrame(animationLoop);
+    }
+
+    // 控制函数（全局暴露）
+    window.toggleWave = function (key) {
+        const ch = channels[key];
+        ch.playing = !ch.playing;
+        ch.playBtn.textContent = ch.playing ? '⏸ 暂停' : '▶ 播放';
+        ch.playBtn.classList.toggle('active', ch.playing);
+    };
+
+    window.changeSpeed = function (key, dir) {
+        const ch = channels[key];
+        ch.speedIdx = Math.max(0, Math.min(SPEEDS.length - 1, ch.speedIdx + dir));
+        ch.metaEl.textContent = ch.data.length
+            ? (ch.rate + ' Hz · ' + ch.duration + 's · ' + SPEEDS[ch.speedIdx] + 'x')
+            : '加载中...';
+    };
+
+    // 初始化
+    async function init() {
+        initChannel('ecg');
+        initChannel('eeg');
+        window.addEventListener('resize', () => {
+            resizeCanvas(channels.ecg);
+            resizeCanvas(channels.eeg);
+        });
+
+        // 加载数据（相对路径）
+        await Promise.all([
+            loadWaveData('ecg', 'data/ecg_wave.json'),
+            loadWaveData('eeg', 'data/eeg_wave.json'),
+        ]);
+
+        requestAnimationFrame(animationLoop);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 
 </script>

@@ -322,6 +322,7 @@ def build_workflow(
     entry: str = "supervisor",
     edge_map: Optional[Dict[str, str]] = None,
     terminal_nodes: Optional[List[str]] = None,
+    checkpointer: Optional[Any] = None,
 ) -> Any:
     """
     构建并编译 LangGraph 工作流。
@@ -336,6 +337,9 @@ def build_workflow(
         terminal_nodes: 直接结束的节点名称列表（如 ["guardrail"]），
                         这些节点执行后直接到 END。
                         其他不在 edge_map 值中的节点也会默认到 END。
+        checkpointer: LangGraph checkpointer（如 SqliteSaver），
+                      配合 config={"configurable": {"thread_id": session_id}}
+                      实现按会话持久化的短期记忆；None 则不持久化。
 
     Returns:
         编译后的 LangGraph StateGraph 实例（可调用 .invoke(state)）
@@ -356,18 +360,28 @@ def build_workflow(
     if edge_map:
         workflow.add_conditional_edges(entry, router, edge_map)
 
-    # 设置从各节点到 END 的边
+    # 设置各节点的出边：
+    #   - 终端节点（guardrail 等）→ END
+    #   - 生成节点（generate）→ END
+    #   - 中间节点（researcher/analyst 等路由目标）→ 生成节点，再由生成节点结束
+    #     （若图中不存在 generate 则退化为直接 END）
     all_targets = set(edge_map.values()) if edge_map else set()
+    generator = "generate" if "generate" in nodes else None
     for node_name in nodes:
-        if node_name == entry:
+        if node_name == entry or node_name == generator:
             continue
         if node_name in terminal_nodes:
             workflow.add_edge(node_name, END)
-        elif node_name not in all_targets:
-            # 终端节点（如 generate）直接结束
+        elif node_name in all_targets and generator:
+            # 中间节点执行完后进入生成节点
+            workflow.add_edge(node_name, generator)
+        else:
             workflow.add_edge(node_name, END)
 
-    return workflow.compile()
+    if generator:
+        workflow.add_edge(generator, END)
+
+    return workflow.compile(checkpointer=checkpointer)
 
 
 # ── 开箱即用的通用 Agent 工作流 ──────────────────────────────────
@@ -403,6 +417,7 @@ class AgentWorkflow:
         supervisor_kwargs: Optional[Dict[str, Any]] = None,
         generation_kwargs: Optional[Dict[str, Any]] = None,
         analysis_node: Optional[BaseNode] = None,
+        use_checkpointer: bool = False,
     ):
         """
         Args:
@@ -414,6 +429,8 @@ class AgentWorkflow:
             supervisor_kwargs: 传给 SupervisorNode 的额外参数
             generation_kwargs: 传给 GenerationNode 的额外参数
             analysis_node: 自定义分析节点（覆盖默认空节点）
+            use_checkpointer: 是否接入 SqliteSaver checkpointer（data/checkpoints.db），
+                              开启后 invoke 可传 config 指定 thread_id 实现多轮记忆
         """
         # 构建节点
         self._nodes: Dict[str, BaseNode] = {}
@@ -448,37 +465,48 @@ class AgentWorkflow:
 
         self._edge_map["respond"] = "generate"
 
-        # 构建路由
-        self._router = SupervisorNode(
-            research_keywords=(supervisor_kwargs or {}).get(
-                "research_keywords",
-                ["search", "搜索", "查找", "检索", "latest", "news", "最新"],
-            ),
-            analyze_keywords=(supervisor_kwargs or {}).get(
-                "analyze_keywords",
-                ["analyze", "分析", "predict", "risk", "评估"],
-            ),
-            guard_keywords=(supervisor_kwargs or {}).get("guard_keywords", []),
-        )
+        # 构建路由：SupervisorNode 是节点（__call__ 返回状态 dict），
+        # 条件边需要返回路由字符串，因此用 BaseRouter 适配器包一层
+        class _SupervisorRouter(BaseRouter):
+            def __init__(self, supervisor: SupervisorNode):
+                self._supervisor = supervisor
 
-        # 编译工作流
+            def route(self, state: AgentState) -> str:
+                return self._supervisor.run(state).get("next_step", "respond")
+
+        self._router = _SupervisorRouter(self._nodes["supervisor"])
+
+        # 编译工作流（可选接入 checkpointer 实现短期记忆持久化）
+        self._checkpointer = None
+        if use_checkpointer:
+            try:
+                from .checkpointer import get_checkpointer
+                self._checkpointer = get_checkpointer()
+            except Exception as e:
+                logger.warning("Failed to init checkpointer, workflow will be stateless: %s", e)
+
         self._compiled = build_workflow(
             nodes=self._nodes,
             router=self._router,
             entry="supervisor",
             edge_map=self._edge_map,
             terminal_nodes=self._terminal,
+            checkpointer=self._checkpointer,
         )
 
-    def invoke(self, state: AgentState) -> AgentState:
+    def invoke(self, state: AgentState, config: Optional[Dict[str, Any]] = None) -> AgentState:
         """执行工作流。
 
         Args:
             state: 初始状态（至少需包含 messages 字段）
+            config: LangGraph 调用配置；接入 checkpointer 后可传
+                    {"configurable": {"thread_id": session_id}} 实现按会话记忆
 
         Returns:
             更新后的状态（包含 AI 回复消息）
         """
+        if config is not None:
+            return self._compiled.invoke(state, config=config)
         return self._compiled.invoke(state)
 
     def add_node(self, name: str, node: BaseNode, after: Optional[str] = None, to_end: bool = True):

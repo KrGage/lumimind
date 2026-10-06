@@ -1,0 +1,232 @@
+/* ═══════════════════════════════════════════════════════
+   LumiMind 深色主题覆盖层
+   与 demo_record.html / PPT 统一：#0B1220 底 · #5AA7FF 主色
+   适用：index-V2 / ai-chat / ai-chat2 / settings
+   （在页面自身 <style> 之后加载，同名规则覆盖浅色主题）
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --lumi-bg: #0B1220;
+  --lumi-panel: #141E32;
+  --lumi-panel-alt: #1A2740;
+  --lumi-inset: #0F1A2E;
+  --lumi-border: #2A3A55;
+  --lumi-border-subtle: #1C2A44;
+  --lumi-text: #E8EEF7;
+  --lumi-text-2: #A9B7CC;
+  --lumi-text-dim: #6E7F99;
+  --lumi-blue: #5AA7FF;
+  --lumi-teal: #63E6D2;
+  --lumi-orange: #FFB547;
+  --lumi-green: #4ADE80;
+  --lumi-red: #F87171;
+}
+
+* { scrollbar-color: #2A3A55 transparent; }
+
+/* ── 基础 ── */
+body {
+  background: linear-gradient(160deg, #0B1220 0%, #0E1830 50%, #0B1220 100%) !important;
+  color: var(--lumi-text) !important;
+}
+.dashboard {
+  background: var(--lumi-panel) !important;
+  border: 1px solid var(--lumi-border-subtle) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+::selection { background: rgba(90, 167, 255, 0.35); }
+
+/* ── 顶部导航 ── */
+.nav-bar, header.header {
+  background: rgba(20, 30, 50, 0.92) !important;
+  border-bottom: 1px solid var(--lumi-border) !important;
+  backdrop-filter: blur(12px);
+}
+.nav-title {
+  background: linear-gradient(135deg, #5AA7FF 0%, #63E6D2 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important;
+}
+.nav-link { color: var(--lumi-text-2) !important; border: 1px solid transparent; }
+.nav-link:hover {
+  background: rgba(90, 167, 255, 0.10) !important; color: var(--lumi-blue) !important;
+  border-color: rgba(90, 167, 255, 0.40) !important;
+}
+.nav-link.active {
+  background: rgba(90, 167, 255, 0.16) !important; color: var(--lumi-blue) !important;
+  border-color: var(--lumi-blue) !important; font-weight: 600;
+}
+.nav-user { background: var(--lumi-panel-alt) !important; border-color: var(--lumi-border) !important; }
+.user-name { color: var(--lumi-text) !important; }
+.badge {
+  background: rgba(90, 167, 255, 0.12) !important; color: var(--lumi-blue) !important;
+  border-color: rgba(90, 167, 255, 0.45) !important;
+}
+.sub { color: var(--lumi-text-dim) !important; }
+
+/* ── 卡片 / 区块 ── */
+.card, .wave-card, .heart-rate, .settings-section, .setting-card, .user-info-card,
+.emotion-panel, .status-card {
+  background: var(--lumi-panel) !important;
+  border: 1px solid var(--lumi-border) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+}
+.card:hover, .wave-card:hover, .setting-card:hover { border-color: #3E5A85 !important; }
+.card-title, .wave-card-title, .section-title, .hr-header,
+.setting-label, .user-info-name { color: var(--lumi-text) !important; }
+.emotion-label, .sim-tip, .setting-desc, .user-info-role { color: var(--lumi-text-dim) !important; }
+.emotion-value { color: var(--lumi-orange) !important; text-shadow: 0 0 18px rgba(255, 181, 71, .3); }
+.highlight { color: var(--lumi-orange) !important; }
+
+/* ── index-V2 控制面板补充 ── */
+.session-bar { background: var(--lumi-inset) !important; border: 1px solid var(--lumi-border-subtle) !important; }
+.api-footer { background: var(--lumi-inset) !important; border: 1px solid var(--lumi-border-subtle) !important; }
+.api-endpoint { background: var(--lumi-panel) !important; border-color: var(--lumi-border) !important; color: var(--lumi-teal) !important; }
+.wave-canvas-wrap { background: var(--lumi-inset) !important; border: 1px solid var(--lumi-border-subtle) !important; }
+.wave-controls .btn-wave {
+  background: var(--lumi-panel) !important; border: 1px solid var(--lumi-border) !important; color: var(--lumi-text-2) !important;
+}
+.wave-controls .btn-wave.active {
+  background: rgba(90, 167, 255, 0.16) !important; border-color: var(--lumi-blue) !important; color: var(--lumi-blue) !important;
+}
+.btn-action {
+  background: rgba(90, 167, 255, 0.14) !important; border: 1px solid rgba(90, 167, 255, 0.5) !important; color: var(--lumi-blue) !important;
+}
+.btn-action.secondary {
+  background: var(--lumi-panel) !important; border-color: var(--lumi-border) !important; color: var(--lumi-text-2) !important;
+}
+.agent-hint { background: var(--lumi-inset) !important; border-color: var(--lumi-border-subtle) !important; color: var(--lumi-text-2) !important; }
+.param-hint { background: var(--lumi-inset) !important; color: var(--lumi-text-dim) !important; }
+.param-value { background: rgba(90, 167, 255, 0.10) !important; color: var(--lumi-blue) !important; }
+.feedback-bar { background: var(--lumi-inset) !important; border-color: var(--lumi-border-subtle) !important; }
+.modal-box { background: var(--lumi-panel) !important; border-color: var(--lumi-border) !important; color: var(--lumi-text) !important; }
+input[type="range"] { background: var(--lumi-border-subtle) !important; }
+
+/* ── 侧栏（问答页） ── */
+.sidebar { background: #0E1626 !important; border-right: 1px solid var(--lumi-border) !important; }
+.btn-new-chat {
+  background: linear-gradient(135deg, #5AA7FF, #3E86E8) !important; color: #06101F !important;
+  font-weight: 600;
+}
+.btn-new-chat:hover { background: linear-gradient(135deg, #7ABAFF, #5AA7FF) !important; color: #06101F !important; }
+.sidebar-section-title { color: var(--lumi-text-dim) !important; }
+.history-item { color: var(--lumi-text-2) !important; border: 1px solid transparent; }
+.history-item:hover { background: var(--lumi-panel-alt) !important; }
+.history-item.active {
+  background: rgba(90, 167, 255, 0.15) !important;
+  border-color: rgba(90, 167, 255, 0.45) !important; color: var(--lumi-blue) !important;
+}
+.history-item-del:hover { color: var(--lumi-red) !important; background: rgba(248, 113, 113, 0.15) !important; }
+.history-empty { color: var(--lumi-text-dim) !important; }
+.sidebar-quick-link { color: var(--lumi-text-2) !important; }
+.sidebar-quick-link:hover { background: var(--lumi-panel-alt) !important; color: var(--lumi-text) !important; }
+.sidebar-toggle:hover { background: var(--lumi-panel-alt) !important; border-color: var(--lumi-border) !important; }
+
+/* ── 聊天区 ── */
+.chat-area, .chat-messages { background: transparent !important; }
+.chat-welcome .welcome-title { color: var(--lumi-text-2) !important; }
+.message.user .msg-avatar { background: rgba(90, 167, 255, 0.22) !important; }
+.message.assistant .msg-avatar { background: rgba(99, 230, 210, 0.16) !important; }
+.message.user .msg-bubble {
+  background: #2E5C9E !important; color: #F2F7FF !important;
+  border: 1px solid rgba(90, 167, 255, 0.5);
+}
+.message.assistant .msg-bubble {
+  background: var(--lumi-panel-alt) !important; color: var(--lumi-text) !important;
+  border: 1px solid var(--lumi-border) !important;
+}
+.msg-bubble.md-content code { background: rgba(90, 167, 255, 0.14) !important; color: #9CC8FF !important; }
+.msg-bubble.md-content blockquote {
+  border-left-color: var(--lumi-blue) !important; color: var(--lumi-text-2) !important;
+  background: rgba(90, 167, 255, 0.06) !important;
+}
+.msg-bubble.md-content table { border-color: var(--lumi-border) !important; }
+.msg-bubble.md-content th { background: var(--lumi-panel-alt) !important; }
+.msg-bubble.md-content td, .msg-bubble.md-content th { border-color: var(--lumi-border) !important; }
+
+.quick-btn, .emotion-sim button {
+  background: var(--lumi-panel) !important; border: 1px solid var(--lumi-border) !important;
+  color: var(--lumi-text-2) !important;
+}
+.quick-btn:hover, .emotion-sim button:hover:not(:disabled) {
+  border-color: var(--lumi-blue) !important; background: rgba(90, 167, 255, 0.10) !important;
+  color: var(--lumi-blue) !important;
+}
+
+/* 打字指示 */
+.typing-dot { background: var(--lumi-text-dim) !important; }
+.typing-dots {
+  background: var(--lumi-panel-alt) !important; border: 1px solid var(--lumi-border) !important;
+}
+.message.error .msg-bubble {
+  background: rgba(248, 113, 113, 0.12) !important; color: var(--lumi-red) !important; border-color: rgba(248, 113, 113, 0.5) !important;
+}
+
+/* ── 输入区 / 表单 ── */
+.chat-input-bar, .chat-input-area, .chat-input-wrapper, .input-bar, .chat-input-wrap {
+  background: var(--lumi-panel) !important; border-top: 1px solid var(--lumi-border) !important;
+}
+.chat-input-area textarea { background: var(--lumi-inset) !important; color: var(--lumi-text) !important; border-color: var(--lumi-border) !important; }
+input[type="text"], input[type="number"], input[type="password"], input[type="url"],
+select, textarea {
+  background: var(--lumi-inset) !important; color: var(--lumi-text) !important;
+  border-color: var(--lumi-border) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--lumi-text-dim) !important; }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--lumi-blue) !important;
+  box-shadow: 0 0 0 3px rgba(90, 167, 255, 0.15) !important;
+  outline: none;
+}
+.send-btn, .btn-primary, .btn-save {
+  background: linear-gradient(135deg, #5AA7FF, #3E86E8) !important; color: #06101F !important;
+  font-weight: 600;
+}
+.model-badge { background: var(--lumi-inset) !important; color: var(--lumi-text-dim) !important; border-color: var(--lumi-border) !important; }
+
+/* ai-chat2 配置弹层 */
+.config-panel {
+  background: var(--lumi-panel) !important; color: var(--lumi-text) !important;
+  border: 1px solid var(--lumi-border) !important; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
+}
+.config-panel label { color: var(--lumi-text-2) !important; }
+.config-actions button { background: var(--lumi-panel-alt) !important; color: var(--lumi-text-2) !important; border: 1px solid var(--lumi-border) !important; }
+.config-actions button:hover { background: var(--lumi-inset) !important; }
+.config-actions .btn-primary {
+  background: linear-gradient(135deg, #5AA7FF, #3E86E8) !important; color: #06101F !important; border: none !important;
+}
+.send-btn:hover, .btn-primary:hover, .btn-save:hover:not(:disabled) {
+  box-shadow: 0 4px 14px rgba(90, 167, 255, 0.35) !important;
+}
+
+/* ── 设置页开关 ── */
+.toggle-slider { background: var(--lumi-border) !important; }
+.toggle-slider::before { background: var(--lumi-text) !important; }
+.toggle-switch input:checked + .toggle-slider { background: var(--lumi-blue) !important; }
+
+/* ── 控制面板（index-V2） ── */
+.light-simulator {
+  background: radial-gradient(ellipse at 50% 40%, rgba(90, 167, 255, 0.05), transparent 70%), var(--lumi-inset) !important;
+  border: 1px solid var(--lumi-border-subtle);
+}
+.wave-progress { background: var(--lumi-border-subtle) !important; }
+.progress-ecg { background: #F87171 !important; }
+.progress-eeg { background: var(--lumi-teal) !important; }
+.status-led .led-on { background: var(--lumi-green) !important; box-shadow: 0 0 8px var(--lumi-green); }
+.status-led .led-off { background: var(--lumi-text-dim) !important; }
+.model-badge-x { /* 占位避免重复定义 */ }
+
+/* ── 通用按钮兜底 ── */
+button { color: inherit; }
+.btn, button.secondary {
+  border-color: var(--lumi-border); background: var(--lumi-panel); color: var(--lumi-text-2);
+}
+.btn:hover, button.secondary:hover { border-color: var(--lumi-blue); color: var(--lumi-blue); }
+
+/* ── 滚动条 ── */
+::-webkit-scrollbar-thumb, .history-list::-webkit-scrollbar-thumb,
+.chat-messages::-webkit-scrollbar-thumb { background: var(--lumi-border) !important; }
+
+/* ── 引用/知识来源条 ── */
+.citation-box, .msg-citations {
+  background: var(--lumi-inset) !important; border: 1px solid var(--lumi-border-subtle) !important;
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>LumiMind · 闭环演示录屏页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0B1220; color: #E8EEF7;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    height: 100vh; overflow: hidden;
+  }
+  /* 环境光晕：随色温变化 */
+  #ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(200,220,255,.10), transparent 60%); transition: background 2s; }
+  header { position: relative; z-index: 60; display: flex; align-items: center; gap: 16px;
+    padding: 12px 20px; border-bottom: 1px solid #2A3A55; }
+  header h1 { font-size: 18px; font-weight: bold; }
+  header h1 span { color: #5AA7FF; }
+  #phaseBar { display: flex; gap: 6px; margin-left: auto; align-items: center; }
+  .phase { font-size: 11px; padding: 4px 10px; border-radius: 10px; background: #141E32; color: #6E7F99; border: 1px solid #2A3A55; }
+  .phase.on { color: #0B1220; background: #5AA7FF; border-color: #5AA7FF; font-weight: bold; }
+  #clock { font-family: Consolas, monospace; font-size: 15px; color: #FFB547; min-width: 64px; text-align: right; }
+  #restartBtn { background: #141E32; color: #A9B7CC; border: 1px solid #2A3A55; border-radius: 6px;
+    padding: 4px 12px; cursor: pointer; font-size: 12px; }
+  #restartBtn:hover { color: #E8EEF7; border-color: #5AA7FF; }
+
+  main { position: relative; z-index: 2; display: grid; height: calc(100vh - 46px - 118px);
+    grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; padding: 10px 20px; }
+  .panel { background: #141E32; border: 1px solid #2A3A55; border-radius: 10px; padding: 10px 14px;
+    display: flex; flex-direction: column; overflow: hidden; }
+  .panel h3 { font-size: 13px; color: #A9B7CC; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .panel h3 .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .big { font-size: 26px; font-weight: bold; font-family: Consolas, monospace; }
+  canvas { width: 100%; flex: 1; min-height: 0; }
+
+  /* 情绪面板 */
+  #emotionPanel { border-color: #2E4A3E; }
+  #emotionState { font-size: 14px; font-weight: bold; padding: 3px 12px; border-radius: 10px; margin-left: auto; }
+  .st-calm    { background: rgba(74,222,128,.15); color: #4ADE80; border: 1px solid #4ADE80; }
+  .st-decline { background: rgba(255,181,71,.15); color: #FFB547; border: 1px solid #FFB547; }
+  .st-low     { background: rgba(248,113,113,.18); color: #F87171; border: 1px solid #F87171; animation: blink 1s infinite; }
+  .st-adjust  { background: rgba(90,167,255,.15); color: #5AA7FF; border: 1px solid #5AA7FF; }
+  .st-recover { background: rgba(99,230,210,.15); color: #63E6D2; border: 1px solid #63E6D2; }
+  @keyframes blink { 50% { opacity: .55; } }
+  #vaNow { display: flex; gap: 28px; margin-bottom: 4px; }
+  #vaNow .lab { font-size: 12px; color: #A9B7CC; margin-right: 6px; }
+  #vVal { color: #4ADE80; transition: color .8s; }
+  #aVal { color: #63E6D2; }
+  #vVal.bad, #aVal.bad { color: #F87171; }
+
+  /* 光环境面板 */
+  #lightPanel { border-color: #4A3E2E; }
+  #lightNow { display: flex; align-items: center; gap: 18px; margin-bottom: 6px; }
+  #bulb { width: 54px; height: 54px; border-radius: 50%; background: #DDEEFF;
+    box-shadow: 0 0 34px 8px rgba(200,225,255,.55); transition: all 1.5s; }
+  #lightVals { display: grid; grid-template-columns: auto auto; gap: 2px 18px; }
+  #lightVals .lab { font-size: 12px; color: #A9B7CC; }
+  #modeName { grid-column: 1 / 3; color: #FFB547; font-size: 13px; font-weight: bold; }
+
+  /* 频段条 */
+  #bandRow { display: flex; gap: 12px; height: 46px; align-items: flex-end; margin-top: 6px; }
+  .band { flex: 1; text-align: center; font-size: 11px; color: #A9B7CC; }
+  .band .bar { border-radius: 3px 3px 0 0; transition: height .8s, background .8s; }
+
+  /* 事件日志 */
+  #logPanel { position: relative; z-index: 2; height: 118px; margin: 0 20px 10px;
+    background: #060B14; border: 1px solid #2A3A55; border-radius: 10px; padding: 6px 14px;
+    font-family: Consolas, monospace; font-size: 12px; color: #AED581; overflow-y: auto; }
+  #logPanel .t { color: #6E7F99; margin-right: 8px; }
+
+  /* ── 调光弹窗（复刻 tkinter 弹窗风格） ── */
+  #popupMask { position: fixed; inset: 0; z-index: 50; background: rgba(6,11,20,.45);
+    display: none; align-items: center; justify-content: center; }
+  #popup { width: 460px; background: #fff; color: #333; border-radius: 8px; padding: 22px 26px;
+    box-shadow: 0 18px 60px rgba(0,0,0,.5); }
+  #popup h4 { font-size: 17px; margin-bottom: 10px; }
+  #popup p { font-size: 13px; color: #444; margin: 6px 0; }
+  #popup .cur  { color: #666; }
+  #popup .rec  { color: #1976D2; font-weight: bold; }
+  #popup .btns { display: flex; gap: 10px; margin-top: 18px; justify-content: center; }
+  #popup button { border: none; border-radius: 4px; padding: 8px 18px; font-size: 13px; cursor: pointer; }
+  #btnYes { background: #4CAF50; color: #fff; }
+  #btnNo  { background: #BDBDBD; color: #333; }
+  #btnCustom { background: #1976D2; color: #fff; }
+
+  /* 自定义子窗口 */
+  #customWin { display: none; margin-top: 14px; border: 1px solid #ddd; border-radius: 6px;
+    background: #f5f5f5; padding: 12px 16px; }
+  #customWin .row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 13px; }
+  #customWin input { width: 90px; padding: 4px 6px; }
+  #customWin .cbts { display: flex; gap: 10px; margin-top: 10px; }
+
+  /* 完成横幅 */
+  #doneBanner { position: fixed; top: 54px; left: 50%; transform: translateX(-50%); z-index: 40;
+    display: none; background: rgba(74,222,128,.15); border: 1px solid #4ADE80; color: #4ADE80;
+    padding: 8px 26px; border-radius: 20px; font-size: 14px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div id="ambient"></div>
+
+<header>
+  <h1><span>LumiMind</span> · 闭环演示（进入页面即开始 · 可直接录屏）</h1>
+  <div id="phaseBar">
+    <div class="phase" id="ph0">① 平静监控</div>
+    <div class="phase" id="ph1">② 情绪下降</div>
+    <div class="phase" id="ph2">③ 异常持续 5s</div>
+    <div class="phase" id="ph3">④ 调光询问</div>
+    <div class="phase" id="ph4">⑤ 光环境调节</div>
+    <div class="phase" id="ph5">⑥ 情绪恢复</div>
+  </div>
+  <div id="clock">00:00</div>
+  <button id="restartBtn" onclick="restart()">↻ 重播</button>
+</header>
+
+<main>
+  <!-- ECG / 脉搏波 -->
+  <div class="panel">
+    <h3><span class="dot" style="background:#F87171"></span>ECG 心电图（Lead II）
+      <span style="margin-left:auto">心率 <span class="big" id="hrVal" style="color:#F87171;font-size:18px">75</span> bpm</span></h3>
+    <canvas id="ecgCanvas"></canvas>
+  </div>
+
+  <!-- 情绪面板 -->
+  <div class="panel" id="emotionPanel">
+    <h3><span class="dot" style="background:#4ADE80"></span>情绪状态（多模态融合输出）
+      <span id="emotionState" class="st-calm">平静</span></h3>
+    <div id="vaNow">
+      <div><span class="lab">Valence 效价</span><span class="big" id="vVal">0.68</span></div>
+      <div><span class="lab">Arousal 唤醒</span><span class="big" id="aVal">0.34</span></div>
+    </div>
+    <canvas id="vaCanvas"></canvas>
+  </div>
+
+  <!-- EEG -->
+  <div class="panel">
+    <h3><span class="dot" style="background:#63E6D2"></span>EEG 脑电（Fp1 通道）</h3>
+    <canvas id="eegCanvas"></canvas>
+    <div id="bandRow">
+      <div class="band">θ<div class="bar" id="barTheta" style="height:20px;background:#5AA7FF"></div>4-8Hz</div>
+      <div class="band">α<div class="bar" id="barAlpha" style="height:24px;background:#63E6D2"></div>8-13Hz</div>
+      <div class="band">β<div class="bar" id="barBeta"  style="height:14px;background:#FFB547"></div>13-30Hz</div>
+    </div>
+  </div>
+
+  <!-- 光环境 -->
+  <div class="panel" id="lightPanel">
+    <h3><span class="dot" style="background:#FFB547"></span>光环境参数</h3>
+    <div id="lightNow">
+      <div id="bulb"></div>
+      <div id="lightVals">
+        <span class="lab">照度</span><span class="big" id="luxVal" style="color:#FFB547;font-size:20px">500 lx</span>
+        <span class="lab">色温</span><span class="big" id="cctVal" style="color:#FFB547;font-size:20px">6500 K</span>
+        <span id="modeName">模式：普通办公（冷白）</span>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#6E7F99;line-height:1.8" id="lightHint">
+      执行端：欧普智能灯具 · BLE/MQTT<br>来源：策略引擎推荐（情绪低落 → 暖光舒缓）
+    </div>
+  </div>
+</main>
+
+<div id="logPanel"><div><span class="t">[00:00]</span>演示就绪 · ECG 来自 BIOPAC 1孙宇轩 / EEG 来自 DEAP s01 Fp1</div></div>
+
+<!-- 调光弹窗 -->
+<div id="popupMask">
+  <div id="popup">
+    <h4>💡 调光建议</h4>
+    <p>目前检测到你心情低落（已持续 5 秒），是否使用推荐的调光策略？</p>
+    <p class="cur" id="popCur">&nbsp;&nbsp;当前光参数&nbsp;&nbsp;照度：500 lx，色温：6500 K</p>
+    <p class="rec" id="popRec">&nbsp;&nbsp;调整后光参数&nbsp;&nbsp;照度：300 lx，色温：2700 K</p>
+    <div id="customWin">
+      <div class="row">照度 (lx)：<input type="number" id="cusLux" min="100" max="1000" step="50" value="300"></div>
+      <div class="row">色温 (K)：<input type="number" id="cusCct" min="1800" max="6500" step="100" value="2700"></div>
+      <div class="cbts">
+        <button style="background:#4CAF50;color:#fff" onclick="customConfirm()">确 认</button>
+        <button style="background:#ff9800;color:#fff" onclick="customReset()">重 置</button>
+      </div>
+    </div>
+    <div class="btns">
+      <button id="btnYes" onclick="acceptLight()">是（应用推荐）</button>
+      <button id="btnNo" onclick="rejectLight()">否</button>
+      <button id="btnCustom" onclick="toggleCustom()">自定义</button>
+    </div>
+  </div>
+</div>
+
+<div id="doneBanner">✔ 演示完成 · 情绪已恢复平静 · 可点击右上角「重播」</div>
+
+<script src="demo_data.js"></script>
+<script>
+/* ═══════════════ 演示状态机 ═══════════════
+   ① calm  0-10s   平静，普通光参数
+   ② decline 10-18s V↓ A↑
+   ③ abnormal ≥18s  低落稳定，持续 5s 后弹窗（④ popup）
+   ⑤ adjusting     点击"是"后光参数过渡
+   ⑥ recover ~30s  情绪缓慢恢复 → done                */
+const T_CALM = 10, T_DECLINE = 8, T_HOLD = 5, T_RECOVER = 30;
+const LIGHT_NORMAL = { lux: 500, cct: 6500, mode: "普通办公（冷白）" };
+const LIGHT_REC    = { lux: 300, cct: 2700, mode: "暖光舒缓（调节后）" };
+const V0 = 0.68, V1 = 0.18, A0 = 0.34, A1 = 0.72;
+
+let t0 = null, phase = "calm", abnormalSince = null, popupShownAt = null,
+    light = { ...LIGHT_NORMAL }, lightTarget = null, recoverStart = null,
+    rejectAgainAt = null, doneAt = null, vaHist = [], lastLog = -1;
+
+const $ = id => document.getElementById(id);
+const D = window.DEMO_DATA;
+const noise = (s) => (Math.sin(Date.now() / (300 + s * 97)) * 0.5 + Math.random() - 0.5) * 0.02;
+const lerp = (a, b, k) => a + (b - a) * k;
+const clamp01 = x => Math.min(1, Math.max(0, x));
+
+function stressLevel(now) {          // 0 平静信号 ↔ 1 低落信号，用于数据/频段/心率渐变
+  if (phase === "calm") return 0;
+  if (phase === "decline") return clamp01((now - T_CALM) / T_DECLINE);
+  if (phase === "adjusting" || phase === "popup") return 1;
+  if (phase === "recover") {
+    const k = clamp01((now - recoverStart) / (T_RECOVER * 0.7));
+    return 1 - k;
+  }
+  return doneAt != null ? clamp01(1 - (Date.now() / 1000 - doneAt) / 5) : 0;
+}
+
+function vaAt(now) {
+  if (phase === "calm") return [V0 + noise(1), A0 + noise(2)];
+  if (phase === "decline") {
+    const k = clamp01((now - T_CALM) / T_DECLINE);
+    return [lerp(V0, V1, k) + noise(1), lerp(A0, A1, k) + noise(2)];
+  }
+  if (phase === "adjusting" || phase === "popup" || phase === "abnormal") return [V1 + noise(1), A1 + noise(2)];
+  if (phase === "recover") {
+    const k = clamp01((now - recoverStart) / T_RECOVER);   // 先快后慢的恢复
+    const e = 1 - Math.pow(1 - k, 2);
+    return [lerp(V1, V0, e) + noise(1), lerp(A1, A0, e) + noise(2)];
+  }
+  return [V0 + noise(1), A0 + noise(2)];                   // done
+}
+
+function setStateBadge(txt, cls) {
+  const el = $("emotionState");
+  el.textContent = txt; el.className = cls;
+}
+
+function log(msg) {
+  const s = ((Date.now() - t0) / 1000) || 0;
+  const mm = String(Math.floor(s / 60)).padStart(2, "0"), ss = String(Math.floor(s % 60)).padStart(2, "0");
+  const d = document.createElement("div");
+  d.innerHTML = `<span class="t">[${mm}:${ss}]</span>${msg}`;
+  $("logPanel").appendChild(d);
+  $("logPanel").scrollTop = 1e6;
+}
+
+const PHASES = ["ph0","ph1","ph2","ph3","ph4","ph5"];
+function setPhaseBar(i) { PHASES.forEach((p, k) => $(p).classList.toggle("on", k === i)); }
+
+/* ── 弹窗交互 ── */
+function showPopup() {
+  phase = "popup";
+  setPhaseBar(3);
+  $("popCur").innerHTML = `&nbsp;&nbsp;当前光参数&nbsp;&nbsp;照度：${light.lux} lx，色温：${light.cct} K`;
+  $("popupMask").style.display = "flex";
+  $("customWin").style.display = "none";
+  log("⚠ 弹出调光建议（情绪低落已持续 5s）");
+}
+function acceptLight() { applyLight(LIGHT_REC.lux, LIGHT_REC.cct, "推荐"); }
+function rejectLight() {
+  $("popupMask").style.display = "none";
+  log("用户拒绝调光建议，8s 后将再次提醒");
+  phase = "abnormal"; rejectAgainAt = (Date.now() - t0) / 1000 + 8; abnormalSince = null;
+}
+function toggleCustom() { const w = $("customWin"); w.style.display = w.style.display === "none" ? "block" : "none"; }
+function customReset() { $("cusLux").value = LIGHT_REC.lux; $("cusCct").value = LIGHT_REC.cct; }
+function customConfirm() {
+  applyLight(+$("cusLux").value || 300, +$("cusCct").value || 2700, "自定义");
+}
+function applyLight(lux, cct, tag) {
+  $("popupMask").style.display = "none";
+  lightTarget = { lux, cct, mode: tag === "推荐" ? LIGHT_REC.mode : `自定义（${lux}lx / ${cct}K）` };
+  phase = "adjusting"; setPhaseBar(4);
+  log(`✅ 已应用${tag}参数 → 照度 ${lux} lx，色温 ${cct} K（灯具指令已下发）`);
+  setTimeout(() => { phase = "recover"; recoverStart = (Date.now() - t0) / 1000; setPhaseBar(5);
+                     log("光照干预生效，情绪开始恢复…"); }, 2200);
+}
+
+/* ── 绘图 ── */
+function fitCanvas(c) {
+  const r = c.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  if (c.width !== r.width * dpr) { c.width = r.width * dpr; c.height = r.height * dpr; }
+  const ctx = c.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return [ctx, r.width, r.height];
+}
+function drawWave(c, dataA, dataB, k, color) {   // A/B 数据按 k 交叉渐变，滚动显示
+  const [ctx, W, H] = fitCanvas(c);
+  ctx.clearRect(0, 0, W, H);
+  ctx.strokeStyle = "#1C2A44"; ctx.lineWidth = 1;
+  for (let y = 0; y <= 4; y++) { ctx.beginPath(); ctx.moveTo(0, H * y / 4); ctx.lineTo(W, H * y / 4); ctx.stroke(); }
+  const n = dataA.length, off = Math.floor((Date.now() / 22) % n);
+  ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 1.6;
+  for (let x = 0; x < W; x++) {
+    const i = (off + Math.floor(x / W * n)) % n;
+    const v = dataA[i] * (1 - k) + dataB[i] * k;
+    const y = H / 2 - v * H * 0.42;
+    x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+}
+function drawVA() {
+  const [ctx, W, H] = fitCanvas($("vaCanvas"));
+  ctx.clearRect(0, 0, W, H);
+  ctx.strokeStyle = "#1C2A44";
+  ctx.beginPath(); ctx.moveTo(0, H * 0.4); ctx.lineTo(W, H * 0.4); ctx.stroke();  // 低落阈值线
+  ctx.fillStyle = "#6E7F99"; ctx.font = "10px sans-serif"; ctx.fillText("低落阈值", 4, H * 0.4 - 3);
+  const span = 65, n = vaHist.length;
+  const draw = (key, color) => {
+    ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 1.8;
+    for (let i = Math.max(0, n - span); i < n; i++) {
+      const x = (i - (n - span)) / span * W, y = H - vaHist[i][key] * H;
+      i === Math.max(0, n - span) ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  };
+  draw("v", "#4ADE80"); draw("a", "#63E6D2");
+  ctx.font = "10px sans-serif";
+  ctx.fillStyle = "#4ADE80"; ctx.fillText("V", 4, 12);
+  ctx.fillStyle = "#63E6D2"; ctx.fillText("A", 18, 12);
+}
+
+function cctToRGB(kelvin) {  // 近似色温 → RGB
+  const t = kelvin / 100;
+  let r, g, b;
+  r = t <= 66 ? 255 : 329.7 * Math.pow(t - 60, -0.133);
+  g = t <= 66 ? 99.47 * Math.log(t) - 161.1 : 288.1 * Math.pow(t - 60, -0.0755);
+  b = t >= 66 ? 255 : (t <= 19 ? 0 : 138.5 * Math.log(t - 10) - 305.0);
+  const c = v => Math.min(255, Math.max(0, v));
+  return [c(r), c(g), c(b)].map(Math.round);
+}
+
+/* ── 主循环 ── */
+let lastPanel = 0;
+function frame() {
+  if (!t0) { requestAnimationFrame(frame); return; }
+  const now = (Date.now() - t0) / 1000;
+
+  /* 状态迁移 */
+  if (phase === "calm" && now >= T_CALM) { phase = "decline"; setPhaseBar(1); log("检测到情绪开始下降（V↓ A↑）"); }
+  if (phase === "decline" && now >= T_CALM + T_DECLINE) { phase = "abnormal"; abnormalSince = now; setPhaseBar(2); log("⚠ 情绪进入低落异常区"); }
+  if (phase === "abnormal" && abnormalSince != null) {
+    if (rejectAgainAt != null && now >= rejectAgainAt) { rejectAgainAt = null; showPopup(); }
+    else if (rejectAgainAt == null && now - abnormalSince >= T_HOLD) showPopup();
+  }
+  if (phase === "recover" && now - recoverStart >= T_RECOVER) {
+    phase = "done"; doneAt = Date.now() / 1000; $("doneBanner").style.display = "block";
+    log("✔ 情绪已恢复平静，闭环演示完成");
+  }
+
+  const k = stressLevel(now);
+  const [v, a] = vaAt(now);
+  vaHist.push({ v: clamp01(v), a: clamp01(a) });
+  if (vaHist.length > 2000) vaHist.shift();
+
+  /* 面板节流 200ms */
+  if (Date.now() - lastPanel > 200) {
+    lastPanel = Date.now();
+    const hr = lerp(D.hr.calm, D.hr.stress, k);
+    $("hrVal").textContent = hr.toFixed(0);
+    $("vVal").textContent = v.toFixed(2); $("aVal").textContent = a.toFixed(2);
+    $("vVal").classList.toggle("bad", v < 0.35); $("aVal").classList.toggle("bad", a > 0.65);
+    const calmB = D.bands.calm, stB = D.bands.stress, mx = Math.max(calmB.theta, calmB.alpha, calmB.beta, stB.theta, stB.alpha, stB.beta);
+    const bars = [["barTheta","theta","#5AA7FF"],["barAlpha","alpha","#63E6D2"],["barBeta","beta","#FFB547"]];
+    bars.forEach(([id, key, col]) => {
+      const val = lerp(calmB[key], stB[key], k);
+      $(id).style.height = (6 + val / mx * 34) + "px";
+      $(id).style.background = k > 0.5 ? "#8FA3C0" : col;
+    });
+
+    /* 光参数动画 */
+    if (lightTarget) {
+      light.lux = Math.round(lerp(light.lux, lightTarget.lux, 0.08));
+      light.cct = Math.round(lerp(light.cct, lightTarget.cct, 0.08));
+      if (Math.abs(light.lux - lightTarget.lux) < 8) {
+        light.lux = lightTarget.lux; light.cct = lightTarget.cct;
+      }
+      light.mode = lightTarget.mode;
+    }
+    $("luxVal").textContent = light.lux + " lx";
+    $("cctVal").textContent = light.cct + " K";
+    $("modeName").textContent = "模式：" + light.mode;
+    const [r, g, b] = cctToRGB(light.cct), op = 0.25 + light.lux / 1600;
+    $("bulb").style.background = `rgb(${r},${g},${b})`;
+    $("bulb").style.boxShadow = `0 0 ${20 + light.lux / 18}px ${2 + light.lux / 130}px rgba(${r},${g},${b},.6)`;
+    $("ambient").style.background = `radial-gradient(ellipse at 70% 25%, rgba(${r},${g},${b},${0.06 + light.lux / 9000}), transparent 60%)`;
+
+    /* 状态徽章：纯 V 值驱动，≥0.5 平静，<0.5 低落 */
+    if (v >= 0.5) setStateBadge("心情平静", "st-calm");
+    else          setStateBadge("情绪低落", "st-low");
+
+    const mm = String(Math.floor(now / 60)).padStart(2, "0"), ss = String(Math.floor(now % 60)).padStart(2, "0");
+    $("clock").textContent = `${mm}:${ss}`;
+  }
+
+  drawWave($("ecgCanvas"), D.ecg.calm, D.ecg.stress, k, "#F87171");
+  drawWave($("eegCanvas"), D.eeg.calm, D.eeg.stress, k, "#63E6D2");
+  drawVA();
+  requestAnimationFrame(frame);
+}
+
+function restart() {
+  t0 = Date.now(); phase = "calm"; abnormalSince = null; rejectAgainAt = null;
+  light = { ...LIGHT_NORMAL }; lightTarget = null; recoverStart = null; doneAt = null;
+  vaHist = []; $("popupMask").style.display = "none"; $("doneBanner").style.display = "none";
+  $("logPanel").innerHTML = "";
+  setPhaseBar(0);
+  log("▶ 演示开始 · 前 10s 平静监控（普通办公光 500lx / 6500K）");
+}
+
+restart();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

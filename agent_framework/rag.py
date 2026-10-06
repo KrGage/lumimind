@@ -396,6 +396,15 @@ class SimpleVectorStore:
         query_vector = _get_query_embedding(query)
         q_vec = np.array([query_vector])
 
+        # 维度守卫：嵌入模型与库内向量维度不一致时无法检索
+        # （如离线 fallback 零向量 768 维 vs 库内 1024 维）
+        if self.vectors and len(query_vector) != len(self.vectors[0]):
+            logger.warning(
+                "Query embedding dim %d != store dim %d, search unavailable",
+                len(query_vector), len(self.vectors[0]),
+            )
+            return []
+
         # LSH 候选剪枝
         use_lsh = len(self.ids) > 10
         candidates = set()

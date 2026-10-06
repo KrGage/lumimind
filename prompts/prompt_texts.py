@@ -65,6 +65,36 @@ def build_rag_instruction(base_system: Optional[str] = None, context: str = "") 
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 2.5 用户长期记忆注入模板（生理/光偏好/问答要点）
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+USER_MEMORY_TEMPLATE = """
+以下是该用户的历史个人记录（生理情绪检测、光环境偏好、历史问答要点），
+在回答与用户自身状况相关的问题时请优先参考：
+
+1. **结合时间信息解读**：说明这些记录反映的近期趋势（如情绪波动、压力水平）
+2. **给出个性化解释**：基于记录给出针对性的光环境/健康建议
+3. **诚实说明范围**：这些记录来自可穿戴/摄像头检测，仅供参考，不能替代医疗诊断
+4. **提醒就医**：发现持续消极情绪或异常生理信号时，建议咨询专业医生
+
+---
+👤 用户个人记录：
+{user_context}
+---
+"""
+
+
+def build_user_memory_instruction(base_system: Optional[str] = None, user_context: str = "") -> str:
+    """将用户长期记忆拼接到系统提示词（可与 RAG 指令叠加）。"""
+    if not user_context:
+        return base_system or ""
+    mem_part = USER_MEMORY_TEMPLATE.format(user_context=user_context)
+    if base_system:
+        return f"{base_system}\n\n{mem_part}"
+    return mem_part
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 3. 光环境设计提示词
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

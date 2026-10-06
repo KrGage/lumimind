@@ -13,6 +13,7 @@ SQLAlchemy==2.0.25
 # --- Agent 框架（agent_framework/） ---
 langchain-core==1.4.8
 langgraph==1.2.8
+langgraph-checkpoint-sqlite>=2.0.0   # SqliteSaver 会话记忆持久化（data/checkpoints.db）
 httpx==0.28.1
 requests==2.34.2
 python-dotenv==1.2.2

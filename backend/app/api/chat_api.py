@@ -17,12 +17,17 @@ Chat API — AI 智慧问答接口
 """
 
 import logging
+from collections import deque
+from datetime import datetime, timezone
 from typing import List, Optional
 
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
+
+# ── 对话调试日志（内存环形缓冲，最近 50 条） ───────────────────
+_CHAT_DEBUG_LOG: deque = deque(maxlen=50)
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
@@ -48,6 +53,10 @@ class ChatRequest(BaseModel):
     user_id: Optional[str] = Field(
         default=None,
         description="用户 ID。传入后启用长期记忆（生理/光偏好/问答要点检索与记录）",
+    )
+    model: Optional[str] = Field(
+        default=None,
+        description="指定模型提供商（deepseek/qwen/glm/gemini/ollama/auto）。auto 或不传则自动降级",
     )
 
 
@@ -111,6 +120,12 @@ async def chat_endpoint(request: ChatRequest):
         )
 
     system = request.system or DEFAULT_SYSTEM_PROMPT
+    t0 = datetime.now(timezone.utc).isoformat()
+    user_msg = (request.message or "").strip() or (request.messages[-1]["content"] if request.messages else "")
+
+    # 解析模型选择：auto 或空视为自动降级
+    _model_raw = (request.model or "").strip().lower()
+    selected_provider = _model_raw if _model_raw and _model_raw != "auto" else None
 
     try:
         if use_memory:
@@ -121,14 +136,18 @@ async def chat_endpoint(request: ChatRequest):
                 message=request.message.strip(),
                 system=system,
                 user_id=(request.user_id or "").strip() or None,
+                api_provider=selected_provider,
             )
             result["session_id"] = request.session_id.strip()
         else:
             from agent_framework.rag_pipeline import rag_chat
 
-            result = await rag_chat(messages=request.messages, system=system)
+            result = await rag_chat(
+                messages=request.messages, system=system,
+                api_provider=selected_provider,
+            )
 
-        return ChatResponse(
+        response = ChatResponse(
             reply=result["reply"],
             model=result.get("model"),
             citations=[CitationResponse(**c) for c in result.get("citations", [])],
@@ -136,6 +155,23 @@ async def chat_endpoint(request: ChatRequest):
             user_memory_used=result.get("user_memory_used", False),
             session_id=result.get("session_id"),
         )
+
+        # 记录到调试日志
+        _CHAT_DEBUG_LOG.append({
+            "timestamp": t0,
+            "session_id": request.session_id or "",
+            "user_id": request.user_id or "",
+            "mode": "memory" if use_memory else "full_history",
+            "user_message": user_msg[:500],
+            "ai_reply": response.reply[:1000],
+            "model": response.model,
+            "knowledge_used": response.knowledge_used,
+            "user_memory_used": response.user_memory_used,
+            "citations_count": len(response.citations),
+            "system_prompt_preview": system[:200] + "..." if len(system) > 200 else system,
+        })
+
+        return response
     except ImportError as e:
         logger.warning("agent_framework not available for chat: %s", e)
         return ChatResponse(
@@ -215,6 +251,110 @@ async def clear_long_term_memories(user_id: str, mem_type: Optional[str] = None)
         return {"status": "error", "detail": str(e)}
 
 
+@router.get("/debug")
+async def chat_debug_log(limit: int = 20):
+    """
+    对话调试接口：查看最近的 N 条对话记录（用户输入 + AI 回复 + 系统提示词摘要）。
+    用于实时排查 prompt/模型/知识库相关问题。
+
+    访问: http://127.0.0.1:8000/api/chat/debug?limit=20
+    """
+    logs = list(_CHAT_DEBUG_LOG)
+    return {
+        "total": len(logs),
+        "limit": limit,
+        "entries": logs[-limit:][::-1],  # 最新的在前
+    }
+
+
+@router.delete("/debug")
+async def chat_debug_clear():
+    """清空对话调试日志。"""
+    _CHAT_DEBUG_LOG.clear()
+    return {"status": "cleared"}
+
+
+@router.get("/models")
+async def list_available_models():
+    """
+    列出所有可用模型提供商及其状态。
+    前端用于填充模型选择下拉框。
+    """
+    import os
+
+    def _has_key(env_name: str) -> bool:
+        v = os.getenv(env_name, "").strip()
+        return bool(v) and not v.startswith("your_")
+
+    models = []
+
+    # DeepSeek
+    if _has_key("DEEPSEEK_API_KEY"):
+        models.append({
+            "id": "deepseek",
+            "name": f"DeepSeek ({os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')})",
+            "available": True,
+            "priority": 1,
+        })
+
+    # Qwen
+    if _has_key("QWEN_API_KEY"):
+        models.append({
+            "id": "qwen",
+            "name": f"Qwen ({os.getenv('QWEN_MODEL', 'qwen-plus')})",
+            "available": True,
+            "priority": 2,
+        })
+
+    # GLM
+    if _has_key("GLM_API_KEY"):
+        models.append({
+            "id": "glm",
+            "name": f"GLM 智谱 ({os.getenv('GLM_MODEL', 'glm-4-flash')})",
+            "available": True,
+            "priority": 3,
+        })
+
+    # Gemini
+    if _has_key("GOOGLE_API_KEY"):
+        models.append({
+            "id": "gemini",
+            "name": f"Gemini ({os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')})",
+            "available": True,
+            "priority": 4,
+        })
+
+    # Ollama
+    try:
+        from agent_framework.core_ai import is_ollama_running
+        ollama_ok = await is_ollama_running()
+    except ImportError:
+        ollama_ok = False
+
+    if ollama_ok:
+        models.append({
+            "id": "ollama",
+            "name": f"Ollama ({os.getenv('OLLAMA_MODEL', 'llama3.2')})",
+            "available": True,
+            "priority": 10,
+        })
+
+    # 按优先级排序
+    models.sort(key=lambda m: m.get("priority", 99))
+
+    # 当前默认模型
+    default_id = models[0]["id"] if models else None
+
+    return {
+        "models": models,
+        "default": default_id,
+        "auto": {
+            "id": "auto",
+            "name": "自动选择" + (f" ({models[0]['name']})" if models else " (无可用模型)"),
+        },
+    }
+
+
 @router.get("/health")
 async def chat_health():
     """
@@ -222,13 +362,13 @@ async def chat_health():
     供前端判断后端连接状态。
     """
     try:
-        from agent_framework.core_ai import is_available as ai_available, get_ollama_models
+        from agent_framework.core_ai import is_available as ai_available
         from agent_framework.rag import get_vector_store
         from agent_framework.checkpointer import is_persistent
+        from agent_framework.rag_pipeline import _detect_model_name
 
         available = await ai_available()
-        ollama_models = await get_ollama_models()
-        model_name = ollama_models[0] if ollama_models else None
+        model_name = _detect_model_name()
 
         # 知识库状态
         store = get_vector_store()
@@ -237,7 +377,7 @@ async def chat_health():
         return {
             "status": "ok",
             "available": available,
-            "model": model_name or "qwen/cloud",
+            "model": model_name,
             "knowledge_base": {
                 "documents": kb_count,
                 "status": "ready" if kb_count > 0 else "empty",

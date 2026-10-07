@@ -52,6 +52,7 @@ async def chat_with_memory(
     message: str,
     system: str = "",
     user_id: Optional[str] = None,
+    api_provider: Optional[str] = None,
     **kwargs,
 ) -> Dict[str, Any]:
     """
@@ -94,7 +95,8 @@ async def chat_with_memory(
             logger.error("Failed to build user memory context: %s", e)
 
     result = await rag_chat(
-        messages=messages, system=system, extra_context=extra_context, **kwargs
+        messages=messages, system=system, extra_context=extra_context,
+        api_provider=api_provider, **kwargs,
     )
     result["user_memory_used"] = user_memory_used
 
@@ -142,6 +144,7 @@ async def rag_chat(
     threshold: float = RELEVANCE_THRESHOLD,
     token_budget: int = CONTEXT_TOKEN_BUDGET,
     extra_context: str = "",
+    api_provider: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     RAG 问答主入口。
@@ -179,7 +182,7 @@ async def rag_chat(
     store = get_vector_store()
     if store.count() == 0:
         logger.warning("Knowledge base is empty, skipping RAG")
-        return await _chat_without_rag(messages, system, extra_context)
+        return await _chat_without_rag(messages, system, extra_context, api_provider=api_provider)
 
     search_results = store.search_with_scores(user_query, k=top_k)
     logger.info(f"RAG search for '{user_query[:30]}...' → {len(search_results)} results")
@@ -190,7 +193,7 @@ async def rag_chat(
     if not filtered:
         logger.info(f"No results above threshold {threshold}, falling back to LLM only")
         # TODO: 未来在此处触发联网搜索 skill
-        return await _chat_without_rag(messages, system, extra_context)
+        return await _chat_without_rag(messages, system, extra_context, api_provider=api_provider)
 
     # 4. 组装上下文
     chunks = [
@@ -216,7 +219,7 @@ async def rag_chat(
 
     # 6. 调用 LLM
     try:
-        reply = await ai_chat(messages=messages, system=enhanced_system)
+        reply = await ai_chat(messages=messages, system=enhanced_system, api_provider=api_provider)
     except Exception as e:
         logger.error(f"LLM call failed: {e}")
         reply = f"AI 推理暂时不可用：{str(e)}"
@@ -227,7 +230,7 @@ async def rag_chat(
     return {
         "reply": reply,
         "citations": citations,
-        "model": _detect_model_name(),
+        "model": _detect_model_name(api_provider),
         "knowledge_used": True,
     }
 
@@ -246,6 +249,7 @@ async def _chat_without_rag(
     messages: List[Dict[str, str]], 
     system: str,
     extra_context: str = "",
+    api_provider: Optional[str] = None,
 ) -> Dict[str, Any]:
     """无知识库时的降级处理：直接调用 LLM（仍可注入用户长期记忆）。"""
     from .core_ai import chat as ai_chat
@@ -254,7 +258,7 @@ async def _chat_without_rag(
         system = _append_user_memory(system, extra_context)
 
     try:
-        reply = await ai_chat(messages=messages, system=system)
+        reply = await ai_chat(messages=messages, system=system, api_provider=api_provider)
     except Exception as e:
         logger.error(f"LLM call failed: {e}")
         reply = f"AI 推理暂时不可用：{str(e)}"
@@ -262,7 +266,7 @@ async def _chat_without_rag(
     return {
         "reply": reply,
         "citations": [],
-        "model": _detect_model_name(),
+        "model": _detect_model_name(api_provider),
         "knowledge_used": False,
     }
 
@@ -315,14 +319,34 @@ def _build_citations(chunks: List) -> List[Dict[str, Any]]:
     return citations
 
 
-def _detect_model_name() -> str:
-    """检测当前使用的模型名称。"""
+def _detect_model_name(api_provider: Optional[str] = None) -> str:
+    """检测当前使用的模型名称。如果指定了 api_provider，直接返回对应模型。"""
     import os
-    # 按优先级检测
-    if os.getenv("QWEN_API_KEY", "").strip() and not os.getenv("QWEN_API_KEY", "").startswith("your_"):
-        return f"qwen ({os.getenv('QWEN_MODEL', 'qwen-plus')})"
-    if os.getenv("DEEPSEEK_API_KEY", "").strip() and not os.getenv("DEEPSEEK_API_KEY", "").startswith("your_"):
-        return f"deepseek ({os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')})"
-    if os.getenv("GOOGLE_API_KEY", "").strip() and not os.getenv("GOOGLE_API_KEY", "").startswith("your_"):
-        return f"gemini ({os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')})"
-    return "ollama (local)"
+
+    # 如果显式指定了 provider，直接返回
+    _provider_info = {
+        "deepseek": ("DEEPSEEK_MODEL", "deepseek-chat", "DeepSeek"),
+        "qwen": ("QWEN_MODEL", "qwen-plus", "Qwen"),
+        "glm": ("GLM_MODEL", "glm-4-flash", "GLM 智谱"),
+        "gemini": ("GEMINI_MODEL", "gemini-1.5-flash", "Gemini"),
+    }
+    if api_provider and api_provider in _provider_info:
+        env_key, default, label = _provider_info[api_provider]
+        return f"{label} ({os.getenv(env_key, default)})"
+    if api_provider == "ollama":
+        return f"Ollama ({os.getenv('OLLAMA_MODEL', 'llama3.2')})"
+
+    # 自动检测：按实际降级链顺序 DeepSeek → Qwen → GLM → Gemini → Ollama
+    def _has_key(env_name: str) -> bool:
+        v = os.getenv(env_name, "").strip()
+        return bool(v) and not v.startswith("your_")
+
+    if _has_key("DEEPSEEK_API_KEY"):
+        return f"DeepSeek ({os.getenv('DEEPSEEK_MODEL', 'deepseek-chat')})"
+    if _has_key("QWEN_API_KEY"):
+        return f"Qwen ({os.getenv('QWEN_MODEL', 'qwen-plus')})"
+    if _has_key("GLM_API_KEY"):
+        return f"GLM 智谱 ({os.getenv('GLM_MODEL', 'glm-4-flash')})"
+    if _has_key("GOOGLE_API_KEY"):
+        return f"Gemini ({os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')})"
+    return "Ollama (local)"

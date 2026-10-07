@@ -400,6 +400,14 @@
             font-size: 0.7rem; color: #64748B; background: #F1F5F9;
             padding: 0.18rem 0.6rem; border-radius: 20px; border: 1px solid #E2E8F0;
         }
+        .model-selector {
+            font-size: 0.7rem; color: #334155; background: #F1F5F9;
+            padding: 0.2rem 0.5rem; border-radius: 12px; border: 1px solid #E2E8F0;
+            cursor: pointer; outline: none; min-width: 140px;
+            appearance: auto; transition: border-color 0.2s;
+        }
+        .model-selector:hover { border-color: #94A3B8; }
+        .model-selector:focus { border-color: #0F766E; box-shadow: 0 0 0 2px rgba(15,118,110,0.12); }
         .status-led {
             display: flex; align-items: center; gap: 5px;
             font-size: 0.7rem; color: #64748B;
@@ -527,7 +535,9 @@
 
             <!-- 状态栏 -->
             <div class="chat-footer">
-                <span class="model-badge" id="modelBadge">🤖 模型: 自动检测</span>
+                <select class="model-selector" id="modelSelector" title="选择 AI 模型">
+                    <option value="auto">🤖 自动检测</option>
+                </select>
                 <div class="status-led">
                     <div class="led-green" id="statusLed"></div>
                     <span id="backendStatusText">等待连接</span>
@@ -543,11 +553,12 @@
     const $ = (id) => document.getElementById(id);
 
     // ── DOM 引用 ──
+    const modelSelector = $("modelSelector");
+    let selectedModel = "auto";
     const chatMessages = $("chatMessages");
     const chatWelcome = $("chatWelcome");
     const chatInput = $("chatInput");
     const sendBtn = $("sendBtn");
-    const modelBadge = $("modelBadge");
     const statusLed = $("statusLed");
     const backendStatusText = $("backendStatusText");
     const displayUserName = $("displayUserName");
@@ -961,10 +972,52 @@
     function setBackendOnline(online, modelName) {
         statusLed.classList.toggle("led-offline", !online);
         backendStatusText.textContent = online ? "后端已连接" : "后端未连接";
-        if (modelName) modelBadge.textContent = "🤖 模型: " + modelName;
-        else if (online) modelBadge.textContent = "🤖 模型: 云端可用";
-        else modelBadge.textContent = "🤖 模型: 离线模式";
+        // 更新选择器的提示文本（不改变当前选择）
+        if (modelName) modelSelector.title = "当前实际使用: " + modelName;
+        else if (online) modelSelector.title = "后端已连接";
+        else modelSelector.title = "离线模式";
     }
+
+    // ── 模型列表加载 ──
+    async function loadModels() {
+        try {
+            const resp = await fetch(`${API_BASE}/api/chat/models`, {
+                signal: AbortSignal.timeout(3000),
+            });
+            if (!resp.ok) return;
+            const data = await resp.json();
+
+            // 清空并填充
+            modelSelector.innerHTML = "";
+            // "自动选择" 始终在第一个
+            const autoOpt = document.createElement("option");
+            autoOpt.value = "auto";
+            autoOpt.textContent = "🤖 " + (data.auto?.name || "自动选择");
+            modelSelector.appendChild(autoOpt);
+
+            (data.models || []).forEach(m => {
+                const opt = document.createElement("option");
+                opt.value = m.id;
+                opt.textContent = "  " + m.name;
+                modelSelector.appendChild(opt);
+            });
+
+            // 恢复上次的选择
+            const saved = localStorage.getItem("lumimind_model") || "auto";
+            if ([...modelSelector.options].some(o => o.value === saved)) {
+                modelSelector.value = saved;
+                selectedModel = saved;
+            }
+        } catch (e) {
+            console.warn("加载模型列表失败:", e);
+        }
+    }
+
+    // 模型切换事件
+    modelSelector.addEventListener("change", () => {
+        selectedModel = modelSelector.value;
+        localStorage.setItem("lumimind_model", selectedModel);
+    });
 
     // ── API 调用 ──
     async function sendChatMessage(message) {
@@ -994,6 +1047,7 @@
                     session_id: currentConvId,
                     message,
                     user_id: localStorage.getItem("lumimind_username") || "local_user",
+                    model: selectedModel,
                     // 系统提示词由后端默认提供，前端可不传或自定义
                 }),
             });
@@ -1008,7 +1062,8 @@
 
             const data = await response.json();
             const reply = data.reply || "AI 返回了空回复，请稍后重试。";
-            if (data.model) modelBadge.textContent = "🤖 模型: " + data.model;
+            // 更新模型提示（在 title 中显示实际使用的模型）
+            if (data.model) modelSelector.title = "当前实际使用: " + data.model;
 
             // 渲染回答 + 引用来源
             addMessageWithCitations("assistant", reply, data.citations, data.knowledge_used);
@@ -1108,7 +1163,8 @@
             startNewConversation();
         }
 
-        // 检查后端状态
+        // 加载模型列表 + 检查后端状态
+        loadModels();
         checkBackend();
         chatInput.focus();
     }

@@ -1,0 +1,326 @@
+{
+  "real_subjects": 10,
+  "sim_subjects": 60,
+  "marginals": {
+    "HR": {
+      "real": {
+        "mean": 75.64,
+        "std": 9.712727045823263,
+        "min": 62.0,
+        "max": 101.0,
+        "n": 150
+      },
+      "sim": {
+        "mean": 76.30888888888889,
+        "std": 8.31077806819346,
+        "min": 62.0,
+        "max": 101.0,
+        "n": 900
+      }
+    },
+    "HF": {
+      "real": {
+        "mean": 5.008222222222222,
+        "std": 1.4742746448321835,
+        "min": 2.21,
+        "max": 9.51,
+        "n": 90
+      },
+      "sim": {
+        "mean": 4.976592592592593,
+        "std": 1.4851156148848346,
+        "min": 2.21,
+        "max": 9.35,
+        "n": 540
+      }
+    },
+    "LFHF": {
+      "real": {
+        "mean": 1.6232666666666666,
+        "std": 0.4577561165317425,
+        "min": 0.89,
+        "max": 3.35,
+        "n": 150
+      },
+      "sim": {
+        "mean": 1.6310555555555557,
+        "std": 0.4419867987247058,
+        "min": 0.89,
+        "max": 3.35,
+        "n": 900
+      }
+    },
+    "symp": {
+      "real": {
+        "mean": 0.5084738666666667,
+        "std": 0.09660010612559158,
+        "min": 0.279635,
+        "max": 0.74,
+        "n": 150
+      },
+      "sim": {
+        "mean": 0.5179555555555555,
+        "std": 0.09505342487384089,
+        "min": 0.28,
+        "max": 0.74,
+        "n": 900
+      }
+    },
+    "KSS": {
+      "real": {
+        "mean": 4.72,
+        "std": 1.6698103684750154,
+        "min": 2.0,
+        "max": 9.0,
+        "n": 150
+      },
+      "sim": {
+        "mean": 4.7188888888888885,
+        "std": 1.622713395961252,
+        "min": 2.0,
+        "max": 9.0,
+        "n": 900
+      }
+    },
+    "PA": {
+      "real": {
+        "mean": 25.753333333333334,
+        "std": 7.399942942722975,
+        "min": 10.0,
+        "max": 46.0,
+        "n": 150
+      },
+      "sim": {
+        "mean": 26.162222222222223,
+        "std": 7.320618944351295,
+        "min": 10.0,
+        "max": 46.0,
+        "n": 900
+      }
+    },
+    "NA": {
+      "real": {
+        "mean": 13.366666666666667,
+        "std": 3.9789725083521525,
+        "min": 10.0,
+        "max": 38.0,
+        "n": 150
+      },
+      "sim": {
+        "mean": 13.67,
+        "std": 3.316120558055083,
+        "min": 10.0,
+        "max": 25.0,
+        "n": 900
+      }
+    },
+    "VASF": {
+      "real": {
+        "mean": 30.966666666666665,
+        "std": 11.229969822854478,
+        "min": 10.0,
+        "max": 60.0,
+        "n": 150
+      },
+      "sim": {
+        "mean": 32.153333333333336,
+        "std": 11.007918362100378,
+        "min": 10.0,
+        "max": 60.0,
+        "n": 900
+      }
+    }
+  },
+  "cellmean_maxdev_in_std": {
+    "HR": 0.137,
+    "HF": 0.11,
+    "LFHF": 0.253,
+    "symp": 0.219,
+    "KSS": 0.12,
+    "PA": 0.133,
+    "NA": 0.251,
+    "VASF": 0.245
+  },
+  "light_effects": {
+    "KSS": {
+      "real": {
+        "1": 2.2,
+        "2": 1.1,
+        "3": 1.6,
+        "4": 1.2,
+        "5": 0.5
+      },
+      "sim": {
+        "1": 2.52,
+        "2": 0.95,
+        "3": 1.4,
+        "4": 1.42,
+        "5": 0.5
+      }
+    },
+    "PA": {
+      "real": {
+        "1": -4.8,
+        "2": -2.5,
+        "3": -4.8,
+        "4": -8.3,
+        "5": -3.0
+      },
+      "sim": {
+        "1": -4.03,
+        "2": -2.58,
+        "3": -4.6,
+        "4": -8.15,
+        "5": -2.73
+      }
+    },
+    "NA": {
+      "real": {
+        "1": 0.8,
+        "2": 0.6,
+        "3": -0.4,
+        "4": -0.8,
+        "5": -1.1
+      },
+      "sim": {
+        "1": -0.1,
+        "2": 0.35,
+        "3": -0.53,
+        "4": -1.43,
+        "5": -0.52
+      }
+    },
+    "corr_EDI_deltaKSS": {
+      "real": -0.751,
+      "sim": -0.829
+    },
+    "corr_EDI_deltaValence": {
+      "real": 0.911,
+      "sim": 0.792
+    }
+  },
+  "structure": {
+    "real_transitions": 100,
+    "sim_transitions": 600,
+    "HF_covered_groups_real": [
+      1,
+      2,
+      3
+    ],
+    "HF_covered_groups_sim": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pipeline_on_sim": {
+    "n_transitions": 600,
+    "cv": "5-fold subject-split",
+    "loso_overall": {
+      "n": 600,
+      "next_state_mae_worldmodel": 0.5533,
+      "next_state_mae_persistence": 0.7099,
+      "next_state_mae_globalmean_delta": 0.6859,
+      "beats_persistence": true,
+      "beats_globalmean_delta": true,
+      "improvement_vs_persistence_%": 22.07
+    },
+    "counterfactual_alertness_corr": -0.8337695394354819,
+    "counterfactual_valence_corr": 0.6258657013154519
+  },
+  "checks": [
+    {
+      "name": "marginal_HR",
+      "passed": true
+    },
+    {
+      "name": "marginal_HF",
+      "passed": true
+    },
+    {
+      "name": "marginal_LFHF",
+      "passed": true
+    },
+    {
+      "name": "marginal_symp",
+      "passed": true
+    },
+    {
+      "name": "marginal_KSS",
+      "passed": true
+    },
+    {
+      "name": "marginal_PA",
+      "passed": true
+    },
+    {
+      "name": "marginal_NA",
+      "passed": true
+    },
+    {
+      "name": "marginal_VASF",
+      "passed": true
+    },
+    {
+      "name": "cellmean_HR",
+      "passed": true
+    },
+    {
+      "name": "cellmean_HF",
+      "passed": true
+    },
+    {
+      "name": "cellmean_LFHF",
+      "passed": true
+    },
+    {
+      "name": "cellmean_symp",
+      "passed": true
+    },
+    {
+      "name": "cellmean_KSS",
+      "passed": true
+    },
+    {
+      "name": "cellmean_PA",
+      "passed": true
+    },
+    {
+      "name": "cellmean_NA",
+      "passed": true
+    },
+    {
+      "name": "cellmean_VASF",
+      "passed": true
+    },
+    {
+      "name": "corr_EDI_KSS_direction",
+      "passed": true
+    },
+    {
+      "name": "corr_EDI_valence_direction",
+      "passed": true
+    },
+    {
+      "name": "HF_missingness_pattern",
+      "passed": true
+    },
+    {
+      "name": "sim_beats_persistence",
+      "passed": true
+    },
+    {
+      "name": "sim_counterfactual_alertness",
+      "passed": true
+    },
+    {
+      "name": "sim_counterfactual_valence",
+      "passed": true
+    }
+  ],
+  "summary": {
+    "n_checks": 22,
+    "n_passed": 22,
+    "all_passed": true
+  }
+}

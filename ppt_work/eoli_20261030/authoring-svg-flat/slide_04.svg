@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 689.61 110" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 288 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 351.36 42.4 L 351.36 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 02 · 生理信号采集与设备</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 689.61 86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 751.61 66.4 L 751.61 152.4 L 62 152.4 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold">多模态生理信号采集硬件</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-7" data-pptx-object="group" data-pptx-frame="62.72 156.8 905.73 49.28" data-pptx-source-ref="slide:7">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="62.72 156.8 905.73 49.28" data-pptx-prst="rect" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 62.72 156.8 L 968.45 156.8 L 968.45 206.08 L 62.72 206.08 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62.72" y="184" text-anchor="start" xml:space="preserve" font-size="32" fill="#E8EEF7"><tspan>ECG 与 EEG 从</tspan><tspan fill="#FFB547">心脏</tspan><tspan>与</tspan><tspan fill="#FFB547">大脑</tspan><tspan>两个生理维度互补反映情绪状态</tspan></text>
+</g>
+</g>
+<g id="shape-19" data-pptx-object="group" data-pptx-frame="64 214 368 322" data-pptx-source-ref="slide:19">
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="64 214 368 322" data-pptx-prst="roundRect" data-pptx-av-adj="val 3106" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 64 224 A 10 10 0 0 1 74 214 L 422 214 A 10 10 0 0 1 432 224 L 432 526 A 10 10 0 0 1 422 536 L 74 536 A 10 10 0 0 1 64 526 Z" fill="#141E32" stroke-width="2" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-14" data-pptx-object="group" data-pptx-frame="227 299.33 42 38.33" data-pptx-source-ref="slide:14">
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="227 299.33 42 28" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 227 301.67 C 227 300.38 228.04 299.33 229.33 299.33 L 266.67 299.33 C 267.96 299.33 269 300.38 269 301.67 L 269 325 C 269 326.29 267.96 327.33 266.67 327.33 L 229.33 327.33 C 228.04 327.33 227 326.29 227 325 L 227 301.67" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="236.33 336.67 23.33 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 236.33 336.67 L 259.67 336.67" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="241 327.33 1 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 241 327.33 L 241 336.67" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-12" data-pptx-object="shape" data-pptx-frame="255 327.33 1 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:12" data-pptx-semantic-object="shape">
+<path d="M 255 327.33 L 255 336.67" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-13" data-pptx-object="shape" data-pptx-frame="236.33 306.33 23.33 14" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:13" data-pptx-semantic-object="shape">
+<path d="M 236.33 313.33 L 241 313.33 L 245.67 320.33 L 250.33 306.33 L 252.67 313.33 L 259.67 313.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-15" data-pptx-object="shape" data-pptx-frame="113.31 497.6 269.38 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:15" data-pptx-semantic-object="shape">
+<path d="M 113.31 497.6 L 382.69 497.6 L 382.69 534.56 L 113.31 534.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="248" y="518" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">ECG 采集设备实物照片</text>
+</g>
+<g id="shape-16" data-pptx-object="shape" data-pptx-frame="114.65 416.4 266.7 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:16" data-pptx-semantic-object="shape">
+<path d="M 114.65 416.4 L 381.35 416.4 L 381.35 441.04 L 114.65 441.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="248" y="430" text-anchor="middle" xml:space="preserve" font-size="16" fill="#6E7F99">建议 4:3 · ≥800×600 · 含佩戴效果</text>
+</g>
+<g id="shape-17" data-pptx-object="shape" data-pptx-frame="164 458 168 32" data-pptx-prst="roundRect" data-pptx-av-adj="val 50000" data-pptx-source-ref="slide:17" data-pptx-semantic-object="shape">
+<path d="M 164 474 A 16 16 0 0 1 180 458 L 316 458 A 16 16 0 0 1 332 474 L 332 474 A 16 16 0 0 1 316 490 L 180 490 A 16 16 0 0 1 164 474 Z" fill="none" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="188 466.4 120 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 188 466.4 L 308 466.4 L 308 491.04 L 188 491.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="248" y="480" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">待置入真实照片</text>
+</g>
+</g>
+<g id="shape-32" data-pptx-object="group" data-pptx-frame="448 214 368 322" data-pptx-source-ref="slide:32">
+<g id="shape-20" data-pptx-object="shape" data-pptx-frame="448 214 368 322" data-pptx-prst="roundRect" data-pptx-av-adj="val 3106" data-pptx-source-ref="slide:20" data-pptx-semantic-object="shape">
+<path d="M 448 224 A 10 10 0 0 1 458 214 L 806 214 A 10 10 0 0 1 816 224 L 816 526 A 10 10 0 0 1 806 536 L 458 536 A 10 10 0 0 1 448 526 Z" fill="#141E32" stroke-width="2" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-27" data-pptx-object="group" data-pptx-frame="611 297 42 42" data-pptx-source-ref="slide:27">
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="632 320.33 16.33 18.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 640.17 320.33 C 635.66 320.33 632 323.99 632 328.5 L 632 330.83 C 632 335.34 635.66 339 640.17 339 C 644.68 339 648.33 335.34 648.33 330.83 L 648.33 326.63" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="615.67 320.33 16.33 18.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 623.83 320.33 C 628.34 320.33 632 323.99 632 328.5 L 632 330.83 C 632 335.34 628.34 339 623.83 339 C 619.32 339 615.67 335.34 615.67 330.83 L 615.67 326.63" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="643.67 311 9.33 16.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 644.83 327.33 C 649.34 327.33 653 323.68 653 319.17 C 653 314.66 649.34 311 644.83 311 L 643.67 311" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="632 297 16.33 14.7" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 648.33 311.7 L 648.33 305.17 C 648.33 300.66 644.68 297 640.17 297 C 635.66 297 632 300.66 632 305.17" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-25" data-pptx-object="shape" data-pptx-frame="611 311 9.33 16.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:25" data-pptx-semantic-object="shape">
+<path d="M 619.17 327.33 C 614.66 327.33 611 323.68 611 319.17 C 611 314.66 614.66 311 619.17 311 L 620.33 311" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-26" data-pptx-object="shape" data-pptx-frame="615.67 297 16.33 31.5" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:26" data-pptx-semantic-object="shape">
+<path d="M 615.67 311.7 L 615.67 305.17 C 615.67 300.66 619.32 297 623.83 297 C 628.34 297 632 300.66 632 305.17 L 632 328.5" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+</g>
+<g id="shape-28" data-pptx-object="shape" data-pptx-frame="494.74 496.95 269.38 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:28" data-pptx-semantic-object="shape">
+<path d="M 494.74 496.95 L 764.12 496.95 L 764.12 533.91 L 494.74 533.91 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="629.43" y="517.35" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">EEG 采集设备实物照片</text>
+</g>
+<g id="shape-29" data-pptx-object="shape" data-pptx-frame="498.65 416.4 266.7 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:29" data-pptx-semantic-object="shape">
+<path d="M 498.65 416.4 L 765.35 416.4 L 765.35 441.04 L 498.65 441.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="632" y="430" text-anchor="middle" xml:space="preserve" font-size="16" fill="#6E7F99">建议 4:3 · ≥800×600 · 电极帽特写</text>
+</g>
+<g id="shape-30" data-pptx-object="shape" data-pptx-frame="548 458 168 32" data-pptx-prst="roundRect" data-pptx-av-adj="val 50000" data-pptx-source-ref="slide:30" data-pptx-semantic-object="shape">
+<path d="M 548 474 A 16 16 0 0 1 564 458 L 700 458 A 16 16 0 0 1 716 474 L 716 474 A 16 16 0 0 1 700 490 L 564 490 A 16 16 0 0 1 548 474 Z" fill="none" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-31" data-pptx-object="shape" data-pptx-frame="572 466.4 120 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:31" data-pptx-semantic-object="shape">
+<path d="M 572 466.4 L 692 466.4 L 692 491.04 L 572 491.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="632" y="480" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">待置入真实照片</text>
+</g>
+</g>
+<g id="shape-43" data-pptx-object="group" data-pptx-frame="832 214 368 322" data-pptx-source-ref="slide:43">
+<g id="shape-33" data-pptx-object="shape" data-pptx-frame="832 214 368 322" data-pptx-prst="roundRect" data-pptx-av-adj="val 3106" data-pptx-source-ref="slide:33" data-pptx-semantic-object="shape">
+<path d="M 832 224 A 10 10 0 0 1 842 214 L 1190 214 A 10 10 0 0 1 1200 224 L 1200 526 A 10 10 0 0 1 1190 536 L 842 536 A 10 10 0 0 1 832 526 Z" fill="#141E32" stroke-width="2" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-38" data-pptx-object="group" data-pptx-frame="995 297 42 42" data-pptx-source-ref="slide:38">
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="999.67 297 18.67 18.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 999.67 306.33 C 999.67 311.49 1003.85 315.67 1009 315.67 C 1014.15 315.67 1018.33 311.49 1018.33 306.33 C 1018.33 301.18 1014.15 297 1009 297 C 1003.85 297 999.67 301.18 999.67 306.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="995 325 28 14" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 995 339 L 995 334.33 C 995 329.18 999.18 325 1004.33 325 L 1013.67 325 C 1018.82 325 1023 329.18 1023 334.33 L 1023 339" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+<g id="shape-36" data-pptx-object="shape" data-pptx-frame="1025.33 297.3 7.02 18.08" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:36" data-pptx-semantic-object="shape">
+<path d="M 1025.33 297.3 C 1029.46 298.36 1032.35 302.08 1032.35 306.34 C 1032.35 310.61 1029.46 314.33 1025.33 315.39" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+<g id="shape-37" data-pptx-object="shape" data-pptx-frame="1030 325.35 7 13.65" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:37" data-pptx-semantic-object="shape">
+<path d="M 1037 339 L 1037 334.33 C 1036.98 330.1 1034.1 326.41 1030 325.35" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+</g>
+<g id="shape-39" data-pptx-object="shape" data-pptx-frame="913.28 498.29 205.44 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:39" data-pptx-semantic-object="shape">
+<path d="M 913.28 498.29 L 1118.72 498.29 L 1118.72 535.25 L 913.28 535.25 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1016" y="518.69" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">被试佩戴实验现场</text>
+</g>
+<g id="shape-40" data-pptx-object="shape" data-pptx-frame="874.17 416.4 283.66 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:40" data-pptx-semantic-object="shape">
+<path d="M 874.17 416.4 L 1157.83 416.4 L 1157.83 441.04 L 874.17 441.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1016" y="430" text-anchor="middle" xml:space="preserve" font-size="16" fill="#6E7F99">建议 4:3 · ≥800×600 · 实验环境全景</text>
+</g>
+<g id="shape-41" data-pptx-object="shape" data-pptx-frame="932 458 168 32" data-pptx-prst="roundRect" data-pptx-av-adj="val 50000" data-pptx-source-ref="slide:41" data-pptx-semantic-object="shape">
+<path d="M 932 474 A 16 16 0 0 1 948 458 L 1084 458 A 16 16 0 0 1 1100 474 L 1100 474 A 16 16 0 0 1 1084 490 L 948 490 A 16 16 0 0 1 932 474 Z" fill="none" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-42" data-pptx-object="shape" data-pptx-frame="956 466.4 120 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:42" data-pptx-semantic-object="shape">
+<path d="M 956 466.4 L 1076 466.4 L 1076 491.04 L 956 491.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1016" y="480" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">待置入真实照片</text>
+</g>
+</g>
+<g id="shape-67" data-pptx-object="group" data-pptx-frame="64 566 1152 84" data-pptx-source-ref="slide:67">
+<g id="shape-44" data-pptx-object="shape" data-pptx-frame="64 566 1152 84" data-pptx-prst="roundRect" data-pptx-av-adj="val 11905" data-pptx-source-ref="slide:44" data-pptx-semantic-object="shape">
+<path d="M 64 576 A 10 10 0 0 1 74 566 L 1206 566 A 10 10 0 0 1 1216 576 L 1216 640 A 10 10 0 0 1 1206 650 L 74 650 A 10 10 0 0 1 64 640 Z" fill="#1A2740" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-50" data-pptx-object="group" data-pptx-frame="96 597.33 24 22.33" data-pptx-source-ref="slide:50">
+<g id="shape-45" data-pptx-object="shape" data-pptx-frame="96 597.33 24 16" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:45" data-pptx-semantic-object="shape">
+<path d="M 96 598.67 C 96 597.93 96.6 597.33 97.33 597.33 L 118.67 597.33 C 119.4 597.33 120 597.93 120 598.67 L 120 612 C 120 612.74 119.4 613.33 118.67 613.33 L 97.33 613.33 C 96.6 613.33 96 612.74 96 612 L 96 598.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-46" data-pptx-object="shape" data-pptx-frame="101.33 618.67 13.33 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:46" data-pptx-semantic-object="shape">
+<path d="M 101.33 618.67 L 114.67 618.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-47" data-pptx-object="shape" data-pptx-frame="104 613.33 1 5.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:47" data-pptx-semantic-object="shape">
+<path d="M 104 613.33 L 104 618.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-48" data-pptx-object="shape" data-pptx-frame="112 613.33 1 5.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:48" data-pptx-semantic-object="shape">
+<path d="M 112 613.33 L 112 618.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-49" data-pptx-object="shape" data-pptx-frame="101.33 601.33 13.33 8" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:49" data-pptx-semantic-object="shape">
+<path d="M 101.33 605.33 L 104 605.33 L 106.67 609.33 L 109.33 601.33 L 110.67 605.33 L 114.67 605.33" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-51" data-pptx-object="shape" data-pptx-frame="139.2 583 185.06 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:51" data-pptx-semantic-object="shape">
+<path d="M 139.2 583 L 324.26 583 L 324.26 613.8 L 139.2 613.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="139.2" y="600" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7" font-weight="bold">ECG · 心脏电活动</text>
+</g>
+<g id="shape-52" data-pptx-object="shape" data-pptx-frame="139.2 611 317.07 24.23" data-pptx-prst="rect" data-pptx-source-ref="slide:52" data-pptx-semantic-object="shape">
+<path d="M 139.2 611 L 456.27 611 L 456.27 635.23 L 139.2 635.23 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="139.2" y="628" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#A9B7CC"><tspan>2</tspan><tspan> </tspan><tspan>通道</tspan><tspan> · 256 Hz · 自主神经系统</tspan></text>
+</g>
+<g id="shape-53" data-pptx-object="shape" data-pptx-frame="436 580 1 56" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:53" data-pptx-semantic-object="shape">
+<path d="M 436 580 L 436 636" data-pptx-part="geometry" fill="none" stroke-width="1.50005" stroke="#2A3A55" />
+</g>
+<g id="shape-60" data-pptx-object="group" data-pptx-frame="468 596 24 24" data-pptx-source-ref="slide:60">
+<g id="shape-54" data-pptx-object="shape" data-pptx-frame="480 609.33 9.33 10.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:54" data-pptx-semantic-object="shape">
+<path d="M 484.67 609.33 C 482.09 609.33 480 611.42 480 614 L 480 615.33 C 480 617.91 482.09 620 484.67 620 C 487.24 620 489.33 617.91 489.33 615.33 L 489.33 612.93" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-55" data-pptx-object="shape" data-pptx-frame="470.67 609.33 9.33 10.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:55" data-pptx-semantic-object="shape">
+<path d="M 475.33 609.33 C 477.91 609.33 480 611.42 480 614 L 480 615.33 C 480 617.91 477.91 620 475.33 620 C 472.76 620 470.67 617.91 470.67 615.33 L 470.67 612.93" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-56" data-pptx-object="shape" data-pptx-frame="486.67 604 5.33 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:56" data-pptx-semantic-object="shape">
+<path d="M 487.33 613.33 C 489.91 613.33 492 611.24 492 608.67 C 492 606.09 489.91 604 487.33 604 L 486.67 604" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-57" data-pptx-object="shape" data-pptx-frame="480 596 9.33 8.4" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:57" data-pptx-semantic-object="shape">
+<path d="M 489.33 604.4 L 489.33 600.67 C 489.33 598.09 487.24 596 484.67 596 C 482.09 596 480 598.09 480 600.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-58" data-pptx-object="shape" data-pptx-frame="468 604 5.33 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:58" data-pptx-semantic-object="shape">
+<path d="M 472.67 613.33 C 470.09 613.33 468 611.24 468 608.67 C 468 606.09 470.09 604 472.67 604 L 473.33 604" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-59" data-pptx-object="shape" data-pptx-frame="470.67 596 9.33 18" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:59" data-pptx-semantic-object="shape">
+<path d="M 470.67 604.4 L 470.67 600.67 C 470.67 598.09 472.76 596 475.33 596 C 477.91 596 480 598.09 480 600.67 L 480 614" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#63E6D2" />
+</g>
+</g>
+<g id="shape-61" data-pptx-object="shape" data-pptx-frame="511.2 583 232.1 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:61" data-pptx-semantic-object="shape">
+<path d="M 511.2 583 L 743.3 583 L 743.3 613.8 L 511.2 613.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="511.2" y="600" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7" font-weight="bold">EEG · 大脑皮层电活动</text>
+</g>
+<g id="shape-62" data-pptx-object="shape" data-pptx-frame="511.2 611 328.17 24.23" data-pptx-prst="rect" data-pptx-source-ref="slide:62" data-pptx-semantic-object="shape">
+<path d="M 511.2 611 L 839.37 611 L 839.37 635.23 L 511.2 635.23 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="511.2" y="628" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#A9B7CC"><tspan>14</tspan><tspan> 通道 · </tspan><tspan>128</tspan><tspan> Hz · 中枢神经系统</tspan></text>
+</g>
+<g id="shape-63" data-pptx-object="shape" data-pptx-frame="848 580 1 56" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:63" data-pptx-semantic-object="shape">
+<path d="M 848 580 L 848 636" data-pptx-part="geometry" fill="none" stroke-width="1.50005" stroke="#2A3A55" />
+</g>
+<g id="shape-64" data-pptx-object="shape" data-pptx-frame="880 597.33 24 21.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:64" data-pptx-semantic-object="shape">
+<path d="M 880 608 L 885.33 608 L 889.33 618.67 L 894.67 597.33 L 898.67 608 L 904 608" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#FFB547" />
+</g>
+<g id="shape-65" data-pptx-object="shape" data-pptx-frame="923.2 583 112.9 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:65" data-pptx-semantic-object="shape">
+<path d="M 923.2 583 L 1036.1 583 L 1036.1 613.8 L 923.2 613.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="923.2" y="600" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7" font-weight="bold">双通道互补</text>
+</g>
+<g id="shape-66" data-pptx-object="shape" data-pptx-frame="923.2 611 234.8 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:66" data-pptx-semantic-object="shape">
+<path d="M 923.2 611 L 1158 611 L 1158 641.8 L 923.2 641.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="923.2" y="628" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC">情绪状态的完整生理刻画</text>
+</g>
+</g>
+<g id="shape-70" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:70">
+<g id="shape-68" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:68" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-69" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:69" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">04 / 20</text>
+</g>
+</g>
+<g id="shape-72" data-pptx-object="picture" data-pptx-frame="82.55 247.28 327.69 245.67" transform="translate(246.4 370.11) scale(-1 -1) translate(-246.4 -370.11)" data-pptx-source-ref="slide:72">
+<image data-pptx-object="picture" data-pptx-frame="82.55 247.28 327.69 245.67" href="../images/image4.jpg" x="82.55" y="247.28" width="327.69" height="245.67" preserveAspectRatio="none" />
+</g>
+<g id="shape-74" data-pptx-object="picture" data-pptx-frame="468 244.61 329.71 245.67" data-pptx-source-ref="slide:74">
+<image data-pptx-object="picture" data-pptx-frame="468 244.61 329.71 245.67" href="../images/image5.png" x="468" y="244.61" width="329.71" height="245.67" preserveAspectRatio="none" />
+</g>
+<g id="shape-76" data-pptx-object="picture" data-pptx-frame="849.64 247.28 327.69 245.67" data-pptx-source-ref="slide:76">
+<image data-pptx-object="picture" data-pptx-frame="849.64 247.28 327.69 245.67" href="../images/image6.jpg" x="849.64" y="247.28" width="327.69" height="245.67" preserveAspectRatio="none" />
+</g></svg>

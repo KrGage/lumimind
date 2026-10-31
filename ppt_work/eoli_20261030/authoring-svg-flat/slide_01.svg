@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#060B14" stop-opacity="0" /><stop offset="0.55" stop-color="#060B14" stop-opacity="0.45" /><stop offset="1" stop-color="#060B14" stop-opacity="0.92" /></linearGradient><linearGradient id="txtgrad2" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient><radialGradient id="ggrad3" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFB547" stop-opacity="0.18" /><stop offset="1" stop-color="#FFB547" stop-opacity="0" /></radialGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="0 0 1280 721.37" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="0 0 1280 720" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 0 0 L 1280 0 L 1280 720 L 0 720 Z" fill="#0B1220" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-3" data-pptx-object="picture" data-pptx-frame="0 0 1280 720" data-pptx-source-ref="slide:3">
+<image data-pptx-object="picture" data-pptx-frame="0 0 1280 720" href="../images/image1.jpg" x="0" y="0" width="1280" height="720" preserveAspectRatio="none" />
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="0 1.37 1280 720" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 0 1.37 L 1280 1.37 L 1280 721.37 L 0 721.37 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+
+</g>
+</g>
+<g id="shape-18" data-pptx-object="group" data-pptx-frame="62 384.4 787.31 244.16" data-pptx-source-ref="slide:18">
+<g id="shape-13" data-pptx-object="shape" data-pptx-frame="63.36 384.4 551.87 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:13" data-pptx-semantic-object="shape">
+<path d="M 63.36 384.4 L 615.23 384.4 L 615.23 409.04 L 63.36 409.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="398" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#63E6D2" letter-spacing="3"><tspan>EMOTION-AWARE INTELLIGENT LIGHT ENVIRONMENT</tspan></text>
+</g>
+<g id="shape-14" data-pptx-object="shape" data-pptx-frame="62 411.2 446.17 134" data-pptx-prst="rect" data-pptx-source-ref="slide:14" data-pptx-semantic-object="shape">
+<path d="M 62 411.2 L 508.17 411.2 L 508.17 545.2 L 62 545.2 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="486" text-anchor="start" xml:space="preserve" font-size="88" fill="url(#txtgrad2)" font-weight="bold" letter-spacing="2"><tspan>LumiMind</tspan></text>
+</g>
+<g id="shape-15" data-pptx-object="shape" data-pptx-frame="62.24 510.6 787.07 67.76" data-pptx-prst="rect" data-pptx-source-ref="slide:15" data-pptx-semantic-object="shape">
+<path d="M 62.24 510.6 L 849.31 510.6 L 849.31 578.36 L 62.24 578.36 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62.24" y="548" text-anchor="start" xml:space="preserve" font-size="44" fill="#E8EEF7" font-weight="bold">基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-16" data-pptx-object="shape" data-pptx-frame="64 576 496 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:16" data-pptx-semantic-object="shape">
+<path d="M 64 576 L 560 576" data-pptx-part="geometry" fill="none" stroke-width="2" stroke="#2A3A55" />
+</g>
+<g id="shape-17" data-pptx-object="shape" data-pptx-frame="63.04 591.6 667.18 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:17" data-pptx-semantic-object="shape">
+<path d="M 63.04 591.6 L 730.22 591.6 L 730.22 628.56 L 63.04 628.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.04" y="612" text-anchor="start" xml:space="preserve" font-size="24" fill="#A9B7CC">复旦大学「智能万象 · 光启新程」光源智能体创新设计大赛</text>
+</g>
+</g>
+<g id="shape-11" data-pptx-object="picture" data-pptx-frame="10 -2.52 221.11 170.08" data-pptx-source-ref="slide:11">
+<svg data-pptx-object="picture" data-pptx-frame="10 -2.52 221.11 170.08" x="10" y="-2.52" width="221.11" height="170.08" viewBox="0 0 1.02895 0.79148" preserveAspectRatio="none" overflow="hidden"><image href="../images/image2.png" x="0" y="0" width="1" height="1" preserveAspectRatio="none" /></svg>
+</g>
+<g id="shape-25" data-pptx-object="group" data-pptx-frame="72 655.6 972.14 36.96" data-pptx-source-ref="slide:25">
+<g id="shape-19" data-pptx-object="shape" data-pptx-frame="72 664 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:19" data-pptx-semantic-object="shape">
+<path d="M 72 668 A 4 4 0 0 1 76 664 A 4 4 0 0 1 80 668 A 4 4 0 0 1 76 672 A 4 4 0 0 1 72 668 Z" fill="#5AA7FF" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-20" data-pptx-object="shape" data-pptx-frame="91.04 655.6 484.69 29.08" data-pptx-prst="rect" data-pptx-source-ref="slide:20" data-pptx-semantic-object="shape">
+<path d="M 91.04 655.6 L 575.73 655.6 L 575.73 684.68 L 91.04 684.68 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="91.04" y="676" text-anchor="start" xml:space="preserve" font-size="24" fill="#A9B7CC"><tspan>团队</tspan><tspan>成员：李彩凤，耿文俊，陈泓霖，曹君勤</tspan></text>
+</g>
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="588.63 664 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 588.63 668 A 4 4 0 0 1 592.63 664 A 4 4 0 0 1 596.63 668 A 4 4 0 0 1 592.63 672 A 4 4 0 0 1 588.63 668 Z" fill="#FFB547" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="603.04 655.6 205.44 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 603.04 655.6 L 808.48 655.6 L 808.48 692.56 L 603.04 692.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="603.04" y="676" text-anchor="start" xml:space="preserve" font-size="24" fill="#A9B7CC">指导教师：林燕丹</text>
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="848 664 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 848 668 A 4 4 0 0 1 852 664 A 4 4 0 0 1 856 668 A 4 4 0 0 1 852 672 A 4 4 0 0 1 848 668 Z" fill="#63E6D2" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="863.73 655.6 180.41 29.08" data-pptx-prst="rect" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 863.73 655.6 L 1044.14 655.6 L 1044.14 684.68 L 863.73 684.68 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="863.73" y="676" text-anchor="start" xml:space="preserve" font-size="24" fill="#A9B7CC"><tspan>2026 年</tspan><tspan>10</tspan><tspan>月</tspan><tspan>8</tspan><tspan>日</tspan></text>
+</g>
+</g>
+<g id="shape-27" data-pptx-object="group" data-pptx-frame="910 0 360 240" data-pptx-source-ref="slide:27">
+<g id="shape-26" data-pptx-object="shape" data-pptx-frame="910 0 360 240" data-pptx-prst="ellipse" data-pptx-source-ref="slide:26" data-pptx-semantic-object="shape">
+<path d="M 910 120 A 180 120 0 0 1 1090 0 A 180 120 0 0 1 1270 120 A 180 120 0 0 1 1090 240 A 180 120 0 0 1 910 120 Z" fill="url(#ggrad3)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g></svg>

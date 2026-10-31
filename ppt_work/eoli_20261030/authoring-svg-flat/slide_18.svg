@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient><marker id="marrow1" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="3.5" markerHeight="3.5" orient="auto" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFB547" /></marker></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 751.94 110" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 227.52 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 290.88 42.4 L 290.88 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 07 · 前端界面展示</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 751.94 86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 813.94 66.4 L 813.94 152.4 L 62 152.4 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold">信号采集与灯光控制可视化</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-7" data-pptx-object="group" data-pptx-frame="62.72 156.8 1006.59 49.28" data-pptx-source-ref="slide:7">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="62.72 156.8 1006.59 49.28" data-pptx-prst="rect" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 62.72 156.8 L 1069.31 156.8 L 1069.31 206.08 L 62.72 206.08 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62.72" y="184" text-anchor="start" xml:space="preserve" font-size="32" fill="#FFB547"><tspan>生理信号实时可视化</tspan><tspan fill="#E8EEF7"> + </tspan><tspan>光照参数精细控制</tspan><tspan fill="#E8EEF7"> + </tspan><tspan>数据分析看板</tspan><tspan fill="#E8EEF7"> 三位一体</tspan></text>
+</g>
+</g>
+<g id="shape-20" data-pptx-object="group" data-pptx-frame="63.5 219.67 368 360" data-pptx-source-ref="slide:20">
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="63.5 219.67 368 360" data-pptx-prst="roundRect" data-pptx-av-adj="val 2778" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 63.5 229.67 A 10 10 0 0 1 73.5 219.67 L 421.5 219.67 A 10 10 0 0 1 431.5 229.67 L 431.5 569.67 A 10 10 0 0 1 421.5 579.67 L 73.5 579.67 A 10 10 0 0 1 63.5 569.67 Z" fill="#141E32" stroke-width="2" stroke="#5AA7FF" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="76 226 344 336" data-pptx-prst="roundRect" data-pptx-av-adj="val 2381" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 76 234 A 8 8 0 0 1 84 226 L 412 226 A 8 8 0 0 1 420 234 L 420 554 A 8 8 0 0 1 412 562 L 84 562 A 8 8 0 0 1 76 554 Z" fill="none" stroke-width="1.50005" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-15" data-pptx-object="group" data-pptx-frame="94 243 42 38.33" data-pptx-source-ref="slide:15">
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="94 243 42 28" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 94 245.33 C 94 244.04 95.04 243 96.33 243 L 133.67 243 C 134.95 243 136 244.04 136 245.33 L 136 268.67 C 136 269.95 134.95 271 133.67 271 L 96.33 271 C 95.04 271 94 269.95 94 268.67 L 94 245.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="103.33 280.33 23.33 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 103.33 280.33 L 126.67 280.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-12" data-pptx-object="shape" data-pptx-frame="108 271 1 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:12" data-pptx-semantic-object="shape">
+<path d="M 108 271 L 108 280.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-13" data-pptx-object="shape" data-pptx-frame="122 271 1 9.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:13" data-pptx-semantic-object="shape">
+<path d="M 122 271 L 122 280.33" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-14" data-pptx-object="shape" data-pptx-frame="103.33 250 23.33 14" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:14" data-pptx-semantic-object="shape">
+<path d="M 103.33 257 L 108 257 L 112.67 264 L 117.33 250 L 119.67 257 L 126.67 257" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-16" data-pptx-object="shape" data-pptx-frame="144.19 244.6 215.62 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:16" data-pptx-semantic-object="shape">
+<path d="M 144.19 244.6 L 359.81 244.6 L 359.81 281.56 L 144.19 281.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="252" y="265" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">ECG 实时波形面板</text>
+</g>
+<g id="shape-17" data-pptx-object="shape" data-pptx-frame="126.1 422.4 243.81 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:17" data-pptx-semantic-object="shape">
+<path d="M 126.1 422.4 L 369.9 422.4 L 369.9 447.04 L 126.1 447.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="248" y="436" text-anchor="middle" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99">ecg_waveform.png · 建议 9:5</text>
+</g>
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="104 460 288 34" data-pptx-prst="roundRect" data-pptx-av-adj="val 23529" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 104 468 A 8 8 0 0 1 112 460 L 384 460 A 8 8 0 0 1 392 468 L 392 486 A 8 8 0 0 1 384 494 L 112 494 A 8 8 0 0 1 104 486 Z" fill="#1A2740" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-19" data-pptx-object="shape" data-pptx-frame="148.8 470.4 198.4 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:19" data-pptx-semantic-object="shape">
+<path d="M 148.8 470.4 L 347.2 470.4 L 347.2 495.04 L 148.8 495.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="248" y="484" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">复用 P6 素材 · 标注 R 峰</text>
+</g>
+</g>
+<g id="shape-28" data-pptx-object="group" data-pptx-frame="448 214 368 360" data-pptx-source-ref="slide:28">
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="448 214 368 360" data-pptx-prst="roundRect" data-pptx-av-adj="val 2778" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 448 224 A 10 10 0 0 1 458 214 L 806 214 A 10 10 0 0 1 816 224 L 816 564 A 10 10 0 0 1 806 574 L 458 574 A 10 10 0 0 1 448 564 Z" fill="#141E32" stroke-width="2" stroke="#63E6D2" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="460 226 344 336" data-pptx-prst="roundRect" data-pptx-av-adj="val 2381" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 460 234 A 8 8 0 0 1 468 226 L 796 226 A 8 8 0 0 1 804 234 L 804 554 A 8 8 0 0 1 796 562 L 468 562 A 8 8 0 0 1 460 554 Z" fill="none" stroke-width="1.50005" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="476.55 244.99 42.05 37.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 518.6 263.66 L 513.93 263.66 C 511.85 263.66 510.06 261.66 509.82 258.99 C 509.13 250.94 508.08 244.99 503.41 244.99 C 498.74 244.99 497.58 253.35 497.58 263.66 C 497.58 273.97 496.41 282.32 491.74 282.32 C 487.08 282.32 486.02 276.38 485.33 268.32 C 485.1 265.65 483.31 263.66 481.22 263.66 L 476.55 263.66" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#63E6D2" />
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="533.46 245.77 154.56 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 533.46 245.77 L 688.02 245.77 L 688.02 282.73 L 533.46 282.73 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="610.74" y="266.17" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">频谱分析面板</text>
+</g>
+<g id="shape-25" data-pptx-object="shape" data-pptx-frame="530.45 422.4 203.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:25" data-pptx-semantic-object="shape">
+<path d="M 530.45 422.4 L 733.55 422.4 L 733.55 447.04 L 530.45 447.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="632" y="436" text-anchor="middle" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99">spectrum.png · 建议 9:5</text>
+</g>
+<g id="shape-26" data-pptx-object="shape" data-pptx-frame="488 460 288 34" data-pptx-prst="roundRect" data-pptx-av-adj="val 23529" data-pptx-source-ref="slide:26" data-pptx-semantic-object="shape">
+<path d="M 488 468 A 8 8 0 0 1 496 460 L 768 460 A 8 8 0 0 1 776 468 L 776 486 A 8 8 0 0 1 768 494 L 496 494 A 8 8 0 0 1 488 486 Z" fill="#1A2740" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-27" data-pptx-object="shape" data-pptx-frame="526.72 470.4 210.56 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:27" data-pptx-semantic-object="shape">
+<path d="M 526.72 470.4 L 737.28 470.4 L 737.28 495.04 L 526.72 495.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="632" y="484" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">复用 P6 素材 · 标注 α 波段</text>
+</g>
+</g>
+<g id="shape-38" data-pptx-object="group" data-pptx-frame="832 214 368 360" data-pptx-source-ref="slide:38">
+<g id="shape-29" data-pptx-object="shape" data-pptx-frame="832 214 368 360" data-pptx-prst="roundRect" data-pptx-av-adj="val 2778" data-pptx-source-ref="slide:29" data-pptx-semantic-object="shape">
+<path d="M 832 224 A 10 10 0 0 1 842 214 L 1190 214 A 10 10 0 0 1 1200 224 L 1200 564 A 10 10 0 0 1 1190 574 L 842 574 A 10 10 0 0 1 832 564 Z" fill="#141E32" stroke-width="2" stroke="#FFB547" data-pptx-part="geometry" />
+
+
+</g>
+<g id="shape-30" data-pptx-object="shape" data-pptx-frame="844 226 344 336" data-pptx-prst="roundRect" data-pptx-av-adj="val 2381" data-pptx-source-ref="slide:30" data-pptx-semantic-object="shape">
+<path d="M 844 234 A 8 8 0 0 1 852 226 L 1180 226 A 8 8 0 0 1 1188 234 L 1188 554 A 8 8 0 0 1 1180 562 L 852 562 A 8 8 0 0 1 844 554 Z" fill="none" stroke-width="1.50005" stroke="#6E7F99" stroke-dasharray="8 4" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-33" data-pptx-object="group" data-pptx-frame="868.06 239.23 152.6 78.77" data-pptx-source-ref="slide:33">
+<g id="shape-31" data-pptx-object="shape" data-pptx-frame="868.06 239.23 20.22 41.92" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:31" data-pptx-semantic-object="shape">
+<path d="M 873.51 263.73 C 869.85 265.84 868.06 270.15 869.16 274.23 C 870.25 278.31 873.95 281.14 878.17 281.14 C 882.4 281.14 886.09 278.31 887.19 274.23 C 888.28 270.15 886.5 265.84 882.84 263.73 L 882.84 243.9 C 882.84 241.32 880.75 239.23 878.17 239.23 C 875.59 239.23 873.51 241.32 873.51 243.9 L 873.51 263.73" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+<g id="shape-32" data-pptx-object="shape" data-pptx-frame="1011.33 317 9.33 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:32" data-pptx-semantic-object="shape">
+<path d="M 1011.33 317 L 1020.67 317" data-pptx-part="geometry" fill="none" stroke-width="4.66667" stroke="#FFB547" />
+</g>
+</g>
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="892.78 247.83 154.56 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 892.78 247.83 L 1047.34 247.83 L 1047.34 284.79 L 892.78 284.79 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="970.06" y="268.23" text-anchor="middle" xml:space="preserve" font-size="24" fill="#E8EEF7">光照控制面板</text>
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="911.06 422.4 209.89 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 911.06 422.4 L 1120.94 422.4 L 1120.94 447.04 L 911.06 447.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1016" y="436" text-anchor="middle" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99">光显示界面.png · 建议 8:5</text>
+</g>
+<g id="shape-36" data-pptx-object="shape" data-pptx-frame="872 460 288 34" data-pptx-prst="roundRect" data-pptx-av-adj="val 23529" data-pptx-source-ref="slide:36" data-pptx-semantic-object="shape">
+<path d="M 872 468 A 8 8 0 0 1 880 460 L 1152 460 A 8 8 0 0 1 1160 468 L 1160 486 A 8 8 0 0 1 1152 494 L 880 494 A 8 8 0 0 1 872 486 Z" fill="#1A2740" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-37" data-pptx-object="shape" data-pptx-frame="880.37 470.4 271.26 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:37" data-pptx-semantic-object="shape">
+<path d="M 880.37 470.4 L 1151.63 470.4 L 1151.63 495.04 L 880.37 495.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1016" y="484" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">复用 P7 素材 · 标注 CCT/Lux 滑杆</text>
+</g>
+</g>
+<g id="shape-41" data-pptx-object="group" data-pptx-frame="63.36 500 184.64 109.79" data-pptx-source-ref="slide:41">
+<g id="shape-39" data-pptx-object="shape" data-pptx-frame="248 500 0 52" data-pptx-prst="line" data-pptx-source-ref="slide:39" data-pptx-semantic-object="shape">
+<path d="M 248 500 L 248 552" fill="none" stroke-width="1.50005" stroke="#FFB547" stroke-opacity="0" marker-end="url(#marrow1)" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-40" data-pptx-object="shape" data-pptx-frame="63.36 590.4 0.01 19.39" data-pptx-prst="rect" data-pptx-source-ref="slide:40" data-pptx-semantic-object="shape">
+<path d="M 63.36 590.4 L 63.37 590.4 L 63.37 609.79 L 63.36 609.79 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+</g>
+</g>
+<g id="shape-44" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:44">
+<g id="shape-42" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:42" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-43" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:43" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">18 / 20</text>
+</g>
+</g>
+<g id="shape-46" data-pptx-object="picture" data-pptx-frame="877.04 289.06 282.96 272.13" data-pptx-source-ref="slide:46">
+<image data-pptx-object="picture" data-pptx-frame="877.04 289.06 282.96 272.13" href="../images/image19.png" x="877.04" y="289.06" width="282.96" height="272.13" preserveAspectRatio="none" />
+</g>
+<g id="shape-51" data-pptx-object="picture" data-pptx-frame="84.33 289.06 324.61 234.33" data-pptx-source-ref="slide:51">
+<image data-pptx-object="picture" data-pptx-frame="84.33 289.06 324.61 234.33" href="../images/image20.png" x="84.33" y="289.06" width="324.61" height="234.33" preserveAspectRatio="none" />
+</g>
+<g id="shape-55" data-pptx-object="picture" data-pptx-frame="471.72 304.92 320.55 188.98" data-pptx-source-ref="slide:55">
+<image data-pptx-object="picture" data-pptx-frame="471.72 304.92 320.55 188.98" href="../images/image21.png" x="471.72" y="304.92" width="320.55" height="188.98" preserveAspectRatio="none" />
+</g></svg>

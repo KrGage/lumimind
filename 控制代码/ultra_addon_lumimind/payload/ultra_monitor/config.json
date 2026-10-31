@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "device_id": "ULTRA-004",
+  "ble_address": "F6:2B:AC:6B:FC:66",
+  "interval_seconds": 12,
+  "retry_seconds": 5,
+  "database": "data/ultra.db",
+  "retention_days": 30
+}

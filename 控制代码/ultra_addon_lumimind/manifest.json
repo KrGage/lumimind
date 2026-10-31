@@ -1,0 +1,101 @@
+{
+  "ultra_monitor/collector.py": {
+    "new_hash": "3e8fabde2ef2efe9d2ca6cfbd9305c30edb7ec3af584a462447ce01d20670521",
+    "old_hashes": []
+  },
+  "ultra_monitor/config.json": {
+    "new_hash": "5eb3a1031eb3f89edb98f12c155fab196d2c68d798519aa1edacfc36fb76b74d",
+    "old_hashes": [],
+    "preserve": true
+  },
+  "ultra_monitor/integration.py": {
+    "new_hash": "7f1d170c37aa98b011efa292c5d512a8fc00347396b4e76efa5f03ee4d6c8daf",
+    "old_hashes": []
+  },
+  "ultra_monitor/lighting.py": {
+    "new_hash": "4606f59266558b0cd2663a50e9216b7106ea780228df65b00c7cd46b9a504f70",
+    "old_hashes": []
+  },
+  "ultra_monitor/storage.py": {
+    "new_hash": "e28a046d0a58ca38827f621991f6e80d8bce4d9a83ae1d7ebd3d38eb77c1e0ce",
+    "old_hashes": []
+  },
+  "ultra_monitor/__init__.py": {
+    "new_hash": "db4f19f12d40fe57d31d6a36a7c37051b8f07c66561d9c058d8b40021978e67c",
+    "old_hashes": []
+  },
+  "ultra_monitor/\u63a5\u5165\u8bf4\u660e.md": {
+    "new_hash": "d734de26cde08f945fa96b59a11f9568bb9f99c99a3577107c240d7dddd4667f",
+    "old_hashes": []
+  },
+  "ultra_monitor/static/dashboard.html": {
+    "new_hash": "375f8176bdbd7c9495db068dbbe4e275573f70f9b967098dcce00442cad21e29",
+    "old_hashes": []
+  },
+  "backend/app/main.py": {
+    "new_hash": "7552200cb7f2dd536b3eae0e5015d1476e16f81ca79cef2d05de2b5be2dc3b37",
+    "old_hashes": [
+      "ac10c0535fd182482cce095a5301fcaeeaa02a4d8f05a0f86317261e734c98e3"
+    ],
+    "required_existing": true
+  },
+  "backend/app/api/chat_api.py": {
+    "new_hash": "d0563db945c9fd03ec4717c743cb2c0003f9d7d6105b873795e64eed269861dc",
+    "old_hashes": [
+      "b541620a3c1955b8562927ee867f024678601f26c910a9405dcc6ee7e493fdad"
+    ],
+    "required_existing": true
+  },
+  "fontend/ai-chat.html": {
+    "new_hash": "1bcc9586468414239a5a82914eb1f868e809ac9c669c0468d2f5725deed8e46a",
+    "old_hashes": [
+      "99091bbea13a94685d501a010fa329ec2b04048d874dcaa8cc1c23b65903a448"
+    ],
+    "required_existing": true
+  },
+  "light_control/lumimind_light.py": {
+    "new_hash": "e8fd3d6d6178bc99b5739ab3ede7d126fcff57f9afb2170263ccdcceb35286af",
+    "old_hashes": []
+  },
+  "light_control/light_config.json": {
+    "new_hash": "3e01daf68ed09772b494aebcdf3d5fb8894df7b607b16f1f9d37558e618fba05",
+    "old_hashes": [],
+    "preserve": true
+  },
+  "requirements-addon.txt": {
+    "new_hash": "e86d17f146d9b1efd56ac23bab5ea76c659d8dba33636c39801b072a4d31930b",
+    "old_hashes": []
+  },
+  "start_ultra_agent.cmd": {
+    "new_hash": "e8aed02bb1a2848e5c74f6ea2a2a380de1fa2c3ee21d63be36491fe6cc335366",
+    "old_hashes": []
+  },
+  "tests/test_ultra_addon.py": {
+    "new_hash": "373e96db29c5c59adca1ed2c0f1dff7438af29758f1519ce61edeffcb6bdd57b",
+    "old_hashes": []
+  },
+  "install_ultra_addon.py": {
+    "new_hash": "7a51458676563d2516a3d249bd15af7abaa05265c199e316c058a4b901c1daa2",
+    "old_hashes": []
+  },
+  "light_control/runtime/LightBridge.exe": {
+    "new_hash": "c435fe5da3059865f50384c8f46628be26cc23666316feab82abad0b98a0cdf5",
+    "old_hashes": []
+  },
+  "light_control/runtime/LightBridge.exe.config": {
+    "new_hash": "5fb8a77bbc91299472353692ab431dd5855f097bef3571a483146c2d669643f9",
+    "old_hashes": []
+  },
+  "light_control/runtime/FudanLight.Optics.dll": {
+    "new_hash": "86d61fadbc108b6ed6a71b344f842b8661f5035ef56be771b807fc186efb523c",
+    "old_hashes": []
+  },
+  "light_control/runtime/Newtonsoft.Json.dll": {
+    "new_hash": "4e753a735cab57d8642610553e3a0494c4d627ab36c4e5f4258e67b374fa8758",
+    "old_hashes": []
+  },
+  "light_control/runtime/Calibrations/Room1_Calibration.json": {
+    "new_hash": "6b1b7966e533d85febb986dd839adbf387261f789fbe420fd3c1afc131a8a490",
+    "old_hashes": []
+  }
+}

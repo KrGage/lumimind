@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 502.62 110" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 288 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 351.36 42.4 L 351.36 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 03 · 多模态情绪感知模型</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 502.62 86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 564.62 66.4 L 564.62 152.4 L 62 152.4 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold">实时情绪状态监测</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-16" data-pptx-object="group" data-pptx-frame="64 150 1152 446" data-pptx-source-ref="slide:16">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="64 150 1152 446" data-pptx-prst="roundRect" data-pptx-av-adj="val 2242" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 64 160 A 10 10 0 0 1 74 150 L 1206 150 A 10 10 0 0 1 1216 160 L 1216 586 A 10 10 0 0 1 1206 596 L 74 596 A 10 10 0 0 1 64 586 Z" fill="#141E32" stroke-width="2" stroke="#6E7F99" stroke-dasharray="10 5" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-11" data-pptx-object="group" data-pptx-frame="570.67 260.67 42.67 42.67" data-pptx-source-ref="slide:11">
+<g id="shape-7" data-pptx-object="shape" data-pptx-frame="570.67 260.67 16 21.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:7" data-pptx-semantic-object="shape">
+<path d="M 573.33 260.67 L 584 260.67 C 585.47 260.67 586.67 261.86 586.67 263.33 L 586.67 279.33 C 586.67 280.81 585.47 282 584 282 L 573.33 282 C 571.86 282 570.67 280.81 570.67 279.33 L 570.67 263.33 C 570.67 261.86 571.86 260.67 573.33 260.67" data-pptx-part="geometry" fill="none" stroke-width="5.33333" stroke="#5AA7FF" />
+</g>
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="570.67 292.67 16 10.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 573.33 292.67 L 584 292.67 C 585.47 292.67 586.67 293.86 586.67 295.33 L 586.67 300.67 C 586.67 302.14 585.47 303.33 584 303.33 L 573.33 303.33 C 571.86 303.33 570.67 302.14 570.67 300.67 L 570.67 295.33 C 570.67 293.86 571.86 292.67 573.33 292.67" data-pptx-part="geometry" fill="none" stroke-width="5.33333" stroke="#5AA7FF" />
+</g>
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="597.33 282 16 21.33" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 600 282 L 610.67 282 C 612.14 282 613.33 283.19 613.33 284.67 L 613.33 300.67 C 613.33 302.14 612.14 303.33 610.67 303.33 L 600 303.33 C 598.53 303.33 597.33 302.14 597.33 300.67 L 597.33 284.67 C 597.33 283.19 598.53 282 600 282" data-pptx-part="geometry" fill="none" stroke-width="5.33333" stroke="#5AA7FF" />
+</g>
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="597.33 260.67 16 10.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 600 260.67 L 610.67 260.67 C 612.14 260.67 613.33 261.86 613.33 263.33 L 613.33 268.67 C 613.33 270.14 612.14 271.33 610.67 271.33 L 600 271.33 C 598.53 271.33 597.33 270.14 597.33 268.67 L 597.33 263.33 C 597.33 261.86 598.53 260.67 600 260.67" data-pptx-part="geometry" fill="none" stroke-width="5.33333" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-12" data-pptx-object="shape" data-pptx-frame="369.9 342.8 540.19 49.28" data-pptx-prst="rect" data-pptx-source-ref="slide:12" data-pptx-semantic-object="shape">
+<path d="M 369.9 342.8 L 910.1 342.8 L 910.1 392.08 L 369.9 392.08 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="640" y="370" text-anchor="middle" xml:space="preserve" font-size="32" fill="#E8EEF7">系统主控台界面截图（main.html）</text>
+</g>
+<g id="shape-13" data-pptx-object="shape" data-pptx-frame="340.81 395 598.38 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:13" data-pptx-semantic-object="shape">
+<path d="M 340.81 395 L 939.19 395 L 939.19 425.8 L 340.81 425.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="640" y="412" text-anchor="middle" xml:space="preserve" font-size="20" fill="#A9B7CC">建议 1280×720 全屏截图 · 置入后按实际界面校准下方引线标注</text>
+</g>
+<g id="shape-14" data-pptx-object="shape" data-pptx-frame="540 440 200 34" data-pptx-prst="roundRect" data-pptx-av-adj="val 50000" data-pptx-source-ref="slide:14" data-pptx-semantic-object="shape">
+<path d="M 540 457 A 17 17 0 0 1 557 440 L 723 440 A 17 17 0 0 1 740 457 L 740 457 A 17 17 0 0 1 723 474 L 557 474 A 17 17 0 0 1 540 457 Z" fill="none" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-15" data-pptx-object="shape" data-pptx-frame="580 450.4 120 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:15" data-pptx-semantic-object="shape">
+<path d="M 580 450.4 L 700 450.4 L 700 475.04 L 580 475.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="640" y="464" text-anchor="middle" xml:space="preserve" font-size="16" fill="#A9B7CC">真实截图待置入</text>
+</g>
+</g>
+<g id="shape-36" data-pptx-object="group" data-pptx-frame="68 626 1148.96 30.68" data-pptx-source-ref="slide:36">
+<g id="shape-33" data-pptx-object="group" data-pptx-frame="68 626 24 24" data-pptx-source-ref="slide:33">
+<g id="shape-29" data-pptx-object="shape" data-pptx-frame="68 626 24 24" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:29" data-pptx-semantic-object="shape">
+<path d="M 68 638 C 68 644.63 73.37 650 80 650 C 86.63 650 92 644.63 92 638 C 92 631.37 86.63 626 80 626 C 73.37 626 68 631.37 68 638" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-30" data-pptx-object="shape" data-pptx-frame="78.67 636.67 2.67 2.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:30" data-pptx-semantic-object="shape">
+<path d="M 78.67 638 C 78.67 638.74 79.26 639.33 80 639.33 C 80.74 639.33 81.33 638.74 81.33 638 C 81.33 637.26 80.74 636.67 80 636.67 C 79.26 636.67 78.67 637.26 78.67 638" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-31" data-pptx-object="shape" data-pptx-frame="81.88 632.67 3.45 3.45" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:31" data-pptx-semantic-object="shape">
+<path d="M 81.88 636.12 L 85.33 632.67" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+<g id="shape-32" data-pptx-object="shape" data-pptx-frame="73.33 631.33 6.67 6.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:32" data-pptx-semantic-object="shape">
+<path d="M 73.33 638 C 73.33 634.32 76.32 631.33 80 631.33" data-pptx-part="geometry" fill="none" stroke-width="2.66667" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="111.04 627.6 424.1 29.08" data-pptx-prst="rect" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 111.04 627.6 L 535.14 627.6 L 535.14 656.68 L 111.04 656.68 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="111.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">四类情绪（正面 / 中性 / 负面 / 高唤醒）</text>
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="771.32 627.6 445.64 29.08" data-pptx-prst="rect" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 771.32 627.6 L 1216.96 627.6 L 1216.96 656.68 L 771.32 656.68 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.96" y="648" text-anchor="end" xml:space="preserve" font-size="24" fill="#FFFFFF"><tspan>通过</tspan><tspan>监控生理状态实时给出情绪的</tspan><tspan>V</tspan><tspan>和</tspan><tspan>A</tspan><tspan>值</tspan></text>
+</g>
+</g>
+<g id="shape-39" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:39">
+<g id="shape-37" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:37" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-38" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:38" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">09 / 20</text>
+</g>
+</g>
+<g id="shape-49" data-pptx-object="picture" data-pptx-frame="160.51 156.88 928.61 434.65" data-pptx-source-ref="slide:49">
+<image data-pptx-object="picture" data-pptx-frame="160.51 156.88 928.61 434.65" href="../images/image11.png" x="160.51" y="156.88" width="928.61" height="434.65" preserveAspectRatio="none" />
+</g></svg>

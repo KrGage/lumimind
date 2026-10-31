@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient><clipPath id="clip1" clipPathUnits="userSpaceOnUse"><path d="M 0 0.30093 C 0 0.28814 0.00389 0.27778 0.00868 0.27778 L 0.99132 0.27778 C 0.99611 0.27778 1 0.28814 1 0.30093 L 1 0.69907 C 1 0.71186 0.99611 0.72222 0.99132 0.72222 L 0.00868 0.72222 C 0.00389 0.72222 0 0.71186 0 0.69907 Z" /></clipPath></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 938.92 110" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 308.16 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 371.52 42.4 L 371.52 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 04 · 世界模型与光环境决策</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 938.92 86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 1000.92 66.4 L 1000.92 152.4 L 62 152.4 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold">光照参数对情绪的神经生理学影响</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-25" data-pptx-object="group" data-pptx-frame="64 150 1152 242" data-pptx-source-ref="slide:25">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="64 150 1152 242" data-pptx-prst="rect" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 64 150 L 1216 150 L 1216 392 L 64 392 Z" fill="none" stroke-width="2" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-7" data-pptx-object="shape" data-pptx-frame="64 150 1152 50" data-pptx-prst="rect" data-pptx-source-ref="slide:7" data-pptx-semantic-object="shape">
+<path d="M 64 150 L 1216 150 L 1216 200 L 64 200 Z" fill="#1A2740" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="64 200 1152 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 64 200 L 1216 200" data-pptx-part="geometry" fill="none" stroke-width="2" stroke="#2A3A55" />
+</g>
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="79.2 165 90.64 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 79.2 165 L 169.84 165 L 169.84 195.8 L 79.2 195.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="79.2" y="182" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC" font-weight="bold">光照参数</text>
+</g>
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="379.2 165 157.42 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 379.2 165 L 536.62 165 L 536.62 195.8 L 379.2 195.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="379.2" y="182" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC" font-weight="bold">情绪与生理效应</text>
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="809.2 165 90.64 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 809.2 165 L 899.84 165 L 899.84 195.8 L 809.2 195.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="809.2" y="182" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC" font-weight="bold">文献依据</text>
+</g>
+<g id="shape-12" data-pptx-object="shape" data-pptx-frame="364 150 1 242" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:12" data-pptx-semantic-object="shape">
+<path d="M 364 150 L 364 392" data-pptx-part="geometry" fill="none" stroke-width="1.50005" stroke="#2A3A55" />
+</g>
+<g id="shape-13" data-pptx-object="shape" data-pptx-frame="794 150 1 242" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:13" data-pptx-semantic-object="shape">
+<path d="M 794 150 L 794 392" data-pptx-part="geometry" fill="none" stroke-width="1.50005" stroke="#2A3A55" />
+</g>
+<g id="shape-14" data-pptx-object="shape" data-pptx-frame="64 264 1152 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:14" data-pptx-semantic-object="shape">
+<path d="M 64 264 L 1216 264" data-pptx-part="geometry" fill="none" stroke-width="1" stroke="#2A3A55" />
+</g>
+<g id="shape-15" data-pptx-object="shape" data-pptx-frame="64 328 1152 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:15" data-pptx-semantic-object="shape">
+<path d="M 64 328 L 1216 328" data-pptx-part="geometry" fill="none" stroke-width="1" stroke="#2A3A55" />
+</g>
+<g id="shape-16" data-pptx-object="shape" data-pptx-frame="79.2 223 254.44 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:16" data-pptx-semantic-object="shape">
+<path d="M 79.2 223 L 333.64 223 L 333.64 253.8 L 79.2 253.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="79.2" y="240" text-anchor="start" xml:space="preserve" font-size="20" fill="#5AA7FF" font-weight="bold">高色温 &gt;4000K + 高照度</text>
+</g>
+<g id="shape-17" data-pptx-object="shape" data-pptx-frame="379.2 223 298.66 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:17" data-pptx-semantic-object="shape">
+<path d="M 379.2 223 L 677.86 223 L 677.86 253.8 L 379.2 253.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="379.2" y="240" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">提升 Arousal，促进警觉与专注</text>
+</g>
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="809.2 223 243.87 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 809.2 223 L 1053.07 223 L 1053.07 253.8 L 809.2 253.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="809.2" y="240" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC">Smolders 2014; Ru 2019</text>
+</g>
+<g id="shape-19" data-pptx-object="shape" data-pptx-frame="79.2 287 254.44 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:19" data-pptx-semantic-object="shape">
+<path d="M 79.2 287 L 333.64 287 L 333.64 317.8 L 79.2 317.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="79.2" y="304" text-anchor="start" xml:space="preserve" font-size="20" fill="#FFB547" font-weight="bold">低色温 &lt;3000K + 低照度</text>
+</g>
+<g id="shape-20" data-pptx-object="shape" data-pptx-frame="379.2 287 277.29 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:20" data-pptx-semantic-object="shape">
+<path d="M 379.2 287 L 656.49 287 L 656.49 317.8 L 379.2 317.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="379.2" y="304" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">降低 Arousal，辅助身心放松</text>
+</g>
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="809.2 287 159.47 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 809.2 287 L 968.67 287 L 968.67 317.8 L 809.2 317.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="809.2" y="304" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC">Mostafavi 2024</text>
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="79.2 351 208.58 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 79.2 351 L 287.78 351 L 287.78 381.8 L 79.2 381.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="79.2" y="368" text-anchor="start" xml:space="preserve" font-size="20" fill="#FFB547" font-weight="bold">暖白光 2700–3000K</text>
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="379.2 351 171.2 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 379.2 351 L 550.4 351 L 550.4 381.8 L 379.2 381.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="379.2" y="368" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">显著缓解焦虑情绪</text>
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="809.2 351 94 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 809.2 351 L 903.2 351 L 903.2 381.8 L 809.2 381.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="809.2" y="368" text-anchor="start" xml:space="preserve" font-size="20" fill="#A9B7CC">Li X 2025</text>
+</g>
+</g>
+<g id="shape-27" data-pptx-object="group" data-pptx-frame="63.36 402.4 432.81 19.39" data-pptx-source-ref="slide:27">
+<g id="shape-26" data-pptx-object="shape" data-pptx-frame="63.36 402.4 432.81 19.39" data-pptx-prst="rect" data-pptx-source-ref="slide:26" data-pptx-semantic-object="shape">
+<path d="M 63.36 402.4 L 496.17 402.4 L 496.17 421.79 L 63.36 421.79 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="416" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">文献来源：Building and Environment · Indoor Air 等期刊；</text>
+</g>
+</g>
+<g id="shape-38" data-pptx-object="group" data-pptx-frame="64 428 1218.78 243.8" data-pptx-source-ref="slide:38">
+<g id="shape-28" data-pptx-object="picture" data-pptx-frame="64 428 1152 192" data-pptx-source-ref="slide:28">
+<svg data-pptx-object="picture" data-pptx-frame="64 428 1152 192" data-pptx-crop="1" x="64" y="428" width="1152" height="192" viewBox="0 0.27778 1 0.44444" preserveAspectRatio="none" overflow="hidden"><image clip-path="url(#clip1)" href="../images/image12.jpg" x="0" y="0" width="1" height="1" preserveAspectRatio="none" /></svg>
+</g>
+<g id="shape-29" data-pptx-object="shape" data-pptx-frame="64 428 1152 192" data-pptx-prst="roundRect" data-pptx-av-adj="val 5208" data-pptx-source-ref="slide:29" data-pptx-semantic-object="shape">
+<path d="M 64 438 A 10 10 0 0 1 74 428 L 1206 428 A 10 10 0 0 1 1216 438 L 1216 610 A 10 10 0 0 1 1206 620 L 74 620 A 10 10 0 0 1 64 610 Z" fill="none" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-30" data-pptx-object="shape" data-pptx-frame="204 646 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:30" data-pptx-semantic-object="shape">
+<path d="M 204 650 A 4 4 0 0 1 208 646 A 4 4 0 0 1 212 650 A 4 4 0 0 1 208 654 A 4 4 0 0 1 204 650 Z" fill="#FFB547" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-31" data-pptx-object="shape" data-pptx-frame="223.2 641 237.98 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:31" data-pptx-semantic-object="shape">
+<path d="M 223.2 641 L 461.18 641 L 461.18 671.8 L 223.2 671.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="223.2" y="658" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">暖夜客厅 · 低色温低照度</text>
+</g>
+<g id="shape-32" data-pptx-object="shape" data-pptx-frame="492 646 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:32" data-pptx-semantic-object="shape">
+<path d="M 492 650 A 4 4 0 0 1 496 646 A 4 4 0 0 1 500 650 A 4 4 0 0 1 496 654 A 4 4 0 0 1 492 650 Z" fill="#5AA7FF" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-33" data-pptx-object="shape" data-pptx-frame="511.2 641 259.18 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:33" data-pptx-semantic-object="shape">
+<path d="M 511.2 641 L 770.38 641 L 770.38 671.8 L 511.2 671.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="511.2" y="658" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">冷白办公室 · 高色温高照度</text>
+</g>
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="780 646 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 780 650 A 4 4 0 0 1 784 646 A 4 4 0 0 1 788 650 A 4 4 0 0 1 784 654 A 4 4 0 0 1 780 650 Z" fill="#63E6D2" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="799.2 641 195.58 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 799.2 641 L 994.78 641 L 994.78 671.8 L 799.2 671.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="799.2" y="658" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">中性书房 · 中性色温</text>
+</g>
+<g id="shape-36" data-pptx-object="shape" data-pptx-frame="1068 646 8 8" data-pptx-prst="ellipse" data-pptx-source-ref="slide:36" data-pptx-semantic-object="shape">
+<path d="M 1068 650 A 4 4 0 0 1 1072 646 A 4 4 0 0 1 1076 650 A 4 4 0 0 1 1072 654 A 4 4 0 0 1 1068 650 Z" fill="#FFB547" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-37" data-pptx-object="shape" data-pptx-frame="1087.2 641 195.58 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:37" data-pptx-semantic-object="shape">
+<path d="M 1087.2 641 L 1282.78 641 L 1282.78 671.8 L 1087.2 671.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1087.2" y="658" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">睡前床头 · 暖光助眠</text>
+</g>
+</g>
+<g id="shape-41" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:41">
+<g id="shape-39" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:39" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-40" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:40" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">10 / 20</text>
+</g>
+</g></svg>

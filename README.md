@@ -51,6 +51,8 @@ ai_agent/
 
 ## 快速开始
 
+同一局域网的其他设备访问演示页面，请按 [局域网访问说明](局域网访问.md) 运行 `start_lan.ps1`，并使用服务电脑的 IPv4 地址打开网页。
+
 ```bash
 # 1. 安装依赖
 pip install -r requirements.txt

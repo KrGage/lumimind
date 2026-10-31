@@ -467,7 +467,7 @@
     const defaults = {
         userName: "实验员",
         userRole: "实验员",
-        apiBase: "http://127.0.0.1:8000",
+        apiBase: location.origin,
         modelPref: "",
         autoRefresh: true,
         soundEnabled: false,
@@ -519,7 +519,7 @@
         const newSettings = {
             userName: $("inputUserName").value.trim() || "实验员",
             userRole: $("inputUserRole").value,
-            apiBase: $("inputApiBase").value.trim() || "http://127.0.0.1:8000",
+            apiBase: $("inputApiBase").value.trim() || location.origin,
             modelPref: $("inputModelPref").value,
             autoRefresh: $("toggleAutoRefresh").checked,
             soundEnabled: $("toggleSound").checked,

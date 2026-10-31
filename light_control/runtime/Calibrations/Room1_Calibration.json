@@ -1,0 +1,8471 @@
+{
+  "RoomID": 1,
+  "RoomName": "房间1",
+  "CalibratedAt": "2026-07-20T20:38:02.2707951+08:00",
+  "CalibratedBy": null,
+  "R": {
+    "ChannelName": "R",
+    "Ev": 3047.43994140625,
+    "X": 0.6946181058883667,
+    "Y": 0.30442848801612854,
+    "Spectrum": [
+      {
+        "Wavelength": 360.0,
+        "Weight": 0.0011098099639639258
+      },
+      {
+        "Wavelength": 361.0,
+        "Weight": 0.00087269663345068693
+      },
+      {
+        "Wavelength": 362.0,
+        "Weight": 0.00071402266621589661
+      },
+      {
+        "Wavelength": 363.0,
+        "Weight": 0.00065525202080607414
+      },
+      {
+        "Wavelength": 364.0,
+        "Weight": 0.00069003808312118053
+      },
+      {
+        "Wavelength": 365.0,
+        "Weight": 0.00076458824332803488
+      },
+      {
+        "Wavelength": 366.0,
+        "Weight": 0.00085525057511404157
+      },
+      {
+        "Wavelength": 367.0,
+        "Weight": 0.00090646144235506654
+      },
+      {
+        "Wavelength": 368.0,
+        "Weight": 0.00089758849935606122
+      },
+      {
+        "Wavelength": 369.0,
+        "Weight": 0.00087353691924363375
+      },
+      {
+        "Wavelength": 370.0,
+        "Weight": 0.000838284264318645
+      },
+      {
+        "Wavelength": 371.0,
+        "Weight": 0.00078834895975887775
+      },
+      {
+        "Wavelength": 372.0,
+        "Weight": 0.00072798470500856638
+      },
+      {
+        "Wavelength": 373.0,
+        "Weight": 0.0006777462549507618
+      },
+      {
+        "Wavelength": 374.0,
+        "Weight": 0.00064821279374882579
+      },
+      {
+        "Wavelength": 375.0,
+        "Weight": 0.00068552518496289849
+      },
+      {
+        "Wavelength": 376.0,
+        "Weight": 0.0008023493574000895
+      },
+      {
+        "Wavelength": 377.0,
+        "Weight": 0.00092542608035728335
+      },
+      {
+        "Wavelength": 378.0,
+        "Weight": 0.0010325515177100897
+      },
+      {
+        "Wavelength": 379.0,
+        "Weight": 0.0010660096304491162
+      },
+      {
+        "Wavelength": 380.0,
+        "Weight": 0.000998448464088142
+      },
+      {
+        "Wavelength": 381.0,
+        "Weight": 0.00089553993893787265
+      },
+      {
+        "Wavelength": 382.0,
+        "Weight": 0.00076898018596693873
+      },
+      {
+        "Wavelength": 383.0,
+        "Weight": 0.00063294119900092483
+      },
+      {
+        "Wavelength": 384.0,
+        "Weight": 0.00049974187277257442
+      },
+      {
+        "Wavelength": 385.0,
+        "Weight": 0.00037458667065948248
+      },
+      {
+        "Wavelength": 386.0,
+        "Weight": 0.00026670776423998177
+      },
+      {
+        "Wavelength": 387.0,
+        "Weight": 0.00020026905986014754
+      },
+      {
+        "Wavelength": 388.0,
+        "Weight": 0.00019008478557225317
+      },
+      {
+        "Wavelength": 389.0,
+        "Weight": 0.00020368018886074424
+      },
+      {
+        "Wavelength": 390.0,
+        "Weight": 0.00023471239546779543
+      },
+      {
+        "Wavelength": 391.0,
+        "Weight": 0.00027632142882794142
+      },
+      {
+        "Wavelength": 392.0,
+        "Weight": 0.00032191450009122491
+      },
+      {
+        "Wavelength": 393.0,
+        "Weight": 0.00036667115637101233
+      },
+      {
+        "Wavelength": 394.0,
+        "Weight": 0.00040481003816239536
+      },
+      {
+        "Wavelength": 395.0,
+        "Weight": 0.00041895339381881058
+      },
+      {
+        "Wavelength": 396.0,
+        "Weight": 0.00039640488103032112
+      },
+      {
+        "Wavelength": 397.0,
+        "Weight": 0.00036730585270561278
+      },
+      {
+        "Wavelength": 398.0,
+        "Weight": 0.00033896040986292064
+      },
+      {
+        "Wavelength": 399.0,
+        "Weight": 0.00033073403756134212
+      },
+      {
+        "Wavelength": 400.0,
+        "Weight": 0.0003590608830563724
+      },
+      {
+        "Wavelength": 401.0,
+        "Weight": 0.0003911866806447506
+      },
+      {
+        "Wavelength": 402.0,
+        "Weight": 0.00042006175499409437
+      },
+      {
+        "Wavelength": 403.0,
+        "Weight": 0.0004271285142749548
+      },
+      {
+        "Wavelength": 404.0,
+        "Weight": 0.00039461368578486145
+      },
+      {
+        "Wavelength": 405.0,
+        "Weight": 0.0003564961371012032
+      },
+      {
+        "Wavelength": 406.0,
+        "Weight": 0.00032021271181292832
+      },
+      {
+        "Wavelength": 407.0,
+        "Weight": 0.00030348377185873687
+      },
+      {
+        "Wavelength": 408.0,
+        "Weight": 0.00032520628883503377
+      },
+      {
+        "Wavelength": 409.0,
+        "Weight": 0.00035359457251615822
+      },
+      {
+        "Wavelength": 410.0,
+        "Weight": 0.00038242782466113567
+      },
+      {
+        "Wavelength": 411.0,
+        "Weight": 0.00039962073788046837
+      },
+      {
+        "Wavelength": 412.0,
+        "Weight": 0.00039089127676561475
+      },
+      {
+        "Wavelength": 413.0,
+        "Weight": 0.00037448431248776615
+      },
+      {
+        "Wavelength": 414.0,
+        "Weight": 0.00035254479735158384
+      },
+      {
+        "Wavelength": 415.0,
+        "Weight": 0.00032857767655514181
+      },
+      {
+        "Wavelength": 416.0,
+        "Weight": 0.00030708592385053635
+      },
+      {
+        "Wavelength": 417.0,
+        "Weight": 0.00028384802863001823
+      },
+      {
+        "Wavelength": 418.0,
+        "Weight": 0.0002588731877040118
+      },
+      {
+        "Wavelength": 419.0,
+        "Weight": 0.00023180282732937485
+      },
+      {
+        "Wavelength": 420.0,
+        "Weight": 0.00020190438954159617
+      },
+      {
+        "Wavelength": 421.0,
+        "Weight": 0.00017105224833358079
+      },
+      {
+        "Wavelength": 422.0,
+        "Weight": 0.0001398744061589241
+      },
+      {
+        "Wavelength": 423.0,
+        "Weight": 0.00010810998355736956
+      },
+      {
+        "Wavelength": 424.0,
+        "Weight": 7.4271949415560812E-05
+      },
+      {
+        "Wavelength": 425.0,
+        "Weight": 4.3938653107034042E-05
+      },
+      {
+        "Wavelength": 426.0,
+        "Weight": 1.9356697521288879E-05
+      },
+      {
+        "Wavelength": 427.0,
+        "Weight": 3.6747437661688309E-06
+      },
+      {
+        "Wavelength": 428.0,
+        "Weight": 1.8074288163916208E-06
+      },
+      {
+        "Wavelength": 429.0,
+        "Weight": 1.0236670277663507E-05
+      },
+      {
+        "Wavelength": 430.0,
+        "Weight": 2.9356791856116615E-05
+      },
+      {
+        "Wavelength": 431.0,
+        "Weight": 6.4447754994034767E-05
+      },
+      {
+        "Wavelength": 432.0,
+        "Weight": 0.00013228884199634194
+      },
+      {
+        "Wavelength": 433.0,
+        "Weight": 0.00019935745513066649
+      },
+      {
+        "Wavelength": 434.0,
+        "Weight": 0.000255229213507846
+      },
+      {
+        "Wavelength": 435.0,
+        "Weight": 0.00027876437525264919
+      },
+      {
+        "Wavelength": 436.0,
+        "Weight": 0.0002190188824897632
+      },
+      {
+        "Wavelength": 437.0,
+        "Weight": 0.00014613743405789137
+      },
+      {
+        "Wavelength": 438.0,
+        "Weight": 7.5136369559913874E-05
+      },
+      {
+        "Wavelength": 439.0,
+        "Weight": 3.1270479667000473E-05
+      },
+      {
+        "Wavelength": 440.0,
+        "Weight": 7.88020552136004E-05
+      },
+      {
+        "Wavelength": 441.0,
+        "Weight": 0.00014091694902163
+      },
+      {
+        "Wavelength": 442.0,
+        "Weight": 0.00020415958715602756
+      },
+      {
+        "Wavelength": 443.0,
+        "Weight": 0.00024707120610401034
+      },
+      {
+        "Wavelength": 444.0,
+        "Weight": 0.00021000835113227367
+      },
+      {
+        "Wavelength": 445.0,
+        "Weight": 0.00016193356714211404
+      },
+      {
+        "Wavelength": 446.0,
+        "Weight": 0.00011467908916529268
+      },
+      {
+        "Wavelength": 447.0,
+        "Weight": 8.6126674432307482E-05
+      },
+      {
+        "Wavelength": 448.0,
+        "Weight": 0.00013318186393007636
+      },
+      {
+        "Wavelength": 449.0,
+        "Weight": 0.00019130780128762126
+      },
+      {
+        "Wavelength": 450.0,
+        "Weight": 0.0002492815547157079
+      },
+      {
+        "Wavelength": 451.0,
+        "Weight": 0.00029210632783360779
+      },
+      {
+        "Wavelength": 452.0,
+        "Weight": 0.0002663320628926158
+      },
+      {
+        "Wavelength": 453.0,
+        "Weight": 0.00022807512141298503
+      },
+      {
+        "Wavelength": 454.0,
+        "Weight": 0.00018604265642352402
+      },
+      {
+        "Wavelength": 455.0,
+        "Weight": 0.00015081634046509862
+      },
+      {
+        "Wavelength": 456.0,
+        "Weight": 0.00016643444541841745
+      },
+      {
+        "Wavelength": 457.0,
+        "Weight": 0.00018811422341968864
+      },
+      {
+        "Wavelength": 458.0,
+        "Weight": 0.00020898568618576974
+      },
+      {
+        "Wavelength": 459.0,
+        "Weight": 0.00022161027300171554
+      },
+      {
+        "Wavelength": 460.0,
+        "Weight": 0.00019555870676413178
+      },
+      {
+        "Wavelength": 461.0,
+        "Weight": 0.00015806154988240451
+      },
+      {
+        "Wavelength": 462.0,
+        "Weight": 0.00011203031317563727
+      },
+      {
+        "Wavelength": 463.0,
+        "Weight": 6.0376351029844955E-05
+      },
+      {
+        "Wavelength": 464.0,
+        "Weight": 1.6385422441089759E-06
+      },
+      {
+        "Wavelength": 465.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 466.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 467.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 468.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 469.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 470.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 471.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 472.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 473.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 474.0,
+        "Weight": 2.8141545044491068E-05
+      },
+      {
+        "Wavelength": 475.0,
+        "Weight": 4.5980665163369849E-05
+      },
+      {
+        "Wavelength": 476.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 477.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 478.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 479.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 480.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 481.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 482.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 483.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 484.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 485.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 486.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 487.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 488.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 489.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 490.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 491.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 492.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 493.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 494.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 495.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 496.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 497.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 498.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 499.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 500.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 501.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 502.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 503.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 504.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 505.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 506.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 507.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 508.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 509.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 510.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 511.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 512.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 513.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 514.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 515.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 516.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 517.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 518.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 519.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 520.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 521.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 522.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 523.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 524.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 525.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 526.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 527.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 528.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 529.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 530.0,
+        "Weight": 4.416809679241851E-05
+      },
+      {
+        "Wavelength": 531.0,
+        "Weight": 9.7873118647839874E-05
+      },
+      {
+        "Wavelength": 532.0,
+        "Weight": 9.8846416221931577E-05
+      },
+      {
+        "Wavelength": 533.0,
+        "Weight": 6.1707076383754611E-05
+      },
+      {
+        "Wavelength": 534.0,
+        "Weight": 1.1801397704402916E-05
+      },
+      {
+        "Wavelength": 535.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 536.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 537.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 538.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 539.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 540.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 541.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 542.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 543.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 544.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 545.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 546.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 547.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 548.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 549.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 550.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 551.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 552.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 553.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 554.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 555.0,
+        "Weight": 3.8114005292300135E-05
+      },
+      {
+        "Wavelength": 556.0,
+        "Weight": 3.9209291571751237E-05
+      },
+      {
+        "Wavelength": 557.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 558.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 559.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 560.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 561.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 562.0,
+        "Weight": 9.514663543086499E-05
+      },
+      {
+        "Wavelength": 563.0,
+        "Weight": 0.00021121255122125149
+      },
+      {
+        "Wavelength": 564.0,
+        "Weight": 0.0002885157591663301
+      },
+      {
+        "Wavelength": 565.0,
+        "Weight": 0.00032335851574316621
+      },
+      {
+        "Wavelength": 566.0,
+        "Weight": 0.00035198795376345515
+      },
+      {
+        "Wavelength": 567.0,
+        "Weight": 0.00038192144711501896
+      },
+      {
+        "Wavelength": 568.0,
+        "Weight": 0.00042958313133567572
+      },
+      {
+        "Wavelength": 569.0,
+        "Weight": 0.00049979111645370722
+      },
+      {
+        "Wavelength": 570.0,
+        "Weight": 0.00058347481535747647
+      },
+      {
+        "Wavelength": 571.0,
+        "Weight": 0.00068115105386823416
+      },
+      {
+        "Wavelength": 572.0,
+        "Weight": 0.00078740448225289583
+      },
+      {
+        "Wavelength": 573.0,
+        "Weight": 0.000904289074242115
+      },
+      {
+        "Wavelength": 574.0,
+        "Weight": 0.0010437240125611424
+      },
+      {
+        "Wavelength": 575.0,
+        "Weight": 0.001210990478284657
+      },
+      {
+        "Wavelength": 576.0,
+        "Weight": 0.0014189027715474367
+      },
+      {
+        "Wavelength": 577.0,
+        "Weight": 0.0016711601056158543
+      },
+      {
+        "Wavelength": 578.0,
+        "Weight": 0.0019580605439841747
+      },
+      {
+        "Wavelength": 579.0,
+        "Weight": 0.0022786976769566536
+      },
+      {
+        "Wavelength": 580.0,
+        "Weight": 0.0026126417797058821
+      },
+      {
+        "Wavelength": 581.0,
+        "Weight": 0.0029620248824357986
+      },
+      {
+        "Wavelength": 582.0,
+        "Weight": 0.0033662689384073019
+      },
+      {
+        "Wavelength": 583.0,
+        "Weight": 0.0038409209810197353
+      },
+      {
+        "Wavelength": 584.0,
+        "Weight": 0.0044242274016141891
+      },
+      {
+        "Wavelength": 585.0,
+        "Weight": 0.0051292530260980129
+      },
+      {
+        "Wavelength": 586.0,
+        "Weight": 0.005923206452280283
+      },
+      {
+        "Wavelength": 587.0,
+        "Weight": 0.0068020941689610481
+      },
+      {
+        "Wavelength": 588.0,
+        "Weight": 0.0077214729972183704
+      },
+      {
+        "Wavelength": 589.0,
+        "Weight": 0.00867992453277111
+      },
+      {
+        "Wavelength": 590.0,
+        "Weight": 0.0097621288150548935
+      },
+      {
+        "Wavelength": 591.0,
+        "Weight": 0.010999619960784912
+      },
+      {
+        "Wavelength": 592.0,
+        "Weight": 0.012453692965209484
+      },
+      {
+        "Wavelength": 593.0,
+        "Weight": 0.014155426993966103
+      },
+      {
+        "Wavelength": 594.0,
+        "Weight": 0.016069123521447182
+      },
+      {
+        "Wavelength": 595.0,
+        "Weight": 0.018199626356363297
+      },
+      {
+        "Wavelength": 596.0,
+        "Weight": 0.020502900704741478
+      },
+      {
+        "Wavelength": 597.0,
+        "Weight": 0.022982081398367882
+      },
+      {
+        "Wavelength": 598.0,
+        "Weight": 0.025755949318408966
+      },
+      {
+        "Wavelength": 599.0,
+        "Weight": 0.02887418307363987
+      },
+      {
+        "Wavelength": 600.0,
+        "Weight": 0.032379340380430222
+      },
+      {
+        "Wavelength": 601.0,
+        "Weight": 0.036320623010396957
+      },
+      {
+        "Wavelength": 602.0,
+        "Weight": 0.040764637291431427
+      },
+      {
+        "Wavelength": 603.0,
+        "Weight": 0.045767694711685181
+      },
+      {
+        "Wavelength": 604.0,
+        "Weight": 0.051331140100955963
+      },
+      {
+        "Wavelength": 605.0,
+        "Weight": 0.057505369186401367
+      },
+      {
+        "Wavelength": 606.0,
+        "Weight": 0.0644804984331131
+      },
+      {
+        "Wavelength": 607.0,
+        "Weight": 0.072364822030067444
+      },
+      {
+        "Wavelength": 608.0,
+        "Weight": 0.081207595765590668
+      },
+      {
+        "Wavelength": 609.0,
+        "Weight": 0.091109924018383026
+      },
+      {
+        "Wavelength": 610.0,
+        "Weight": 0.1023252084851265
+      },
+      {
+        "Wavelength": 611.0,
+        "Weight": 0.11501815170049667
+      },
+      {
+        "Wavelength": 612.0,
+        "Weight": 0.1293082982301712
+      },
+      {
+        "Wavelength": 613.0,
+        "Weight": 0.14535373449325562
+      },
+      {
+        "Wavelength": 614.0,
+        "Weight": 0.16343162953853607
+      },
+      {
+        "Wavelength": 615.0,
+        "Weight": 0.18375004827976227
+      },
+      {
+        "Wavelength": 616.0,
+        "Weight": 0.20665323734283447
+      },
+      {
+        "Wavelength": 617.0,
+        "Weight": 0.23236852884292603
+      },
+      {
+        "Wavelength": 618.0,
+        "Weight": 0.26076659560203552
+      },
+      {
+        "Wavelength": 619.0,
+        "Weight": 0.29192480444908142
+      },
+      {
+        "Wavelength": 620.0,
+        "Weight": 0.32662710547447205
+      },
+      {
+        "Wavelength": 621.0,
+        "Weight": 0.36504524946212769
+      },
+      {
+        "Wavelength": 622.0,
+        "Weight": 0.40551039576530457
+      },
+      {
+        "Wavelength": 623.0,
+        "Weight": 0.4474220871925354
+      },
+      {
+        "Wavelength": 624.0,
+        "Weight": 0.49169453978538513
+      },
+      {
+        "Wavelength": 625.0,
+        "Weight": 0.53793299198150635
+      },
+      {
+        "Wavelength": 626.0,
+        "Weight": 0.58179175853729248
+      },
+      {
+        "Wavelength": 627.0,
+        "Weight": 0.62121784687042236
+      },
+      {
+        "Wavelength": 628.0,
+        "Weight": 0.653131365776062
+      },
+      {
+        "Wavelength": 629.0,
+        "Weight": 0.675327479839325
+      },
+      {
+        "Wavelength": 630.0,
+        "Weight": 0.68831241130828857
+      },
+      {
+        "Wavelength": 631.0,
+        "Weight": 0.69102424383163452
+      },
+      {
+        "Wavelength": 632.0,
+        "Weight": 0.67950022220611572
+      },
+      {
+        "Wavelength": 633.0,
+        "Weight": 0.65227782726287842
+      },
+      {
+        "Wavelength": 634.0,
+        "Weight": 0.61548960208892822
+      },
+      {
+        "Wavelength": 635.0,
+        "Weight": 0.57086539268493652
+      },
+      {
+        "Wavelength": 636.0,
+        "Weight": 0.5195765495300293
+      },
+      {
+        "Wavelength": 637.0,
+        "Weight": 0.46329048275947571
+      },
+      {
+        "Wavelength": 638.0,
+        "Weight": 0.40510213375091553
+      },
+      {
+        "Wavelength": 639.0,
+        "Weight": 0.3472735583782196
+      },
+      {
+        "Wavelength": 640.0,
+        "Weight": 0.29414534568786621
+      },
+      {
+        "Wavelength": 641.0,
+        "Weight": 0.24813570082187653
+      },
+      {
+        "Wavelength": 642.0,
+        "Weight": 0.20651771128177643
+      },
+      {
+        "Wavelength": 643.0,
+        "Weight": 0.16959479451179504
+      },
+      {
+        "Wavelength": 644.0,
+        "Weight": 0.13864922523498535
+      },
+      {
+        "Wavelength": 645.0,
+        "Weight": 0.11398854851722717
+      },
+      {
+        "Wavelength": 646.0,
+        "Weight": 0.09366413950920105
+      },
+      {
+        "Wavelength": 647.0,
+        "Weight": 0.0770832821726799
+      },
+      {
+        "Wavelength": 648.0,
+        "Weight": 0.063421517610549927
+      },
+      {
+        "Wavelength": 649.0,
+        "Weight": 0.052099816501140594
+      },
+      {
+        "Wavelength": 650.0,
+        "Weight": 0.043039169162511826
+      },
+      {
+        "Wavelength": 651.0,
+        "Weight": 0.035853680223226547
+      },
+      {
+        "Wavelength": 652.0,
+        "Weight": 0.029916714876890182
+      },
+      {
+        "Wavelength": 653.0,
+        "Weight": 0.024874484166502953
+      },
+      {
+        "Wavelength": 654.0,
+        "Weight": 0.020849769935011864
+      },
+      {
+        "Wavelength": 655.0,
+        "Weight": 0.017664631828665733
+      },
+      {
+        "Wavelength": 656.0,
+        "Weight": 0.015038361772894859
+      },
+      {
+        "Wavelength": 657.0,
+        "Weight": 0.01281389594078064
+      },
+      {
+        "Wavelength": 658.0,
+        "Weight": 0.011020424775779247
+      },
+      {
+        "Wavelength": 659.0,
+        "Weight": 0.009565962478518486
+      },
+      {
+        "Wavelength": 660.0,
+        "Weight": 0.0082623464986681938
+      },
+      {
+        "Wavelength": 661.0,
+        "Weight": 0.007042975164949894
+      },
+      {
+        "Wavelength": 662.0,
+        "Weight": 0.0060017793439328671
+      },
+      {
+        "Wavelength": 663.0,
+        "Weight": 0.0051250103861093521
+      },
+      {
+        "Wavelength": 664.0,
+        "Weight": 0.0044077108614146709
+      },
+      {
+        "Wavelength": 665.0,
+        "Weight": 0.0038332394324243069
+      },
+      {
+        "Wavelength": 666.0,
+        "Weight": 0.003371628699824214
+      },
+      {
+        "Wavelength": 667.0,
+        "Weight": 0.0030021881684660912
+      },
+      {
+        "Wavelength": 668.0,
+        "Weight": 0.0026885531842708588
+      },
+      {
+        "Wavelength": 669.0,
+        "Weight": 0.0024162670597434044
+      },
+      {
+        "Wavelength": 670.0,
+        "Weight": 0.0021920797880738974
+      },
+      {
+        "Wavelength": 671.0,
+        "Weight": 0.0020072732586413622
+      },
+      {
+        "Wavelength": 672.0,
+        "Weight": 0.0018476403784006834
+      },
+      {
+        "Wavelength": 673.0,
+        "Weight": 0.0017070103203877807
+      },
+      {
+        "Wavelength": 674.0,
+        "Weight": 0.0015857707476243377
+      },
+      {
+        "Wavelength": 675.0,
+        "Weight": 0.00147925631608814
+      },
+      {
+        "Wavelength": 676.0,
+        "Weight": 0.0013764817267656326
+      },
+      {
+        "Wavelength": 677.0,
+        "Weight": 0.0012761370744556189
+      },
+      {
+        "Wavelength": 678.0,
+        "Weight": 0.0011835006298497319
+      },
+      {
+        "Wavelength": 679.0,
+        "Weight": 0.0010984312975779176
+      },
+      {
+        "Wavelength": 680.0,
+        "Weight": 0.0010202255798503757
+      },
+      {
+        "Wavelength": 681.0,
+        "Weight": 0.00094908929895609617
+      },
+      {
+        "Wavelength": 682.0,
+        "Weight": 0.00088570278603583574
+      },
+      {
+        "Wavelength": 683.0,
+        "Weight": 0.00083031097892671824
+      },
+      {
+        "Wavelength": 684.0,
+        "Weight": 0.00077858899021521211
+      },
+      {
+        "Wavelength": 685.0,
+        "Weight": 0.00073394720675423741
+      },
+      {
+        "Wavelength": 686.0,
+        "Weight": 0.00070281082298606634
+      },
+      {
+        "Wavelength": 687.0,
+        "Weight": 0.00068842381006106734
+      },
+      {
+        "Wavelength": 688.0,
+        "Weight": 0.00071697885869070888
+      },
+      {
+        "Wavelength": 689.0,
+        "Weight": 0.00077413255348801613
+      },
+      {
+        "Wavelength": 690.0,
+        "Weight": 0.00083434995030984282
+      },
+      {
+        "Wavelength": 691.0,
+        "Weight": 0.00088642438640818
+      },
+      {
+        "Wavelength": 692.0,
+        "Weight": 0.00088049029000103474
+      },
+      {
+        "Wavelength": 693.0,
+        "Weight": 0.00083790038479492068
+      },
+      {
+        "Wavelength": 694.0,
+        "Weight": 0.00079201825428754091
+      },
+      {
+        "Wavelength": 695.0,
+        "Weight": 0.00075494294287636876
+      },
+      {
+        "Wavelength": 696.0,
+        "Weight": 0.00077977660112082958
+      },
+      {
+        "Wavelength": 697.0,
+        "Weight": 0.00084095622878521681
+      },
+      {
+        "Wavelength": 698.0,
+        "Weight": 0.0009075180278159678
+      },
+      {
+        "Wavelength": 699.0,
+        "Weight": 0.00096796691650524735
+      },
+      {
+        "Wavelength": 700.0,
+        "Weight": 0.00096706708427518606
+      },
+      {
+        "Wavelength": 701.0,
+        "Weight": 0.000936626922339201
+      },
+      {
+        "Wavelength": 702.0,
+        "Weight": 0.00090689241187646985
+      },
+      {
+        "Wavelength": 703.0,
+        "Weight": 0.00089041207684203982
+      },
+      {
+        "Wavelength": 704.0,
+        "Weight": 0.00096308870706707239
+      },
+      {
+        "Wavelength": 705.0,
+        "Weight": 0.0010704681044444442
+      },
+      {
+        "Wavelength": 706.0,
+        "Weight": 0.0011702104238793254
+      },
+      {
+        "Wavelength": 707.0,
+        "Weight": 0.0012414942029863596
+      },
+      {
+        "Wavelength": 708.0,
+        "Weight": 0.0011773738078773022
+      },
+      {
+        "Wavelength": 709.0,
+        "Weight": 0.0010539971990510821
+      },
+      {
+        "Wavelength": 710.0,
+        "Weight": 0.00091735017485916615
+      },
+      {
+        "Wavelength": 711.0,
+        "Weight": 0.0007899383781477809
+      },
+      {
+        "Wavelength": 712.0,
+        "Weight": 0.00077086797682568431
+      },
+      {
+        "Wavelength": 713.0,
+        "Weight": 0.00079153227852657437
+      },
+      {
+        "Wavelength": 714.0,
+        "Weight": 0.00082142360042780638
+      },
+      {
+        "Wavelength": 715.0,
+        "Weight": 0.000846191484015435
+      },
+      {
+        "Wavelength": 716.0,
+        "Weight": 0.00077959982445463538
+      },
+      {
+        "Wavelength": 717.0,
+        "Weight": 0.00069703120971098542
+      },
+      {
+        "Wavelength": 718.0,
+        "Weight": 0.00062833877746015787
+      },
+      {
+        "Wavelength": 719.0,
+        "Weight": 0.00059231679188087583
+      },
+      {
+        "Wavelength": 720.0,
+        "Weight": 0.00071871315594762564
+      },
+      {
+        "Wavelength": 721.0,
+        "Weight": 0.00088166992645710707
+      },
+      {
+        "Wavelength": 722.0,
+        "Weight": 0.001039507333189249
+      },
+      {
+        "Wavelength": 723.0,
+        "Weight": 0.0011618087301030755
+      },
+      {
+        "Wavelength": 724.0,
+        "Weight": 0.0010861234040930867
+      },
+      {
+        "Wavelength": 725.0,
+        "Weight": 0.0009615863673388958
+      },
+      {
+        "Wavelength": 726.0,
+        "Weight": 0.0008204443147405982
+      },
+      {
+        "Wavelength": 727.0,
+        "Weight": 0.00068913149880245328
+      },
+      {
+        "Wavelength": 728.0,
+        "Weight": 0.00071883160853758454
+      },
+      {
+        "Wavelength": 729.0,
+        "Weight": 0.00075742998160421848
+      },
+      {
+        "Wavelength": 730.0,
+        "Weight": 0.00077888515079393983
+      },
+      {
+        "Wavelength": 731.0,
+        "Weight": 0.00074557965854182839
+      },
+      {
+        "Wavelength": 732.0,
+        "Weight": 0.00044029820128344
+      },
+      {
+        "Wavelength": 733.0,
+        "Weight": 0.00013344395847525448
+      },
+      {
+        "Wavelength": 734.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 735.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 736.0,
+        "Weight": 0.00024605155340395868
+      },
+      {
+        "Wavelength": 737.0,
+        "Weight": 0.00076145638013258576
+      },
+      {
+        "Wavelength": 738.0,
+        "Weight": 0.0012615936575457454
+      },
+      {
+        "Wavelength": 739.0,
+        "Weight": 0.0015876875258982182
+      },
+      {
+        "Wavelength": 740.0,
+        "Weight": 0.001397755928337574
+      },
+      {
+        "Wavelength": 741.0,
+        "Weight": 0.001100710709579289
+      },
+      {
+        "Wavelength": 742.0,
+        "Weight": 0.00076576456194743514
+      },
+      {
+        "Wavelength": 743.0,
+        "Weight": 0.00051770434947684407
+      },
+      {
+        "Wavelength": 744.0,
+        "Weight": 0.000545853516086936
+      },
+      {
+        "Wavelength": 745.0,
+        "Weight": 0.00062115630134940147
+      },
+      {
+        "Wavelength": 746.0,
+        "Weight": 0.00071188848232850432
+      },
+      {
+        "Wavelength": 747.0,
+        "Weight": 0.00073992536636069417
+      },
+      {
+        "Wavelength": 748.0,
+        "Weight": 0.00061896839179098606
+      },
+      {
+        "Wavelength": 749.0,
+        "Weight": 0.00050223019206896424
+      },
+      {
+        "Wavelength": 750.0,
+        "Weight": 0.00042378358193673193
+      },
+      {
+        "Wavelength": 751.0,
+        "Weight": 0.00049507059156894684
+      },
+      {
+        "Wavelength": 752.0,
+        "Weight": 0.00078945537097752094
+      },
+      {
+        "Wavelength": 753.0,
+        "Weight": 0.0011055044597014785
+      },
+      {
+        "Wavelength": 754.0,
+        "Weight": 0.001388570643030107
+      },
+      {
+        "Wavelength": 755.0,
+        "Weight": 0.0014862366952002048
+      },
+      {
+        "Wavelength": 756.0,
+        "Weight": 0.0013375297421589494
+      },
+      {
+        "Wavelength": 757.0,
+        "Weight": 0.0011251925025135279
+      },
+      {
+        "Wavelength": 758.0,
+        "Weight": 0.00088942615548148751
+      },
+      {
+        "Wavelength": 759.0,
+        "Weight": 0.00073170458199456334
+      },
+      {
+        "Wavelength": 760.0,
+        "Weight": 0.0006751089240424335
+      },
+      {
+        "Wavelength": 761.0,
+        "Weight": 0.00064029835630208254
+      },
+      {
+        "Wavelength": 762.0,
+        "Weight": 0.00061629049014300108
+      },
+      {
+        "Wavelength": 763.0,
+        "Weight": 0.000552436918951571
+      },
+      {
+        "Wavelength": 764.0,
+        "Weight": 0.0004595493373926729
+      },
+      {
+        "Wavelength": 765.0,
+        "Weight": 0.0003891425731126219
+      },
+      {
+        "Wavelength": 766.0,
+        "Weight": 0.0003591660934034735
+      },
+      {
+        "Wavelength": 767.0,
+        "Weight": 0.00049569219117984176
+      },
+      {
+        "Wavelength": 768.0,
+        "Weight": 0.00073475431418046355
+      },
+      {
+        "Wavelength": 769.0,
+        "Weight": 0.00095445511396974325
+      },
+      {
+        "Wavelength": 770.0,
+        "Weight": 0.0011023543775081635
+      },
+      {
+        "Wavelength": 771.0,
+        "Weight": 0.00090680114226415753
+      },
+      {
+        "Wavelength": 772.0,
+        "Weight": 0.00052096327999606729
+      },
+      {
+        "Wavelength": 773.0,
+        "Weight": 0.00012271487503312528
+      },
+      {
+        "Wavelength": 774.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 775.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 776.0,
+        "Weight": 0.00016793861868791282
+      },
+      {
+        "Wavelength": 777.0,
+        "Weight": 0.000470254773972556
+      },
+      {
+        "Wavelength": 778.0,
+        "Weight": 0.00071252643829211593
+      },
+      {
+        "Wavelength": 779.0,
+        "Weight": 0.00046647663111798465
+      },
+      {
+        "Wavelength": 780.0,
+        "Weight": 8.1423422670923173E-05
+      }
+    ]
+  },
+  "G": {
+    "ChannelName": "G",
+    "Ev": 4429.203125,
+    "X": 0.15125629305839539,
+    "Y": 0.7393767237663269,
+    "Spectrum": [
+      {
+        "Wavelength": 360.0,
+        "Weight": 0.0015067728236317635
+      },
+      {
+        "Wavelength": 361.0,
+        "Weight": 0.0010578681249171495
+      },
+      {
+        "Wavelength": 362.0,
+        "Weight": 0.00072498916415497661
+      },
+      {
+        "Wavelength": 363.0,
+        "Weight": 0.00063282449264079332
+      },
+      {
+        "Wavelength": 364.0,
+        "Weight": 0.00079740909859538078
+      },
+      {
+        "Wavelength": 365.0,
+        "Weight": 0.001049408339895308
+      },
+      {
+        "Wavelength": 366.0,
+        "Weight": 0.0013372446410357952
+      },
+      {
+        "Wavelength": 367.0,
+        "Weight": 0.0015468292403966188
+      },
+      {
+        "Wavelength": 368.0,
+        "Weight": 0.0016325003234669566
+      },
+      {
+        "Wavelength": 369.0,
+        "Weight": 0.0016769779613241553
+      },
+      {
+        "Wavelength": 370.0,
+        "Weight": 0.0016828082734718919
+      },
+      {
+        "Wavelength": 371.0,
+        "Weight": 0.0016325715696439147
+      },
+      {
+        "Wavelength": 372.0,
+        "Weight": 0.0015295544872060418
+      },
+      {
+        "Wavelength": 373.0,
+        "Weight": 0.0014206769410520792
+      },
+      {
+        "Wavelength": 374.0,
+        "Weight": 0.001326156547293067
+      },
+      {
+        "Wavelength": 375.0,
+        "Weight": 0.0013154736952856183
+      },
+      {
+        "Wavelength": 376.0,
+        "Weight": 0.0014117369428277016
+      },
+      {
+        "Wavelength": 377.0,
+        "Weight": 0.0015190247213467956
+      },
+      {
+        "Wavelength": 378.0,
+        "Weight": 0.0016121409134939313
+      },
+      {
+        "Wavelength": 379.0,
+        "Weight": 0.0016310054343193769
+      },
+      {
+        "Wavelength": 380.0,
+        "Weight": 0.0015453648520633578
+      },
+      {
+        "Wavelength": 381.0,
+        "Weight": 0.0014163454761728644
+      },
+      {
+        "Wavelength": 382.0,
+        "Weight": 0.0012520522577688098
+      },
+      {
+        "Wavelength": 383.0,
+        "Weight": 0.0010473272996023297
+      },
+      {
+        "Wavelength": 384.0,
+        "Weight": 0.00080693978816270828
+      },
+      {
+        "Wavelength": 385.0,
+        "Weight": 0.00057375384494662285
+      },
+      {
+        "Wavelength": 386.0,
+        "Weight": 0.00036906605237163603
+      },
+      {
+        "Wavelength": 387.0,
+        "Weight": 0.000254631886491552
+      },
+      {
+        "Wavelength": 388.0,
+        "Weight": 0.0002668725501280278
+      },
+      {
+        "Wavelength": 389.0,
+        "Weight": 0.00031407727510668337
+      },
+      {
+        "Wavelength": 390.0,
+        "Weight": 0.00037534080911427736
+      },
+      {
+        "Wavelength": 391.0,
+        "Weight": 0.0004041210631839931
+      },
+      {
+        "Wavelength": 392.0,
+        "Weight": 0.00036712613655254245
+      },
+      {
+        "Wavelength": 393.0,
+        "Weight": 0.00031895042047835886
+      },
+      {
+        "Wavelength": 394.0,
+        "Weight": 0.00026653864188119769
+      },
+      {
+        "Wavelength": 395.0,
+        "Weight": 0.00022156415798235685
+      },
+      {
+        "Wavelength": 396.0,
+        "Weight": 0.00019379133300390095
+      },
+      {
+        "Wavelength": 397.0,
+        "Weight": 0.00017551553901284933
+      },
+      {
+        "Wavelength": 398.0,
+        "Weight": 0.00016834498092066497
+      },
+      {
+        "Wavelength": 399.0,
+        "Weight": 0.00018137165170628577
+      },
+      {
+        "Wavelength": 400.0,
+        "Weight": 0.00022186891874298453
+      },
+      {
+        "Wavelength": 401.0,
+        "Weight": 0.00026658913702704012
+      },
+      {
+        "Wavelength": 402.0,
+        "Weight": 0.00030823421548120677
+      },
+      {
+        "Wavelength": 403.0,
+        "Weight": 0.00032729271333664656
+      },
+      {
+        "Wavelength": 404.0,
+        "Weight": 0.00030508558847941458
+      },
+      {
+        "Wavelength": 405.0,
+        "Weight": 0.00027785752899944782
+      },
+      {
+        "Wavelength": 406.0,
+        "Weight": 0.00025368452770635486
+      },
+      {
+        "Wavelength": 407.0,
+        "Weight": 0.00025482923956587911
+      },
+      {
+        "Wavelength": 408.0,
+        "Weight": 0.00030517746927216649
+      },
+      {
+        "Wavelength": 409.0,
+        "Weight": 0.00035869592102244496
+      },
+      {
+        "Wavelength": 410.0,
+        "Weight": 0.0004046193789690733
+      },
+      {
+        "Wavelength": 411.0,
+        "Weight": 0.000418729439843446
+      },
+      {
+        "Wavelength": 412.0,
+        "Weight": 0.00037176854675635695
+      },
+      {
+        "Wavelength": 413.0,
+        "Weight": 0.00030909493216313422
+      },
+      {
+        "Wavelength": 414.0,
+        "Weight": 0.00023913408222142607
+      },
+      {
+        "Wavelength": 415.0,
+        "Weight": 0.00017599754210095853
+      },
+      {
+        "Wavelength": 416.0,
+        "Weight": 0.00013796868734061718
+      },
+      {
+        "Wavelength": 417.0,
+        "Weight": 0.00010685676534194499
+      },
+      {
+        "Wavelength": 418.0,
+        "Weight": 8.2157959695905447E-05
+      },
+      {
+        "Wavelength": 419.0,
+        "Weight": 6.4092724642250687E-05
+      },
+      {
+        "Wavelength": 420.0,
+        "Weight": 5.3617455705534667E-05
+      },
+      {
+        "Wavelength": 421.0,
+        "Weight": 4.6556197048630565E-05
+      },
+      {
+        "Wavelength": 422.0,
+        "Weight": 4.1186740418197587E-05
+      },
+      {
+        "Wavelength": 423.0,
+        "Weight": 3.4696407965384424E-05
+      },
+      {
+        "Wavelength": 424.0,
+        "Weight": 2.2768346752854995E-05
+      },
+      {
+        "Wavelength": 425.0,
+        "Weight": 9.7530673883738928E-06
+      },
+      {
+        "Wavelength": 426.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 427.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 428.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 429.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 430.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 431.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 432.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 433.0,
+        "Weight": 5.9937483456451446E-05
+      },
+      {
+        "Wavelength": 434.0,
+        "Weight": 0.00012424527085386217
+      },
+      {
+        "Wavelength": 435.0,
+        "Weight": 0.00017035071505233645
+      },
+      {
+        "Wavelength": 436.0,
+        "Weight": 0.00016455698641948402
+      },
+      {
+        "Wavelength": 437.0,
+        "Weight": 0.0001450022537028417
+      },
+      {
+        "Wavelength": 438.0,
+        "Weight": 0.00011712019477272406
+      },
+      {
+        "Wavelength": 439.0,
+        "Weight": 8.7958302174229175E-05
+      },
+      {
+        "Wavelength": 440.0,
+        "Weight": 7.0712834713049233E-05
+      },
+      {
+        "Wavelength": 441.0,
+        "Weight": 5.6342334573855624E-05
+      },
+      {
+        "Wavelength": 442.0,
+        "Weight": 4.5792483433615416E-05
+      },
+      {
+        "Wavelength": 443.0,
+        "Weight": 4.0697341319173574E-05
+      },
+      {
+        "Wavelength": 444.0,
+        "Weight": 4.5975397370057181E-05
+      },
+      {
+        "Wavelength": 445.0,
+        "Weight": 5.5483193136751652E-05
+      },
+      {
+        "Wavelength": 446.0,
+        "Weight": 6.7991313699167222E-05
+      },
+      {
+        "Wavelength": 447.0,
+        "Weight": 8.2569378719199449E-05
+      },
+      {
+        "Wavelength": 448.0,
+        "Weight": 0.00010021623165812343
+      },
+      {
+        "Wavelength": 449.0,
+        "Weight": 0.00011592701048357412
+      },
+      {
+        "Wavelength": 450.0,
+        "Weight": 0.00012733248877339065
+      },
+      {
+        "Wavelength": 451.0,
+        "Weight": 0.00013020831102039665
+      },
+      {
+        "Wavelength": 452.0,
+        "Weight": 0.00010142633982468396
+      },
+      {
+        "Wavelength": 453.0,
+        "Weight": 7.1721478889230639E-05
+      },
+      {
+        "Wavelength": 454.0,
+        "Weight": 4.8522240831516683E-05
+      },
+      {
+        "Wavelength": 455.0,
+        "Weight": 4.1248065826948732E-05
+      },
+      {
+        "Wavelength": 456.0,
+        "Weight": 9.485486225457862E-05
+      },
+      {
+        "Wavelength": 457.0,
+        "Weight": 0.00015995594731066376
+      },
+      {
+        "Wavelength": 458.0,
+        "Weight": 0.00022743413865100592
+      },
+      {
+        "Wavelength": 459.0,
+        "Weight": 0.00028733038925565779
+      },
+      {
+        "Wavelength": 460.0,
+        "Weight": 0.00029564034775830805
+      },
+      {
+        "Wavelength": 461.0,
+        "Weight": 0.00029374402947723866
+      },
+      {
+        "Wavelength": 462.0,
+        "Weight": 0.00028700902475975454
+      },
+      {
+        "Wavelength": 463.0,
+        "Weight": 0.00028080280753783882
+      },
+      {
+        "Wavelength": 464.0,
+        "Weight": 0.00027339675580151379
+      },
+      {
+        "Wavelength": 465.0,
+        "Weight": 0.00027999989106319845
+      },
+      {
+        "Wavelength": 466.0,
+        "Weight": 0.00030885386513546109
+      },
+      {
+        "Wavelength": 467.0,
+        "Weight": 0.00036814404302276671
+      },
+      {
+        "Wavelength": 468.0,
+        "Weight": 0.00048708837130106986
+      },
+      {
+        "Wavelength": 469.0,
+        "Weight": 0.000645285879727453
+      },
+      {
+        "Wavelength": 470.0,
+        "Weight": 0.00084165064617991447
+      },
+      {
+        "Wavelength": 471.0,
+        "Weight": 0.0010758228600025177
+      },
+      {
+        "Wavelength": 472.0,
+        "Weight": 0.0013567996211349964
+      },
+      {
+        "Wavelength": 473.0,
+        "Weight": 0.001671756966970861
+      },
+      {
+        "Wavelength": 474.0,
+        "Weight": 0.0020158835686743259
+      },
+      {
+        "Wavelength": 475.0,
+        "Weight": 0.0023849359713494778
+      },
+      {
+        "Wavelength": 476.0,
+        "Weight": 0.0027019793633371592
+      },
+      {
+        "Wavelength": 477.0,
+        "Weight": 0.0030577052384614944
+      },
+      {
+        "Wavelength": 478.0,
+        "Weight": 0.0034849920775741339
+      },
+      {
+        "Wavelength": 479.0,
+        "Weight": 0.0040104310028254986
+      },
+      {
+        "Wavelength": 480.0,
+        "Weight": 0.0047280788421630859
+      },
+      {
+        "Wavelength": 481.0,
+        "Weight": 0.0055780657567083836
+      },
+      {
+        "Wavelength": 482.0,
+        "Weight": 0.0065504498779773712
+      },
+      {
+        "Wavelength": 483.0,
+        "Weight": 0.0076426821760833263
+      },
+      {
+        "Wavelength": 484.0,
+        "Weight": 0.0087716830894351
+      },
+      {
+        "Wavelength": 485.0,
+        "Weight": 0.010035891085863113
+      },
+      {
+        "Wavelength": 486.0,
+        "Weight": 0.011479100212454796
+      },
+      {
+        "Wavelength": 487.0,
+        "Weight": 0.013134203851222992
+      },
+      {
+        "Wavelength": 488.0,
+        "Weight": 0.015037456527352333
+      },
+      {
+        "Wavelength": 489.0,
+        "Weight": 0.017217636108398438
+      },
+      {
+        "Wavelength": 490.0,
+        "Weight": 0.019705565646290779
+      },
+      {
+        "Wavelength": 491.0,
+        "Weight": 0.022532613947987556
+      },
+      {
+        "Wavelength": 492.0,
+        "Weight": 0.025678038597106934
+      },
+      {
+        "Wavelength": 493.0,
+        "Weight": 0.029235437512397766
+      },
+      {
+        "Wavelength": 494.0,
+        "Weight": 0.033270377665758133
+      },
+      {
+        "Wavelength": 495.0,
+        "Weight": 0.037838242948055267
+      },
+      {
+        "Wavelength": 496.0,
+        "Weight": 0.042981848120689392
+      },
+      {
+        "Wavelength": 497.0,
+        "Weight": 0.048771250993013382
+      },
+      {
+        "Wavelength": 498.0,
+        "Weight": 0.05527060478925705
+      },
+      {
+        "Wavelength": 499.0,
+        "Weight": 0.06254124641418457
+      },
+      {
+        "Wavelength": 500.0,
+        "Weight": 0.070767760276794434
+      },
+      {
+        "Wavelength": 501.0,
+        "Weight": 0.079872049391269684
+      },
+      {
+        "Wavelength": 502.0,
+        "Weight": 0.08982471376657486
+      },
+      {
+        "Wavelength": 503.0,
+        "Weight": 0.10062782466411591
+      },
+      {
+        "Wavelength": 504.0,
+        "Weight": 0.11258029192686081
+      },
+      {
+        "Wavelength": 505.0,
+        "Weight": 0.12535910308361053
+      },
+      {
+        "Wavelength": 506.0,
+        "Weight": 0.13873311877250671
+      },
+      {
+        "Wavelength": 507.0,
+        "Weight": 0.15255771577358246
+      },
+      {
+        "Wavelength": 508.0,
+        "Weight": 0.16699391603469849
+      },
+      {
+        "Wavelength": 509.0,
+        "Weight": 0.18157342076301575
+      },
+      {
+        "Wavelength": 510.0,
+        "Weight": 0.19589754939079285
+      },
+      {
+        "Wavelength": 511.0,
+        "Weight": 0.20966708660125732
+      },
+      {
+        "Wavelength": 512.0,
+        "Weight": 0.22251056134700775
+      },
+      {
+        "Wavelength": 513.0,
+        "Weight": 0.23420226573944092
+      },
+      {
+        "Wavelength": 514.0,
+        "Weight": 0.24450722336769104
+      },
+      {
+        "Wavelength": 515.0,
+        "Weight": 0.25316378474235535
+      },
+      {
+        "Wavelength": 516.0,
+        "Weight": 0.2594306468963623
+      },
+      {
+        "Wavelength": 517.0,
+        "Weight": 0.26351970434188843
+      },
+      {
+        "Wavelength": 518.0,
+        "Weight": 0.265613317489624
+      },
+      {
+        "Wavelength": 519.0,
+        "Weight": 0.26570454239845276
+      },
+      {
+        "Wavelength": 520.0,
+        "Weight": 0.26334914565086365
+      },
+      {
+        "Wavelength": 521.0,
+        "Weight": 0.25894978642463684
+      },
+      {
+        "Wavelength": 522.0,
+        "Weight": 0.25293439626693726
+      },
+      {
+        "Wavelength": 523.0,
+        "Weight": 0.24553583562374115
+      },
+      {
+        "Wavelength": 524.0,
+        "Weight": 0.23694576323032379
+      },
+      {
+        "Wavelength": 525.0,
+        "Weight": 0.22743383049964905
+      },
+      {
+        "Wavelength": 526.0,
+        "Weight": 0.21727633476257324
+      },
+      {
+        "Wavelength": 527.0,
+        "Weight": 0.20672936737537384
+      },
+      {
+        "Wavelength": 528.0,
+        "Weight": 0.19629122316837311
+      },
+      {
+        "Wavelength": 529.0,
+        "Weight": 0.18601027131080627
+      },
+      {
+        "Wavelength": 530.0,
+        "Weight": 0.17587582767009735
+      },
+      {
+        "Wavelength": 531.0,
+        "Weight": 0.16600410640239716
+      },
+      {
+        "Wavelength": 532.0,
+        "Weight": 0.15671879053115845
+      },
+      {
+        "Wavelength": 533.0,
+        "Weight": 0.14796702563762665
+      },
+      {
+        "Wavelength": 534.0,
+        "Weight": 0.13962434232234955
+      },
+      {
+        "Wavelength": 535.0,
+        "Weight": 0.13168387115001678
+      },
+      {
+        "Wavelength": 536.0,
+        "Weight": 0.12418566644191742
+      },
+      {
+        "Wavelength": 537.0,
+        "Weight": 0.117087222635746
+      },
+      {
+        "Wavelength": 538.0,
+        "Weight": 0.11032336205244064
+      },
+      {
+        "Wavelength": 539.0,
+        "Weight": 0.10385830700397491
+      },
+      {
+        "Wavelength": 540.0,
+        "Weight": 0.097593292593956
+      },
+      {
+        "Wavelength": 541.0,
+        "Weight": 0.091537922620773315
+      },
+      {
+        "Wavelength": 542.0,
+        "Weight": 0.085737593472003937
+      },
+      {
+        "Wavelength": 543.0,
+        "Weight": 0.080196119844913483
+      },
+      {
+        "Wavelength": 544.0,
+        "Weight": 0.074938617646694183
+      },
+      {
+        "Wavelength": 545.0,
+        "Weight": 0.069954320788383484
+      },
+      {
+        "Wavelength": 546.0,
+        "Weight": 0.065218687057495117
+      },
+      {
+        "Wavelength": 547.0,
+        "Weight": 0.060721907764673233
+      },
+      {
+        "Wavelength": 548.0,
+        "Weight": 0.056418370455503464
+      },
+      {
+        "Wavelength": 549.0,
+        "Weight": 0.0523209348320961
+      },
+      {
+        "Wavelength": 550.0,
+        "Weight": 0.048470098525285721
+      },
+      {
+        "Wavelength": 551.0,
+        "Weight": 0.044879686087369919
+      },
+      {
+        "Wavelength": 552.0,
+        "Weight": 0.041629232466220856
+      },
+      {
+        "Wavelength": 553.0,
+        "Weight": 0.038694735616445541
+      },
+      {
+        "Wavelength": 554.0,
+        "Weight": 0.03599248081445694
+      },
+      {
+        "Wavelength": 555.0,
+        "Weight": 0.033491544425487518
+      },
+      {
+        "Wavelength": 556.0,
+        "Weight": 0.03111492283642292
+      },
+      {
+        "Wavelength": 557.0,
+        "Weight": 0.028854986652731895
+      },
+      {
+        "Wavelength": 558.0,
+        "Weight": 0.026753546670079231
+      },
+      {
+        "Wavelength": 559.0,
+        "Weight": 0.024812223389744759
+      },
+      {
+        "Wavelength": 560.0,
+        "Weight": 0.023064086213707924
+      },
+      {
+        "Wavelength": 561.0,
+        "Weight": 0.021497011184692383
+      },
+      {
+        "Wavelength": 562.0,
+        "Weight": 0.020059958100318909
+      },
+      {
+        "Wavelength": 563.0,
+        "Weight": 0.018731489777565002
+      },
+      {
+        "Wavelength": 564.0,
+        "Weight": 0.017462670803070068
+      },
+      {
+        "Wavelength": 565.0,
+        "Weight": 0.016242101788520813
+      },
+      {
+        "Wavelength": 566.0,
+        "Weight": 0.015097146853804588
+      },
+      {
+        "Wavelength": 567.0,
+        "Weight": 0.014027285389602184
+      },
+      {
+        "Wavelength": 568.0,
+        "Weight": 0.013039963319897652
+      },
+      {
+        "Wavelength": 569.0,
+        "Weight": 0.01213225070387125
+      },
+      {
+        "Wavelength": 570.0,
+        "Weight": 0.011288801208138466
+      },
+      {
+        "Wavelength": 571.0,
+        "Weight": 0.010502839460968971
+      },
+      {
+        "Wavelength": 572.0,
+        "Weight": 0.00976143404841423
+      },
+      {
+        "Wavelength": 573.0,
+        "Weight": 0.0090594049543142319
+      },
+      {
+        "Wavelength": 574.0,
+        "Weight": 0.008401806466281414
+      },
+      {
+        "Wavelength": 575.0,
+        "Weight": 0.0077868090011179447
+      },
+      {
+        "Wavelength": 576.0,
+        "Weight": 0.0072103925049304962
+      },
+      {
+        "Wavelength": 577.0,
+        "Weight": 0.0066711823455989361
+      },
+      {
+        "Wavelength": 578.0,
+        "Weight": 0.00617170287296176
+      },
+      {
+        "Wavelength": 579.0,
+        "Weight": 0.0057119172997772694
+      },
+      {
+        "Wavelength": 580.0,
+        "Weight": 0.0052900929003953934
+      },
+      {
+        "Wavelength": 581.0,
+        "Weight": 0.0049064601771533489
+      },
+      {
+        "Wavelength": 582.0,
+        "Weight": 0.0045644892379641533
+      },
+      {
+        "Wavelength": 583.0,
+        "Weight": 0.0042655733413994312
+      },
+      {
+        "Wavelength": 584.0,
+        "Weight": 0.0040323990397155285
+      },
+      {
+        "Wavelength": 585.0,
+        "Weight": 0.0038640312850475311
+      },
+      {
+        "Wavelength": 586.0,
+        "Weight": 0.003716528182849288
+      },
+      {
+        "Wavelength": 587.0,
+        "Weight": 0.0035729571245610714
+      },
+      {
+        "Wavelength": 588.0,
+        "Weight": 0.0033798464573919773
+      },
+      {
+        "Wavelength": 589.0,
+        "Weight": 0.0031225907150655985
+      },
+      {
+        "Wavelength": 590.0,
+        "Weight": 0.0028643538244068623
+      },
+      {
+        "Wavelength": 591.0,
+        "Weight": 0.0026202944573014975
+      },
+      {
+        "Wavelength": 592.0,
+        "Weight": 0.0024371452163904905
+      },
+      {
+        "Wavelength": 593.0,
+        "Weight": 0.0023295823484659195
+      },
+      {
+        "Wavelength": 594.0,
+        "Weight": 0.0022414387203752995
+      },
+      {
+        "Wavelength": 595.0,
+        "Weight": 0.0021595573052763939
+      },
+      {
+        "Wavelength": 596.0,
+        "Weight": 0.002040425781160593
+      },
+      {
+        "Wavelength": 597.0,
+        "Weight": 0.0018698230851441622
+      },
+      {
+        "Wavelength": 598.0,
+        "Weight": 0.0017053575720638037
+      },
+      {
+        "Wavelength": 599.0,
+        "Weight": 0.0015617207391187549
+      },
+      {
+        "Wavelength": 600.0,
+        "Weight": 0.0014928277814760804
+      },
+      {
+        "Wavelength": 601.0,
+        "Weight": 0.001516022952273488
+      },
+      {
+        "Wavelength": 602.0,
+        "Weight": 0.0015528470976278186
+      },
+      {
+        "Wavelength": 603.0,
+        "Weight": 0.0015815134393051267
+      },
+      {
+        "Wavelength": 604.0,
+        "Weight": 0.0015366534935310483
+      },
+      {
+        "Wavelength": 605.0,
+        "Weight": 0.0013917973265051842
+      },
+      {
+        "Wavelength": 606.0,
+        "Weight": 0.00123123312368989
+      },
+      {
+        "Wavelength": 607.0,
+        "Weight": 0.0010744452010840178
+      },
+      {
+        "Wavelength": 608.0,
+        "Weight": 0.00097638869192451239
+      },
+      {
+        "Wavelength": 609.0,
+        "Weight": 0.0009608779801055789
+      },
+      {
+        "Wavelength": 610.0,
+        "Weight": 0.00096041819779202342
+      },
+      {
+        "Wavelength": 611.0,
+        "Weight": 0.0009607038227841258
+      },
+      {
+        "Wavelength": 612.0,
+        "Weight": 0.00091786769917234778
+      },
+      {
+        "Wavelength": 613.0,
+        "Weight": 0.0008132868679240346
+      },
+      {
+        "Wavelength": 614.0,
+        "Weight": 0.000706252409145236
+      },
+      {
+        "Wavelength": 615.0,
+        "Weight": 0.00061094271950423717
+      },
+      {
+        "Wavelength": 616.0,
+        "Weight": 0.00057532364735379815
+      },
+      {
+        "Wavelength": 617.0,
+        "Weight": 0.00061835744418203831
+      },
+      {
+        "Wavelength": 618.0,
+        "Weight": 0.000670309760607779
+      },
+      {
+        "Wavelength": 619.0,
+        "Weight": 0.0007128262659534812
+      },
+      {
+        "Wavelength": 620.0,
+        "Weight": 0.00069008447462692857
+      },
+      {
+        "Wavelength": 621.0,
+        "Weight": 0.00057872507022693753
+      },
+      {
+        "Wavelength": 622.0,
+        "Weight": 0.00045297635369934142
+      },
+      {
+        "Wavelength": 623.0,
+        "Weight": 0.00033042221912182868
+      },
+      {
+        "Wavelength": 624.0,
+        "Weight": 0.00025530610582791269
+      },
+      {
+        "Wavelength": 625.0,
+        "Weight": 0.00024883390869945288
+      },
+      {
+        "Wavelength": 626.0,
+        "Weight": 0.00026266818167641759
+      },
+      {
+        "Wavelength": 627.0,
+        "Weight": 0.00028882556944154203
+      },
+      {
+        "Wavelength": 628.0,
+        "Weight": 0.000306300149532035
+      },
+      {
+        "Wavelength": 629.0,
+        "Weight": 0.00030518145649693906
+      },
+      {
+        "Wavelength": 630.0,
+        "Weight": 0.0003099467430729419
+      },
+      {
+        "Wavelength": 631.0,
+        "Weight": 0.00032517779618501663
+      },
+      {
+        "Wavelength": 632.0,
+        "Weight": 0.00037455480196513236
+      },
+      {
+        "Wavelength": 633.0,
+        "Weight": 0.0004652966745197773
+      },
+      {
+        "Wavelength": 634.0,
+        "Weight": 0.00055460189469158649
+      },
+      {
+        "Wavelength": 635.0,
+        "Weight": 0.00062866485677659512
+      },
+      {
+        "Wavelength": 636.0,
+        "Weight": 0.0006447806372307241
+      },
+      {
+        "Wavelength": 637.0,
+        "Weight": 0.00058591272681951523
+      },
+      {
+        "Wavelength": 638.0,
+        "Weight": 0.00050893268780782819
+      },
+      {
+        "Wavelength": 639.0,
+        "Weight": 0.00042759400093927979
+      },
+      {
+        "Wavelength": 640.0,
+        "Weight": 0.00037820104626007378
+      },
+      {
+        "Wavelength": 641.0,
+        "Weight": 0.00037620114744640887
+      },
+      {
+        "Wavelength": 642.0,
+        "Weight": 0.00038121952093206346
+      },
+      {
+        "Wavelength": 643.0,
+        "Weight": 0.00038575913640670478
+      },
+      {
+        "Wavelength": 644.0,
+        "Weight": 0.00036483805160969496
+      },
+      {
+        "Wavelength": 645.0,
+        "Weight": 0.00031088534160517156
+      },
+      {
+        "Wavelength": 646.0,
+        "Weight": 0.00025663405540399253
+      },
+      {
+        "Wavelength": 647.0,
+        "Weight": 0.00021059473510831594
+      },
+      {
+        "Wavelength": 648.0,
+        "Weight": 0.00020067110017407686
+      },
+      {
+        "Wavelength": 649.0,
+        "Weight": 0.00023423138190992177
+      },
+      {
+        "Wavelength": 650.0,
+        "Weight": 0.00027681104256771505
+      },
+      {
+        "Wavelength": 651.0,
+        "Weight": 0.00031962068169377744
+      },
+      {
+        "Wavelength": 652.0,
+        "Weight": 0.00033364433329552412
+      },
+      {
+        "Wavelength": 653.0,
+        "Weight": 0.00031279018730856478
+      },
+      {
+        "Wavelength": 654.0,
+        "Weight": 0.0002910061739385128
+      },
+      {
+        "Wavelength": 655.0,
+        "Weight": 0.00027697460609488189
+      },
+      {
+        "Wavelength": 656.0,
+        "Weight": 0.00030642608180642128
+      },
+      {
+        "Wavelength": 657.0,
+        "Weight": 0.00038254866376519203
+      },
+      {
+        "Wavelength": 658.0,
+        "Weight": 0.00045950640924274921
+      },
+      {
+        "Wavelength": 659.0,
+        "Weight": 0.000523358175996691
+      },
+      {
+        "Wavelength": 660.0,
+        "Weight": 0.000528763746842742
+      },
+      {
+        "Wavelength": 661.0,
+        "Weight": 0.00047006976092234254
+      },
+      {
+        "Wavelength": 662.0,
+        "Weight": 0.00039403169648721814
+      },
+      {
+        "Wavelength": 663.0,
+        "Weight": 0.00031225098064169288
+      },
+      {
+        "Wavelength": 664.0,
+        "Weight": 0.00024526871857233346
+      },
+      {
+        "Wavelength": 665.0,
+        "Weight": 0.00020174637029413134
+      },
+      {
+        "Wavelength": 666.0,
+        "Weight": 0.00017679028678685427
+      },
+      {
+        "Wavelength": 667.0,
+        "Weight": 0.00017494302301201969
+      },
+      {
+        "Wavelength": 668.0,
+        "Weight": 0.00021786763682030141
+      },
+      {
+        "Wavelength": 669.0,
+        "Weight": 0.00030329736182466149
+      },
+      {
+        "Wavelength": 670.0,
+        "Weight": 0.00040580317727290094
+      },
+      {
+        "Wavelength": 671.0,
+        "Weight": 0.00051685218932107091
+      },
+      {
+        "Wavelength": 672.0,
+        "Weight": 0.00063252629479393363
+      },
+      {
+        "Wavelength": 673.0,
+        "Weight": 0.00074214948108419776
+      },
+      {
+        "Wavelength": 674.0,
+        "Weight": 0.00082953099627047777
+      },
+      {
+        "Wavelength": 675.0,
+        "Weight": 0.00088272965513169765
+      },
+      {
+        "Wavelength": 676.0,
+        "Weight": 0.00083686300786212087
+      },
+      {
+        "Wavelength": 677.0,
+        "Weight": 0.000708104285877198
+      },
+      {
+        "Wavelength": 678.0,
+        "Weight": 0.00056780723389238119
+      },
+      {
+        "Wavelength": 679.0,
+        "Weight": 0.0004419358738232404
+      },
+      {
+        "Wavelength": 680.0,
+        "Weight": 0.00043230774463154376
+      },
+      {
+        "Wavelength": 681.0,
+        "Weight": 0.00051818712381646037
+      },
+      {
+        "Wavelength": 682.0,
+        "Weight": 0.000615032622590661
+      },
+      {
+        "Wavelength": 683.0,
+        "Weight": 0.00069686636561527848
+      },
+      {
+        "Wavelength": 684.0,
+        "Weight": 0.0006551191327162087
+      },
+      {
+        "Wavelength": 685.0,
+        "Weight": 0.00052101246546953917
+      },
+      {
+        "Wavelength": 686.0,
+        "Weight": 0.00038026354741305113
+      },
+      {
+        "Wavelength": 687.0,
+        "Weight": 0.00026108050951734185
+      },
+      {
+        "Wavelength": 688.0,
+        "Weight": 0.00026429473655298352
+      },
+      {
+        "Wavelength": 689.0,
+        "Weight": 0.00036246140371076763
+      },
+      {
+        "Wavelength": 690.0,
+        "Weight": 0.00049272103933617473
+      },
+      {
+        "Wavelength": 691.0,
+        "Weight": 0.00063755520386621356
+      },
+      {
+        "Wavelength": 692.0,
+        "Weight": 0.00075907004065811634
+      },
+      {
+        "Wavelength": 693.0,
+        "Weight": 0.00085690733976662159
+      },
+      {
+        "Wavelength": 694.0,
+        "Weight": 0.0009370393818244338
+      },
+      {
+        "Wavelength": 695.0,
+        "Weight": 0.00099423108622431755
+      },
+      {
+        "Wavelength": 696.0,
+        "Weight": 0.0010063097579404712
+      },
+      {
+        "Wavelength": 697.0,
+        "Weight": 0.00098359712865203619
+      },
+      {
+        "Wavelength": 698.0,
+        "Weight": 0.00093864579685032368
+      },
+      {
+        "Wavelength": 699.0,
+        "Weight": 0.00087596656521782279
+      },
+      {
+        "Wavelength": 700.0,
+        "Weight": 0.00078230316285043955
+      },
+      {
+        "Wavelength": 701.0,
+        "Weight": 0.00067975651472806931
+      },
+      {
+        "Wavelength": 702.0,
+        "Weight": 0.000589792151004076
+      },
+      {
+        "Wavelength": 703.0,
+        "Weight": 0.00052668771240860224
+      },
+      {
+        "Wavelength": 704.0,
+        "Weight": 0.00057655468117445707
+      },
+      {
+        "Wavelength": 705.0,
+        "Weight": 0.00067769899033010006
+      },
+      {
+        "Wavelength": 706.0,
+        "Weight": 0.00078216253314167261
+      },
+      {
+        "Wavelength": 707.0,
+        "Weight": 0.00086638570064678788
+      },
+      {
+        "Wavelength": 708.0,
+        "Weight": 0.000812983198557049
+      },
+      {
+        "Wavelength": 709.0,
+        "Weight": 0.00070403644349426031
+      },
+      {
+        "Wavelength": 710.0,
+        "Weight": 0.0005887673469260335
+      },
+      {
+        "Wavelength": 711.0,
+        "Weight": 0.00049081764882430434
+      },
+      {
+        "Wavelength": 712.0,
+        "Weight": 0.00052801129641011357
+      },
+      {
+        "Wavelength": 713.0,
+        "Weight": 0.00061196606839075685
+      },
+      {
+        "Wavelength": 714.0,
+        "Weight": 0.00070114358095452189
+      },
+      {
+        "Wavelength": 715.0,
+        "Weight": 0.00077387038618326187
+      },
+      {
+        "Wavelength": 716.0,
+        "Weight": 0.00071466009831056
+      },
+      {
+        "Wavelength": 717.0,
+        "Weight": 0.00061894458485767245
+      },
+      {
+        "Wavelength": 718.0,
+        "Weight": 0.00052273855544626713
+      },
+      {
+        "Wavelength": 719.0,
+        "Weight": 0.00044762398465536535
+      },
+      {
+        "Wavelength": 720.0,
+        "Weight": 0.0005074951914139092
+      },
+      {
+        "Wavelength": 721.0,
+        "Weight": 0.00060358498012647033
+      },
+      {
+        "Wavelength": 722.0,
+        "Weight": 0.00070716202026233077
+      },
+      {
+        "Wavelength": 723.0,
+        "Weight": 0.00079886510502547026
+      },
+      {
+        "Wavelength": 724.0,
+        "Weight": 0.0007909450214356184
+      },
+      {
+        "Wavelength": 725.0,
+        "Weight": 0.00075704179471358657
+      },
+      {
+        "Wavelength": 726.0,
+        "Weight": 0.00071025162469595671
+      },
+      {
+        "Wavelength": 727.0,
+        "Weight": 0.00066065514693036675
+      },
+      {
+        "Wavelength": 728.0,
+        "Weight": 0.00068180757807567716
+      },
+      {
+        "Wavelength": 729.0,
+        "Weight": 0.00069294078275561333
+      },
+      {
+        "Wavelength": 730.0,
+        "Weight": 0.00067743443651124835
+      },
+      {
+        "Wavelength": 731.0,
+        "Weight": 0.00060967163881286979
+      },
+      {
+        "Wavelength": 732.0,
+        "Weight": 0.00032445340184494853
+      },
+      {
+        "Wavelength": 733.0,
+        "Weight": 3.55546799255535E-05
+      },
+      {
+        "Wavelength": 734.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 735.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 736.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 737.0,
+        "Weight": 0.00037025564233772457
+      },
+      {
+        "Wavelength": 738.0,
+        "Weight": 0.0007504455279558897
+      },
+      {
+        "Wavelength": 739.0,
+        "Weight": 0.001020765514113009
+      },
+      {
+        "Wavelength": 740.0,
+        "Weight": 0.00094364257529377937
+      },
+      {
+        "Wavelength": 741.0,
+        "Weight": 0.00079047231702134013
+      },
+      {
+        "Wavelength": 742.0,
+        "Weight": 0.00060239608865231276
+      },
+      {
+        "Wavelength": 743.0,
+        "Weight": 0.00045345566468313336
+      },
+      {
+        "Wavelength": 744.0,
+        "Weight": 0.00045589866931550205
+      },
+      {
+        "Wavelength": 745.0,
+        "Weight": 0.000474290776764974
+      },
+      {
+        "Wavelength": 746.0,
+        "Weight": 0.000490018748678267
+      },
+      {
+        "Wavelength": 747.0,
+        "Weight": 0.00044457116746343672
+      },
+      {
+        "Wavelength": 748.0,
+        "Weight": 0.00027240859344601631
+      },
+      {
+        "Wavelength": 749.0,
+        "Weight": 0.00011393686145311221
+      },
+      {
+        "Wavelength": 750.0,
+        "Weight": 7.1190734161064029E-06
+      },
+      {
+        "Wavelength": 751.0,
+        "Weight": 8.18906191852875E-05
+      },
+      {
+        "Wavelength": 752.0,
+        "Weight": 0.00042292213765904307
+      },
+      {
+        "Wavelength": 753.0,
+        "Weight": 0.00078821706119924784
+      },
+      {
+        "Wavelength": 754.0,
+        "Weight": 0.001110271317884326
+      },
+      {
+        "Wavelength": 755.0,
+        "Weight": 0.0011910479515790939
+      },
+      {
+        "Wavelength": 756.0,
+        "Weight": 0.00095459684962406754
+      },
+      {
+        "Wavelength": 757.0,
+        "Weight": 0.00065035803709179163
+      },
+      {
+        "Wavelength": 758.0,
+        "Weight": 0.00033746074768714607
+      },
+      {
+        "Wavelength": 759.0,
+        "Weight": 0.00017502463015262038
+      },
+      {
+        "Wavelength": 760.0,
+        "Weight": 0.00019424162746872753
+      },
+      {
+        "Wavelength": 761.0,
+        "Weight": 0.00025916405138559639
+      },
+      {
+        "Wavelength": 762.0,
+        "Weight": 0.00034539590706117451
+      },
+      {
+        "Wavelength": 763.0,
+        "Weight": 0.00038361261249519885
+      },
+      {
+        "Wavelength": 764.0,
+        "Weight": 0.00037410444929264486
+      },
+      {
+        "Wavelength": 765.0,
+        "Weight": 0.00036326525150798261
+      },
+      {
+        "Wavelength": 766.0,
+        "Weight": 0.00035947008291259408
+      },
+      {
+        "Wavelength": 767.0,
+        "Weight": 0.0004326215130276978
+      },
+      {
+        "Wavelength": 768.0,
+        "Weight": 0.00054448022274300456
+      },
+      {
+        "Wavelength": 769.0,
+        "Weight": 0.00062384072225540876
+      },
+      {
+        "Wavelength": 770.0,
+        "Weight": 0.00063902296824380755
+      },
+      {
+        "Wavelength": 771.0,
+        "Weight": 0.00039703576476313174
+      },
+      {
+        "Wavelength": 772.0,
+        "Weight": 1.749974035192281E-05
+      },
+      {
+        "Wavelength": 773.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 774.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 775.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 776.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 777.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 778.0,
+        "Weight": 3.213589297956787E-05
+      },
+      {
+        "Wavelength": 779.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 780.0,
+        "Weight": 0.0
+      }
+    ]
+  },
+  "B": {
+    "ChannelName": "B",
+    "Ev": 1221.66259765625,
+    "X": 0.13103222846984863,
+    "Y": 0.066636264324188232,
+    "Spectrum": [
+      {
+        "Wavelength": 360.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 361.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 362.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 363.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 364.0,
+        "Weight": 1.712490848149173E-05
+      },
+      {
+        "Wavelength": 365.0,
+        "Weight": 0.00027368860901333392
+      },
+      {
+        "Wavelength": 366.0,
+        "Weight": 0.00052475137636065483
+      },
+      {
+        "Wavelength": 367.0,
+        "Weight": 0.00067338236840441823
+      },
+      {
+        "Wavelength": 368.0,
+        "Weight": 0.00068965635728091
+      },
+      {
+        "Wavelength": 369.0,
+        "Weight": 0.00066936539951711893
+      },
+      {
+        "Wavelength": 370.0,
+        "Weight": 0.00062979181529954076
+      },
+      {
+        "Wavelength": 371.0,
+        "Weight": 0.00060291803674772382
+      },
+      {
+        "Wavelength": 372.0,
+        "Weight": 0.00060548167675733566
+      },
+      {
+        "Wavelength": 373.0,
+        "Weight": 0.00062209489988163114
+      },
+      {
+        "Wavelength": 374.0,
+        "Weight": 0.00065703003201633692
+      },
+      {
+        "Wavelength": 375.0,
+        "Weight": 0.00074096029857173562
+      },
+      {
+        "Wavelength": 376.0,
+        "Weight": 0.000879707164131105
+      },
+      {
+        "Wavelength": 377.0,
+        "Weight": 0.0010153009789064527
+      },
+      {
+        "Wavelength": 378.0,
+        "Weight": 0.0011276755249127746
+      },
+      {
+        "Wavelength": 379.0,
+        "Weight": 0.0011642029276117682
+      },
+      {
+        "Wavelength": 380.0,
+        "Weight": 0.0011000951053574681
+      },
+      {
+        "Wavelength": 381.0,
+        "Weight": 0.000995865324512124
+      },
+      {
+        "Wavelength": 382.0,
+        "Weight": 0.0008625317714177072
+      },
+      {
+        "Wavelength": 383.0,
+        "Weight": 0.00071018218295648694
+      },
+      {
+        "Wavelength": 384.0,
+        "Weight": 0.0005496012163348496
+      },
+      {
+        "Wavelength": 385.0,
+        "Weight": 0.00039424616261385381
+      },
+      {
+        "Wavelength": 386.0,
+        "Weight": 0.00025606105918996036
+      },
+      {
+        "Wavelength": 387.0,
+        "Weight": 0.00016437833255622536
+      },
+      {
+        "Wavelength": 388.0,
+        "Weight": 0.00013764224422629923
+      },
+      {
+        "Wavelength": 389.0,
+        "Weight": 0.00013922882499173284
+      },
+      {
+        "Wavelength": 390.0,
+        "Weight": 0.00016294469241984189
+      },
+      {
+        "Wavelength": 391.0,
+        "Weight": 0.00020366940589156002
+      },
+      {
+        "Wavelength": 392.0,
+        "Weight": 0.00025572805316187441
+      },
+      {
+        "Wavelength": 393.0,
+        "Weight": 0.00030976740526966751
+      },
+      {
+        "Wavelength": 394.0,
+        "Weight": 0.00035842828219756484
+      },
+      {
+        "Wavelength": 395.0,
+        "Weight": 0.00038164548459462821
+      },
+      {
+        "Wavelength": 396.0,
+        "Weight": 0.000364483188604936
+      },
+      {
+        "Wavelength": 397.0,
+        "Weight": 0.00033894320949912071
+      },
+      {
+        "Wavelength": 398.0,
+        "Weight": 0.00031200447119772434
+      },
+      {
+        "Wavelength": 399.0,
+        "Weight": 0.00029936851933598518
+      },
+      {
+        "Wavelength": 400.0,
+        "Weight": 0.0003146172093693167
+      },
+      {
+        "Wavelength": 401.0,
+        "Weight": 0.00033575913403183222
+      },
+      {
+        "Wavelength": 402.0,
+        "Weight": 0.00035939272493124008
+      },
+      {
+        "Wavelength": 403.0,
+        "Weight": 0.000377043237676844
+      },
+      {
+        "Wavelength": 404.0,
+        "Weight": 0.00038058159407228231
+      },
+      {
+        "Wavelength": 405.0,
+        "Weight": 0.00038469297578558326
+      },
+      {
+        "Wavelength": 406.0,
+        "Weight": 0.00039236177690327168
+      },
+      {
+        "Wavelength": 407.0,
+        "Weight": 0.000412766239605844
+      },
+      {
+        "Wavelength": 408.0,
+        "Weight": 0.0004557932261377573
+      },
+      {
+        "Wavelength": 409.0,
+        "Weight": 0.00050080358050763607
+      },
+      {
+        "Wavelength": 410.0,
+        "Weight": 0.00054255587747320533
+      },
+      {
+        "Wavelength": 411.0,
+        "Weight": 0.000566858914680779
+      },
+      {
+        "Wavelength": 412.0,
+        "Weight": 0.000556169543415308
+      },
+      {
+        "Wavelength": 413.0,
+        "Weight": 0.00054258177988231182
+      },
+      {
+        "Wavelength": 414.0,
+        "Weight": 0.00053362094331532717
+      },
+      {
+        "Wavelength": 415.0,
+        "Weight": 0.0005371457664296031
+      },
+      {
+        "Wavelength": 416.0,
+        "Weight": 0.00056125991977751255
+      },
+      {
+        "Wavelength": 417.0,
+        "Weight": 0.00061192637076601386
+      },
+      {
+        "Wavelength": 418.0,
+        "Weight": 0.0006961459293961525
+      },
+      {
+        "Wavelength": 419.0,
+        "Weight": 0.00081857078475877643
+      },
+      {
+        "Wavelength": 420.0,
+        "Weight": 0.0009814646327868104
+      },
+      {
+        "Wavelength": 421.0,
+        "Weight": 0.0012037421111017466
+      },
+      {
+        "Wavelength": 422.0,
+        "Weight": 0.001496356213465333
+      },
+      {
+        "Wavelength": 423.0,
+        "Weight": 0.0018668442498892546
+      },
+      {
+        "Wavelength": 424.0,
+        "Weight": 0.0023180306889116764
+      },
+      {
+        "Wavelength": 425.0,
+        "Weight": 0.0028798964340239763
+      },
+      {
+        "Wavelength": 426.0,
+        "Weight": 0.003569616237655282
+      },
+      {
+        "Wavelength": 427.0,
+        "Weight": 0.0043944399803876877
+      },
+      {
+        "Wavelength": 428.0,
+        "Weight": 0.0053421901538968086
+      },
+      {
+        "Wavelength": 429.0,
+        "Weight": 0.0064934641122817993
+      },
+      {
+        "Wavelength": 430.0,
+        "Weight": 0.00788581557571888
+      },
+      {
+        "Wavelength": 431.0,
+        "Weight": 0.0095580369234085083
+      },
+      {
+        "Wavelength": 432.0,
+        "Weight": 0.011551838368177414
+      },
+      {
+        "Wavelength": 433.0,
+        "Weight": 0.013896171934902668
+      },
+      {
+        "Wavelength": 434.0,
+        "Weight": 0.016625849530100822
+      },
+      {
+        "Wavelength": 435.0,
+        "Weight": 0.019762512296438217
+      },
+      {
+        "Wavelength": 436.0,
+        "Weight": 0.023291196674108505
+      },
+      {
+        "Wavelength": 437.0,
+        "Weight": 0.027345692738890648
+      },
+      {
+        "Wavelength": 438.0,
+        "Weight": 0.031992077827453613
+      },
+      {
+        "Wavelength": 439.0,
+        "Weight": 0.0372982919216156
+      },
+      {
+        "Wavelength": 440.0,
+        "Weight": 0.043339431285858154
+      },
+      {
+        "Wavelength": 441.0,
+        "Weight": 0.050164733082056046
+      },
+      {
+        "Wavelength": 442.0,
+        "Weight": 0.057835042476654053
+      },
+      {
+        "Wavelength": 443.0,
+        "Weight": 0.066389083862304688
+      },
+      {
+        "Wavelength": 444.0,
+        "Weight": 0.075760096311569214
+      },
+      {
+        "Wavelength": 445.0,
+        "Weight": 0.086236648261547089
+      },
+      {
+        "Wavelength": 446.0,
+        "Weight": 0.0979495421051979
+      },
+      {
+        "Wavelength": 447.0,
+        "Weight": 0.11100827902555466
+      },
+      {
+        "Wavelength": 448.0,
+        "Weight": 0.125385582447052
+      },
+      {
+        "Wavelength": 449.0,
+        "Weight": 0.14147992432117462
+      },
+      {
+        "Wavelength": 450.0,
+        "Weight": 0.15950284898281097
+      },
+      {
+        "Wavelength": 451.0,
+        "Weight": 0.17970848083496094
+      },
+      {
+        "Wavelength": 452.0,
+        "Weight": 0.20278404653072357
+      },
+      {
+        "Wavelength": 453.0,
+        "Weight": 0.22818252444267273
+      },
+      {
+        "Wavelength": 454.0,
+        "Weight": 0.25589096546173096
+      },
+      {
+        "Wavelength": 455.0,
+        "Weight": 0.2859838604927063
+      },
+      {
+        "Wavelength": 456.0,
+        "Weight": 0.32009992003440857
+      },
+      {
+        "Wavelength": 457.0,
+        "Weight": 0.35572570562362671
+      },
+      {
+        "Wavelength": 458.0,
+        "Weight": 0.39212018251419067
+      },
+      {
+        "Wavelength": 459.0,
+        "Weight": 0.42856872081756592
+      },
+      {
+        "Wavelength": 460.0,
+        "Weight": 0.46541956067085266
+      },
+      {
+        "Wavelength": 461.0,
+        "Weight": 0.5003545880317688
+      },
+      {
+        "Wavelength": 462.0,
+        "Weight": 0.53218048810958862
+      },
+      {
+        "Wavelength": 463.0,
+        "Weight": 0.55970346927642822
+      },
+      {
+        "Wavelength": 464.0,
+        "Weight": 0.579757034778595
+      },
+      {
+        "Wavelength": 465.0,
+        "Weight": 0.593884289264679
+      },
+      {
+        "Wavelength": 466.0,
+        "Weight": 0.60169100761413574
+      },
+      {
+        "Wavelength": 467.0,
+        "Weight": 0.60276716947555542
+      },
+      {
+        "Wavelength": 468.0,
+        "Weight": 0.59340780973434448
+      },
+      {
+        "Wavelength": 469.0,
+        "Weight": 0.57768172025680542
+      },
+      {
+        "Wavelength": 470.0,
+        "Weight": 0.55663144588470459
+      },
+      {
+        "Wavelength": 471.0,
+        "Weight": 0.53118586540222168
+      },
+      {
+        "Wavelength": 472.0,
+        "Weight": 0.50192469358444214
+      },
+      {
+        "Wavelength": 473.0,
+        "Weight": 0.47024193406105042
+      },
+      {
+        "Wavelength": 474.0,
+        "Weight": 0.43723267316818237
+      },
+      {
+        "Wavelength": 475.0,
+        "Weight": 0.40397080779075623
+      },
+      {
+        "Wavelength": 476.0,
+        "Weight": 0.3733745813369751
+      },
+      {
+        "Wavelength": 477.0,
+        "Weight": 0.34410902857780457
+      },
+      {
+        "Wavelength": 478.0,
+        "Weight": 0.31630605459213257
+      },
+      {
+        "Wavelength": 479.0,
+        "Weight": 0.29025730490684509
+      },
+      {
+        "Wavelength": 480.0,
+        "Weight": 0.26744872331619263
+      },
+      {
+        "Wavelength": 481.0,
+        "Weight": 0.24664090573787689
+      },
+      {
+        "Wavelength": 482.0,
+        "Weight": 0.22747844457626343
+      },
+      {
+        "Wavelength": 483.0,
+        "Weight": 0.20973683893680573
+      },
+      {
+        "Wavelength": 484.0,
+        "Weight": 0.19287770986557007
+      },
+      {
+        "Wavelength": 485.0,
+        "Weight": 0.17707011103630066
+      },
+      {
+        "Wavelength": 486.0,
+        "Weight": 0.16227002441883087
+      },
+      {
+        "Wavelength": 487.0,
+        "Weight": 0.14839103817939758
+      },
+      {
+        "Wavelength": 488.0,
+        "Weight": 0.13511820137500763
+      },
+      {
+        "Wavelength": 489.0,
+        "Weight": 0.12264464795589447
+      },
+      {
+        "Wavelength": 490.0,
+        "Weight": 0.11102481931447983
+      },
+      {
+        "Wavelength": 491.0,
+        "Weight": 0.10027528554201126
+      },
+      {
+        "Wavelength": 492.0,
+        "Weight": 0.090513825416564941
+      },
+      {
+        "Wavelength": 493.0,
+        "Weight": 0.081636130809783936
+      },
+      {
+        "Wavelength": 494.0,
+        "Weight": 0.073592372238636017
+      },
+      {
+        "Wavelength": 495.0,
+        "Weight": 0.066352412104606628
+      },
+      {
+        "Wavelength": 496.0,
+        "Weight": 0.059996392577886581
+      },
+      {
+        "Wavelength": 497.0,
+        "Weight": 0.054365839809179306
+      },
+      {
+        "Wavelength": 498.0,
+        "Weight": 0.049354162067174911
+      },
+      {
+        "Wavelength": 499.0,
+        "Weight": 0.044879347085952759
+      },
+      {
+        "Wavelength": 500.0,
+        "Weight": 0.04077761247754097
+      },
+      {
+        "Wavelength": 501.0,
+        "Weight": 0.037059485912323
+      },
+      {
+        "Wavelength": 502.0,
+        "Weight": 0.033703166991472244
+      },
+      {
+        "Wavelength": 503.0,
+        "Weight": 0.03066599927842617
+      },
+      {
+        "Wavelength": 504.0,
+        "Weight": 0.027865912765264511
+      },
+      {
+        "Wavelength": 505.0,
+        "Weight": 0.025303417816758156
+      },
+      {
+        "Wavelength": 506.0,
+        "Weight": 0.022966830059885979
+      },
+      {
+        "Wavelength": 507.0,
+        "Weight": 0.020832976326346397
+      },
+      {
+        "Wavelength": 508.0,
+        "Weight": 0.018844407051801682
+      },
+      {
+        "Wavelength": 509.0,
+        "Weight": 0.017014242708683014
+      },
+      {
+        "Wavelength": 510.0,
+        "Weight": 0.015347789041697979
+      },
+      {
+        "Wavelength": 511.0,
+        "Weight": 0.013839202933013439
+      },
+      {
+        "Wavelength": 512.0,
+        "Weight": 0.012489898130297661
+      },
+      {
+        "Wavelength": 513.0,
+        "Weight": 0.011286652646958828
+      },
+      {
+        "Wavelength": 514.0,
+        "Weight": 0.010217171162366867
+      },
+      {
+        "Wavelength": 515.0,
+        "Weight": 0.0092718303203582764
+      },
+      {
+        "Wavelength": 516.0,
+        "Weight": 0.00844972301274538
+      },
+      {
+        "Wavelength": 517.0,
+        "Weight": 0.0077326241880655289
+      },
+      {
+        "Wavelength": 518.0,
+        "Weight": 0.0071028443053364754
+      },
+      {
+        "Wavelength": 519.0,
+        "Weight": 0.006546135526150465
+      },
+      {
+        "Wavelength": 520.0,
+        "Weight": 0.0060356445610523224
+      },
+      {
+        "Wavelength": 521.0,
+        "Weight": 0.00556893041357398
+      },
+      {
+        "Wavelength": 522.0,
+        "Weight": 0.0051442794501781464
+      },
+      {
+        "Wavelength": 523.0,
+        "Weight": 0.00475435983389616
+      },
+      {
+        "Wavelength": 524.0,
+        "Weight": 0.0043749534524977207
+      },
+      {
+        "Wavelength": 525.0,
+        "Weight": 0.00401379493996501
+      },
+      {
+        "Wavelength": 526.0,
+        "Weight": 0.0036813984625041485
+      },
+      {
+        "Wavelength": 527.0,
+        "Weight": 0.0033799870871007442
+      },
+      {
+        "Wavelength": 528.0,
+        "Weight": 0.0031278880778700113
+      },
+      {
+        "Wavelength": 529.0,
+        "Weight": 0.0029135078657418489
+      },
+      {
+        "Wavelength": 530.0,
+        "Weight": 0.0027213271241635084
+      },
+      {
+        "Wavelength": 531.0,
+        "Weight": 0.0025442559272050858
+      },
+      {
+        "Wavelength": 532.0,
+        "Weight": 0.0023591441567987204
+      },
+      {
+        "Wavelength": 533.0,
+        "Weight": 0.002171976724639535
+      },
+      {
+        "Wavelength": 534.0,
+        "Weight": 0.0019942587241530418
+      },
+      {
+        "Wavelength": 535.0,
+        "Weight": 0.0018284129910171032
+      },
+      {
+        "Wavelength": 536.0,
+        "Weight": 0.0016849759267643094
+      },
+      {
+        "Wavelength": 537.0,
+        "Weight": 0.0015602274797856808
+      },
+      {
+        "Wavelength": 538.0,
+        "Weight": 0.0014465209096670151
+      },
+      {
+        "Wavelength": 539.0,
+        "Weight": 0.001341287512332201
+      },
+      {
+        "Wavelength": 540.0,
+        "Weight": 0.0012293035397306085
+      },
+      {
+        "Wavelength": 541.0,
+        "Weight": 0.0011171293444931507
+      },
+      {
+        "Wavelength": 542.0,
+        "Weight": 0.0010185156716033816
+      },
+      {
+        "Wavelength": 543.0,
+        "Weight": 0.00093886145623400807
+      },
+      {
+        "Wavelength": 544.0,
+        "Weight": 0.00091083580628037453
+      },
+      {
+        "Wavelength": 545.0,
+        "Weight": 0.000921144091989845
+      },
+      {
+        "Wavelength": 546.0,
+        "Weight": 0.00093878374900668859
+      },
+      {
+        "Wavelength": 547.0,
+        "Weight": 0.0009516675490885973
+      },
+      {
+        "Wavelength": 548.0,
+        "Weight": 0.00090950488811358809
+      },
+      {
+        "Wavelength": 549.0,
+        "Weight": 0.0008243852062150836
+      },
+      {
+        "Wavelength": 550.0,
+        "Weight": 0.0007379468297585845
+      },
+      {
+        "Wavelength": 551.0,
+        "Weight": 0.00066331052221357822
+      },
+      {
+        "Wavelength": 552.0,
+        "Weight": 0.00065400195308029652
+      },
+      {
+        "Wavelength": 553.0,
+        "Weight": 0.00069990672636777163
+      },
+      {
+        "Wavelength": 554.0,
+        "Weight": 0.00075422209920361638
+      },
+      {
+        "Wavelength": 555.0,
+        "Weight": 0.0008025823044590652
+      },
+      {
+        "Wavelength": 556.0,
+        "Weight": 0.00079170736717060208
+      },
+      {
+        "Wavelength": 557.0,
+        "Weight": 0.00072690617525950074
+      },
+      {
+        "Wavelength": 558.0,
+        "Weight": 0.00065525999525561929
+      },
+      {
+        "Wavelength": 559.0,
+        "Weight": 0.00058988708769902587
+      },
+      {
+        "Wavelength": 560.0,
+        "Weight": 0.00057762500364333391
+      },
+      {
+        "Wavelength": 561.0,
+        "Weight": 0.00061687541892752051
+      },
+      {
+        "Wavelength": 562.0,
+        "Weight": 0.00066432298626750708
+      },
+      {
+        "Wavelength": 563.0,
+        "Weight": 0.000708390842191875
+      },
+      {
+        "Wavelength": 564.0,
+        "Weight": 0.00071149575524032116
+      },
+      {
+        "Wavelength": 565.0,
+        "Weight": 0.00067154632415622473
+      },
+      {
+        "Wavelength": 566.0,
+        "Weight": 0.00062310887733474374
+      },
+      {
+        "Wavelength": 567.0,
+        "Weight": 0.000574384001083672
+      },
+      {
+        "Wavelength": 568.0,
+        "Weight": 0.00055079744197428226
+      },
+      {
+        "Wavelength": 569.0,
+        "Weight": 0.00055532983969897032
+      },
+      {
+        "Wavelength": 570.0,
+        "Weight": 0.00056410126853734255
+      },
+      {
+        "Wavelength": 571.0,
+        "Weight": 0.00057177414419129491
+      },
+      {
+        "Wavelength": 572.0,
+        "Weight": 0.00055923702893778682
+      },
+      {
+        "Wavelength": 573.0,
+        "Weight": 0.00052472058450803161
+      },
+      {
+        "Wavelength": 574.0,
+        "Weight": 0.00048936030361801386
+      },
+      {
+        "Wavelength": 575.0,
+        "Weight": 0.00045887913438491523
+      },
+      {
+        "Wavelength": 576.0,
+        "Weight": 0.00045203528134152293
+      },
+      {
+        "Wavelength": 577.0,
+        "Weight": 0.00047181412810459733
+      },
+      {
+        "Wavelength": 578.0,
+        "Weight": 0.00049801525892689824
+      },
+      {
+        "Wavelength": 579.0,
+        "Weight": 0.000525657320395112
+      },
+      {
+        "Wavelength": 580.0,
+        "Weight": 0.00053297524573281407
+      },
+      {
+        "Wavelength": 581.0,
+        "Weight": 0.00051759934285655618
+      },
+      {
+        "Wavelength": 582.0,
+        "Weight": 0.0005092145293019712
+      },
+      {
+        "Wavelength": 583.0,
+        "Weight": 0.00051698205061256886
+      },
+      {
+        "Wavelength": 584.0,
+        "Weight": 0.00058642291696742177
+      },
+      {
+        "Wavelength": 585.0,
+        "Weight": 0.0007227222085930407
+      },
+      {
+        "Wavelength": 586.0,
+        "Weight": 0.00085761700756847858
+      },
+      {
+        "Wavelength": 587.0,
+        "Weight": 0.00096896960167214274
+      },
+      {
+        "Wavelength": 588.0,
+        "Weight": 0.00098141888156533241
+      },
+      {
+        "Wavelength": 589.0,
+        "Weight": 0.00087621691636741161
+      },
+      {
+        "Wavelength": 590.0,
+        "Weight": 0.00074790301732718945
+      },
+      {
+        "Wavelength": 591.0,
+        "Weight": 0.000621085346210748
+      },
+      {
+        "Wavelength": 592.0,
+        "Weight": 0.00056476809550076723
+      },
+      {
+        "Wavelength": 593.0,
+        "Weight": 0.00060288328677415848
+      },
+      {
+        "Wavelength": 594.0,
+        "Weight": 0.0006597524625249207
+      },
+      {
+        "Wavelength": 595.0,
+        "Weight": 0.0007201717235147953
+      },
+      {
+        "Wavelength": 596.0,
+        "Weight": 0.00074178224895149469
+      },
+      {
+        "Wavelength": 597.0,
+        "Weight": 0.0007084280950948596
+      },
+      {
+        "Wavelength": 598.0,
+        "Weight": 0.00066821079235523939
+      },
+      {
+        "Wavelength": 599.0,
+        "Weight": 0.00063083955319598317
+      },
+      {
+        "Wavelength": 600.0,
+        "Weight": 0.0006260192021727562
+      },
+      {
+        "Wavelength": 601.0,
+        "Weight": 0.00066481123212724924
+      },
+      {
+        "Wavelength": 602.0,
+        "Weight": 0.00070943695027381182
+      },
+      {
+        "Wavelength": 603.0,
+        "Weight": 0.00075100915273651481
+      },
+      {
+        "Wavelength": 604.0,
+        "Weight": 0.00076358160004019737
+      },
+      {
+        "Wavelength": 605.0,
+        "Weight": 0.00073643407085910439
+      },
+      {
+        "Wavelength": 606.0,
+        "Weight": 0.00070219876943156123
+      },
+      {
+        "Wavelength": 607.0,
+        "Weight": 0.00066814263118430972
+      },
+      {
+        "Wavelength": 608.0,
+        "Weight": 0.00065819942392408848
+      },
+      {
+        "Wavelength": 609.0,
+        "Weight": 0.00068167061544954777
+      },
+      {
+        "Wavelength": 610.0,
+        "Weight": 0.00070495385443791747
+      },
+      {
+        "Wavelength": 611.0,
+        "Weight": 0.00071943906368687749
+      },
+      {
+        "Wavelength": 612.0,
+        "Weight": 0.00069195963442325592
+      },
+      {
+        "Wavelength": 613.0,
+        "Weight": 0.00061031890800222754
+      },
+      {
+        "Wavelength": 614.0,
+        "Weight": 0.00052704202244058251
+      },
+      {
+        "Wavelength": 615.0,
+        "Weight": 0.00045718014007434249
+      },
+      {
+        "Wavelength": 616.0,
+        "Weight": 0.000453761633252725
+      },
+      {
+        "Wavelength": 617.0,
+        "Weight": 0.000537214451469481
+      },
+      {
+        "Wavelength": 618.0,
+        "Weight": 0.00062827055808156729
+      },
+      {
+        "Wavelength": 619.0,
+        "Weight": 0.0007054134039208293
+      },
+      {
+        "Wavelength": 620.0,
+        "Weight": 0.00070344033883884549
+      },
+      {
+        "Wavelength": 621.0,
+        "Weight": 0.00059499964118003845
+      },
+      {
+        "Wavelength": 622.0,
+        "Weight": 0.00046652226592414081
+      },
+      {
+        "Wavelength": 623.0,
+        "Weight": 0.00033839410752989352
+      },
+      {
+        "Wavelength": 624.0,
+        "Weight": 0.0002667203953024
+      },
+      {
+        "Wavelength": 625.0,
+        "Weight": 0.00027673982549458742
+      },
+      {
+        "Wavelength": 626.0,
+        "Weight": 0.00030051660723984241
+      },
+      {
+        "Wavelength": 627.0,
+        "Weight": 0.00032418157206848264
+      },
+      {
+        "Wavelength": 628.0,
+        "Weight": 0.0002999434364028275
+      },
+      {
+        "Wavelength": 629.0,
+        "Weight": 0.0002089134359266609
+      },
+      {
+        "Wavelength": 630.0,
+        "Weight": 0.00012177876487839967
+      },
+      {
+        "Wavelength": 631.0,
+        "Weight": 5.7401033700443804E-05
+      },
+      {
+        "Wavelength": 632.0,
+        "Weight": 8.2019199908245355E-05
+      },
+      {
+        "Wavelength": 633.0,
+        "Weight": 0.00022103673836681992
+      },
+      {
+        "Wavelength": 634.0,
+        "Weight": 0.00037577273906208575
+      },
+      {
+        "Wavelength": 635.0,
+        "Weight": 0.00051947560859844089
+      },
+      {
+        "Wavelength": 636.0,
+        "Weight": 0.00057977536926046014
+      },
+      {
+        "Wavelength": 637.0,
+        "Weight": 0.00052482058526948094
+      },
+      {
+        "Wavelength": 638.0,
+        "Weight": 0.00043942517368122935
+      },
+      {
+        "Wavelength": 639.0,
+        "Weight": 0.00034034051350317895
+      },
+      {
+        "Wavelength": 640.0,
+        "Weight": 0.00026464794063940644
+      },
+      {
+        "Wavelength": 641.0,
+        "Weight": 0.00023062588297761977
+      },
+      {
+        "Wavelength": 642.0,
+        "Weight": 0.00020622738520614803
+      },
+      {
+        "Wavelength": 643.0,
+        "Weight": 0.00018904593889601529
+      },
+      {
+        "Wavelength": 644.0,
+        "Weight": 0.00017636576376389712
+      },
+      {
+        "Wavelength": 645.0,
+        "Weight": 0.00016577898350078613
+      },
+      {
+        "Wavelength": 646.0,
+        "Weight": 0.0001555903727421537
+      },
+      {
+        "Wavelength": 647.0,
+        "Weight": 0.00014367638505063951
+      },
+      {
+        "Wavelength": 648.0,
+        "Weight": 0.00012136856821598485
+      },
+      {
+        "Wavelength": 649.0,
+        "Weight": 8.69290015543811E-05
+      },
+      {
+        "Wavelength": 650.0,
+        "Weight": 5.2737959777005017E-05
+      },
+      {
+        "Wavelength": 651.0,
+        "Weight": 2.251056139357388E-05
+      },
+      {
+        "Wavelength": 652.0,
+        "Weight": 3.6574956538970582E-06
+      },
+      {
+        "Wavelength": 653.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 654.0,
+        "Weight": 5.6478620535926893E-06
+      },
+      {
+        "Wavelength": 655.0,
+        "Weight": 2.2920959963812493E-05
+      },
+      {
+        "Wavelength": 656.0,
+        "Weight": 5.9654965298250318E-05
+      },
+      {
+        "Wavelength": 657.0,
+        "Weight": 0.00011476573126856238
+      },
+      {
+        "Wavelength": 658.0,
+        "Weight": 0.00017282959015574306
+      },
+      {
+        "Wavelength": 659.0,
+        "Weight": 0.00022775198158342391
+      },
+      {
+        "Wavelength": 660.0,
+        "Weight": 0.00026281247846782207
+      },
+      {
+        "Wavelength": 661.0,
+        "Weight": 0.00027472132933326066
+      },
+      {
+        "Wavelength": 662.0,
+        "Weight": 0.00027792519540525973
+      },
+      {
+        "Wavelength": 663.0,
+        "Weight": 0.00027497383416630328
+      },
+      {
+        "Wavelength": 664.0,
+        "Weight": 0.00026619591517373919
+      },
+      {
+        "Wavelength": 665.0,
+        "Weight": 0.00025487152743153274
+      },
+      {
+        "Wavelength": 666.0,
+        "Weight": 0.000247648247750476
+      },
+      {
+        "Wavelength": 667.0,
+        "Weight": 0.00024882951402105391
+      },
+      {
+        "Wavelength": 668.0,
+        "Weight": 0.00027717879856936634
+      },
+      {
+        "Wavelength": 669.0,
+        "Weight": 0.00033124821493402123
+      },
+      {
+        "Wavelength": 670.0,
+        "Weight": 0.00039002698031254113
+      },
+      {
+        "Wavelength": 671.0,
+        "Weight": 0.00044677479309029877
+      },
+      {
+        "Wavelength": 672.0,
+        "Weight": 0.0004909600829705596
+      },
+      {
+        "Wavelength": 673.0,
+        "Weight": 0.00051760330097749829
+      },
+      {
+        "Wavelength": 674.0,
+        "Weight": 0.00052625511307269335
+      },
+      {
+        "Wavelength": 675.0,
+        "Weight": 0.00051297544268891215
+      },
+      {
+        "Wavelength": 676.0,
+        "Weight": 0.00044353149132803082
+      },
+      {
+        "Wavelength": 677.0,
+        "Weight": 0.000330070179188624
+      },
+      {
+        "Wavelength": 678.0,
+        "Weight": 0.00021631328854709864
+      },
+      {
+        "Wavelength": 679.0,
+        "Weight": 0.00012001017603324726
+      },
+      {
+        "Wavelength": 680.0,
+        "Weight": 0.0001163677588920109
+      },
+      {
+        "Wavelength": 681.0,
+        "Weight": 0.00018776149954646826
+      },
+      {
+        "Wavelength": 682.0,
+        "Weight": 0.000268235569819808
+      },
+      {
+        "Wavelength": 683.0,
+        "Weight": 0.00033619473106227815
+      },
+      {
+        "Wavelength": 684.0,
+        "Weight": 0.00029829176492057741
+      },
+      {
+        "Wavelength": 685.0,
+        "Weight": 0.00018262381490785629
+      },
+      {
+        "Wavelength": 686.0,
+        "Weight": 6.46315747871995E-05
+      },
+      {
+        "Wavelength": 687.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 688.0,
+        "Weight": 2.4273440430988558E-06
+      },
+      {
+        "Wavelength": 689.0,
+        "Weight": 0.00012759590754285455
+      },
+      {
+        "Wavelength": 690.0,
+        "Weight": 0.00027192124980501831
+      },
+      {
+        "Wavelength": 691.0,
+        "Weight": 0.00041124425479210913
+      },
+      {
+        "Wavelength": 692.0,
+        "Weight": 0.00046380513231270015
+      },
+      {
+        "Wavelength": 693.0,
+        "Weight": 0.00045395709457807243
+      },
+      {
+        "Wavelength": 694.0,
+        "Weight": 0.00042394996853545308
+      },
+      {
+        "Wavelength": 695.0,
+        "Weight": 0.00038434937596321106
+      },
+      {
+        "Wavelength": 696.0,
+        "Weight": 0.00036757340421900153
+      },
+      {
+        "Wavelength": 697.0,
+        "Weight": 0.00036411592736840248
+      },
+      {
+        "Wavelength": 698.0,
+        "Weight": 0.00036159242154099047
+      },
+      {
+        "Wavelength": 699.0,
+        "Weight": 0.00035799402394331992
+      },
+      {
+        "Wavelength": 700.0,
+        "Weight": 0.00033083776361308992
+      },
+      {
+        "Wavelength": 701.0,
+        "Weight": 0.00029838460613973439
+      },
+      {
+        "Wavelength": 702.0,
+        "Weight": 0.00027816396323032677
+      },
+      {
+        "Wavelength": 703.0,
+        "Weight": 0.00027942148153670132
+      },
+      {
+        "Wavelength": 704.0,
+        "Weight": 0.00036999801523052156
+      },
+      {
+        "Wavelength": 705.0,
+        "Weight": 0.00049716932699084282
+      },
+      {
+        "Wavelength": 706.0,
+        "Weight": 0.000619415775872767
+      },
+      {
+        "Wavelength": 707.0,
+        "Weight": 0.00071511947317048907
+      },
+      {
+        "Wavelength": 708.0,
+        "Weight": 0.00067368085728958249
+      },
+      {
+        "Wavelength": 709.0,
+        "Weight": 0.00057366921100765467
+      },
+      {
+        "Wavelength": 710.0,
+        "Weight": 0.00046249051229096949
+      },
+      {
+        "Wavelength": 711.0,
+        "Weight": 0.0003632915613707155
+      },
+      {
+        "Wavelength": 712.0,
+        "Weight": 0.0003969091922044754
+      },
+      {
+        "Wavelength": 713.0,
+        "Weight": 0.00047029333654791117
+      },
+      {
+        "Wavelength": 714.0,
+        "Weight": 0.000538982916623354
+      },
+      {
+        "Wavelength": 715.0,
+        "Weight": 0.00057912128977477551
+      },
+      {
+        "Wavelength": 716.0,
+        "Weight": 0.000438431219663471
+      },
+      {
+        "Wavelength": 717.0,
+        "Weight": 0.00025336211547255516
+      },
+      {
+        "Wavelength": 718.0,
+        "Weight": 7.9027086030691862E-05
+      },
+      {
+        "Wavelength": 719.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 720.0,
+        "Weight": 6.42502709524706E-05
+      },
+      {
+        "Wavelength": 721.0,
+        "Weight": 0.00024584491620771587
+      },
+      {
+        "Wavelength": 722.0,
+        "Weight": 0.00044357095612213016
+      },
+      {
+        "Wavelength": 723.0,
+        "Weight": 0.000621702172793448
+      },
+      {
+        "Wavelength": 724.0,
+        "Weight": 0.000618828518781811
+      },
+      {
+        "Wavelength": 725.0,
+        "Weight": 0.000570139498449862
+      },
+      {
+        "Wavelength": 726.0,
+        "Weight": 0.00049955811118707061
+      },
+      {
+        "Wavelength": 727.0,
+        "Weight": 0.00042529308120720088
+      },
+      {
+        "Wavelength": 728.0,
+        "Weight": 0.00044445000821724534
+      },
+      {
+        "Wavelength": 729.0,
+        "Weight": 0.0004623148706741631
+      },
+      {
+        "Wavelength": 730.0,
+        "Weight": 0.00046390766510739923
+      },
+      {
+        "Wavelength": 731.0,
+        "Weight": 0.00042740633944049478
+      },
+      {
+        "Wavelength": 732.0,
+        "Weight": 0.00022483179054688662
+      },
+      {
+        "Wavelength": 733.0,
+        "Weight": 1.6427478840341792E-05
+      },
+      {
+        "Wavelength": 734.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 735.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 736.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 737.0,
+        "Weight": 0.00020930274331476539
+      },
+      {
+        "Wavelength": 738.0,
+        "Weight": 0.00046586222015321255
+      },
+      {
+        "Wavelength": 739.0,
+        "Weight": 0.00064763805130496621
+      },
+      {
+        "Wavelength": 740.0,
+        "Weight": 0.00058751157484948635
+      },
+      {
+        "Wavelength": 741.0,
+        "Weight": 0.000480462156701833
+      },
+      {
+        "Wavelength": 742.0,
+        "Weight": 0.00035765834036283195
+      },
+      {
+        "Wavelength": 743.0,
+        "Weight": 0.00027615297585725784
+      },
+      {
+        "Wavelength": 744.0,
+        "Weight": 0.00032305734930559993
+      },
+      {
+        "Wavelength": 745.0,
+        "Weight": 0.00039061892312020063
+      },
+      {
+        "Wavelength": 746.0,
+        "Weight": 0.00046299438690766692
+      },
+      {
+        "Wavelength": 747.0,
+        "Weight": 0.00050169933820143342
+      },
+      {
+        "Wavelength": 748.0,
+        "Weight": 0.00046426121843978763
+      },
+      {
+        "Wavelength": 749.0,
+        "Weight": 0.0004250746569596231
+      },
+      {
+        "Wavelength": 750.0,
+        "Weight": 0.00040040138992480934
+      },
+      {
+        "Wavelength": 751.0,
+        "Weight": 0.00044964940752834082
+      },
+      {
+        "Wavelength": 752.0,
+        "Weight": 0.00061099173035472631
+      },
+      {
+        "Wavelength": 753.0,
+        "Weight": 0.0007693552179262042
+      },
+      {
+        "Wavelength": 754.0,
+        "Weight": 0.00089152465807273984
+      },
+      {
+        "Wavelength": 755.0,
+        "Weight": 0.000864193367306143
+      },
+      {
+        "Wavelength": 756.0,
+        "Weight": 0.00064896437106654048
+      },
+      {
+        "Wavelength": 757.0,
+        "Weight": 0.00040709006134420633
+      },
+      {
+        "Wavelength": 758.0,
+        "Weight": 0.00018305385310668498
+      },
+      {
+        "Wavelength": 759.0,
+        "Weight": 0.00011899358651135117
+      },
+      {
+        "Wavelength": 760.0,
+        "Weight": 0.0002321079809917137
+      },
+      {
+        "Wavelength": 761.0,
+        "Weight": 0.00037636049091815948
+      },
+      {
+        "Wavelength": 762.0,
+        "Weight": 0.00051466049626469612
+      },
+      {
+        "Wavelength": 763.0,
+        "Weight": 0.00050065672257915139
+      },
+      {
+        "Wavelength": 764.0,
+        "Weight": 0.00035729180672205985
+      },
+      {
+        "Wavelength": 765.0,
+        "Weight": 0.00021962635219097137
+      },
+      {
+        "Wavelength": 766.0,
+        "Weight": 0.00013026414671912789
+      },
+      {
+        "Wavelength": 767.0,
+        "Weight": 0.00030235500889830291
+      },
+      {
+        "Wavelength": 768.0,
+        "Weight": 0.00064929371001198888
+      },
+      {
+        "Wavelength": 769.0,
+        "Weight": 0.00099309824872761965
+      },
+      {
+        "Wavelength": 770.0,
+        "Weight": 0.0012653439771384
+      },
+      {
+        "Wavelength": 771.0,
+        "Weight": 0.0011562741128727794
+      },
+      {
+        "Wavelength": 772.0,
+        "Weight": 0.00082382152322679758
+      },
+      {
+        "Wavelength": 773.0,
+        "Weight": 0.00045311698340810835
+      },
+      {
+        "Wavelength": 774.0,
+        "Weight": 0.00011695552529999986
+      },
+      {
+        "Wavelength": 775.0,
+        "Weight": 0.00014119049592409283
+      },
+      {
+        "Wavelength": 776.0,
+        "Weight": 0.00032200897112488747
+      },
+      {
+        "Wavelength": 777.0,
+        "Weight": 0.0005191826494410634
+      },
+      {
+        "Wavelength": 778.0,
+        "Weight": 0.0006716987700201571
+      },
+      {
+        "Wavelength": 779.0,
+        "Weight": 0.00042846985161304474
+      },
+      {
+        "Wavelength": 780.0,
+        "Weight": 8.301742491312325E-05
+      }
+    ]
+  },
+  "CW": {
+    "ChannelName": "CW",
+    "Ev": 4762.9990234375,
+    "X": 0.30715134739875793,
+    "Y": 0.3217221200466156,
+    "Spectrum": [
+      {
+        "Wavelength": 360.0,
+        "Weight": 0.00086644338443875313
+      },
+      {
+        "Wavelength": 361.0,
+        "Weight": 0.00067605584627017379
+      },
+      {
+        "Wavelength": 362.0,
+        "Weight": 0.00054775597527623177
+      },
+      {
+        "Wavelength": 363.0,
+        "Weight": 0.00048996502300724387
+      },
+      {
+        "Wavelength": 364.0,
+        "Weight": 0.00050201755948364735
+      },
+      {
+        "Wavelength": 365.0,
+        "Weight": 0.00056774541735649109
+      },
+      {
+        "Wavelength": 366.0,
+        "Weight": 0.00068082852521911263
+      },
+      {
+        "Wavelength": 367.0,
+        "Weight": 0.00085639022290706635
+      },
+      {
+        "Wavelength": 368.0,
+        "Weight": 0.0010860812617465854
+      },
+      {
+        "Wavelength": 369.0,
+        "Weight": 0.0013175130588933825
+      },
+      {
+        "Wavelength": 370.0,
+        "Weight": 0.0015257993945851922
+      },
+      {
+        "Wavelength": 371.0,
+        "Weight": 0.0016406484646722674
+      },
+      {
+        "Wavelength": 372.0,
+        "Weight": 0.0016388569492846727
+      },
+      {
+        "Wavelength": 373.0,
+        "Weight": 0.0015964509220793843
+      },
+      {
+        "Wavelength": 374.0,
+        "Weight": 0.0015287311980500817
+      },
+      {
+        "Wavelength": 375.0,
+        "Weight": 0.0014727949164807796
+      },
+      {
+        "Wavelength": 376.0,
+        "Weight": 0.001445222063921392
+      },
+      {
+        "Wavelength": 377.0,
+        "Weight": 0.0014099257532507181
+      },
+      {
+        "Wavelength": 378.0,
+        "Weight": 0.0013621124671772122
+      },
+      {
+        "Wavelength": 379.0,
+        "Weight": 0.0012864719610661268
+      },
+      {
+        "Wavelength": 380.0,
+        "Weight": 0.0011766862589865923
+      },
+      {
+        "Wavelength": 381.0,
+        "Weight": 0.0010539864888414741
+      },
+      {
+        "Wavelength": 382.0,
+        "Weight": 0.0009236191981472075
+      },
+      {
+        "Wavelength": 383.0,
+        "Weight": 0.00078976922668516636
+      },
+      {
+        "Wavelength": 384.0,
+        "Weight": 0.00065741594880819321
+      },
+      {
+        "Wavelength": 385.0,
+        "Weight": 0.00053458666661754251
+      },
+      {
+        "Wavelength": 386.0,
+        "Weight": 0.00042758305789902806
+      },
+      {
+        "Wavelength": 387.0,
+        "Weight": 0.00035436890902929008
+      },
+      {
+        "Wavelength": 388.0,
+        "Weight": 0.000325605709804222
+      },
+      {
+        "Wavelength": 389.0,
+        "Weight": 0.00031502041383646429
+      },
+      {
+        "Wavelength": 390.0,
+        "Weight": 0.0003167499671690166
+      },
+      {
+        "Wavelength": 391.0,
+        "Weight": 0.00032060974626801908
+      },
+      {
+        "Wavelength": 392.0,
+        "Weight": 0.00031864881748333573
+      },
+      {
+        "Wavelength": 393.0,
+        "Weight": 0.00031773027149029076
+      },
+      {
+        "Wavelength": 394.0,
+        "Weight": 0.00031668547308072448
+      },
+      {
+        "Wavelength": 395.0,
+        "Weight": 0.00030940945725888014
+      },
+      {
+        "Wavelength": 396.0,
+        "Weight": 0.00029179026023484766
+      },
+      {
+        "Wavelength": 397.0,
+        "Weight": 0.00027794961351901293
+      },
+      {
+        "Wavelength": 398.0,
+        "Weight": 0.00027228868566453457
+      },
+      {
+        "Wavelength": 399.0,
+        "Weight": 0.00028661289252340794
+      },
+      {
+        "Wavelength": 400.0,
+        "Weight": 0.00033092827652581036
+      },
+      {
+        "Wavelength": 401.0,
+        "Weight": 0.00038504431722685695
+      },
+      {
+        "Wavelength": 402.0,
+        "Weight": 0.0004445505328476429
+      },
+      {
+        "Wavelength": 403.0,
+        "Weight": 0.00049330620095133781
+      },
+      {
+        "Wavelength": 404.0,
+        "Weight": 0.00051596976118162274
+      },
+      {
+        "Wavelength": 405.0,
+        "Weight": 0.00054995162645354867
+      },
+      {
+        "Wavelength": 406.0,
+        "Weight": 0.00060560728888958693
+      },
+      {
+        "Wavelength": 407.0,
+        "Weight": 0.00069739582249894738
+      },
+      {
+        "Wavelength": 408.0,
+        "Weight": 0.00084024597890675068
+      },
+      {
+        "Wavelength": 409.0,
+        "Weight": 0.0010288619669154286
+      },
+      {
+        "Wavelength": 410.0,
+        "Weight": 0.0012681494699791074
+      },
+      {
+        "Wavelength": 411.0,
+        "Weight": 0.0015573278069496155
+      },
+      {
+        "Wavelength": 412.0,
+        "Weight": 0.0018934879917651415
+      },
+      {
+        "Wavelength": 413.0,
+        "Weight": 0.0023052548058331013
+      },
+      {
+        "Wavelength": 414.0,
+        "Weight": 0.0028056453447788954
+      },
+      {
+        "Wavelength": 415.0,
+        "Weight": 0.0034033134579658508
+      },
+      {
+        "Wavelength": 416.0,
+        "Weight": 0.0041037141345441341
+      },
+      {
+        "Wavelength": 417.0,
+        "Weight": 0.00494028115645051
+      },
+      {
+        "Wavelength": 418.0,
+        "Weight": 0.0059328814968466759
+      },
+      {
+        "Wavelength": 419.0,
+        "Weight": 0.0071043451316654682
+      },
+      {
+        "Wavelength": 420.0,
+        "Weight": 0.008480503223836422
+      },
+      {
+        "Wavelength": 421.0,
+        "Weight": 0.010066213086247444
+      },
+      {
+        "Wavelength": 422.0,
+        "Weight": 0.011876353994011879
+      },
+      {
+        "Wavelength": 423.0,
+        "Weight": 0.013923465274274349
+      },
+      {
+        "Wavelength": 424.0,
+        "Weight": 0.016216840595006943
+      },
+      {
+        "Wavelength": 425.0,
+        "Weight": 0.018784448504447937
+      },
+      {
+        "Wavelength": 426.0,
+        "Weight": 0.021645449101924896
+      },
+      {
+        "Wavelength": 427.0,
+        "Weight": 0.02480008453130722
+      },
+      {
+        "Wavelength": 428.0,
+        "Weight": 0.028211530297994614
+      },
+      {
+        "Wavelength": 429.0,
+        "Weight": 0.032019913196563721
+      },
+      {
+        "Wavelength": 430.0,
+        "Weight": 0.036283243447542191
+      },
+      {
+        "Wavelength": 431.0,
+        "Weight": 0.041047755628824234
+      },
+      {
+        "Wavelength": 432.0,
+        "Weight": 0.046331830322742462
+      },
+      {
+        "Wavelength": 433.0,
+        "Weight": 0.052275530993938446
+      },
+      {
+        "Wavelength": 434.0,
+        "Weight": 0.05896306037902832
+      },
+      {
+        "Wavelength": 435.0,
+        "Weight": 0.066561155021190643
+      },
+      {
+        "Wavelength": 436.0,
+        "Weight": 0.0754661038517952
+      },
+      {
+        "Wavelength": 437.0,
+        "Weight": 0.08514152467250824
+      },
+      {
+        "Wavelength": 438.0,
+        "Weight": 0.095475658774375916
+      },
+      {
+        "Wavelength": 439.0,
+        "Weight": 0.10648790001869202
+      },
+      {
+        "Wavelength": 440.0,
+        "Weight": 0.11869741976261139
+      },
+      {
+        "Wavelength": 441.0,
+        "Weight": 0.13081596791744232
+      },
+      {
+        "Wavelength": 442.0,
+        "Weight": 0.14236700534820557
+      },
+      {
+        "Wavelength": 443.0,
+        "Weight": 0.1528221070766449
+      },
+      {
+        "Wavelength": 444.0,
+        "Weight": 0.16140550374984741
+      },
+      {
+        "Wavelength": 445.0,
+        "Weight": 0.16817469894886017
+      },
+      {
+        "Wavelength": 446.0,
+        "Weight": 0.17281703650951385
+      },
+      {
+        "Wavelength": 447.0,
+        "Weight": 0.174842968583107
+      },
+      {
+        "Wavelength": 448.0,
+        "Weight": 0.1726221889257431
+      },
+      {
+        "Wavelength": 449.0,
+        "Weight": 0.16807453334331512
+      },
+      {
+        "Wavelength": 450.0,
+        "Weight": 0.16156129539012909
+      },
+      {
+        "Wavelength": 451.0,
+        "Weight": 0.1534229964017868
+      },
+      {
+        "Wavelength": 452.0,
+        "Weight": 0.14378856122493744
+      },
+      {
+        "Wavelength": 453.0,
+        "Weight": 0.13338984549045563
+      },
+      {
+        "Wavelength": 454.0,
+        "Weight": 0.12269778549671173
+      },
+      {
+        "Wavelength": 455.0,
+        "Weight": 0.11223598569631577
+      },
+      {
+        "Wavelength": 456.0,
+        "Weight": 0.10346880555152893
+      },
+      {
+        "Wavelength": 457.0,
+        "Weight": 0.095363251864910126
+      },
+      {
+        "Wavelength": 458.0,
+        "Weight": 0.087952345609664917
+      },
+      {
+        "Wavelength": 459.0,
+        "Weight": 0.0812782347202301
+      },
+      {
+        "Wavelength": 460.0,
+        "Weight": 0.075752027332782745
+      },
+      {
+        "Wavelength": 461.0,
+        "Weight": 0.070859394967556
+      },
+      {
+        "Wavelength": 462.0,
+        "Weight": 0.066476307809352875
+      },
+      {
+        "Wavelength": 463.0,
+        "Weight": 0.062478732317686081
+      },
+      {
+        "Wavelength": 464.0,
+        "Weight": 0.058453120291233063
+      },
+      {
+        "Wavelength": 465.0,
+        "Weight": 0.054677043110132217
+      },
+      {
+        "Wavelength": 466.0,
+        "Weight": 0.051143761724233627
+      },
+      {
+        "Wavelength": 467.0,
+        "Weight": 0.047844253480434418
+      },
+      {
+        "Wavelength": 468.0,
+        "Weight": 0.044676095247268677
+      },
+      {
+        "Wavelength": 469.0,
+        "Weight": 0.041757181286811829
+      },
+      {
+        "Wavelength": 470.0,
+        "Weight": 0.039119675755500793
+      },
+      {
+        "Wavelength": 471.0,
+        "Weight": 0.036792468279600143
+      },
+      {
+        "Wavelength": 472.0,
+        "Weight": 0.034932687878608704
+      },
+      {
+        "Wavelength": 473.0,
+        "Weight": 0.033398449420928955
+      },
+      {
+        "Wavelength": 474.0,
+        "Weight": 0.032157696783542633
+      },
+      {
+        "Wavelength": 475.0,
+        "Weight": 0.031186111271381378
+      },
+      {
+        "Wavelength": 476.0,
+        "Weight": 0.03044542670249939
+      },
+      {
+        "Wavelength": 477.0,
+        "Weight": 0.029929574579000473
+      },
+      {
+        "Wavelength": 478.0,
+        "Weight": 0.029621396213769913
+      },
+      {
+        "Wavelength": 479.0,
+        "Weight": 0.029502509161829948
+      },
+      {
+        "Wavelength": 480.0,
+        "Weight": 0.029550669714808464
+      },
+      {
+        "Wavelength": 481.0,
+        "Weight": 0.029752457514405251
+      },
+      {
+        "Wavelength": 482.0,
+        "Weight": 0.030091574415564537
+      },
+      {
+        "Wavelength": 483.0,
+        "Weight": 0.030551321804523468
+      },
+      {
+        "Wavelength": 484.0,
+        "Weight": 0.031062988564372063
+      },
+      {
+        "Wavelength": 485.0,
+        "Weight": 0.031675081700086594
+      },
+      {
+        "Wavelength": 486.0,
+        "Weight": 0.032400824129581451
+      },
+      {
+        "Wavelength": 487.0,
+        "Weight": 0.033246401697397232
+      },
+      {
+        "Wavelength": 488.0,
+        "Weight": 0.034265130758285522
+      },
+      {
+        "Wavelength": 489.0,
+        "Weight": 0.035405524075031281
+      },
+      {
+        "Wavelength": 490.0,
+        "Weight": 0.036644693464040756
+      },
+      {
+        "Wavelength": 491.0,
+        "Weight": 0.03796757385134697
+      },
+      {
+        "Wavelength": 492.0,
+        "Weight": 0.039353165775537491
+      },
+      {
+        "Wavelength": 493.0,
+        "Weight": 0.040793504565954208
+      },
+      {
+        "Wavelength": 494.0,
+        "Weight": 0.042277399450540543
+      },
+      {
+        "Wavelength": 495.0,
+        "Weight": 0.043792542070150375
+      },
+      {
+        "Wavelength": 496.0,
+        "Weight": 0.045331284403800964
+      },
+      {
+        "Wavelength": 497.0,
+        "Weight": 0.046875849366188049
+      },
+      {
+        "Wavelength": 498.0,
+        "Weight": 0.048410657793283463
+      },
+      {
+        "Wavelength": 499.0,
+        "Weight": 0.049921173602342606
+      },
+      {
+        "Wavelength": 500.0,
+        "Weight": 0.051364589482545853
+      },
+      {
+        "Wavelength": 501.0,
+        "Weight": 0.052758362144231796
+      },
+      {
+        "Wavelength": 502.0,
+        "Weight": 0.054108746349811554
+      },
+      {
+        "Wavelength": 503.0,
+        "Weight": 0.055414825677871704
+      },
+      {
+        "Wavelength": 504.0,
+        "Weight": 0.056676145642995834
+      },
+      {
+        "Wavelength": 505.0,
+        "Weight": 0.057891245931386948
+      },
+      {
+        "Wavelength": 506.0,
+        "Weight": 0.059058792889118195
+      },
+      {
+        "Wavelength": 507.0,
+        "Weight": 0.060177598148584366
+      },
+      {
+        "Wavelength": 508.0,
+        "Weight": 0.061250343918800354
+      },
+      {
+        "Wavelength": 509.0,
+        "Weight": 0.062271773815155029
+      },
+      {
+        "Wavelength": 510.0,
+        "Weight": 0.06323753297328949
+      },
+      {
+        "Wavelength": 511.0,
+        "Weight": 0.064144499599933624
+      },
+      {
+        "Wavelength": 512.0,
+        "Weight": 0.064972728490829468
+      },
+      {
+        "Wavelength": 513.0,
+        "Weight": 0.065736241638660431
+      },
+      {
+        "Wavelength": 514.0,
+        "Weight": 0.066446907818317413
+      },
+      {
+        "Wavelength": 515.0,
+        "Weight": 0.067110411822795868
+      },
+      {
+        "Wavelength": 516.0,
+        "Weight": 0.06774429976940155
+      },
+      {
+        "Wavelength": 517.0,
+        "Weight": 0.068342514336109161
+      },
+      {
+        "Wavelength": 518.0,
+        "Weight": 0.068899758160114288
+      },
+      {
+        "Wavelength": 519.0,
+        "Weight": 0.0694153755903244
+      },
+      {
+        "Wavelength": 520.0,
+        "Weight": 0.069878756999969482
+      },
+      {
+        "Wavelength": 521.0,
+        "Weight": 0.070298634469509125
+      },
+      {
+        "Wavelength": 522.0,
+        "Weight": 0.070684343576431274
+      },
+      {
+        "Wavelength": 523.0,
+        "Weight": 0.07104075700044632
+      },
+      {
+        "Wavelength": 524.0,
+        "Weight": 0.071374222636222839
+      },
+      {
+        "Wavelength": 525.0,
+        "Weight": 0.071688279509544373
+      },
+      {
+        "Wavelength": 526.0,
+        "Weight": 0.071986205875873566
+      },
+      {
+        "Wavelength": 527.0,
+        "Weight": 0.072272017598152161
+      },
+      {
+        "Wavelength": 528.0,
+        "Weight": 0.072560928761959076
+      },
+      {
+        "Wavelength": 529.0,
+        "Weight": 0.072847343981266022
+      },
+      {
+        "Wavelength": 530.0,
+        "Weight": 0.073122985661029816
+      },
+      {
+        "Wavelength": 531.0,
+        "Weight": 0.073385410010814667
+      },
+      {
+        "Wavelength": 532.0,
+        "Weight": 0.073627911508083344
+      },
+      {
+        "Wavelength": 533.0,
+        "Weight": 0.073851518332958221
+      },
+      {
+        "Wavelength": 534.0,
+        "Weight": 0.074058718979358673
+      },
+      {
+        "Wavelength": 535.0,
+        "Weight": 0.074249573051929474
+      },
+      {
+        "Wavelength": 536.0,
+        "Weight": 0.074425026774406433
+      },
+      {
+        "Wavelength": 537.0,
+        "Weight": 0.074584499001502991
+      },
+      {
+        "Wavelength": 538.0,
+        "Weight": 0.07472703605890274
+      },
+      {
+        "Wavelength": 539.0,
+        "Weight": 0.074852190911769867
+      },
+      {
+        "Wavelength": 540.0,
+        "Weight": 0.0749526098370552
+      },
+      {
+        "Wavelength": 541.0,
+        "Weight": 0.075032860040664673
+      },
+      {
+        "Wavelength": 542.0,
+        "Weight": 0.075101412832736969
+      },
+      {
+        "Wavelength": 543.0,
+        "Weight": 0.075162157416343689
+      },
+      {
+        "Wavelength": 544.0,
+        "Weight": 0.075239174067974091
+      },
+      {
+        "Wavelength": 545.0,
+        "Weight": 0.075322575867176056
+      },
+      {
+        "Wavelength": 546.0,
+        "Weight": 0.075389377772808075
+      },
+      {
+        "Wavelength": 547.0,
+        "Weight": 0.075430557131767273
+      },
+      {
+        "Wavelength": 548.0,
+        "Weight": 0.075405649840831757
+      },
+      {
+        "Wavelength": 549.0,
+        "Weight": 0.075325548648834229
+      },
+      {
+        "Wavelength": 550.0,
+        "Weight": 0.0752255916595459
+      },
+      {
+        "Wavelength": 551.0,
+        "Weight": 0.075117528438568115
+      },
+      {
+        "Wavelength": 552.0,
+        "Weight": 0.075049147009849548
+      },
+      {
+        "Wavelength": 553.0,
+        "Weight": 0.075011521577835083
+      },
+      {
+        "Wavelength": 554.0,
+        "Weight": 0.074963085353374481
+      },
+      {
+        "Wavelength": 555.0,
+        "Weight": 0.074891097843647
+      },
+      {
+        "Wavelength": 556.0,
+        "Weight": 0.074744686484336853
+      },
+      {
+        "Wavelength": 557.0,
+        "Weight": 0.074530445039272308
+      },
+      {
+        "Wavelength": 558.0,
+        "Weight": 0.074296034872531891
+      },
+      {
+        "Wavelength": 559.0,
+        "Weight": 0.074055708944797516
+      },
+      {
+        "Wavelength": 560.0,
+        "Weight": 0.073856636881828308
+      },
+      {
+        "Wavelength": 561.0,
+        "Weight": 0.0736987292766571
+      },
+      {
+        "Wavelength": 562.0,
+        "Weight": 0.07354138046503067
+      },
+      {
+        "Wavelength": 563.0,
+        "Weight": 0.073374807834625244
+      },
+      {
+        "Wavelength": 564.0,
+        "Weight": 0.073168858885765076
+      },
+      {
+        "Wavelength": 565.0,
+        "Weight": 0.072921238839626312
+      },
+      {
+        "Wavelength": 566.0,
+        "Weight": 0.07265838235616684
+      },
+      {
+        "Wavelength": 567.0,
+        "Weight": 0.0723860114812851
+      },
+      {
+        "Wavelength": 568.0,
+        "Weight": 0.072118580341339111
+      },
+      {
+        "Wavelength": 569.0,
+        "Weight": 0.071859210729599
+      },
+      {
+        "Wavelength": 570.0,
+        "Weight": 0.071597479283809662
+      },
+      {
+        "Wavelength": 571.0,
+        "Weight": 0.071332305669784546
+      },
+      {
+        "Wavelength": 572.0,
+        "Weight": 0.071060590445995331
+      },
+      {
+        "Wavelength": 573.0,
+        "Weight": 0.070781797170639038
+      },
+      {
+        "Wavelength": 574.0,
+        "Weight": 0.070498719811439514
+      },
+      {
+        "Wavelength": 575.0,
+        "Weight": 0.070211894810199738
+      },
+      {
+        "Wavelength": 576.0,
+        "Weight": 0.0699249655008316
+      },
+      {
+        "Wavelength": 577.0,
+        "Weight": 0.069637827575206757
+      },
+      {
+        "Wavelength": 578.0,
+        "Weight": 0.069344855844974518
+      },
+      {
+        "Wavelength": 579.0,
+        "Weight": 0.069044016301631927
+      },
+      {
+        "Wavelength": 580.0,
+        "Weight": 0.068723373115062714
+      },
+      {
+        "Wavelength": 581.0,
+        "Weight": 0.068382464349269867
+      },
+      {
+        "Wavelength": 582.0,
+        "Weight": 0.068039774894714355
+      },
+      {
+        "Wavelength": 583.0,
+        "Weight": 0.067701682448387146
+      },
+      {
+        "Wavelength": 584.0,
+        "Weight": 0.067399874329566956
+      },
+      {
+        "Wavelength": 585.0,
+        "Weight": 0.0671379417181015
+      },
+      {
+        "Wavelength": 586.0,
+        "Weight": 0.066868267953395844
+      },
+      {
+        "Wavelength": 587.0,
+        "Weight": 0.066575400531291962
+      },
+      {
+        "Wavelength": 588.0,
+        "Weight": 0.066204771399497986
+      },
+      {
+        "Wavelength": 589.0,
+        "Weight": 0.065743431448936462
+      },
+      {
+        "Wavelength": 590.0,
+        "Weight": 0.065261639654636383
+      },
+      {
+        "Wavelength": 591.0,
+        "Weight": 0.064778320491313934
+      },
+      {
+        "Wavelength": 592.0,
+        "Weight": 0.064351104199886322
+      },
+      {
+        "Wavelength": 593.0,
+        "Weight": 0.063998281955719
+      },
+      {
+        "Wavelength": 594.0,
+        "Weight": 0.063651256263256073
+      },
+      {
+        "Wavelength": 595.0,
+        "Weight": 0.063294149935245514
+      },
+      {
+        "Wavelength": 596.0,
+        "Weight": 0.062874890863895416
+      },
+      {
+        "Wavelength": 597.0,
+        "Weight": 0.062376346439123154
+      },
+      {
+        "Wavelength": 598.0,
+        "Weight": 0.061867173761129379
+      },
+      {
+        "Wavelength": 599.0,
+        "Weight": 0.061364773660898209
+      },
+      {
+        "Wavelength": 600.0,
+        "Weight": 0.060924846678972244
+      },
+      {
+        "Wavelength": 601.0,
+        "Weight": 0.060567375272512436
+      },
+      {
+        "Wavelength": 602.0,
+        "Weight": 0.060218825936317444
+      },
+      {
+        "Wavelength": 603.0,
+        "Weight": 0.05986100435256958
+      },
+      {
+        "Wavelength": 604.0,
+        "Weight": 0.059446521103382111
+      },
+      {
+        "Wavelength": 605.0,
+        "Weight": 0.058954037725925446
+      },
+      {
+        "Wavelength": 606.0,
+        "Weight": 0.058436337858438492
+      },
+      {
+        "Wavelength": 607.0,
+        "Weight": 0.057902831584215164
+      },
+      {
+        "Wavelength": 608.0,
+        "Weight": 0.057378698140382767
+      },
+      {
+        "Wavelength": 609.0,
+        "Weight": 0.056875254958868027
+      },
+      {
+        "Wavelength": 610.0,
+        "Weight": 0.056363284587860107
+      },
+      {
+        "Wavelength": 611.0,
+        "Weight": 0.055837199091911316
+      },
+      {
+        "Wavelength": 612.0,
+        "Weight": 0.055277854204177856
+      },
+      {
+        "Wavelength": 613.0,
+        "Weight": 0.054677687585353851
+      },
+      {
+        "Wavelength": 614.0,
+        "Weight": 0.054064817726612091
+      },
+      {
+        "Wavelength": 615.0,
+        "Weight": 0.0534466914832592
+      },
+      {
+        "Wavelength": 616.0,
+        "Weight": 0.052850861102342606
+      },
+      {
+        "Wavelength": 617.0,
+        "Weight": 0.052287612110376358
+      },
+      {
+        "Wavelength": 618.0,
+        "Weight": 0.051714524626731873
+      },
+      {
+        "Wavelength": 619.0,
+        "Weight": 0.051119711250066757
+      },
+      {
+        "Wavelength": 620.0,
+        "Weight": 0.050462439656257629
+      },
+      {
+        "Wavelength": 621.0,
+        "Weight": 0.049726977944374084
+      },
+      {
+        "Wavelength": 622.0,
+        "Weight": 0.048972699791193008
+      },
+      {
+        "Wavelength": 623.0,
+        "Weight": 0.048215378075838089
+      },
+      {
+        "Wavelength": 624.0,
+        "Weight": 0.047497738152742386
+      },
+      {
+        "Wavelength": 625.0,
+        "Weight": 0.046839211136102676
+      },
+      {
+        "Wavelength": 626.0,
+        "Weight": 0.046188954263925552
+      },
+      {
+        "Wavelength": 627.0,
+        "Weight": 0.045536886900663376
+      },
+      {
+        "Wavelength": 628.0,
+        "Weight": 0.044846642762422562
+      },
+      {
+        "Wavelength": 629.0,
+        "Weight": 0.044104259461164474
+      },
+      {
+        "Wavelength": 630.0,
+        "Weight": 0.0433652438223362
+      },
+      {
+        "Wavelength": 631.0,
+        "Weight": 0.042644944041967392
+      },
+      {
+        "Wavelength": 632.0,
+        "Weight": 0.041998900473117828
+      },
+      {
+        "Wavelength": 633.0,
+        "Weight": 0.041447993367910385
+      },
+      {
+        "Wavelength": 634.0,
+        "Weight": 0.040907707065343857
+      },
+      {
+        "Wavelength": 635.0,
+        "Weight": 0.040354616940021515
+      },
+      {
+        "Wavelength": 636.0,
+        "Weight": 0.039722513407468796
+      },
+      {
+        "Wavelength": 637.0,
+        "Weight": 0.038983192294836044
+      },
+      {
+        "Wavelength": 638.0,
+        "Weight": 0.038217853754758835
+      },
+      {
+        "Wavelength": 639.0,
+        "Weight": 0.037443876266479492
+      },
+      {
+        "Wavelength": 640.0,
+        "Weight": 0.036702483892440796
+      },
+      {
+        "Wavelength": 641.0,
+        "Weight": 0.036012828350067139
+      },
+      {
+        "Wavelength": 642.0,
+        "Weight": 0.035335060209035873
+      },
+      {
+        "Wavelength": 643.0,
+        "Weight": 0.034664075821638107
+      },
+      {
+        "Wavelength": 644.0,
+        "Weight": 0.033978983759880066
+      },
+      {
+        "Wavelength": 645.0,
+        "Weight": 0.033274617046117783
+      },
+      {
+        "Wavelength": 646.0,
+        "Weight": 0.032582234591245651
+      },
+      {
+        "Wavelength": 647.0,
+        "Weight": 0.031911194324493408
+      },
+      {
+        "Wavelength": 648.0,
+        "Weight": 0.031293909996747971
+      },
+      {
+        "Wavelength": 649.0,
+        "Weight": 0.030738387256860733
+      },
+      {
+        "Wavelength": 650.0,
+        "Weight": 0.030202927067875862
+      },
+      {
+        "Wavelength": 651.0,
+        "Weight": 0.029676355421543121
+      },
+      {
+        "Wavelength": 652.0,
+        "Weight": 0.029126925393939018
+      },
+      {
+        "Wavelength": 653.0,
+        "Weight": 0.02854619175195694
+      },
+      {
+        "Wavelength": 654.0,
+        "Weight": 0.027966376394033432
+      },
+      {
+        "Wavelength": 655.0,
+        "Weight": 0.02739403024315834
+      },
+      {
+        "Wavelength": 656.0,
+        "Weight": 0.026855243369936943
+      },
+      {
+        "Wavelength": 657.0,
+        "Weight": 0.026352612301707268
+      },
+      {
+        "Wavelength": 658.0,
+        "Weight": 0.025853315368294716
+      },
+      {
+        "Wavelength": 659.0,
+        "Weight": 0.02534758485853672
+      },
+      {
+        "Wavelength": 660.0,
+        "Weight": 0.024793963879346848
+      },
+      {
+        "Wavelength": 661.0,
+        "Weight": 0.024191034957766533
+      },
+      {
+        "Wavelength": 662.0,
+        "Weight": 0.023590238764882088
+      },
+      {
+        "Wavelength": 663.0,
+        "Weight": 0.023007569834589958
+      },
+      {
+        "Wavelength": 664.0,
+        "Weight": 0.022494258359074593
+      },
+      {
+        "Wavelength": 665.0,
+        "Weight": 0.022054698318243027
+      },
+      {
+        "Wavelength": 666.0,
+        "Weight": 0.021639835089445114
+      },
+      {
+        "Wavelength": 667.0,
+        "Weight": 0.021237825974822044
+      },
+      {
+        "Wavelength": 668.0,
+        "Weight": 0.020818257704377174
+      },
+      {
+        "Wavelength": 669.0,
+        "Weight": 0.020376663655042648
+      },
+      {
+        "Wavelength": 670.0,
+        "Weight": 0.019933702424168587
+      },
+      {
+        "Wavelength": 671.0,
+        "Weight": 0.019491707906126976
+      },
+      {
+        "Wavelength": 672.0,
+        "Weight": 0.019060248509049416
+      },
+      {
+        "Wavelength": 673.0,
+        "Weight": 0.01863829605281353
+      },
+      {
+        "Wavelength": 674.0,
+        "Weight": 0.01821618527173996
+      },
+      {
+        "Wavelength": 675.0,
+        "Weight": 0.017790907993912697
+      },
+      {
+        "Wavelength": 676.0,
+        "Weight": 0.017332017421722412
+      },
+      {
+        "Wavelength": 677.0,
+        "Weight": 0.016851076856255531
+      },
+      {
+        "Wavelength": 678.0,
+        "Weight": 0.016388248652219772
+      },
+      {
+        "Wavelength": 679.0,
+        "Weight": 0.015960177406668663
+      },
+      {
+        "Wavelength": 680.0,
+        "Weight": 0.015645295381546021
+      },
+      {
+        "Wavelength": 681.0,
+        "Weight": 0.015422197058796883
+      },
+      {
+        "Wavelength": 682.0,
+        "Weight": 0.015217500738799572
+      },
+      {
+        "Wavelength": 683.0,
+        "Weight": 0.015005527064204216
+      },
+      {
+        "Wavelength": 684.0,
+        "Weight": 0.014691546559333801
+      },
+      {
+        "Wavelength": 685.0,
+        "Weight": 0.014297711662948132
+      },
+      {
+        "Wavelength": 686.0,
+        "Weight": 0.013891742564737797
+      },
+      {
+        "Wavelength": 687.0,
+        "Weight": 0.013493269681930542
+      },
+      {
+        "Wavelength": 688.0,
+        "Weight": 0.013178858906030655
+      },
+      {
+        "Wavelength": 689.0,
+        "Weight": 0.012924513779580593
+      },
+      {
+        "Wavelength": 690.0,
+        "Weight": 0.01267846766859293
+      },
+      {
+        "Wavelength": 691.0,
+        "Weight": 0.012424507178366184
+      },
+      {
+        "Wavelength": 692.0,
+        "Weight": 0.01208645012229681
+      },
+      {
+        "Wavelength": 693.0,
+        "Weight": 0.011698580347001553
+      },
+      {
+        "Wavelength": 694.0,
+        "Weight": 0.011313813738524914
+      },
+      {
+        "Wavelength": 695.0,
+        "Weight": 0.010952085256576538
+      },
+      {
+        "Wavelength": 696.0,
+        "Weight": 0.010695839300751686
+      },
+      {
+        "Wavelength": 697.0,
+        "Weight": 0.010507587343454361
+      },
+      {
+        "Wavelength": 698.0,
+        "Weight": 0.010341609828174114
+      },
+      {
+        "Wavelength": 699.0,
+        "Weight": 0.010181870311498642
+      },
+      {
+        "Wavelength": 700.0,
+        "Weight": 0.00997290201485157
+      },
+      {
+        "Wavelength": 701.0,
+        "Weight": 0.00973770022392273
+      },
+      {
+        "Wavelength": 702.0,
+        "Weight": 0.00949784740805626
+      },
+      {
+        "Wavelength": 703.0,
+        "Weight": 0.0092589762061834335
+      },
+      {
+        "Wavelength": 704.0,
+        "Weight": 0.0090536251664161682
+      },
+      {
+        "Wavelength": 705.0,
+        "Weight": 0.0088589712977409363
+      },
+      {
+        "Wavelength": 706.0,
+        "Weight": 0.00865733902901411
+      },
+      {
+        "Wavelength": 707.0,
+        "Weight": 0.0084401899948716164
+      },
+      {
+        "Wavelength": 708.0,
+        "Weight": 0.0081458697095513344
+      },
+      {
+        "Wavelength": 709.0,
+        "Weight": 0.0078256456181406975
+      },
+      {
+        "Wavelength": 710.0,
+        "Weight": 0.007512175478041172
+      },
+      {
+        "Wavelength": 711.0,
+        "Weight": 0.0072236447595059872
+      },
+      {
+        "Wavelength": 712.0,
+        "Weight": 0.0070618833415210247
+      },
+      {
+        "Wavelength": 713.0,
+        "Weight": 0.00694557698443532
+      },
+      {
+        "Wavelength": 714.0,
+        "Weight": 0.0068350145593285561
+      },
+      {
+        "Wavelength": 715.0,
+        "Weight": 0.0067081283777952194
+      },
+      {
+        "Wavelength": 716.0,
+        "Weight": 0.0064381193369627
+      },
+      {
+        "Wavelength": 717.0,
+        "Weight": 0.0061336588114500046
+      },
+      {
+        "Wavelength": 718.0,
+        "Weight": 0.0058370828628540039
+      },
+      {
+        "Wavelength": 719.0,
+        "Weight": 0.0055746152065694332
+      },
+      {
+        "Wavelength": 720.0,
+        "Weight": 0.0054771276190876961
+      },
+      {
+        "Wavelength": 721.0,
+        "Weight": 0.0054344134405255318
+      },
+      {
+        "Wavelength": 722.0,
+        "Weight": 0.0054156612604856491
+      },
+      {
+        "Wavelength": 723.0,
+        "Weight": 0.0054006814025342464
+      },
+      {
+        "Wavelength": 724.0,
+        "Weight": 0.0053128786385059357
+      },
+      {
+        "Wavelength": 725.0,
+        "Weight": 0.0052087684161961079
+      },
+      {
+        "Wavelength": 726.0,
+        "Weight": 0.0050949309952557087
+      },
+      {
+        "Wavelength": 727.0,
+        "Weight": 0.00497540645301342
+      },
+      {
+        "Wavelength": 728.0,
+        "Weight": 0.0048952773213386536
+      },
+      {
+        "Wavelength": 729.0,
+        "Weight": 0.00479984562844038
+      },
+      {
+        "Wavelength": 730.0,
+        "Weight": 0.0046758875250816345
+      },
+      {
+        "Wavelength": 731.0,
+        "Weight": 0.0045029958710074425
+      },
+      {
+        "Wavelength": 732.0,
+        "Weight": 0.004149263259023428
+      },
+      {
+        "Wavelength": 733.0,
+        "Weight": 0.0037855072878301144
+      },
+      {
+        "Wavelength": 734.0,
+        "Weight": 0.00345378159545362
+      },
+      {
+        "Wavelength": 735.0,
+        "Weight": 0.0032211493235081434
+      },
+      {
+        "Wavelength": 736.0,
+        "Weight": 0.0033021843992173672
+      },
+      {
+        "Wavelength": 737.0,
+        "Weight": 0.0034380119759589434
+      },
+      {
+        "Wavelength": 738.0,
+        "Weight": 0.0035769250243902206
+      },
+      {
+        "Wavelength": 739.0,
+        "Weight": 0.0036290474236011505
+      },
+      {
+        "Wavelength": 740.0,
+        "Weight": 0.0033977022394537926
+      },
+      {
+        "Wavelength": 741.0,
+        "Weight": 0.0031239569652825594
+      },
+      {
+        "Wavelength": 742.0,
+        "Weight": 0.0028508473187685013
+      },
+      {
+        "Wavelength": 743.0,
+        "Weight": 0.0026609252672642469
+      },
+      {
+        "Wavelength": 744.0,
+        "Weight": 0.0026826378889381886
+      },
+      {
+        "Wavelength": 745.0,
+        "Weight": 0.00274692103266716
+      },
+      {
+        "Wavelength": 746.0,
+        "Weight": 0.002825034549459815
+      },
+      {
+        "Wavelength": 747.0,
+        "Weight": 0.0028480479959398508
+      },
+      {
+        "Wavelength": 748.0,
+        "Weight": 0.0027399512473493814
+      },
+      {
+        "Wavelength": 749.0,
+        "Weight": 0.0026321848854422569
+      },
+      {
+        "Wavelength": 750.0,
+        "Weight": 0.0025529968552291393
+      },
+      {
+        "Wavelength": 751.0,
+        "Weight": 0.0025936625897884369
+      },
+      {
+        "Wavelength": 752.0,
+        "Weight": 0.00281443796120584
+      },
+      {
+        "Wavelength": 753.0,
+        "Weight": 0.0030517231207340956
+      },
+      {
+        "Wavelength": 754.0,
+        "Weight": 0.0032614918891340494
+      },
+      {
+        "Wavelength": 755.0,
+        "Weight": 0.0033283212687820196
+      },
+      {
+        "Wavelength": 756.0,
+        "Weight": 0.0032035661861300468
+      },
+      {
+        "Wavelength": 757.0,
+        "Weight": 0.0030165610369294882
+      },
+      {
+        "Wavelength": 758.0,
+        "Weight": 0.0027925462927669287
+      },
+      {
+        "Wavelength": 759.0,
+        "Weight": 0.0025945615489035845
+      },
+      {
+        "Wavelength": 760.0,
+        "Weight": 0.0024372846819460392
+      },
+      {
+        "Wavelength": 761.0,
+        "Weight": 0.0022722107823938131
+      },
+      {
+        "Wavelength": 762.0,
+        "Weight": 0.0020930045284330845
+      },
+      {
+        "Wavelength": 763.0,
+        "Weight": 0.0018231869908049703
+      },
+      {
+        "Wavelength": 764.0,
+        "Weight": 0.0014949633041396737
+      },
+      {
+        "Wavelength": 765.0,
+        "Weight": 0.0012125149369239807
+      },
+      {
+        "Wavelength": 766.0,
+        "Weight": 0.0010206688893958926
+      },
+      {
+        "Wavelength": 767.0,
+        "Weight": 0.0011657847790047526
+      },
+      {
+        "Wavelength": 768.0,
+        "Weight": 0.0015400036936625838
+      },
+      {
+        "Wavelength": 769.0,
+        "Weight": 0.0019274867372587323
+      },
+      {
+        "Wavelength": 770.0,
+        "Weight": 0.002241859445348382
+      },
+      {
+        "Wavelength": 771.0,
+        "Weight": 0.0020985312294214964
+      },
+      {
+        "Wavelength": 772.0,
+        "Weight": 0.0016908368561416864
+      },
+      {
+        "Wavelength": 773.0,
+        "Weight": 0.0012457211269065738
+      },
+      {
+        "Wavelength": 774.0,
+        "Weight": 0.00085131393279880285
+      },
+      {
+        "Wavelength": 775.0,
+        "Weight": 0.00091006868751719594
+      },
+      {
+        "Wavelength": 776.0,
+        "Weight": 0.0011665418278425932
+      },
+      {
+        "Wavelength": 777.0,
+        "Weight": 0.0014442679239436984
+      },
+      {
+        "Wavelength": 778.0,
+        "Weight": 0.0016651750775054097
+      },
+      {
+        "Wavelength": 779.0,
+        "Weight": 0.0014022304676473141
+      },
+      {
+        "Wavelength": 780.0,
+        "Weight": 0.0010038679465651512
+      }
+    ]
+  },
+  "WW": {
+    "ChannelName": "WW",
+    "Ev": 3018.799560546875,
+    "X": 0.45722925662994385,
+    "Y": 0.41952404379844666,
+    "Spectrum": [
+      {
+        "Wavelength": 360.0,
+        "Weight": 0.00020139175467193127
+      },
+      {
+        "Wavelength": 361.0,
+        "Weight": 0.00014432685566134751
+      },
+      {
+        "Wavelength": 362.0,
+        "Weight": 8.7019885540939867E-05
+      },
+      {
+        "Wavelength": 363.0,
+        "Weight": 5.0353435653960332E-05
+      },
+      {
+        "Wavelength": 364.0,
+        "Weight": 4.1723280446603894E-05
+      },
+      {
+        "Wavelength": 365.0,
+        "Weight": 4.5515662350226194E-05
+      },
+      {
+        "Wavelength": 366.0,
+        "Weight": 6.0733771533705294E-05
+      },
+      {
+        "Wavelength": 367.0,
+        "Weight": 9.3201168056111783E-05
+      },
+      {
+        "Wavelength": 368.0,
+        "Weight": 0.000141275639180094
+      },
+      {
+        "Wavelength": 369.0,
+        "Weight": 0.0001893074659164995
+      },
+      {
+        "Wavelength": 370.0,
+        "Weight": 0.00023039449297357351
+      },
+      {
+        "Wavelength": 371.0,
+        "Weight": 0.0002418401709292084
+      },
+      {
+        "Wavelength": 372.0,
+        "Weight": 0.00021732781897298992
+      },
+      {
+        "Wavelength": 373.0,
+        "Weight": 0.00018505811749491841
+      },
+      {
+        "Wavelength": 374.0,
+        "Weight": 0.00015210808487609029
+      },
+      {
+        "Wavelength": 375.0,
+        "Weight": 0.00013780158769804984
+      },
+      {
+        "Wavelength": 376.0,
+        "Weight": 0.00014993449440225959
+      },
+      {
+        "Wavelength": 377.0,
+        "Weight": 0.00016671133926138282
+      },
+      {
+        "Wavelength": 378.0,
+        "Weight": 0.00018391928460914642
+      },
+      {
+        "Wavelength": 379.0,
+        "Weight": 0.00019241742847952992
+      },
+      {
+        "Wavelength": 380.0,
+        "Weight": 0.00018727834685705602
+      },
+      {
+        "Wavelength": 381.0,
+        "Weight": 0.00017648404173087329
+      },
+      {
+        "Wavelength": 382.0,
+        "Weight": 0.00016052604769356549
+      },
+      {
+        "Wavelength": 383.0,
+        "Weight": 0.00013834993296768516
+      },
+      {
+        "Wavelength": 384.0,
+        "Weight": 0.0001100584922824055
+      },
+      {
+        "Wavelength": 385.0,
+        "Weight": 8.0194884503725916E-05
+      },
+      {
+        "Wavelength": 386.0,
+        "Weight": 5.0788374210242182E-05
+      },
+      {
+        "Wavelength": 387.0,
+        "Weight": 2.5417497454327531E-05
+      },
+      {
+        "Wavelength": 388.0,
+        "Weight": 6.6906395659316331E-06
+      },
+      {
+        "Wavelength": 389.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 390.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 391.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 392.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 393.0,
+        "Weight": 0.0
+      },
+      {
+        "Wavelength": 394.0,
+        "Weight": 5.2378682084963657E-06
+      },
+      {
+        "Wavelength": 395.0,
+        "Weight": 1.5474046449526213E-05
+      },
+      {
+        "Wavelength": 396.0,
+        "Weight": 2.2892760171089321E-05
+      },
+      {
+        "Wavelength": 397.0,
+        "Weight": 2.9585540687548928E-05
+      },
+      {
+        "Wavelength": 398.0,
+        "Weight": 3.5374934668652713E-05
+      },
+      {
+        "Wavelength": 399.0,
+        "Weight": 3.8461937947431579E-05
+      },
+      {
+        "Wavelength": 400.0,
+        "Weight": 3.744156492757611E-05
+      },
+      {
+        "Wavelength": 401.0,
+        "Weight": 3.7522171624004841E-05
+      },
+      {
+        "Wavelength": 402.0,
+        "Weight": 4.0456117858411744E-05
+      },
+      {
+        "Wavelength": 403.0,
+        "Weight": 5.0610051403054968E-05
+      },
+      {
+        "Wavelength": 404.0,
+        "Weight": 7.2172362706623971E-05
+      },
+      {
+        "Wavelength": 405.0,
+        "Weight": 9.7575262770988047E-05
+      },
+      {
+        "Wavelength": 406.0,
+        "Weight": 0.00012528033403214067
+      },
+      {
+        "Wavelength": 407.0,
+        "Weight": 0.00015050868387334049
+      },
+      {
+        "Wavelength": 408.0,
+        "Weight": 0.00016811063687782735
+      },
+      {
+        "Wavelength": 409.0,
+        "Weight": 0.00018890741921495646
+      },
+      {
+        "Wavelength": 410.0,
+        "Weight": 0.00021566425857599825
+      },
+      {
+        "Wavelength": 411.0,
+        "Weight": 0.00025220634415745735
+      },
+      {
+        "Wavelength": 412.0,
+        "Weight": 0.00030275568133220077
+      },
+      {
+        "Wavelength": 413.0,
+        "Weight": 0.00036565627669915557
+      },
+      {
+        "Wavelength": 414.0,
+        "Weight": 0.00044216177775524557
+      },
+      {
+        "Wavelength": 415.0,
+        "Weight": 0.0005342049989849329
+      },
+      {
+        "Wavelength": 416.0,
+        "Weight": 0.00064421771094203
+      },
+      {
+        "Wavelength": 417.0,
+        "Weight": 0.0007702723378315568
+      },
+      {
+        "Wavelength": 418.0,
+        "Weight": 0.00091255543520674109
+      },
+      {
+        "Wavelength": 419.0,
+        "Weight": 0.001071159029379487
+      },
+      {
+        "Wavelength": 420.0,
+        "Weight": 0.0012460787547752261
+      },
+      {
+        "Wavelength": 421.0,
+        "Weight": 0.0014379802159965038
+      },
+      {
+        "Wavelength": 422.0,
+        "Weight": 0.0016472080023959279
+      },
+      {
+        "Wavelength": 423.0,
+        "Weight": 0.0018741363892331719
+      },
+      {
+        "Wavelength": 424.0,
+        "Weight": 0.0021191805135458708
+      },
+      {
+        "Wavelength": 425.0,
+        "Weight": 0.0023825224488973618
+      },
+      {
+        "Wavelength": 426.0,
+        "Weight": 0.0026644542813301086
+      },
+      {
+        "Wavelength": 427.0,
+        "Weight": 0.0029646921902894974
+      },
+      {
+        "Wavelength": 428.0,
+        "Weight": 0.0032818249892443419
+      },
+      {
+        "Wavelength": 429.0,
+        "Weight": 0.003619825467467308
+      },
+      {
+        "Wavelength": 430.0,
+        "Weight": 0.0039801686070859432
+      },
+      {
+        "Wavelength": 431.0,
+        "Weight": 0.004362091887742281
+      },
+      {
+        "Wavelength": 432.0,
+        "Weight": 0.0047595733776688576
+      },
+      {
+        "Wavelength": 433.0,
+        "Weight": 0.0051896092481911182
+      },
+      {
+        "Wavelength": 434.0,
+        "Weight": 0.0056586260907351971
+      },
+      {
+        "Wavelength": 435.0,
+        "Weight": 0.0061732269823551178
+      },
+      {
+        "Wavelength": 436.0,
+        "Weight": 0.0067404969595372677
+      },
+      {
+        "Wavelength": 437.0,
+        "Weight": 0.0073655475862324238
+      },
+      {
+        "Wavelength": 438.0,
+        "Weight": 0.0080543924123048782
+      },
+      {
+        "Wavelength": 439.0,
+        "Weight": 0.0088198799639940262
+      },
+      {
+        "Wavelength": 440.0,
+        "Weight": 0.0097009157761931419
+      },
+      {
+        "Wavelength": 441.0,
+        "Weight": 0.010642170906066895
+      },
+      {
+        "Wavelength": 442.0,
+        "Weight": 0.011630634777247906
+      },
+      {
+        "Wavelength": 443.0,
+        "Weight": 0.012660420499742031
+      },
+      {
+        "Wavelength": 444.0,
+        "Weight": 0.013759666122496128
+      },
+      {
+        "Wavelength": 445.0,
+        "Weight": 0.014841947704553604
+      },
+      {
+        "Wavelength": 446.0,
+        "Weight": 0.015871737152338028
+      },
+      {
+        "Wavelength": 447.0,
+        "Weight": 0.016809135675430298
+      },
+      {
+        "Wavelength": 448.0,
+        "Weight": 0.017586072906851768
+      },
+      {
+        "Wavelength": 449.0,
+        "Weight": 0.0182221420109272
+      },
+      {
+        "Wavelength": 450.0,
+        "Weight": 0.018698450177907944
+      },
+      {
+        "Wavelength": 451.0,
+        "Weight": 0.018987599760293961
+      },
+      {
+        "Wavelength": 452.0,
+        "Weight": 0.018975511193275452
+      },
+      {
+        "Wavelength": 453.0,
+        "Weight": 0.018795082345604897
+      },
+      {
+        "Wavelength": 454.0,
+        "Weight": 0.01847233809530735
+      },
+      {
+        "Wavelength": 455.0,
+        "Weight": 0.018032466992735863
+      },
+      {
+        "Wavelength": 456.0,
+        "Weight": 0.017485762014985085
+      },
+      {
+        "Wavelength": 457.0,
+        "Weight": 0.016882084310054779
+      },
+      {
+        "Wavelength": 458.0,
+        "Weight": 0.016254408285021782
+      },
+      {
+        "Wavelength": 459.0,
+        "Weight": 0.015637477859854698
+      },
+      {
+        "Wavelength": 460.0,
+        "Weight": 0.015137757174670696
+      },
+      {
+        "Wavelength": 461.0,
+        "Weight": 0.01468184869736433
+      },
+      {
+        "Wavelength": 462.0,
+        "Weight": 0.014272209256887436
+      },
+      {
+        "Wavelength": 463.0,
+        "Weight": 0.013911298476159573
+      },
+      {
+        "Wavelength": 464.0,
+        "Weight": 0.013635272160172462
+      },
+      {
+        "Wavelength": 465.0,
+        "Weight": 0.013399866409599781
+      },
+      {
+        "Wavelength": 466.0,
+        "Weight": 0.01319389883428812
+      },
+      {
+        "Wavelength": 467.0,
+        "Weight": 0.013006460852921009
+      },
+      {
+        "Wavelength": 468.0,
+        "Weight": 0.012793576344847679
+      },
+      {
+        "Wavelength": 469.0,
+        "Weight": 0.012589260004460812
+      },
+      {
+        "Wavelength": 470.0,
+        "Weight": 0.01239717286080122
+      },
+      {
+        "Wavelength": 471.0,
+        "Weight": 0.012219831347465515
+      },
+      {
+        "Wavelength": 472.0,
+        "Weight": 0.012048877775669098
+      },
+      {
+        "Wavelength": 473.0,
+        "Weight": 0.011901315301656723
+      },
+      {
+        "Wavelength": 474.0,
+        "Weight": 0.011784831993281841
+      },
+      {
+        "Wavelength": 475.0,
+        "Weight": 0.011706463061273098
+      },
+      {
+        "Wavelength": 476.0,
+        "Weight": 0.011687392368912697
+      },
+      {
+        "Wavelength": 477.0,
+        "Weight": 0.011716161854565144
+      },
+      {
+        "Wavelength": 478.0,
+        "Weight": 0.011792578734457493
+      },
+      {
+        "Wavelength": 479.0,
+        "Weight": 0.011917670257389545
+      },
+      {
+        "Wavelength": 480.0,
+        "Weight": 0.012109308503568172
+      },
+      {
+        "Wavelength": 481.0,
+        "Weight": 0.012346931733191013
+      },
+      {
+        "Wavelength": 482.0,
+        "Weight": 0.012622436508536339
+      },
+      {
+        "Wavelength": 483.0,
+        "Weight": 0.012929574586451054
+      },
+      {
+        "Wavelength": 484.0,
+        "Weight": 0.013250579126179218
+      },
+      {
+        "Wavelength": 485.0,
+        "Weight": 0.013593636453151703
+      },
+      {
+        "Wavelength": 486.0,
+        "Weight": 0.013959126546978951
+      },
+      {
+        "Wavelength": 487.0,
+        "Weight": 0.014345861971378326
+      },
+      {
+        "Wavelength": 488.0,
+        "Weight": 0.014749757945537567
+      },
+      {
+        "Wavelength": 489.0,
+        "Weight": 0.01517318282276392
+      },
+      {
+        "Wavelength": 490.0,
+        "Weight": 0.015616741962730885
+      },
+      {
+        "Wavelength": 491.0,
+        "Weight": 0.016080562025308609
+      },
+      {
+        "Wavelength": 492.0,
+        "Weight": 0.016573803499341011
+      },
+      {
+        "Wavelength": 493.0,
+        "Weight": 0.017085809260606766
+      },
+      {
+        "Wavelength": 494.0,
+        "Weight": 0.017610779032111168
+      },
+      {
+        "Wavelength": 495.0,
+        "Weight": 0.018144670873880386
+      },
+      {
+        "Wavelength": 496.0,
+        "Weight": 0.018678588792681694
+      },
+      {
+        "Wavelength": 497.0,
+        "Weight": 0.019214151427149773
+      },
+      {
+        "Wavelength": 498.0,
+        "Weight": 0.019750699400901794
+      },
+      {
+        "Wavelength": 499.0,
+        "Weight": 0.020286476239562035
+      },
+      {
+        "Wavelength": 500.0,
+        "Weight": 0.020821321755647659
+      },
+      {
+        "Wavelength": 501.0,
+        "Weight": 0.021351693198084831
+      },
+      {
+        "Wavelength": 502.0,
+        "Weight": 0.021874668076634407
+      },
+      {
+        "Wavelength": 503.0,
+        "Weight": 0.022387741133570671
+      },
+      {
+        "Wavelength": 504.0,
+        "Weight": 0.022882604971528053
+      },
+      {
+        "Wavelength": 505.0,
+        "Weight": 0.023363085463643074
+      },
+      {
+        "Wavelength": 506.0,
+        "Weight": 0.023831216618418694
+      },
+      {
+        "Wavelength": 507.0,
+        "Weight": 0.02428734116256237
+      },
+      {
+        "Wavelength": 508.0,
+        "Weight": 0.024732992053031921
+      },
+      {
+        "Wavelength": 509.0,
+        "Weight": 0.02516726590692997
+      },
+      {
+        "Wavelength": 510.0,
+        "Weight": 0.025589520111680031
+      },
+      {
+        "Wavelength": 511.0,
+        "Weight": 0.025999510660767555
+      },
+      {
+        "Wavelength": 512.0,
+        "Weight": 0.02639375813305378
+      },
+      {
+        "Wavelength": 513.0,
+        "Weight": 0.0267753005027771
+      },
+      {
+        "Wavelength": 514.0,
+        "Weight": 0.027146743610501289
+      },
+      {
+        "Wavelength": 515.0,
+        "Weight": 0.027509516105055809
+      },
+      {
+        "Wavelength": 516.0,
+        "Weight": 0.027865506708621979
+      },
+      {
+        "Wavelength": 517.0,
+        "Weight": 0.028215691447257996
+      },
+      {
+        "Wavelength": 518.0,
+        "Weight": 0.028561072424054146
+      },
+      {
+        "Wavelength": 519.0,
+        "Weight": 0.028902830556035042
+      },
+      {
+        "Wavelength": 520.0,
+        "Weight": 0.029245266690850258
+      },
+      {
+        "Wavelength": 521.0,
+        "Weight": 0.029586648568511009
+      },
+      {
+        "Wavelength": 522.0,
+        "Weight": 0.029925066977739334
+      },
+      {
+        "Wavelength": 523.0,
+        "Weight": 0.030260005965828896
+      },
+      {
+        "Wavelength": 524.0,
+        "Weight": 0.030587060377001762
+      },
+      {
+        "Wavelength": 525.0,
+        "Weight": 0.030909186229109764
+      },
+      {
+        "Wavelength": 526.0,
+        "Weight": 0.031229956075549126
+      },
+      {
+        "Wavelength": 527.0,
+        "Weight": 0.0315510556101799
+      },
+      {
+        "Wavelength": 528.0,
+        "Weight": 0.03187749907374382
+      },
+      {
+        "Wavelength": 529.0,
+        "Weight": 0.032208103686571121
+      },
+      {
+        "Wavelength": 530.0,
+        "Weight": 0.03254086896777153
+      },
+      {
+        "Wavelength": 531.0,
+        "Weight": 0.032875552773475647
+      },
+      {
+        "Wavelength": 532.0,
+        "Weight": 0.0332130566239357
+      },
+      {
+        "Wavelength": 533.0,
+        "Weight": 0.033552192151546478
+      },
+      {
+        "Wavelength": 534.0,
+        "Weight": 0.033891350030899048
+      },
+      {
+        "Wavelength": 535.0,
+        "Weight": 0.03422960638999939
+      },
+      {
+        "Wavelength": 536.0,
+        "Weight": 0.03456396609544754
+      },
+      {
+        "Wavelength": 537.0,
+        "Weight": 0.034895040094852448
+      },
+      {
+        "Wavelength": 538.0,
+        "Weight": 0.035224422812461853
+      },
+      {
+        "Wavelength": 539.0,
+        "Weight": 0.035552442073822021
+      },
+      {
+        "Wavelength": 540.0,
+        "Weight": 0.035881802439689636
+      },
+      {
+        "Wavelength": 541.0,
+        "Weight": 0.036211110651493073
+      },
+      {
+        "Wavelength": 542.0,
+        "Weight": 0.036537598818540573
+      },
+      {
+        "Wavelength": 543.0,
+        "Weight": 0.036860078573226929
+      },
+      {
+        "Wavelength": 544.0,
+        "Weight": 0.037175074219703674
+      },
+      {
+        "Wavelength": 545.0,
+        "Weight": 0.03748297318816185
+      },
+      {
+        "Wavelength": 546.0,
+        "Weight": 0.03778567910194397
+      },
+      {
+        "Wavelength": 547.0,
+        "Weight": 0.038083497434854507
+      },
+      {
+        "Wavelength": 548.0,
+        "Weight": 0.038376554846763611
+      },
+      {
+        "Wavelength": 549.0,
+        "Weight": 0.038665246218442917
+      },
+      {
+        "Wavelength": 550.0,
+        "Weight": 0.038950126618146896
+      },
+      {
+        "Wavelength": 551.0,
+        "Weight": 0.039231587201356888
+      },
+      {
+        "Wavelength": 552.0,
+        "Weight": 0.039511073380708694
+      },
+      {
+        "Wavelength": 553.0,
+        "Weight": 0.039788417518138885
+      },
+      {
+        "Wavelength": 554.0,
+        "Weight": 0.040062461048364639
+      },
+      {
+        "Wavelength": 555.0,
+        "Weight": 0.040332924574613571
+      },
+      {
+        "Wavelength": 556.0,
+        "Weight": 0.040597621351480484
+      },
+      {
+        "Wavelength": 557.0,
+        "Weight": 0.040857210755348206
+      },
+      {
+        "Wavelength": 558.0,
+        "Weight": 0.041114360094070435
+      },
+      {
+        "Wavelength": 559.0,
+        "Weight": 0.04137006402015686
+      },
+      {
+        "Wavelength": 560.0,
+        "Weight": 0.041626572608947754
+      },
+      {
+        "Wavelength": 561.0,
+        "Weight": 0.041884377598762512
+      },
+      {
+        "Wavelength": 562.0,
+        "Weight": 0.042142480611801147
+      },
+      {
+        "Wavelength": 563.0,
+        "Weight": 0.042400997132062912
+      },
+      {
+        "Wavelength": 564.0,
+        "Weight": 0.042656645178794861
+      },
+      {
+        "Wavelength": 565.0,
+        "Weight": 0.042910795658826828
+      },
+      {
+        "Wavelength": 566.0,
+        "Weight": 0.043169695883989334
+      },
+      {
+        "Wavelength": 567.0,
+        "Weight": 0.043436083942651749
+      },
+      {
+        "Wavelength": 568.0,
+        "Weight": 0.043720189481973648
+      },
+      {
+        "Wavelength": 569.0,
+        "Weight": 0.044022496789693832
+      },
+      {
+        "Wavelength": 570.0,
+        "Weight": 0.044331837445497513
+      },
+      {
+        "Wavelength": 571.0,
+        "Weight": 0.044645089656114578
+      },
+      {
+        "Wavelength": 572.0,
+        "Weight": 0.044950999319553375
+      },
+      {
+        "Wavelength": 573.0,
+        "Weight": 0.045248568058013916
+      },
+      {
+        "Wavelength": 574.0,
+        "Weight": 0.045550264418125153
+      },
+      {
+        "Wavelength": 575.0,
+        "Weight": 0.045859508216381073
+      },
+      {
+        "Wavelength": 576.0,
+        "Weight": 0.046186674386262894
+      },
+      {
+        "Wavelength": 577.0,
+        "Weight": 0.046533707529306412
+      },
+      {
+        "Wavelength": 578.0,
+        "Weight": 0.046890094876289368
+      },
+      {
+        "Wavelength": 579.0,
+        "Weight": 0.04725348949432373
+      },
+      {
+        "Wavelength": 580.0,
+        "Weight": 0.047615278512239456
+      },
+      {
+        "Wavelength": 581.0,
+        "Weight": 0.047974087297916412
+      },
+      {
+        "Wavelength": 582.0,
+        "Weight": 0.048340529203414917
+      },
+      {
+        "Wavelength": 583.0,
+        "Weight": 0.048717513680458069
+      },
+      {
+        "Wavelength": 584.0,
+        "Weight": 0.049117162823677063
+      },
+      {
+        "Wavelength": 585.0,
+        "Weight": 0.0495414063334465
+      },
+      {
+        "Wavelength": 586.0,
+        "Weight": 0.049973662942647934
+      },
+      {
+        "Wavelength": 587.0,
+        "Weight": 0.050409004092216492
+      },
+      {
+        "Wavelength": 588.0,
+        "Weight": 0.050831418484449387
+      },
+      {
+        "Wavelength": 589.0,
+        "Weight": 0.051236674189567566
+      },
+      {
+        "Wavelength": 590.0,
+        "Weight": 0.05164404958486557
+      },
+      {
+        "Wavelength": 591.0,
+        "Weight": 0.052058309316635132
+      },
+      {
+        "Wavelength": 592.0,
+        "Weight": 0.052494090050458908
+      },
+      {
+        "Wavelength": 593.0,
+        "Weight": 0.052955973893404007
+      },
+      {
+        "Wavelength": 594.0,
+        "Weight": 0.053426478058099747
+      },
+      {
+        "Wavelength": 595.0,
+        "Weight": 0.053901508450508118
+      },
+      {
+        "Wavelength": 596.0,
+        "Weight": 0.054372072219848633
+      },
+      {
+        "Wavelength": 597.0,
+        "Weight": 0.054833907634019852
+      },
+      {
+        "Wavelength": 598.0,
+        "Weight": 0.055294428020715714
+      },
+      {
+        "Wavelength": 599.0,
+        "Weight": 0.055754061788320541
+      },
+      {
+        "Wavelength": 600.0,
+        "Weight": 0.056216556578874588
+      },
+      {
+        "Wavelength": 601.0,
+        "Weight": 0.056682560592889786
+      },
+      {
+        "Wavelength": 602.0,
+        "Weight": 0.057144701480865479
+      },
+      {
+        "Wavelength": 603.0,
+        "Weight": 0.057600323110818863
+      },
+      {
+        "Wavelength": 604.0,
+        "Weight": 0.058043256402015686
+      },
+      {
+        "Wavelength": 605.0,
+        "Weight": 0.058470483869314194
+      },
+      {
+        "Wavelength": 606.0,
+        "Weight": 0.058888055384159088
+      },
+      {
+        "Wavelength": 607.0,
+        "Weight": 0.059296701103448868
+      },
+      {
+        "Wavelength": 608.0,
+        "Weight": 0.059703398495912552
+      },
+      {
+        "Wavelength": 609.0,
+        "Weight": 0.060109652578830719
+      },
+      {
+        "Wavelength": 610.0,
+        "Weight": 0.060500960797071457
+      },
+      {
+        "Wavelength": 611.0,
+        "Weight": 0.060872144997119904
+      },
+      {
+        "Wavelength": 612.0,
+        "Weight": 0.061211157590150833
+      },
+      {
+        "Wavelength": 613.0,
+        "Weight": 0.06151183694601059
+      },
+      {
+        "Wavelength": 614.0,
+        "Weight": 0.061786089092493057
+      },
+      {
+        "Wavelength": 615.0,
+        "Weight": 0.062035359442234039
+      },
+      {
+        "Wavelength": 616.0,
+        "Weight": 0.062263429164886475
+      },
+      {
+        "Wavelength": 617.0,
+        "Weight": 0.062472071498632431
+      },
+      {
+        "Wavelength": 618.0,
+        "Weight": 0.062656894326210022
+      },
+      {
+        "Wavelength": 619.0,
+        "Weight": 0.062817104160785675
+      },
+      {
+        "Wavelength": 620.0,
+        "Weight": 0.062951371073722839
+      },
+      {
+        "Wavelength": 621.0,
+        "Weight": 0.063058808445930481
+      },
+      {
+        "Wavelength": 622.0,
+        "Weight": 0.063139818608760834
+      },
+      {
+        "Wavelength": 623.0,
+        "Weight": 0.063194058835506439
+      },
+      {
+        "Wavelength": 624.0,
+        "Weight": 0.063221149146556854
+      },
+      {
+        "Wavelength": 625.0,
+        "Weight": 0.0632207840681076
+      },
+      {
+        "Wavelength": 626.0,
+        "Weight": 0.063192568719387054
+      },
+      {
+        "Wavelength": 627.0,
+        "Weight": 0.063136152923107147
+      },
+      {
+        "Wavelength": 628.0,
+        "Weight": 0.063048787415027618
+      },
+      {
+        "Wavelength": 629.0,
+        "Weight": 0.062929749488830566
+      },
+      {
+        "Wavelength": 630.0,
+        "Weight": 0.062784679234027863
+      },
+      {
+        "Wavelength": 631.0,
+        "Weight": 0.062615573406219482
+      },
+      {
+        "Wavelength": 632.0,
+        "Weight": 0.062427565455436707
+      },
+      {
+        "Wavelength": 633.0,
+        "Weight": 0.062223091721534729
+      },
+      {
+        "Wavelength": 634.0,
+        "Weight": 0.061996202915906906
+      },
+      {
+        "Wavelength": 635.0,
+        "Weight": 0.06174580380320549
+      },
+      {
+        "Wavelength": 636.0,
+        "Weight": 0.061466779559850693
+      },
+      {
+        "Wavelength": 637.0,
+        "Weight": 0.061157576739788055
+      },
+      {
+        "Wavelength": 638.0,
+        "Weight": 0.060826931148767471
+      },
+      {
+        "Wavelength": 639.0,
+        "Weight": 0.060477551072835922
+      },
+      {
+        "Wavelength": 640.0,
+        "Weight": 0.06011711061000824
+      },
+      {
+        "Wavelength": 641.0,
+        "Weight": 0.059748686850070953
+      },
+      {
+        "Wavelength": 642.0,
+        "Weight": 0.059363186359405518
+      },
+      {
+        "Wavelength": 643.0,
+        "Weight": 0.058958668261766434
+      },
+      {
+        "Wavelength": 644.0,
+        "Weight": 0.058528829365968704
+      },
+      {
+        "Wavelength": 645.0,
+        "Weight": 0.058071713894605637
+      },
+      {
+        "Wavelength": 646.0,
+        "Weight": 0.057595528662204742
+      },
+      {
+        "Wavelength": 647.0,
+        "Weight": 0.057102333754301071
+      },
+      {
+        "Wavelength": 648.0,
+        "Weight": 0.056594837456941605
+      },
+      {
+        "Wavelength": 649.0,
+        "Weight": 0.0560750849545002
+      },
+      {
+        "Wavelength": 650.0,
+        "Weight": 0.05554388090968132
+      },
+      {
+        "Wavelength": 651.0,
+        "Weight": 0.055002789944410324
+      },
+      {
+        "Wavelength": 652.0,
+        "Weight": 0.054453708231449127
+      },
+      {
+        "Wavelength": 653.0,
+        "Weight": 0.0538981556892395
+      },
+      {
+        "Wavelength": 654.0,
+        "Weight": 0.053337033838033676
+      },
+      {
+        "Wavelength": 655.0,
+        "Weight": 0.052771627902984619
+      },
+      {
+        "Wavelength": 656.0,
+        "Weight": 0.05220702663064003
+      },
+      {
+        "Wavelength": 657.0,
+        "Weight": 0.051643747836351395
+      },
+      {
+        "Wavelength": 658.0,
+        "Weight": 0.051075473427772522
+      },
+      {
+        "Wavelength": 659.0,
+        "Weight": 0.050500359386205673
+      },
+      {
+        "Wavelength": 660.0,
+        "Weight": 0.049913756549358368
+      },
+      {
+        "Wavelength": 661.0,
+        "Weight": 0.049314547330141068
+      },
+      {
+        "Wavelength": 662.0,
+        "Weight": 0.048706214874982834
+      },
+      {
+        "Wavelength": 663.0,
+        "Weight": 0.048089120537042618
+      },
+      {
+        "Wavelength": 664.0,
+        "Weight": 0.047460485249757767
+      },
+      {
+        "Wavelength": 665.0,
+        "Weight": 0.0468217208981514
+      },
+      {
+        "Wavelength": 666.0,
+        "Weight": 0.046179115772247314
+      },
+      {
+        "Wavelength": 667.0,
+        "Weight": 0.045535575598478317
+      },
+      {
+        "Wavelength": 668.0,
+        "Weight": 0.044899016618728638
+      },
+      {
+        "Wavelength": 669.0,
+        "Weight": 0.044270332902669907
+      },
+      {
+        "Wavelength": 670.0,
+        "Weight": 0.043643694370985031
+      },
+      {
+        "Wavelength": 671.0,
+        "Weight": 0.04301818460226059
+      },
+      {
+        "Wavelength": 672.0,
+        "Weight": 0.042390264570713043
+      },
+      {
+        "Wavelength": 673.0,
+        "Weight": 0.041760250926017761
+      },
+      {
+        "Wavelength": 674.0,
+        "Weight": 0.041131585836410522
+      },
+      {
+        "Wavelength": 675.0,
+        "Weight": 0.040505293756723404
+      },
+      {
+        "Wavelength": 676.0,
+        "Weight": 0.039887972176074982
+      },
+      {
+        "Wavelength": 677.0,
+        "Weight": 0.039277691394090652
+      },
+      {
+        "Wavelength": 678.0,
+        "Weight": 0.038666728883981705
+      },
+      {
+        "Wavelength": 679.0,
+        "Weight": 0.038052108138799667
+      },
+      {
+        "Wavelength": 680.0,
+        "Weight": 0.037422601133584976
+      },
+      {
+        "Wavelength": 681.0,
+        "Weight": 0.036780349910259247
+      },
+      {
+        "Wavelength": 682.0,
+        "Weight": 0.036134444177150726
+      },
+      {
+        "Wavelength": 683.0,
+        "Weight": 0.035487592220306396
+      },
+      {
+        "Wavelength": 684.0,
+        "Weight": 0.034844256937503815
+      },
+      {
+        "Wavelength": 685.0,
+        "Weight": 0.03420591726899147
+      },
+      {
+        "Wavelength": 686.0,
+        "Weight": 0.033572942018508911
+      },
+      {
+        "Wavelength": 687.0,
+        "Weight": 0.0329468809068203
+      },
+      {
+        "Wavelength": 688.0,
+        "Weight": 0.032337222248315811
+      },
+      {
+        "Wavelength": 689.0,
+        "Weight": 0.031739447265863419
+      },
+      {
+        "Wavelength": 690.0,
+        "Weight": 0.031145188957452774
+      },
+      {
+        "Wavelength": 691.0,
+        "Weight": 0.030551020056009293
+      },
+      {
+        "Wavelength": 692.0,
+        "Weight": 0.029945775866508484
+      },
+      {
+        "Wavelength": 693.0,
+        "Weight": 0.029332542791962624
+      },
+      {
+        "Wavelength": 694.0,
+        "Weight": 0.028716834262013435
+      },
+      {
+        "Wavelength": 695.0,
+        "Weight": 0.028099885210394859
+      },
+      {
+        "Wavelength": 696.0,
+        "Weight": 0.027477486059069633
+      },
+      {
+        "Wavelength": 697.0,
+        "Weight": 0.026855893433094025
+      },
+      {
+        "Wavelength": 698.0,
+        "Weight": 0.026242069900035858
+      },
+      {
+        "Wavelength": 699.0,
+        "Weight": 0.025640413165092468
+      },
+      {
+        "Wavelength": 700.0,
+        "Weight": 0.025068938732147217
+      },
+      {
+        "Wavelength": 701.0,
+        "Weight": 0.024518519639968872
+      },
+      {
+        "Wavelength": 702.0,
+        "Weight": 0.023980513215065002
+      },
+      {
+        "Wavelength": 703.0,
+        "Weight": 0.023451797664165497
+      },
+      {
+        "Wavelength": 704.0,
+        "Weight": 0.022922532632946968
+      },
+      {
+        "Wavelength": 705.0,
+        "Weight": 0.022396702319383621
+      },
+      {
+        "Wavelength": 706.0,
+        "Weight": 0.0218769870698452
+      },
+      {
+        "Wavelength": 707.0,
+        "Weight": 0.021363811567425728
+      },
+      {
+        "Wavelength": 708.0,
+        "Weight": 0.020858414471149445
+      },
+      {
+        "Wavelength": 709.0,
+        "Weight": 0.020360277965664864
+      },
+      {
+        "Wavelength": 710.0,
+        "Weight": 0.019869163632392883
+      },
+      {
+        "Wavelength": 711.0,
+        "Weight": 0.019385064020752907
+      },
+      {
+        "Wavelength": 712.0,
+        "Weight": 0.018909988924860954
+      },
+      {
+        "Wavelength": 713.0,
+        "Weight": 0.018441541120409966
+      },
+      {
+        "Wavelength": 714.0,
+        "Weight": 0.017978323623538017
+      },
+      {
+        "Wavelength": 715.0,
+        "Weight": 0.01751936599612236
+      },
+      {
+        "Wavelength": 716.0,
+        "Weight": 0.017051957547664642
+      },
+      {
+        "Wavelength": 717.0,
+        "Weight": 0.016589783132076263
+      },
+      {
+        "Wavelength": 718.0,
+        "Weight": 0.016139088198542595
+      },
+      {
+        "Wavelength": 719.0,
+        "Weight": 0.015704326331615448
+      },
+      {
+        "Wavelength": 720.0,
+        "Weight": 0.015310284681618214
+      },
+      {
+        "Wavelength": 721.0,
+        "Weight": 0.01493487786501646
+      },
+      {
+        "Wavelength": 722.0,
+        "Weight": 0.014571459963917732
+      },
+      {
+        "Wavelength": 723.0,
+        "Weight": 0.014215451665222645
+      },
+      {
+        "Wavelength": 724.0,
+        "Weight": 0.013850586488842964
+      },
+      {
+        "Wavelength": 725.0,
+        "Weight": 0.013488170690834522
+      },
+      {
+        "Wavelength": 726.0,
+        "Weight": 0.013129165396094322
+      },
+      {
+        "Wavelength": 727.0,
+        "Weight": 0.01277399156242609
+      },
+      {
+        "Wavelength": 728.0,
+        "Weight": 0.012427649460732937
+      },
+      {
+        "Wavelength": 729.0,
+        "Weight": 0.012083997949957848
+      },
+      {
+        "Wavelength": 730.0,
+        "Weight": 0.011741531081497669
+      },
+      {
+        "Wavelength": 731.0,
+        "Weight": 0.011397438123822212
+      },
+      {
+        "Wavelength": 732.0,
+        "Weight": 0.011028766632080078
+      },
+      {
+        "Wavelength": 733.0,
+        "Weight": 0.010667268186807632
+      },
+      {
+        "Wavelength": 734.0,
+        "Weight": 0.010321417823433876
+      },
+      {
+        "Wavelength": 735.0,
+        "Weight": 0.010004783980548382
+      },
+      {
+        "Wavelength": 736.0,
+        "Weight": 0.0097609218209981918
+      },
+      {
+        "Wavelength": 737.0,
+        "Weight": 0.00953713059425354
+      },
+      {
+        "Wavelength": 738.0,
+        "Weight": 0.0093228332698345184
+      },
+      {
+        "Wavelength": 739.0,
+        "Weight": 0.009101182222366333
+      },
+      {
+        "Wavelength": 740.0,
+        "Weight": 0.0088378246873617172
+      },
+      {
+        "Wavelength": 741.0,
+        "Weight": 0.0085701942443847656
+      },
+      {
+        "Wavelength": 742.0,
+        "Weight": 0.0083032557740807533
+      },
+      {
+        "Wavelength": 743.0,
+        "Weight": 0.0080451946705579758
+      },
+      {
+        "Wavelength": 744.0,
+        "Weight": 0.0078079509548842907
+      },
+      {
+        "Wavelength": 745.0,
+        "Weight": 0.0075791506096720695
+      },
+      {
+        "Wavelength": 746.0,
+        "Weight": 0.007357889786362648
+      },
+      {
+        "Wavelength": 747.0,
+        "Weight": 0.0071411486715078354
+      },
+      {
+        "Wavelength": 748.0,
+        "Weight": 0.0069255372509360313
+      },
+      {
+        "Wavelength": 749.0,
+        "Weight": 0.0067185694351792336
+      },
+      {
+        "Wavelength": 750.0,
+        "Weight": 0.0065223360434174538
+      },
+      {
+        "Wavelength": 751.0,
+        "Weight": 0.0063444734551012516
+      },
+      {
+        "Wavelength": 752.0,
+        "Weight": 0.0061898850835859776
+      },
+      {
+        "Wavelength": 753.0,
+        "Weight": 0.0060437852516770363
+      },
+      {
+        "Wavelength": 754.0,
+        "Weight": 0.0059019029140472412
+      },
+      {
+        "Wavelength": 755.0,
+        "Weight": 0.0057553616352379322
+      },
+      {
+        "Wavelength": 756.0,
+        "Weight": 0.0055995960719883442
+      },
+      {
+        "Wavelength": 757.0,
+        "Weight": 0.005441522691398859
+      },
+      {
+        "Wavelength": 758.0,
+        "Weight": 0.005281343124806881
+      },
+      {
+        "Wavelength": 759.0,
+        "Weight": 0.0051152831874787807
+      },
+      {
+        "Wavelength": 760.0,
+        "Weight": 0.0049446532502770424
+      },
+      {
+        "Wavelength": 761.0,
+        "Weight": 0.00477741239592433
+      },
+      {
+        "Wavelength": 762.0,
+        "Weight": 0.004617081955075264
+      },
+      {
+        "Wavelength": 763.0,
+        "Weight": 0.0044781654141843319
+      },
+      {
+        "Wavelength": 764.0,
+        "Weight": 0.00435815192759037
+      },
+      {
+        "Wavelength": 765.0,
+        "Weight": 0.0042432607151567936
+      },
+      {
+        "Wavelength": 766.0,
+        "Weight": 0.0041290041990578175
+      },
+      {
+        "Wavelength": 767.0,
+        "Weight": 0.003998137079179287
+      },
+      {
+        "Wavelength": 768.0,
+        "Weight": 0.0038558375090360641
+      },
+      {
+        "Wavelength": 769.0,
+        "Weight": 0.0037141188513487577
+      },
+      {
+        "Wavelength": 770.0,
+        "Weight": 0.0035767997615039349
+      },
+      {
+        "Wavelength": 771.0,
+        "Weight": 0.0034539629705250263
+      },
+      {
+        "Wavelength": 772.0,
+        "Weight": 0.0033435500226914883
+      },
+      {
+        "Wavelength": 773.0,
+        "Weight": 0.003242796054109931
+      },
+      {
+        "Wavelength": 774.0,
+        "Weight": 0.0031518517062067986
+      },
+      {
+        "Wavelength": 775.0,
+        "Weight": 0.0030835208017379045
+      },
+      {
+        "Wavelength": 776.0,
+        "Weight": 0.0030241257045418024
+      },
+      {
+        "Wavelength": 777.0,
+        "Weight": 0.002963165519759059
+      },
+      {
+        "Wavelength": 778.0,
+        "Weight": 0.0028941018972545862
+      },
+      {
+        "Wavelength": 779.0,
+        "Weight": 0.0027756525669246912
+      },
+      {
+        "Wavelength": 780.0,
+        "Weight": 0.0026437423657625914
+      }
+    ]
+  },
+  "LUT_R": null,
+  "LUT_G": null,
+  "LUT_B": null,
+  "LUT_CW": null,
+  "LUT_WW": null
+}

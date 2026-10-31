@@ -83,6 +83,8 @@
   #btnYes { background: #4CAF50; color: #fff; }
   #btnNo  { background: #BDBDBD; color: #333; }
   #btnCustom { background: #1976D2; color: #fff; }
+  #popup button:disabled { opacity: .55; cursor: wait; }
+  #popupStatus { min-height: 18px; color: #B91C1C; font-weight: bold; }
 
   /* 自定义子窗口 */
   #customWin { display: none; margin-top: 14px; border: 1px solid #ddd; border-radius: 6px;
@@ -101,7 +103,7 @@
 <div id="ambient"></div>
 
 <header>
-  <h1><span>LumiMind</span> · 闭环演示（进入页面即开始 · 可直接录屏）</h1>
+  <h1><span>LumiMind</span> · 闭环演示</h1>
   <div id="phaseBar">
     <div class="phase" id="ph0">① 平静监控</div>
     <div class="phase" id="ph1">② 情绪下降</div>
@@ -112,6 +114,7 @@
   </div>
   <div id="clock">00:00</div>
   <button id="restartBtn" onclick="restart()">↻ 重播</button>
+  <button id="showPopupBtn" onclick="showPopup(true)" style="background:#1976D2;color:#fff;border:0;border-radius:6px;padding:5px 12px;cursor:pointer">立即显示弹窗</button>
 </header>
 
 <main>
@@ -155,9 +158,6 @@
         <span id="modeName">模式：普通办公（冷白）</span>
       </div>
     </div>
-    <div style="font-size:12px;color:#6E7F99;line-height:1.8" id="lightHint">
-      执行端：欧普智能灯具 · BLE/MQTT<br>来源：策略引擎推荐（情绪低落 → 暖光舒缓）
-    </div>
   </div>
 </main>
 
@@ -170,9 +170,10 @@
     <p>目前检测到你心情低落（已持续 5 秒），是否使用推荐的调光策略？</p>
     <p class="cur" id="popCur">&nbsp;&nbsp;当前光参数&nbsp;&nbsp;照度：500 lx，色温：6500 K</p>
     <p class="rec" id="popRec">&nbsp;&nbsp;调整后光参数&nbsp;&nbsp;照度：300 lx，色温：2700 K</p>
+    <p id="popupStatus" role="status" aria-live="polite"></p>
     <div id="customWin">
-      <div class="row">照度 (lx)：<input type="number" id="cusLux" min="100" max="1000" step="50" value="300"></div>
-      <div class="row">色温 (K)：<input type="number" id="cusCct" min="1800" max="6500" step="100" value="2700"></div>
+      <div class="row">照度 (lx)：<input type="number" id="cusLux" min="1" max="30000" step="1" value="300"></div>
+      <div class="row">色温 (K)：<input type="number" id="cusCct" min="1500" max="20000" step="1" value="2700"></div>
       <div class="cbts">
         <button style="background:#4CAF50;color:#fff" onclick="customConfirm()">确 认</button>
         <button style="background:#ff9800;color:#fff" onclick="customReset()">重 置</button>
@@ -203,7 +204,7 @@ const V0 = 0.68, V1 = 0.18, A0 = 0.34, A1 = 0.72;
 
 let t0 = null, phase = "calm", abnormalSince = null, popupShownAt = null,
     light = { ...LIGHT_NORMAL }, lightTarget = null, recoverStart = null,
-    rejectAgainAt = null, doneAt = null, vaHist = [], lastLog = -1;
+    rejectAgainAt = null, doneAt = null, vaHist = [], lastLog = -1, dispatchPending = false, dispatchUncertain = false, recoveryTimer = null;
 
 const $ = id => document.getElementById(id);
 const D = window.DEMO_DATA;
@@ -246,7 +247,8 @@ function log(msg) {
   const s = ((Date.now() - t0) / 1000) || 0;
   const mm = String(Math.floor(s / 60)).padStart(2, "0"), ss = String(Math.floor(s % 60)).padStart(2, "0");
   const d = document.createElement("div");
-  d.innerHTML = `<span class="t">[${mm}:${ss}]</span>${msg}`;
+  const time = document.createElement("span"); time.className = "t"; time.textContent = `[${mm}:${ss}]`;
+  d.append(time, document.createTextNode(msg));
   $("logPanel").appendChild(d);
   $("logPanel").scrollTop = 1e6;
 }
@@ -255,16 +257,19 @@ const PHASES = ["ph0","ph1","ph2","ph3","ph4","ph5"];
 function setPhaseBar(i) { PHASES.forEach((p, k) => $(p).classList.toggle("on", k === i)); }
 
 /* ── 弹窗交互 ── */
-function showPopup() {
+function showPopup(manual = false) {
+  if (dispatchPending || dispatchUncertain) return;
   phase = "popup";
   setPhaseBar(3);
   $("popCur").innerHTML = `&nbsp;&nbsp;当前光参数&nbsp;&nbsp;照度：${light.lux} lx，色温：${light.cct} K`;
   $("popupMask").style.display = "flex";
   $("customWin").style.display = "none";
-  log("⚠ 弹出调光建议（情绪低落已持续 5s）");
+  $("popupStatus").textContent = "";
+  log(manual ? "⚠ 手动打开调光建议（录屏演示）" : "⚠ 弹出调光建议（情绪低落已持续 5s）");
 }
 function acceptLight() { applyLight(LIGHT_REC.lux, LIGHT_REC.cct, "推荐"); }
 function rejectLight() {
+  if (dispatchPending || dispatchUncertain) return;
   $("popupMask").style.display = "none";
   log("用户拒绝调光建议，8s 后将再次提醒");
   phase = "abnormal"; rejectAgainAt = (Date.now() - t0) / 1000 + 8; abnormalSince = null;
@@ -272,15 +277,44 @@ function rejectLight() {
 function toggleCustom() { const w = $("customWin"); w.style.display = w.style.display === "none" ? "block" : "none"; }
 function customReset() { $("cusLux").value = LIGHT_REC.lux; $("cusCct").value = LIGHT_REC.cct; }
 function customConfirm() {
-  applyLight(+$("cusLux").value || 300, +$("cusCct").value || 2700, "自定义");
+  applyLight(Number($("cusLux").value), Number($("cusCct").value), "自定义");
 }
-function applyLight(lux, cct, tag) {
+async function applyLight(lux, cct, tag) {
+  if (dispatchPending || dispatchUncertain) return;
+  if (!Number.isFinite(lux) || lux <= 0 || lux > 30000 || !Number.isInteger(cct) || cct < 1500 || cct > 20000) {
+    $("popupStatus").textContent = "请输入有效的照度（1–30000 lx）和色温（1500–20000 K）。";
+    return;
+  }
+  dispatchPending = true;
+  $("popupStatus").textContent = `正在计算配方并发送 ${cct} K / ${lux} lx…`;
+  document.querySelectorAll("#popup button, #restartBtn, #showPopupBtn").forEach(b => b.disabled = true);
+  const commandId = crypto.randomUUID();
+  try {
+    const response = await fetch("/api/light/manual", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({command_id: commandId, cct_k: cct, illuminance_lux: lux, session_id: null}),
+    });
+    const data = await response.json();
+    if (!response.ok || data.status !== "sent") {
+      const detail = data.detail || `HTTP ${response.status}`;
+      throw new Error(typeof detail === "string" ? detail : JSON.stringify(detail));
+    }
+  } catch (err) {
+    dispatchUncertain = true;
+    $("popupStatus").textContent = `发送结果未确认：${err.message}。请检查灯具和命令记录，勿立即重发。`;
+    log(`⚠ ${tag}调光未确认；命令 ${commandId}。请核对灯具状态。`);
+    dispatchPending = false;
+    $("restartBtn").disabled = false;
+    return;
+  }
+  dispatchPending = false;
+  document.querySelectorAll("#popup button, #restartBtn, #showPopupBtn").forEach(b => b.disabled = false);
   $("popupMask").style.display = "none";
   lightTarget = { lux, cct, mode: tag === "推荐" ? LIGHT_REC.mode : `自定义（${lux}lx / ${cct}K）` };
   phase = "adjusting"; setPhaseBar(4);
-  log(`✅ 已应用${tag}参数 → 照度 ${lux} lx，色温 ${cct} K（灯具指令已下发）`);
-  setTimeout(() => { phase = "recover"; recoverStart = (Date.now() - t0) / 1000; setPhaseBar(5);
-                     log("光照干预生效，情绪开始恢复…"); }, 2200);
+  log(`✅ 已发送${tag}参数 → 照度 ${lux} lx，色温 ${cct} K（UDP 已发送；非硬件回执）`);
+  recoveryTimer = setTimeout(() => { phase = "recover"; recoverStart = (Date.now() - t0) / 1000; setPhaseBar(5);
+                     log("演示动画：情绪开始恢复（非实时识别结果）"); }, 2200);
 }
 
 /* ── 绘图 ── */
@@ -406,12 +440,17 @@ function frame() {
 }
 
 function restart() {
+  if (dispatchPending) return;
+  if (recoveryTimer) clearTimeout(recoveryTimer);
+  recoveryTimer = null;
+  dispatchUncertain = false;
+  document.querySelectorAll("#popup button, #restartBtn, #showPopupBtn").forEach(b => b.disabled = false);
   t0 = Date.now(); phase = "calm"; abnormalSince = null; rejectAgainAt = null;
   light = { ...LIGHT_NORMAL }; lightTarget = null; recoverStart = null; doneAt = null;
   vaHist = []; $("popupMask").style.display = "none"; $("doneBanner").style.display = "none";
   $("logPanel").innerHTML = "";
   setPhaseBar(0);
-  log("▶ 演示开始 · 前 10s 平静监控（普通办公光 500lx / 6500K）");
+  log("▶ 演示开始 · 前 10s 画面展示普通办公光 500lx / 6500K（重播不调灯）");
 }
 
 restart();

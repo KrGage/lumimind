@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Microsoft YaHei, Arial, sans-serif">
+  <rect x="0" y="0" width="1280" height="720" fill="#0B1220"/>
+
+  <g id="header">
+    <text x="64" y="55" font-family="Consolas, Microsoft YaHei, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2">PART 04 · 世界模型与光环境决策</text>
+    <text x="64" y="114" font-size="46" font-weight="bold" fill="#E8EEF7">EOLI 光谱—情绪量化模型</text>
+    <rect x="64" y="132" width="120" height="4" fill="#5AA7FF"/>
+    <text x="64" y="183" font-size="25" fill="#E8EEF7">将眼位光谱暴露映射为<tspan fill="#FFB547" font-weight="bold">效价</tspan>与<tspan fill="#63E6D2" font-weight="bold">唤醒度</tspan>，连接情绪感知与个性化调光</text>
+  </g>
+
+  <g id="spectral-inputs">
+    <text x="64" y="227" font-size="18" font-weight="bold" fill="#A9B7CC">光环境输入 · 四个可测量量</text>
+    <rect x="64" y="244" width="265" height="72" rx="12" fill="#141E32" stroke="#5AA7FF" stroke-width="1.5"/>
+    <text x="84" y="275" font-family="Arial, sans-serif" font-size="23" font-weight="bold" fill="#5AA7FF">Ev</text>
+    <text x="84" y="299" font-size="15" fill="#A9B7CC">眼位照度</text>
+
+    <rect x="347" y="244" width="265" height="72" rx="12" fill="#141E32" stroke="#5AA7FF" stroke-width="1.5"/>
+    <text x="367" y="275" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#5AA7FF">S / (M + L)</text>
+    <text x="367" y="299" font-size="15" fill="#A9B7CC">短波与中长波锥体比</text>
+
+    <rect x="630" y="244" width="265" height="72" rx="12" fill="#141E32" stroke="#5AA7FF" stroke-width="1.5"/>
+    <text x="650" y="275" font-family="Arial, sans-serif" font-size="23" font-weight="bold" fill="#5AA7FF">L / M</text>
+    <text x="650" y="299" font-size="15" fill="#A9B7CC">长波与中波锥体比</text>
+
+    <rect x="913" y="244" width="303" height="72" rx="12" fill="#141E32" stroke="#63E6D2" stroke-width="1.5"/>
+    <text x="933" y="275" font-family="Arial, sans-serif" font-size="23" font-weight="bold" fill="#63E6D2">mEDI</text>
+    <text x="933" y="299" font-size="15" fill="#A9B7CC">黑视素等效日光照度</text>
+  </g>
+
+  <g id="valence-formula">
+    <rect x="64" y="339" width="735" height="208" rx="14" fill="#141E32" stroke="#FFB547" stroke-width="2"/>
+    <rect x="64" y="339" width="9" height="208" rx="4" fill="#FFB547"/>
+    <text x="93" y="378" font-size="23" font-weight="bold" fill="#FFB547">效价 · EOLI_valence</text>
+    <text x="93" y="419" font-family="Cambria, Arial, sans-serif" font-size="23" fill="#E8EEF7">4.769 × log10(Ev + 1)</text>
+    <text x="93" y="456" font-family="Cambria, Arial, sans-serif" font-size="23" fill="#E8EEF7">− 0.96 × log10(Ev + 1) × R − 10.15</text>
+    <rect x="93" y="473" width="675" height="1" fill="#2A3A55"/>
+    <text x="93" y="512" font-family="Cambria, Arial, sans-serif" font-size="21" fill="#A9B7CC">R = sqrt[(S/(M+L) − 0.5)² + (L/M − 1.0)²]</text>
+  </g>
+
+  <g id="arousal-formula">
+    <rect x="817" y="339" width="399" height="208" rx="14" fill="#141E32" stroke="#63E6D2" stroke-width="2"/>
+    <rect x="817" y="339" width="9" height="208" rx="4" fill="#63E6D2"/>
+    <text x="846" y="378" font-size="23" font-weight="bold" fill="#63E6D2">唤醒度 · EOLI_arousal</text>
+    <text x="846" y="432" font-family="Cambria, Arial, sans-serif" font-size="24" fill="#E8EEF7">1.423 × log10(mEDI + 1)</text>
+    <text x="846" y="472" font-family="Cambria, Arial, sans-serif" font-size="24" fill="#E8EEF7">− 0.377</text>
+    <text x="846" y="517" font-size="16" fill="#A9B7CC">专利按 mEDI 计算此维度</text>
+  </g>
+
+  <g id="loop-flow">
+    <text x="64" y="584" font-size="17" font-weight="bold" fill="#A9B7CC">系统闭环中的 EOLI</text>
+    <rect x="64" y="598" width="253" height="54" rx="9" fill="#1C2A44" stroke="#5AA7FF" stroke-width="1.5"/>
+    <text x="190.5" y="632" text-anchor="middle" font-size="19" fill="#E8EEF7">HRV 实时感知</text>
+    <path d="M 324 625 L 341 625 M 336 620 L 342 625 L 336 630" fill="none" stroke="#5AA7FF" stroke-width="2.5"/>
+
+    <rect x="348" y="598" width="253" height="54" rx="9" fill="#1C2A44" stroke="#FFB547" stroke-width="1.5"/>
+    <text x="474.5" y="632" text-anchor="middle" font-size="19" fill="#E8EEF7">EOLI + 情绪预测</text>
+    <path d="M 608 625 L 625 625 M 620 620 L 626 625 L 620 630" fill="none" stroke="#5AA7FF" stroke-width="2.5"/>
+
+    <rect x="632" y="598" width="253" height="54" rx="9" fill="#1C2A44" stroke="#5AA7FF" stroke-width="1.5"/>
+    <text x="758.5" y="632" text-anchor="middle" font-size="19" fill="#E8EEF7">个性化光谱调节</text>
+    <path d="M 892 625 L 909 625 M 904 620 L 910 625 L 904 630" fill="none" stroke="#5AA7FF" stroke-width="2.5"/>
+
+    <rect x="916" y="598" width="300" height="54" rx="9" fill="#1C2A44" stroke="#63E6D2" stroke-width="1.5"/>
+    <text x="1066" y="632" text-anchor="middle" font-size="19" fill="#E8EEF7">调节后评估与 DQN 优化</text>
+  </g>
+
+  <g id="footer">
+    <text x="64" y="691" font-size="13" fill="#6E7F99">LumiMind · EOLI 依据：CN 122479273 A，第[0024]–[0031]段</text>
+    <text x="1216" y="691" text-anchor="end" font-family="Consolas, Arial, sans-serif" font-size="14" fill="#6E7F99">01 / 01</text>
+  </g>
+</svg>

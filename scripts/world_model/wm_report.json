@@ -1,0 +1,130 @@
+{
+  "pipeline": "world_model + react (langgraph)",
+  "data": {
+    "sim_total": 9600,
+    "deap_transitions": 312
+  },
+  "model": {
+    "params": 131970,
+    "epochs": 10
+  },
+  "evaluation": {
+    "sim_test": {
+      "n": 1500,
+      "world_model": {
+        "r2_valence": 0.877,
+        "r2_arousal": 0.896,
+        "mae_valence": 0.038,
+        "mae_arousal": 0.037
+      },
+      "baseline_persistence": {
+        "r2_valence": 0.976,
+        "r2_arousal": 0.979,
+        "mae_valence": 0.017,
+        "mae_arousal": 0.017
+      },
+      "baseline_global_mean": {
+        "r2_valence": 0.0,
+        "r2_arousal": 0.0,
+        "mae_valence": 0.11,
+        "mae_arousal": 0.121
+      }
+    },
+    "deap_test": {
+      "n": 312,
+      "world_model": {
+        "r2_valence": 0.302,
+        "r2_arousal": 0.435,
+        "mae_valence": 0.169,
+        "mae_arousal": 0.132
+      },
+      "baseline_persistence": {
+        "r2_valence": -0.055,
+        "r2_arousal": -0.26,
+        "mae_valence": 0.189,
+        "mae_arousal": 0.188
+      },
+      "baseline_global_mean": {
+        "r2_valence": 0.0,
+        "r2_arousal": 0.0,
+        "mae_valence": 0.212,
+        "mae_arousal": 0.197
+      }
+    },
+    "rollout": {
+      "rollout_trend_consistency": 0.275,
+      "n_transitions": 200
+    },
+    "beats_persistence_sim": false,
+    "beats_persistence_deap": true
+  },
+  "react_closed_loop": {
+    "scenarios": [
+      {
+        "user": "anxious_user",
+        "scenario": "焦虑(高唤醒低效价)",
+        "plan": {
+          "cct": 3500,
+          "lux": 200,
+          "duration": 25
+        },
+        "confidence": 1.0,
+        "predicted": [
+          0.344,
+          0.266
+        ],
+        "actual_after": {
+          "valence": 0.56,
+          "arousal": 0.797
+        },
+        "delta_valence": 0.06,
+        "delta_arousal": -0.043,
+        "improved": true
+      },
+      {
+        "user": "sleepy_user",
+        "scenario": "困倦(低唤醒)",
+        "plan": {
+          "cct": 4000,
+          "lux": 500,
+          "duration": 20
+        },
+        "confidence": 1.0,
+        "predicted": [
+          0.353,
+          0.274
+        ],
+        "actual_after": {
+          "valence": 0.598,
+          "arousal": 0.129
+        },
+        "delta_valence": 0.098,
+        "delta_arousal": -0.031,
+        "improved": true
+      },
+      {
+        "user": "mild_low_user",
+        "scenario": "轻度低效价(亚健康)",
+        "plan": {
+          "cct": 4000,
+          "lux": 300,
+          "duration": 20
+        },
+        "confidence": 1.0,
+        "predicted": [
+          0.348,
+          0.272
+        ],
+        "actual_after": {
+          "valence": 0.885,
+          "arousal": 0.555
+        },
+        "delta_valence": 0.125,
+        "delta_arousal": 0.055,
+        "improved": true
+      }
+    ],
+    "improvement_rate": 1.0
+  },
+  "runtime_seconds": 110.6
+}

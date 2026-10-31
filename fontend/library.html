@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LumiMind · 知识与记忆管理</title>
+<style>
+:root{font-family:Microsoft YaHei,system-ui,sans-serif;color:#dce8f7;background:#0b1220}*{box-sizing:border-box}
+body{margin:0}header{padding:18px 28px;border-bottom:1px solid #26364e;display:flex;align-items:center;gap:25px}
+[hidden]{display:none!important}
+h1{font-size:20px;margin:0;color:#fff}nav{display:flex;gap:18px;margin-left:auto}a{color:#9cb0cb;text-decoration:none;font-size:14px}a:hover,.active{color:#64b3ff}
+main{max-width:1400px;margin:auto;padding:28px}h2{font-size:26px;margin:0 0 8px}p{line-height:1.6}.muted{color:#94a8c3;font-size:13px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:22px 0}.tab,.btn{border:1px solid #355275;border-radius:8px;background:#16243a;color:#dce8f7;padding:9px 15px;cursor:pointer;font:inherit;font-size:14px}.tab.on,.primary{background:#2476ba;border-color:#2476ba;color:white}.danger{color:#ffa6a6;border-color:#8a3a47}.btn:disabled{opacity:.5;cursor:wait}
+input,textarea,select{background:#101c2e;border:1px solid #38516e;color:#e7f0ff;border-radius:7px;padding:10px;font:inherit}input[type=search]{min-width:260px;flex:1}input[type=file]{max-width:310px}textarea{width:100%;min-height:260px;resize:vertical;line-height:1.6}label{font-size:13px;color:#b6c8dc}
+.layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:16px}.panel{background:#131f31;border:1px solid #2b405d;border-radius:12px;padding:18px;min-height:520px}.panel h3{margin:0 0 12px;font-size:16px}.list{max-height:65vh;overflow:auto}.item{width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid #2b405d;color:#e6efff;padding:13px 9px;cursor:pointer}.item:hover,.item.sel{background:#1c314c}.item strong{display:block;word-break:break-all;font-size:14px}.item small{display:block;color:#91abc8;margin-top:5px}.empty{color:#8298b1;padding:35px;text-align:center}.detail-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}.detail-head h3{word-break:break-all}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chunk{background:#0e1929;border:1px solid #29415d;padding:14px;margin:12px 0;border-radius:8px;white-space:pre-wrap;line-height:1.6;font-size:13px;max-height:220px;overflow:auto}.chunk b{color:#70baff}.stats{display:flex;gap:20px;margin:16px 0;color:#acc5e0}.notice{padding:10px 14px;background:#1b3148;border-radius:8px;margin:12px 0;min-height:39px}.notice.err{background:#4a2631;color:#ffb8bd}.note{border-left:3px solid #318ccc;padding-left:12px;margin:15px 0}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.panel{min-height:250px}header{flex-wrap:wrap}nav{margin-left:0}}
+</style></head><body>
+<header><h1>💡 LumiMind · 知识与记忆</h1><nav><a href="/page/home">首页</a><a href="/page/monitor">情绪监测</a><a href="/page/chat">AI 问答</a><a class="active" href="/page/library">知识库</a></nav></header>
+<main><h2>知识库管理</h2><p class="muted">查看真实 RAG 索引与用户长期记忆。此页面只允许本机访问；原始论文文件不会因索引操作而改变。</p>
+<div class="bar"><button class="tab on" id="tabDocs">文献库</button><button class="tab" id="tabMemory">运行记忆</button><button class="tab" id="tabExperiments">C-data 真实实验记录</button><input type="search" id="search" placeholder="搜索文件名、记忆或被试编号"><button class="btn" id="refresh">刷新</button></div>
+<section id="docTools" class="bar"><label>添加文献（PDF / DOCX / TXT / MD） <input type="file" id="file" accept=".pdf,.docx,.txt,.md"></label><button class="btn primary" id="upload">解析并写入 RAG</button><span class="muted">上传后可查看、编辑索引文本或从索引移除</span></section>
+<section id="memoryTools" class="bar" hidden><label>用户 ID <input id="userId" value="local_user" maxlength="128"></label><button class="btn primary" id="addMemory">新增记忆</button><span class="muted">自动记忆按生理情绪、光偏好、问答摘要分类</span></section>
+<div class="stats" id="stats"></div><div class="notice" id="status" role="status">正在读取知识库…</div>
+<div class="layout"><div class="panel"><h3 id="listTitle">已索引文献</h3><div class="list" id="list"></div></div><div class="panel" id="detail"><div class="empty">从左侧选择一项查看内容</div></div></div>
+</main><script>
+const $=id=>document.getElementById(id);let mode='docs',docs=[],memories=[],selected=null,busy=false;
+function msg(s,error=false){$('status').textContent=s;$('status').classList.toggle('err',error)}
+async function api(path,options={}){const r=await fetch(path,options);let d;try{d=await r.json()}catch{d={detail:`HTTP ${r.status}`}}if(!r.ok)throw Error(typeof d.detail==='string'?d.detail:JSON.stringify(d.detail));return d}
+function button(label,fn,cls='btn'){const b=document.createElement('button');b.className=cls;b.textContent=label;b.onclick=fn;return b}
+function text(tag,value,cls){const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;return e}
+function safeUser(){return $('userId').value.trim()||'local_user'}
+async function load(){try{msg('正在读取…');if(mode==='docs'){let d=await api('/api/library/documents');docs=d.documents;$('stats').textContent=`${docs.length} 个文献来源 · ${d.total_chunks} 个索引片段`}
+else{let d=await api('/api/library/memories?user_id='+encodeURIComponent(safeUser()));memories=d.memories;const types={};for(const m of memories){let k=m.metadata.mem_type||'其他';types[k]=(types[k]||0)+1}$('stats').textContent=`${memories.length} 条记忆 · `+Object.entries(types).map(([k,v])=>`${k} ${v}`).join(' · ')}renderList();msg('已读取真实索引数据')}catch(e){msg(e.message,true)}}
+function renderList(){let q=$('search').value.trim().toLowerCase(),items=mode==='docs'?docs.filter(x=>(x.source+' '+x.filename).toLowerCase().includes(q)):memories.filter(x=>(x.text+' '+x.metadata.mem_type+' '+x.id).toLowerCase().includes(q));let list=$('list');list.replaceChildren();if(!items.length){list.append(text('div','没有匹配内容','empty'));return}for(const x of items){let key=mode==='docs'?x.source:x.id;let b=document.createElement('button');b.className='item'+(selected===key?' sel':'');b.append(text('strong',mode==='docs'?x.filename:(x.metadata.mem_type||'记忆')+' · '+(x.metadata.timestamp||'').slice(0,19)),text('small',mode==='docs'?`${x.chunks} 片段 · ${x.characters} 字符 · ${x.source}`:x.text.slice(0,90)));b.onclick=()=>show(key);list.append(b)}}
+async function show(key){selected=key;renderList();try{if(mode==='docs'){let d=await api('/api/library/document?source='+encodeURIComponent(key));showDoc(d)}else showMemory(memories.find(x=>x.id===key))}catch(e){msg(e.message,true)}}
+function showDoc(d){let box=$('detail');box.replaceChildren();let head=text('h3',d.source);box.append(head,text('p',`${d.chunks.length} 个片段 · 以下是 RAG 实际检索的文本，不是原始 PDF 文件。`,'muted'));let actions=document.createElement('div');actions.className='actions';actions.append(button('编辑索引文本',()=>editDoc(d),'btn primary'),button('从 RAG 索引删除',()=>removeDoc(d.source),'btn danger'));box.append(actions);for(const c of d.chunks){let e=document.createElement('div');e.className='chunk';e.id='rag-chunk-'+c.metadata.chunk_index;e.append(text('b',`片段 ${Number(c.metadata.chunk_index)+1} / ${d.chunks.length}`),document.createElement('br'),text('span',c.text));box.append(e)}}
+function editDoc(d){let box=$('detail');box.replaceChildren(text('h3','编辑索引文本：'+d.source),text('p','保存后重新分块、生成向量；磁盘上的原始文献不改变。','muted'));let area=document.createElement('textarea');area.value=d.chunks.map(c=>c.text).join('\n\n');box.append(area);let actions=document.createElement('div');actions.className='actions';actions.append(button('保存并重新索引',async()=>{try{msg('正在重新索引…');await api('/api/library/document?source='+encodeURIComponent(d.source),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:area.value})});await load();await show(d.source);msg('索引文本已更新')}catch(e){msg(e.message,true)}},'btn primary'),button('取消',()=>show(d.source)));box.append(actions)}
+async function removeDoc(source){if(!confirm(`从 RAG 索引移除「${source}」？原始文件仍保留。`))return;try{let d=await api('/api/library/document?source='+encodeURIComponent(source),{method:'DELETE'});selected=null;$('detail').replaceChildren(text('div','已移除 '+d.deleted_chunks+' 个片段','empty'));await load();msg('已从索引移除：'+source)}catch(e){msg(e.message,true)}}
+function showMemory(m){if(!m)return;let box=$('detail');box.replaceChildren(text('h3',m.metadata.mem_type||'记忆'),text('p',`ID：${m.id} · 用户：${m.metadata.user_id} · ${m.metadata.timestamp||''}`,'muted'));let content=document.createElement('div');content.className='chunk';content.textContent=m.text;box.append(content);let meta=document.createElement('div');meta.className='note';meta.append(text('strong','元数据'),text('pre',JSON.stringify(m.metadata,null,2)));box.append(meta);let actions=document.createElement('div');actions.className='actions';actions.append(button('编辑记忆',()=>editMemory(m),'btn primary'),button('删除记忆',()=>removeMemory(m),'btn danger'));box.append(actions)}
+function editMemory(m){let box=$('detail');box.replaceChildren(text('h3','编辑记忆'));let area=document.createElement('textarea');area.value=m.text;box.append(area);let actions=document.createElement('div');actions.className='actions';actions.append(button('保存',async()=>{try{await api('/api/library/memory?memory_id='+encodeURIComponent(m.id),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:area.value})});await load();await show(m.id);msg('记忆已更新')}catch(e){msg(e.message,true)}},'btn primary'),button('取消',()=>showMemory(m)));box.append(actions)}
+async function removeMemory(m){if(!confirm(`删除这条 ${m.metadata.mem_type||''} 记忆？`))return;try{await api('/api/library/memory?memory_id='+encodeURIComponent(m.id),{method:'DELETE'});selected=null;$('detail').replaceChildren(text('div','记忆已删除','empty'));await load()}catch(e){msg(e.message,true)}}
+$('upload').onclick=async()=>{let f=$('file').files[0];if(!f)return msg('请先选择文献文件',true);if(busy)return;busy=true;$('upload').disabled=true;try{msg('正在解析并生成向量，较长文档需要等待…');let d=await api('/api/library/documents?filename='+encodeURIComponent(f.name),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:f});$('file').value='';await load();await show(d.source);msg(`已写入 ${d.chunks} 个片段`)}catch(e){msg(e.message,true)}finally{busy=false;$('upload').disabled=false}};
+$('addMemory').onclick=()=>{let box=$('detail');box.replaceChildren(text('h3','新增用户记忆'));let type=document.createElement('input');type.value='note';type.placeholder='类型，如 note';let area=document.createElement('textarea');area.placeholder='输入要保存的记忆内容';box.append(text('label','记忆类型'),type,area,button('保存记忆',async()=>{try{let d=await api('/api/library/memories',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:safeUser(),mem_type:type.value||'note',text:area.value})});await load();await show(d.id);msg('记忆已保存')}catch(e){msg(e.message,true)}},'btn primary'))};
+$('refresh').onclick=load;$('search').oninput=renderList;$('userId').onchange=load;for(const [id,m] of [['tabDocs','docs'],['tabMemory','memory']])$(id).onclick=()=>{mode=m;selected=null;$('tabDocs').classList.toggle('on',m==='docs');$('tabMemory').classList.toggle('on',m==='memory');$('docTools').hidden=m!=='docs';$('memoryTools').hidden=m!=='memory';$('listTitle').textContent=m==='docs'?'已索引文献':'用户长期记忆';$('detail').replaceChildren(text('div','从左侧选择一项查看内容','empty'));load()};load();
+</script>
+<script>
+// C-data is a research cohort, kept separate from the current user's live memory.
+let cdataRecords=[];
+const cdataLabels={positive_dominant:'积极占优',negative_dominant:'消极占优',mixed_high:'积极与消极均高',low_affect:'积极与消极均低'};
+const priorRefresh=$('refresh').onclick, priorSearch=$('search').oninput;
+function renderExperiments(){
+  const q=$('search').value.trim().toLowerCase(),list=$('list');list.replaceChildren();
+  const found=cdataRecords.filter(r=>(r.id+' '+r.subject_id+' '+r.group+' '+r.timepoint+' '+r.emotion_category).toLowerCase().includes(q));
+  if(!found.length){list.append(text('div','没有匹配的实验记录','empty'));return}
+  for(const r of found){
+    const b=document.createElement('button');b.className='item';
+    b.append(text('strong',r.subject_id+' · '+r.group+r.timepoint),text('small','PANAS PA '+r.pa+' / NA '+r.na+' · '+(cdataLabels[r.emotion_category]||r.emotion_category)));
+    b.onclick=()=>showExperiment(r);list.append(b)
+  }
+}
+function showExperiment(r){
+  const box=$('detail');box.replaceChildren(text('h3',r.subject_id+' · '+r.group+r.timepoint+' · PANAS 观测'),
+    text('p','来源：dataset/C-data 中的 SPSS .sav；编号是匿名实验被试。','muted'));
+  const fields=[['PA 正性情绪原分',r.pa],['NA 负性情绪原分',r.na],['情绪描述分组',r.emotion_category],
+    ['V 效价代理（0–1）',r.valence_proxy_0_1],['A 激活度探索代理（0–1）',r.activation_proxy_0_1],
+    ['HR 心率',r.heart_rate],['HF-HRV',r.hf_hrv],['LF/HF 平衡',r.lf_hf_balance],['交感指标',r.sympathetic]];
+  for(const [label,value] of fields){const line=document.createElement('div');line.className='chunk';line.style.margin='7px 0';
+    line.append(text('b',label+'：'),text('span',value==null?'原始数据缺失':String(cdataLabels[value]||value)));box.append(line)}
+  box.append(text('p','PA、NA、HR、HRV 是原始观测。V 是 PA−NA 换算代理值；A 是 PA+NA 的探索性激活代理值。PANAS 没有直接测得的 V/A 真值。','muted'));
+  const provenance=document.createElement('div');provenance.className='note';
+  provenance.append(text('strong','本地数据单元格来源'));
+  for(const [measure,cell] of Object.entries(r.source_cells||{}))
+    provenance.append(text('p',measure+'：'+cell.file+' · 被试者='+cell.subject_value+' · 列='+cell.value_column,'muted'));
+  box.append(provenance);
+  const related=r.related_literature;
+  if(related){box.append(text('h3','相关论文的 RAG 片段'),text('p',related.relation,'muted'));
+    for(const chunkId of related.chunk_ids){const number=Number(chunkId.split('#chunk')[1]);
+      box.append(button('查看论文片段 '+(number+1),async()=>{try{$('tabDocs').click();await show(related.source);
+        document.getElementById('rag-chunk-'+number)?.scrollIntoView({behavior:'smooth',block:'center'})}
+        catch(e){msg(e.message,true)}},'btn'))}}
+}
+async function loadExperiments(){try{msg('正在读取 C-data…');const d=await api('/api/library/experiments');cdataRecords=d.records;
+  $('stats').textContent=d.count+' 条真实 PANAS 观测 · 10 名匿名被试 · 5 组光照 × 3 个时间点';
+  renderExperiments();msg('已读取本地 C-data 实验记录')}catch(e){msg(e.message,true)}}
+$('tabExperiments').onclick=()=>{mode='experiments';selected=null;$('tabDocs').classList.remove('on');
+  $('tabMemory').classList.remove('on');$('tabExperiments').classList.add('on');$('docTools').hidden=true;
+  $('memoryTools').hidden=true;$('listTitle').textContent='C-data 实验观测';
+  $('detail').replaceChildren(text('div','从左侧选择一条实验记录','empty'));loadExperiments()};
+for(const id of ['tabDocs','tabMemory'])$(id).addEventListener('click',()=>$('tabExperiments').classList.remove('on'));
+$('refresh').onclick=()=>mode==='experiments'?loadExperiments():priorRefresh();
+$('search').oninput=()=>mode==='experiments'?renderExperiments():priorSearch();
+</script></body></html>

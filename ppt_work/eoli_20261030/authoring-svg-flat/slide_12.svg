@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient><linearGradient id="ggrad2" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0" stop-color="#060B14" stop-opacity="0" /><stop offset="0.7" stop-color="#060B14" stop-opacity="0.55" /><stop offset="1" stop-color="#060B14" stop-opacity="0.95" /></linearGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 584.32 91.86" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 302.09 19.39" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 365.45 42.4 L 365.45 61.79 L 63.36 61.79 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 04 · 世界模型与光环境决策 </tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 584.32 67.86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 646.32 66.4 L 646.32 134.26 L 62 134.26 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold"><tspan>系统闭环演示</tspan><tspan>·</tspan><tspan>监控界面</tspan></text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-15" data-pptx-object="group" data-pptx-frame="64 150 1154 400" data-pptx-source-ref="slide:15">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="64 150 1152 400" data-pptx-prst="roundRect" data-pptx-av-adj="val 2500" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 64 160 A 10 10 0 0 1 74 150 L 1206 150 A 10 10 0 0 1 1216 160 L 1216 540 A 10 10 0 0 1 1206 550 L 74 550 A 10 10 0 0 1 64 540 Z" fill="#141E32" stroke-width="2" stroke="#6E7F99" stroke-dasharray="10 5" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-7" data-pptx-object="shape" data-pptx-frame="66 150 1152 400" data-pptx-prst="roundRect" data-pptx-av-adj="val 2500" data-pptx-source-ref="slide:7" data-pptx-semantic-object="shape">
+<path d="M 66 160 A 10 10 0 0 1 76 150 L 1208 150 A 10 10 0 0 1 1218 160 L 1218 540 A 10 10 0 0 1 1208 550 L 76 550 A 10 10 0 0 1 66 540 Z" fill="url(#ggrad2)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="592 252 96 96" data-pptx-prst="ellipse" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 592 300 A 48 48 0 0 1 640 252 A 48 48 0 0 1 688 300 A 48 48 0 0 1 640 348 A 48 48 0 0 1 592 300 Z" fill="#1A2740" stroke-width="2.49995" stroke="#5AA7FF" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="631.67 286.67 21.67 26.67" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 631.67 286.67 L 631.67 313.33 L 653.33 300 L 631.67 286.67" data-pptx-part="geometry" fill="none" stroke-width="3.33333" stroke="#5AA7FF" />
+</g>
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="496.26 364.8 287.49 49.28" data-pptx-prst="rect" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 496.26 364.8 L 783.74 364.8 L 783.74 414.08 L 496.26 414.08 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="640" y="392" text-anchor="middle" xml:space="preserve" font-size="32" fill="#E8EEF7" font-weight="bold">完整闭环演示视频</text>
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="350.35 413 579.3 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 350.35 413 L 929.65 413 L 929.65 443.8 L 350.35 443.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="640" y="430" text-anchor="middle" xml:space="preserve" font-size="20" fill="#A9B7CC">30–45 秒 · 建议置入 16:9 视频（1152×648）· 此处播放视频</text>
+</g>
+</g>
+<g id="shape-33" data-pptx-object="group" data-pptx-frame="64 612 1096 56" data-pptx-source-ref="slide:33">
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="64 612 200 56" data-pptx-prst="roundRect" data-pptx-av-adj="val 17857" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 64 622 A 10 10 0 0 1 74 612 L 254 612 A 10 10 0 0 1 264 622 L 264 658 A 10 10 0 0 1 254 668 L 74 668 A 10 10 0 0 1 64 658 Z" fill="#1A2740" stroke-width="1.50005" stroke="#5AA7FF" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-19" data-pptx-object="shape" data-pptx-frame="91.2 631 26.09 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:19" data-pptx-semantic-object="shape">
+<path d="M 91.2 631 L 117.29 631 L 117.29 661.8 L 91.2 661.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="91.2" y="648" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="20" fill="#5AA7FF" font-weight="bold">01</text>
+</g>
+<g id="shape-20" data-pptx-object="shape" data-pptx-frame="163.04 627.6 52.8 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:20" data-pptx-semantic-object="shape">
+<path d="M 163.04 627.6 L 215.84 627.6 L 215.84 664.56 L 163.04 664.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="163.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">感知</text>
+</g>
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="288 612 200 56" data-pptx-prst="roundRect" data-pptx-av-adj="val 17857" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 288 622 A 10 10 0 0 1 298 612 L 478 612 A 10 10 0 0 1 488 622 L 488 658 A 10 10 0 0 1 478 668 L 298 668 A 10 10 0 0 1 288 658 Z" fill="#1A2740" stroke-width="1.50005" stroke="#63E6D2" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="315.2 631 26.09 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 315.2 631 L 341.29 631 L 341.29 661.8 L 315.2 661.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="315.2" y="648" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="20" fill="#63E6D2" font-weight="bold">02</text>
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="387.04 627.6 52.8 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 387.04 627.6 L 439.84 627.6 L 439.84 664.56 L 387.04 664.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="387.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">预测</text>
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="512 612 200 56" data-pptx-prst="roundRect" data-pptx-av-adj="val 17857" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 512 622 A 10 10 0 0 1 522 612 L 702 612 A 10 10 0 0 1 712 622 L 712 658 A 10 10 0 0 1 702 668 L 522 668 A 10 10 0 0 1 512 658 Z" fill="#1A2740" stroke-width="1.50005" stroke="#FFB547" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-25" data-pptx-object="shape" data-pptx-frame="539.2 631 26.09 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:25" data-pptx-semantic-object="shape">
+<path d="M 539.2 631 L 565.29 631 L 565.29 661.8 L 539.2 661.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="539.2" y="648" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="20" fill="#FFB547" font-weight="bold">03</text>
+</g>
+<g id="shape-26" data-pptx-object="shape" data-pptx-frame="611.04 627.6 52.8 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:26" data-pptx-semantic-object="shape">
+<path d="M 611.04 627.6 L 663.84 627.6 L 663.84 664.56 L 611.04 664.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="611.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">决策</text>
+</g>
+<g id="shape-27" data-pptx-object="shape" data-pptx-frame="736 612 200 56" data-pptx-prst="roundRect" data-pptx-av-adj="val 17857" data-pptx-source-ref="slide:27" data-pptx-semantic-object="shape">
+<path d="M 736 622 A 10 10 0 0 1 746 612 L 926 612 A 10 10 0 0 1 936 622 L 936 658 A 10 10 0 0 1 926 668 L 746 668 A 10 10 0 0 1 736 658 Z" fill="#1A2740" stroke-width="1.50005" stroke="#5AA7FF" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-28" data-pptx-object="shape" data-pptx-frame="763.2 631 26.09 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:28" data-pptx-semantic-object="shape">
+<path d="M 763.2 631 L 789.29 631 L 789.29 661.8 L 763.2 661.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="763.2" y="648" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="20" fill="#5AA7FF" font-weight="bold">04</text>
+</g>
+<g id="shape-29" data-pptx-object="shape" data-pptx-frame="835.04 627.6 52.8 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:29" data-pptx-semantic-object="shape">
+<path d="M 835.04 627.6 L 887.84 627.6 L 887.84 664.56 L 835.04 664.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="835.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">执行</text>
+</g>
+<g id="shape-30" data-pptx-object="shape" data-pptx-frame="960 612 200 56" data-pptx-prst="roundRect" data-pptx-av-adj="val 17857" data-pptx-source-ref="slide:30" data-pptx-semantic-object="shape">
+<path d="M 960 622 A 10 10 0 0 1 970 612 L 1150 612 A 10 10 0 0 1 1160 622 L 1160 658 A 10 10 0 0 1 1150 668 L 970 668 A 10 10 0 0 1 960 658 Z" fill="#1A2740" stroke-width="1.50005" stroke="#63E6D2" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-31" data-pptx-object="shape" data-pptx-frame="987.2 631 26.09 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:31" data-pptx-semantic-object="shape">
+<path d="M 987.2 631 L 1013.29 631 L 1013.29 661.8 L 987.2 661.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="987.2" y="648" text-anchor="start" xml:space="preserve" font-family="Consolas, sans-serif" font-size="20" fill="#63E6D2" font-weight="bold">05</text>
+</g>
+<g id="shape-32" data-pptx-object="shape" data-pptx-frame="1059.04 627.6 52.8 36.96" data-pptx-prst="rect" data-pptx-source-ref="slide:32" data-pptx-semantic-object="shape">
+<path d="M 1059.04 627.6 L 1111.84 627.6 L 1111.84 664.56 L 1059.04 664.56 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1059.04" y="648" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7">评估</text>
+</g>
+</g>
+<g id="shape-36" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:36">
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">12 / 20</text>
+</g>
+</g>
+<g id="shape-38" data-pptx-object="picture" data-pptx-frame="104.24 160.71 1033.66 389.29" data-pptx-source-ref="slide:38">
+<svg data-pptx-object="picture" data-pptx-frame="104.24 160.71 1033.66 389.29" x="104.24" y="160.71" width="1033.66" height="389.29" viewBox="0.01102 0.16173 0.98868 0.66196" preserveAspectRatio="none" overflow="hidden"><image href="../images/image13.png" x="0" y="0" width="1" height="1" preserveAspectRatio="none" /></svg>
+</g></svg>

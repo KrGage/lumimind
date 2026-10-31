@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 
@@ -11,21 +10,11 @@ _agent_root = Path(__file__).resolve().parent.parent.parent
 if str(_agent_root) not in sys.path:
     sys.path.insert(0, str(_agent_root))
 
-from app.api import agent_api, chat_api, feedback_api, model_api, session_api
+from app.api import agent_api, chat_api, feedback_api, library_api, manual_light_api, model_api, session_api
 from app.config import settings
 from app.db.database import init_db
 
 app = FastAPI(title=settings.app_name)
-
-# CORS 跨域支持 — 允许前端页面从任意来源访问后端 API
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 @app.on_event("startup")
 def on_startup() -> None:
@@ -38,6 +27,7 @@ PAGE_ROUTES = {
     "/page/monitor":  "/fontend/index-V2.html",
     "/page/chat":     "/fontend/ai-chat.html",
     "/page/settings": "/fontend/settings.html",
+    "/page/library":  "/fontend/library.html",
 }
 
 
@@ -63,7 +53,9 @@ app.include_router(model_api.router)
 app.include_router(agent_api.router)
 app.include_router(feedback_api.router)
 app.include_router(chat_api.router)
+app.include_router(manual_light_api.router)
+app.include_router(library_api.router)
 
-# 托管前端静态页面 — 可通过 http://127.0.0.1:8000/index.html 访问 index-V2.html
-app.mount("/", StaticFiles(directory="../", html=True), name="static")
+# 只公开前端文件；不要把 .env、数据库和模型文件作为静态资源暴露到局域网。
+app.mount("/fontend", StaticFiles(directory=_agent_root / "fontend", html=True), name="frontend")
 

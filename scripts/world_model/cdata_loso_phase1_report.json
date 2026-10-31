@@ -1,0 +1,332 @@
+{
+  "protocol": "real-subject LOSO; fold-only moments/generator; input and target masks",
+  "seed": 20261026,
+  "n_subjects": 10,
+  "n_test_transitions": 100,
+  "direction_definition": "sign of next-minus-current, scored only when absolute true change > 0.5 raw units; zero prediction is incorrect",
+  "metrics": {
+    "valence_proxy_PA_minus_NA": {
+      "persistence": {
+        "n": 100,
+        "mae_raw_units": 5.49,
+        "direction_accuracy": 0.0,
+        "direction_n": 93,
+        "subjects": 10
+      },
+      "ridge": {
+        "n": 100,
+        "mae_raw_units": 5.7913,
+        "direction_accuracy": 0.6452,
+        "direction_n": 93,
+        "subjects": 10
+      },
+      "small_world_real": {
+        "n": 100,
+        "mae_raw_units": 6.9968,
+        "direction_accuracy": 0.6667,
+        "direction_n": 93,
+        "subjects": 10
+      },
+      "small_world_mock": {
+        "n": 100,
+        "mae_raw_units": 6.192,
+        "direction_accuracy": 0.6129,
+        "direction_n": 93,
+        "subjects": 10
+      },
+      "transformer_real": {
+        "n": 100,
+        "mae_raw_units": 6.1607,
+        "direction_accuracy": 0.6129,
+        "direction_n": 93,
+        "subjects": 10
+      },
+      "transformer_mock": {
+        "n": 100,
+        "mae_raw_units": 5.9671,
+        "direction_accuracy": 0.6237,
+        "direction_n": 93,
+        "subjects": 10
+      }
+    },
+    "PA": {
+      "persistence": {
+        "n": 100,
+        "mae_raw_units": 4.7,
+        "direction_accuracy": 0.0,
+        "direction_n": 91,
+        "subjects": 10
+      },
+      "ridge": {
+        "n": 100,
+        "mae_raw_units": 4.2788,
+        "direction_accuracy": 0.6154,
+        "direction_n": 91,
+        "subjects": 10
+      },
+      "small_world_real": {
+        "n": 100,
+        "mae_raw_units": 4.7842,
+        "direction_accuracy": 0.6593,
+        "direction_n": 91,
+        "subjects": 10
+      },
+      "small_world_mock": {
+        "n": 100,
+        "mae_raw_units": 4.5743,
+        "direction_accuracy": 0.5934,
+        "direction_n": 91,
+        "subjects": 10
+      },
+      "transformer_real": {
+        "n": 100,
+        "mae_raw_units": 4.7874,
+        "direction_accuracy": 0.5934,
+        "direction_n": 91,
+        "subjects": 10
+      },
+      "transformer_mock": {
+        "n": 100,
+        "mae_raw_units": 4.4842,
+        "direction_accuracy": 0.6264,
+        "direction_n": 91,
+        "subjects": 10
+      }
+    },
+    "NA": {
+      "persistence": {
+        "n": 100,
+        "mae_raw_units": 2.09,
+        "direction_accuracy": 0.0,
+        "direction_n": 65,
+        "subjects": 10
+      },
+      "ridge": {
+        "n": 100,
+        "mae_raw_units": 2.6576,
+        "direction_accuracy": 0.5846,
+        "direction_n": 65,
+        "subjects": 10
+      },
+      "small_world_real": {
+        "n": 100,
+        "mae_raw_units": 3.1582,
+        "direction_accuracy": 0.4769,
+        "direction_n": 65,
+        "subjects": 10
+      },
+      "small_world_mock": {
+        "n": 100,
+        "mae_raw_units": 2.7926,
+        "direction_accuracy": 0.6,
+        "direction_n": 65,
+        "subjects": 10
+      },
+      "transformer_real": {
+        "n": 100,
+        "mae_raw_units": 2.9061,
+        "direction_accuracy": 0.6308,
+        "direction_n": 65,
+        "subjects": 10
+      },
+      "transformer_mock": {
+        "n": 100,
+        "mae_raw_units": 2.7784,
+        "direction_accuracy": 0.6308,
+        "direction_n": 65,
+        "subjects": 10
+      }
+    },
+    "arousal": {
+      "status": "unavailable",
+      "reason": "C-data has no direct arousal self-report label; KSS and VAS-F measure sleepiness and fatigue."
+    }
+  },
+  "folds": [
+    {
+      "held_subject": 1,
+      "train_subjects": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 25.68148148148148
+    },
+    {
+      "held_subject": 2,
+      "train_subjects": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 25.637037037037036
+    },
+    {
+      "held_subject": 3,
+      "train_subjects": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 24.822222222222223
+    },
+    {
+      "held_subject": 4,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 24.77037037037037
+    },
+    {
+      "held_subject": 5,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 26.303703703703704
+    },
+    {
+      "held_subject": 6,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 26.4
+    },
+    {
+      "held_subject": 7,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 26.11111111111111
+    },
+    {
+      "held_subject": 8,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 25.666666666666668
+    },
+    {
+      "held_subject": 9,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 26.288888888888888
+    },
+    {
+      "held_subject": 10,
+      "train_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n_train_real": 90,
+      "n_train_mock": 300,
+      "n_test_real": 10,
+      "PA_train_mean": 25.85185185185185
+    }
+  ],
+  "caveats": [
+    "Valence is a PA−NA proxy, not a direct SAM valence rating.",
+    "Arousal cannot be scored on this C-data.",
+    "Transitions describe continued exposure within a lighting condition, not observed switches between lighting conditions."
+  ]
+}

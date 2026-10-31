@@ -1,0 +1,12 @@
+{
+  "lamp_ip": "192.168.31.58", 
+  "udp_port": 26666,
+  "room_id": 1,
+  "min_ra": 80,
+  "iteration_step": 50,
+  "solve_timeout_seconds": 60,
+  "emotion_profiles": {
+    "normal_office_light": { "cct_k": 4500, "illuminance_lux": 300 },
+    "adjustment_light": { "cct_k": 5000, "illuminance_lux": 300 }
+  }
+}

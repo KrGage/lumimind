@@ -1,0 +1,28 @@
+{
+  "schema": "ppt-master.source_to_md.profile.v1",
+  "converter": "ppt_to_md.py",
+  "conversion_type": "pptx",
+  "source": {
+    "path": "D:/研究生/项目内容/杂事/光源智能体设计大赛/LumiMind_基于情绪感知的智能光环境调控系统.pptx",
+    "name": "LumiMind_基于情绪感知的智能光环境调控系统.pptx",
+    "suffix": ".pptx",
+    "kind": "file",
+    "exists": true,
+    "size_bytes": 1703198
+  },
+  "outputs": {
+    "markdown": "_ppt_src",
+    "asset_dir": "_ppt_src_files",
+    "image_manifest": "_ppt_src_files/image_manifest.json",
+    "image_count": 9
+  },
+  "markdown": {
+    "line_count": 964,
+    "char_count": 7505,
+    "heading_count": 22,
+    "table_count": 0,
+    "image_ref_count": 9,
+    "link_count": 0
+  },
+  "warnings": []
+}

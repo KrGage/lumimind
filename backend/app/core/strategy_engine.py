@@ -1,4 +1,6 @@
 from uuid import uuid4
+import json
+from pathlib import Path
 
 from app.core.decision_engine import decide_action
 from app.core.prompt_generator import build_strategy_message
@@ -30,6 +32,13 @@ def build_strategy(session: SessionModel, stats: EmotionStats) -> StrategyRespon
         in_cooldown=in_cooldown,
     )
 
+    recommended_lighting = None
+    if trigger_popup:
+        config_path = Path(__file__).resolve().parents[3] / "light_control" / "light_config.json"
+        config = json.loads(config_path.read_text(encoding="utf-8-sig"))
+        profile = "adjustment_light" if action == AgentAction.switch_to_adjustment_light else "normal_office_light"
+        recommended_lighting = config["emotion_profiles"][profile]
+
     return StrategyResponse(
         strategy_id=f"strategy_{uuid4().hex[:12]}",
         session_id=session.session_id,
@@ -37,6 +46,7 @@ def build_strategy(session: SessionModel, stats: EmotionStats) -> StrategyRespon
         trigger_popup=trigger_popup,
         current_light_mode=current_light_mode,
         recommended_action=action,
+        recommended_lighting=recommended_lighting,
         message=message,
         emotion_stats=stats,
         in_cooldown=in_cooldown,

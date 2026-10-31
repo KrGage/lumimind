@@ -1,0 +1,28 @@
+{
+  "schema": "ppt-master.source_to_md.profile.v1",
+  "converter": "ppt_to_md.py",
+  "conversion_type": "pptx",
+  "source": {
+    "path": "D:/研究生/项目内容/杂事/光源智能体设计大赛/项目主体/ppt_work/eoli_20261030/sources/source.pptx",
+    "name": "source.pptx",
+    "suffix": ".pptx",
+    "kind": "file",
+    "exists": true,
+    "size_bytes": 19727894
+  },
+  "outputs": {
+    "markdown": "source_readback.md",
+    "asset_dir": "source_readback_files",
+    "image_manifest": "source_readback_files/image_manifest.json",
+    "image_count": 22
+  },
+  "markdown": {
+    "line_count": 897,
+    "char_count": 10370,
+    "heading_count": 21,
+    "table_count": 0,
+    "image_ref_count": 22,
+    "link_count": 0
+  },
+  "warnings": []
+}

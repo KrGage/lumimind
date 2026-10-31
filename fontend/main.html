@@ -450,6 +450,18 @@
             background: var(--accent); border-radius: 50%; cursor: pointer;
             box-shadow: 0 0 6px rgba(13,148,136,0.4);
         }
+        .manual-light-controls {
+            margin: 0.8rem 0; padding: 0.7rem; border: 1px solid var(--border);
+            border-radius: 0.6rem; background: #0F1A2E;
+        }
+        .manual-light-controls input[type="number"] {
+            width: 100%; margin: 0.3rem 0 0.6rem; padding: 0.45rem;
+            border: 1px solid var(--border); border-radius: 0.4rem;
+            background: #141E32; color: var(--text-primary); font: inherit;
+        }
+        #manualLightStatus { display: block; margin-top: 0.55rem; font-size: 0.68rem; color: var(--text-secondary); }
+        #manualLightStatus.ok { color: var(--success); }
+        #manualLightStatus.error { color: var(--danger); }
 
         /* Light Preview Area */
         .light-preview-inner {
@@ -563,6 +575,7 @@
             <a href="/page/home" class="nav-link active">🏠 首页</a>
             <a href="/page/monitor" class="nav-link">📊 数据监测</a>
             <a href="/page/chat" class="nav-link">💬 AI问答</a>
+            <a href="/page/library" class="nav-link">📚 知识库</a>
             <a href="/page/settings" class="nav-link">⚙️ 设置</a>
         </nav>
     </div>
@@ -718,16 +731,22 @@
             <div class="light-detail-expand" id="lightDetailExpand">
                 <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.6rem;">
                     <div class="light-detail-control">
-                        <label>💡 亮度模拟 <span id="detailBrightnessVal">72%</span></label>
+                        <label>💡 亮度预览（仅动画） <span id="detailBrightnessVal">72%</span></label>
                         <input type="range" id="detailBrightness" min="10" max="100" value="72">
                     </div>
                     <div class="light-detail-control">
-                        <label>🌡️ 色温微调 (K) <span id="detailTempVal">4500K</span></label>
+                        <label>🌡️ 色温目标与预览 (K) <span id="detailTempVal">4500K</span></label>
                         <input type="range" id="detailTemp" min="2700" max="6500" step="50" value="4500">
                     </div>
                 </div>
+                <div class="manual-light-controls">
+                    <label for="manualLux" style="font-size:0.7rem;font-weight:700;">手动调光目标照度 (lx)</label>
+                    <input type="number" id="manualLux" min="1" max="30000" step="1" value="300">
+                    <button class="btn" type="button" id="btnApplyManualLight">将目标照度和上方色温下发到灯具</button>
+                    <span id="manualLightStatus" role="status" aria-live="polite">滑动预览不会调灯；点击按钮后才会下发。报文发送不代表实测达标。</span>
+                </div>
                 <div style="border-top:1px solid var(--border);padding-top:0.5rem;">
-                    <div style="font-size:0.68rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">📊 核心光疗参数</div>
+                    <div style="font-size:0.68rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.4rem;">📊 动画预览参数（非灯具实测）</div>
                     <div class="param-row"><span class="pn">当前光模式</span><span class="pv" id="detailLightMode">正常办公光</span></div>
                     <div class="param-row"><span class="pn">照度 (lx)</span><span class="pv" id="detailLux">620</span></div>
                     <div class="param-row"><span class="pn">色温 (K)</span><span class="pv" id="detailCCT">4500</span></div>
@@ -755,7 +774,7 @@
 <script src="demo_data.js"></script>
 <script>
 (function() {
-    const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
+    const API_BASE = window.LUMIMIND_API_BASE ?? "";
     document.getElementById("apiBaseHint").textContent = "API → " + (API_BASE || location.origin);
 
     // ──────── Physiology Data ────────
@@ -1347,6 +1366,46 @@
             });
         }
     })();
+
+    // Manual control is explicit: preview sliders never call the lamp API.
+    async function applyManualLight() {
+        const button = document.getElementById("btnApplyManualLight");
+        const status = document.getElementById("manualLightStatus");
+        const lux = Number(document.getElementById("manualLux").value);
+        const cct = Number(document.getElementById("detailTemp").value);
+        if (!Number.isFinite(lux) || lux <= 0 || lux > 30000 || !Number.isInteger(cct)) {
+            status.textContent = "请输入有效的目标照度和色温。";
+            status.className = "error";
+            return;
+        }
+        if (!window.crypto?.randomUUID) {
+            status.textContent = "当前浏览器无法生成命令编号，请在本机现代浏览器中打开页面。";
+            status.className = "error";
+            return;
+        }
+        button.disabled = true;
+        status.textContent = "正在计算灯光配方并下发…";
+        status.className = "";
+        try {
+            const result = await api("/api/light/manual", {
+                method: "POST",
+                body: JSON.stringify({
+                    command_id: crypto.randomUUID(),
+                    cct_k: cct,
+                    illuminance_lux: lux,
+                    session_id: sessionReady ? document.getElementById("sessionId").value.trim() : null,
+                }),
+            });
+            status.textContent = `已发送 ${result.target.cct_k} K / ${result.target.illuminance_lux} lx；请用 ULTRA 核对实测值。`;
+            status.className = "ok";
+        } catch (err) {
+            status.textContent = `调光未确认：${err.message}。请先核对灯具状态，勿立即重复下发。`;
+            status.className = "error";
+        } finally {
+            button.disabled = false;
+        }
+    }
+    document.getElementById("btnApplyManualLight").addEventListener("click", applyManualLight);
 
     // ──────── API Functions ────────
     async function api(path, options = {}) {

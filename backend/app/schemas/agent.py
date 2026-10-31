@@ -31,6 +31,7 @@ class StrategyResponse(BaseModel):
     trigger_popup: bool
     current_light_mode: LightMode
     recommended_action: AgentAction
+    recommended_lighting: dict[str, float | int] | None = None
     message: str
     emotion_stats: EmotionStats
     in_cooldown: bool = False

@@ -1,0 +1,2 @@
+# Install into the existing agent environment; keep its other dependencies.
+bleak==3.0.1

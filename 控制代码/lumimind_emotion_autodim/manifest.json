@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "files": [
+    {
+      "path": "backend/app/schemas/agent.py",
+      "sha256": "e9b6eb2a090aca360a7409b50a83954ccfc06bd08c35a7907efed0cf874e52c3",
+      "base_sha256": "75ad385ede50f944d8fcb60b138559b97c2e26481fddba628164cc96f8a8cbb0",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/schemas/emotion.py",
+      "sha256": "e0ca6f88b4e55e4f0c58478fcc9833512e6d5f0b9d97215a6a85478f4defc225",
+      "base_sha256": "2d06a7da67993c6c444e569a329f4223c779b5fc5bc8f4b204ac428555d337a3",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/core/strategy_engine.py",
+      "sha256": "265aeedb7bbbaed8990ea913232d50b690f9e9118a48bd4c3d61ff2077b936db",
+      "base_sha256": "67c8ceed5fbe0f878e4c41afce3b61acceac2c115a08ef43f0f92d8335e8d796",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/api/model_api.py",
+      "sha256": "70df45b0c31cb1c7bb14e665b1d07f1d9e2f6c684f866a30505563f1f38f3fb3",
+      "base_sha256": "84813ad3fdd854dc42131a38102b9fdaf18524177552f5541bd68477ceeedae9",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/api/agent_api.py",
+      "sha256": "4ecad517da6e756ca9352d062fae5223b2cf9574288fbcc9f7a616926bed8591",
+      "base_sha256": "065b938a4bfee46d9901e540316ca2969a7990b9c1f4fea23aea14392ed29481",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/api/feedback_api.py",
+      "sha256": "75760727896ddfcce4660429b6de801bf54ee5ab7d7de555f724ce088d2fac80",
+      "base_sha256": "ee92914a115493964075b6f3329a352a11166c9c63b323fb0914e276fb07f65d",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/db/crud.py",
+      "sha256": "429807020d64cd4a89859958badc8a2859829ab8e32871162951501d0fbbcc99",
+      "base_sha256": "df348c8788832948520ed368e2bdc341b4f1938d742d83cb9838ee7308e2fd12",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "fontend/index-V2.html",
+      "sha256": "46fa82c9d4c54251509fd7e2b88b79bace7b36c4ba8a575f92270042f3b127f8",
+      "base_sha256": "7d27a93dd37e2e73d23f3f28dd071921410c544393cd59007c6a385c6e280a57",
+      "mode": "replace",
+      "required_existing": true
+    },
+    {
+      "path": "backend/app/schemas/lighting.py",
+      "sha256": "f2d824dd549f95fe5b0f458bca0c7105f62c7edf6c5f9870cc16249f92767295",
+      "base_sha256": null,
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "backend/app/core/lighting_profiles.py",
+      "sha256": "0123e357c8df0f30ba745a9e1f6fc45be11ca7a2b027958fbaffcb579d01e232",
+      "base_sha256": null,
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "backend/app/core/lighting_execution.py",
+      "sha256": "3623ac0f91d6890af0922da5ac050ca0c56c760d9966da83f6db4d06437c4a89",
+      "base_sha256": null,
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/lumimind_light.py",
+      "sha256": "e8fd3d6d6178bc99b5739ab3ede7d126fcff57f9afb2170263ccdcceb35286af",
+      "base_sha256": "e8fd3d6d6178bc99b5739ab3ede7d126fcff57f9afb2170263ccdcceb35286af",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/light_config.json",
+      "sha256": "3e01daf68ed09772b494aebcdf3d5fb8894df7b607b16f1f9d37558e618fba05",
+      "base_sha256": "3511413f5150be39f335a1656957a5fcf3d29d04cfc9fa9e4d2f4ecab6ce0b03",
+      "mode": "merge_config",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/接入说明.md",
+      "sha256": "526baaacfa2a3416f8690ab8438edd018616a4132bd715306360c921e747da18",
+      "base_sha256": "59d9ec14206368cb75e8963a73375a026797902bc3df8a3b26689ae038804bd8",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/runtime/LightBridge.exe",
+      "sha256": "f8c72d3f9bcb56516a68ee4c3817bedae7cddea92affafaea38306a63774f8c8",
+      "base_sha256": "f8c72d3f9bcb56516a68ee4c3817bedae7cddea92affafaea38306a63774f8c8",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/runtime/LightBridge.exe.config",
+      "sha256": "c3fcd94f1c65dc24d868964104342a3a594c54fded8c4bf92e73e7c6e19532a3",
+      "base_sha256": "c3fcd94f1c65dc24d868964104342a3a594c54fded8c4bf92e73e7c6e19532a3",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/runtime/FudanLight.Optics.dll",
+      "sha256": "04eca8010df5bc72945fe31ae1497363196c8ae5d0e4d03adcb80cc9064b7126",
+      "base_sha256": "04eca8010df5bc72945fe31ae1497363196c8ae5d0e4d03adcb80cc9064b7126",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/runtime/Newtonsoft.Json.dll",
+      "sha256": "e1e27af7b07eeedf5ce71a9255f0422816a6fc5849a483c6714e1b472044fa9d",
+      "base_sha256": "e1e27af7b07eeedf5ce71a9255f0422816a6fc5849a483c6714e1b472044fa9d",
+      "mode": "replace",
+      "required_existing": false
+    },
+    {
+      "path": "light_control/runtime/Calibrations/Room1_Calibration.json",
+      "sha256": "28f780075bc0aca1702840b21383c57390207a89acd9cbf403f8f491934eb87f",
+      "base_sha256": null,
+      "mode": "preserve",
+      "required_existing": false
+    }
+  ]
+}

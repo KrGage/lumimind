@@ -1,6 +1,6 @@
 # Lumimind Backend
 
-Lumimind 是一个基于电脑摄像头情绪识别的办公光环境调节决策 Agent 后端。第一版只负责接收模型输出、统计情绪窗口、生成调光建议、记录人工执行和用户反馈，不直接控制硬件。
+Lumimind 后端接收情绪结果、生成建议并记录反馈。主界面另提供独立的手动单灯控制接口：明确输入照度和色温并点击下发后，调用本地 SDK 配方计算与 UDP 灯控；情绪建议仍按原有流程运行。
 
 ## 启动
 
@@ -26,6 +26,12 @@ http://127.0.0.1:8000/docs
 - `POST /api/agent/light-mode` 更新当前光模式
 - `POST /api/feedback` 接收前端反馈
 - `GET /api/session/logs?session_id=demo_001` 获取 session 日志
+- `POST /api/light/manual` 手动下发照度与色温（本机页面使用，需唯一 `command_id`）
+- `GET /api/light/manual/latest` 查看最近一条手动命令与发送状态
+
+手动调光需要在 `ai_agent/light_control/light_config.json` 配置真实灯具 IP，并核对随包标定文件。`sent` 只表示 UDP 报文已发送，不代表实测达标；参数与运行条件见 `ai_agent/light_control/README.md`。灯控只从本机访问，后端使用一个 worker。
+
+情绪监测页的调光弹窗提供“使用推荐参数”“自定义参数”“暂不接受”。前两项都调用同一个单灯手动调光接口，每次确认生成新的命令编号；暂不接受只记录反馈。当前本地情绪策略只决定光模式，弹窗数值来自 `light_config.json` 的 `emotion_profiles` 演示预设，不代表按情绪实时优化的处方。发送成功后仍须用外部监测核对实际照度与色温；发送结果未确认时不要直接重试。
 
 ## 模式
 

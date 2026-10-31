@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 377.97 110" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 227.52 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 290.88 42.4 L 290.88 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 07 · 前端界面展示</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 377.97 86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 439.97 66.4 L 439.97 152.4 L 62 152.4 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-size="56" fill="#E8EEF7" font-weight="bold">前端交互系统</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-7" data-pptx-object="group" data-pptx-frame="62.72 156.8 1123.51 38.78" data-pptx-source-ref="slide:7">
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="62.72 156.8 1123.51 38.78" data-pptx-prst="rect" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 62.72 156.8 L 1186.23 156.8 L 1186.23 195.58 L 62.72 195.58 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62.72" y="184" text-anchor="start" xml:space="preserve" font-size="32" fill="#E8EEF7"><tspan>HTML + JavaScript 四页面覆盖</tspan><tspan fill="#FFB547">主控台</tspan><tspan fill="#FFB547">生理信号，情绪状态与光环境</tspan><tspan font-family="sans-serif">监控全</tspan><tspan>功能</tspan></text>
+</g>
+</g>
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="64 214 542.86 405.5" data-pptx-prst="roundRect" data-pptx-av-adj="val 5102" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 64 234.69 A 20.69 20.69 0 0 1 84.69 214 L 586.17 214 A 20.69 20.69 0 0 1 606.86 234.69 L 606.86 598.81 A 20.69 20.69 0 0 1 586.17 619.5 L 84.69 619.5 A 20.69 20.69 0 0 1 64 598.81 Z" fill="#141E32" stroke-width="1.50005" stroke="#6E7F99" stroke-dasharray="6.0002 4.0001383335" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-13" data-pptx-object="group" data-pptx-frame="98 246 24 24" data-pptx-source-ref="slide:13">
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="98 246 9 12" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 99.5 246 L 105.5 246 C 106.33 246 107 246.67 107 247.5 L 107 256.5 C 107 257.33 106.33 258 105.5 258 L 99.5 258 C 98.67 258 98 257.33 98 256.5 L 98 247.5 C 98 246.67 98.67 246 99.5 246" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#5AA7FF" />
+</g>
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="98 264 9 6" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 99.5 264 L 105.5 264 C 106.33 264 107 264.67 107 265.5 L 107 268.5 C 107 269.33 106.33 270 105.5 270 L 99.5 270 C 98.67 270 98 269.33 98 268.5 L 98 265.5 C 98 264.67 98.67 264 99.5 264" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#5AA7FF" />
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="113 258 9 12" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 114.5 258 L 120.5 258 C 121.33 258 122 258.67 122 259.5 L 122 268.5 C 122 269.33 121.33 270 120.5 270 L 114.5 270 C 113.67 270 113 269.33 113 268.5 L 113 259.5 C 113 258.67 113.67 258 114.5 258" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#5AA7FF" />
+</g>
+<g id="shape-12" data-pptx-object="shape" data-pptx-frame="113 246 9 6" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:12" data-pptx-semantic-object="shape">
+<path d="M 114.5 246 L 120.5 246 C 121.33 246 122 246.67 122 247.5 L 122 250.5 C 122 251.33 121.33 252 120.5 252 L 114.5 252 C 113.67 252 113 251.33 113 250.5 L 113 247.5 C 113 246.67 113.67 246 114.5 246" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#5AA7FF" />
+</g>
+</g>
+<g id="shape-14" data-pptx-object="shape" data-pptx-frame="147.04 245.6 224.62 29.08" data-pptx-prst="rect" data-pptx-source-ref="slide:14" data-pptx-semantic-object="shape">
+<path d="M 147.04 245.6 L 371.66 245.6 L 371.66 274.68 L 147.04 274.68 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="147.04" y="266" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7" font-weight="bold">主控台 </text>
+</g>
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="640 214 576.64 405.5" data-pptx-prst="roundRect" data-pptx-av-adj="val 5102" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 640 234.69 A 20.69 20.69 0 0 1 660.69 214 L 1195.95 214 A 20.69 20.69 0 0 1 1216.64 234.69 L 1216.64 598.81 A 20.69 20.69 0 0 1 1195.95 619.5 L 660.69 619.5 A 20.69 20.69 0 0 1 640 598.81 Z" fill="#141E32" stroke-width="1.50005" stroke="#6E7F99" stroke-dasharray="6.0002 4.0001383335" data-pptx-part="geometry" />
+
+
+</g>
+<g id="shape-23" data-pptx-object="group" data-pptx-frame="668.39 241.07 27 26.03" data-pptx-source-ref="slide:23">
+<g id="shape-19" data-pptx-object="shape" data-pptx-frame="668.39 241.07 27 26.03" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:19" data-pptx-semantic-object="shape">
+<path d="M 690.89 241.07 C 693.37 241.07 695.39 243.13 695.39 245.66 L 695.39 257.91 C 695.39 260.45 693.37 262.51 690.89 262.51 L 683.39 262.51 L 675.89 267.1 L 675.89 262.51 L 672.89 262.51 C 670.4 262.51 668.39 260.45 668.39 257.91 L 668.39 245.66 C 668.39 243.13 670.4 241.07 672.89 241.07 L 690.89 241.07" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#63E6D2" />
+</g>
+<g id="shape-20" data-pptx-object="shape" data-pptx-frame="678.14 248.73 1 1.02" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:20" data-pptx-semantic-object="shape">
+<path d="M 678.14 248.73 L 678.15 248.73" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#63E6D2" />
+</g>
+<g id="shape-21" data-pptx-object="shape" data-pptx-frame="685.64 248.73 1 1.02" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:21" data-pptx-semantic-object="shape">
+<path d="M 685.64 248.73 L 685.65 248.73" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#63E6D2" />
+</g>
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="678.14 254.85 7.5 1.61" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 678.14 254.85 C 679.12 255.88 680.47 256.46 681.89 256.46 C 683.3 256.46 684.65 255.88 685.64 254.85" data-pptx-part="geometry" fill="none" stroke-width="3" stroke="#63E6D2" />
+</g>
+</g>
+<g id="shape-24" data-pptx-object="shape" data-pptx-frame="718.93 240.66 79.43 29.69" data-pptx-prst="rect" data-pptx-source-ref="slide:24" data-pptx-semantic-object="shape">
+<path d="M 718.93 240.66 L 798.36 240.66 L 798.36 270.35 L 718.93 270.35 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="718.93" y="261.06" text-anchor="start" xml:space="preserve" font-size="24" fill="#E8EEF7" font-weight="bold">AI 问答</text>
+</g>
+<g id="shape-49" data-pptx-object="group" data-pptx-frame="64 638 1152 46" data-pptx-source-ref="slide:49">
+<g id="shape-47" data-pptx-object="shape" data-pptx-frame="64 638 1152 46" data-pptx-prst="roundRect" data-pptx-av-adj="val 21739" data-pptx-source-ref="slide:47" data-pptx-semantic-object="shape">
+<path d="M 64 648 A 10 10 0 0 1 74 638 L 1206 638 A 10 10 0 0 1 1216 648 L 1216 674 A 10 10 0 0 1 1206 684 L 74 684 A 10 10 0 0 1 64 674 Z" fill="#1A2740" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-48" data-pptx-object="shape" data-pptx-frame="87.2 652 879.94 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:48" data-pptx-semantic-object="shape">
+<path d="M 87.2 652 L 967.14 652 L 967.14 682.8 L 87.2 682.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="87.2" y="669" text-anchor="start" xml:space="preserve" font-size="20" fill="#E8EEF7">技术栈：HTML + JavaScript　·　实时数据可视化　·　参数精细控制　·　零依赖轻量部署</text>
+</g>
+</g>
+<g id="shape-52" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:52">
+<g id="shape-50" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:50" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-51" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:51" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">17 / 20</text>
+</g>
+</g>
+<g id="shape-34" data-pptx-object="picture" data-pptx-frame="124 277.01 461.12 340.16" data-pptx-source-ref="slide:34">
+<image data-pptx-object="picture" data-pptx-frame="124 277.01 461.12 340.16" href="../images/image17.png" x="124" y="277.01" width="461.12" height="340.16" preserveAspectRatio="none" />
+</g>
+<g id="shape-36" data-pptx-object="picture" data-pptx-frame="648.77 288.78 559.09 268.35" data-pptx-source-ref="slide:36">
+<image data-pptx-object="picture" data-pptx-frame="648.77 288.78 559.09 268.35" href="../images/image18.png" x="648.77" y="288.78" width="559.09" height="268.35" preserveAspectRatio="none" />
+</g></svg>

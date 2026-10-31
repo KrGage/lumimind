@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="&quot;Times New Roman&quot;, sans-serif"><defs><linearGradient id="ggrad1" x1="0" y1="0.5" x2="1" y2="0.5"><stop offset="0" stop-color="#5AA7FF" /><stop offset="1" stop-color="#63E6D2" /></linearGradient></defs><rect x="0" y="0" width="1280" height="720" fill="#0B1220" />
+<g id="shape-5" data-pptx-object="group" data-pptx-frame="62 42.4 226.19 91.86" data-pptx-source-ref="slide:5">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="63.36 42.4 146.88 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 63.36 42.4 L 210.24 42.4 L 210.24 67.04 L 63.36 67.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="56" text-anchor="start" xml:space="preserve" font-family="Consolas, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99" letter-spacing="2"><tspan>PART 08 · 总结</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="62 66.4 226.19 67.86" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 62 66.4 L 288.19 66.4 L 288.19 134.26 L 62 134.26 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="62" y="114" text-anchor="start" xml:space="preserve" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif" font-size="56" fill="#E8EEF7" font-weight="bold">参考文献</text>
+</g>
+<g id="shape-4" data-pptx-object="shape" data-pptx-frame="64 130 120 4" data-pptx-prst="rect" data-pptx-source-ref="slide:4" data-pptx-semantic-object="shape">
+<path d="M 64 130 L 184 130 L 184 134 L 64 134 Z" fill="url(#ggrad1)" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-72" data-pptx-object="group" data-pptx-frame="64 624 1152 52" data-pptx-source-ref="slide:72">
+<g id="shape-66" data-pptx-object="shape" data-pptx-frame="64 624 1152 52" data-pptx-prst="roundRect" data-pptx-av-adj="val 19231" data-pptx-source-ref="slide:66" data-pptx-semantic-object="shape">
+<path d="M 64 634 A 10 10 0 0 1 74 624 L 1206 624 A 10 10 0 0 1 1216 634 L 1216 666 A 10 10 0 0 1 1206 676 L 74 676 A 10 10 0 0 1 64 666 Z" fill="#1A2740" stroke-width="1.50005" stroke="#2A3A55" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-70" data-pptx-object="group" data-pptx-frame="91.97 639.5 20.06 20.87" data-pptx-source-ref="slide:70">
+<g id="shape-67" data-pptx-object="shape" data-pptx-frame="95 639.5 14 14" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:67" data-pptx-semantic-object="shape">
+<path d="M 95 646.5 C 95 650.37 98.13 653.5 102 653.5 C 105.87 653.5 109 650.37 109 646.5 C 109 642.63 105.87 639.5 102 639.5 C 98.13 639.5 95 642.63 95 646.5" data-pptx-part="geometry" fill="none" stroke-width="2.33333" stroke="#FFB547" />
+</g>
+<g id="shape-68" data-pptx-object="shape" data-pptx-frame="102 650 10.03 10.37" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:68" data-pptx-semantic-object="shape">
+<path d="M 102 653.5 L 105.97 660.37 L 107.83 656.6 L 112.03 656.87 L 108.06 650" data-pptx-part="geometry" fill="none" stroke-width="2.33333" stroke="#FFB547" />
+</g>
+<g id="shape-69" data-pptx-object="shape" data-pptx-frame="91.97 650 10.03 10.37" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:69" data-pptx-semantic-object="shape">
+<path d="M 95.94 650 L 91.97 656.87 L 96.17 656.6 L 98.03 660.37 L 102 653.5" data-pptx-part="geometry" fill="none" stroke-width="2.33333" stroke="#FFB547" />
+</g>
+</g>
+<g id="shape-71" data-pptx-object="shape" data-pptx-frame="131.2 641 737.89 30.8" data-pptx-prst="rect" data-pptx-source-ref="slide:71" data-pptx-semantic-object="shape">
+<path d="M 131.2 641 L 869.09 641 L 869.09 671.8 L 131.2 671.8 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="131.2" y="658" text-anchor="start" xml:space="preserve" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif" font-size="20" fill="#FFB547" font-weight="bold"><tspan>19 篇参考文献</tspan><tspan fill="#E8EEF7">支撑 · 覆盖光-情绪效应、生理信号建模与 LLM 智能体前沿</tspan></text>
+</g>
+</g>
+<g id="shape-75" data-pptx-object="group" data-pptx-frame="63.36 686.4 1153.28 24.64" data-pptx-source-ref="slide:75">
+<g id="shape-73" data-pptx-object="shape" data-pptx-frame="63.36 686.4 370.22 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:73" data-pptx-semantic-object="shape">
+<path d="M 63.36 686.4 L 433.58 686.4 L 433.58 711.04 L 63.36 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.36" y="700" text-anchor="start" xml:space="preserve" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif" font-size="16" fill="#6E7F99">LumiMind · 基于情绪感知的智能光环境调控系统</text>
+</g>
+<g id="shape-74" data-pptx-object="shape" data-pptx-frame="1158.54 686.4 58.1 24.64" data-pptx-prst="rect" data-pptx-source-ref="slide:74" data-pptx-semantic-object="shape">
+<path d="M 1158.54 686.4 L 1216.64 686.4 L 1216.64 711.04 L 1158.54 711.04 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="1216.64" y="700" text-anchor="end" xml:space="preserve" font-family="Consolas, sans-serif" font-size="16" fill="#6E7F99">19 / 20</text>
+</g>
+</g>
+<g id="shape-76" data-pptx-object="shape" data-pptx-frame="64 141.26 1152 492.41" data-pptx-prst="rect" data-pptx-source-ref="slide:76">
+
+<path d="M 64 141.26 L 1216 141.26 L 1216 633.67 L 64 633.67 Z" fill="none" />
+
+
+<text x="73.6" y="161.93" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[1] Smolders K C H J, de Kort Y A W, Clout M P J. Bright light and mental fatigue: Effects on alertness, vitality, </tspan><tspan x="73.6" dy="22.4">performance and physiological arousal[J]. Journal of Environmental Psychology, 2014, 39: 77-91.</tspan></text>
+<text x="73.6" y="212.06" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[2] Ru T, Smolders K C H J, de Kort Y A W. Effects of illuminance and correlated </tspan><tspan>colour</tspan><tspan> temperature on daytime cognitive </tspan><tspan x="73.6" dy="22.4">performance and mood[J]. Building and Environment, 2019, 163: 106322.</tspan></text>
+<text x="73.6" y="262.19" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[3] Mostafavi I, et al. Effects of correlated </tspan><tspan>colour</tspan><tspan> temperature on brain activity: A systematic review[J]. Lighting </tspan><tspan x="73.6" dy="22.4">Research &amp; Technology, 2024, 56(3): 342-367.</tspan></text>
+<text x="73.6" y="312.33" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[4] Li X, et al. Effects of illuminance and correlated </tspan><tspan>colour</tspan><tspan> temperature on emotion perception in indoor </tspan><tspan x="73.6" dy="22.4">environments[J]. Indoor Air, 2025, 35(1): e13245.</tspan></text>
+<text x="73.6" y="362.46" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[5] </tspan><tspan>Koelstra</tspan><tspan> S, et al. DEAP: A database for emotion analysis using physiological signals[J]. IEEE Transactions on Affective </tspan><tspan x="73.6" dy="22.4">Computing, 2012, 3(1): 18-31.</tspan></text>
+<text x="73.6" y="412.59" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[6] Stamatopoulos S, et al. DREAMER: A database for emotion recognition through EEG and ECG signals[J]. IEEE </tspan><tspan x="73.6" dy="22.4">Transactions on Affective Computing, 2018, 9(1): 67-79.</tspan></text>
+<text x="73.6" y="462.73" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[7] Zheng W L, Lu B L. Investigating critical frequency bands and channels for EEG-based emotion recognition with deep </tspan><tspan x="73.6" dy="22.4">neural networks[J]. International Journal of Automation and Computing, 2015, 12(5): 475-488.</tspan></text>
+<text x="73.6" y="512.86" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[8] Li J, et al. BLIP-2: Bootstrapping language-image pre-training with frozen image encoders and frozen large language </tspan><tspan x="73.6" dy="22.4">models[C]. ICML, 2023.</tspan></text>
+<text x="73.6" y="562.99" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[9] Hu E J, et al. </tspan><tspan>LoRA</tspan><tspan>: Low-rank adaptation of large language models[C]. ICLR, 2022.</tspan></text>
+<text x="73.6" y="590.73" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[10] Hafner D, </tspan><tspan>Pasukonis</tspan><tspan> J, Ba J, et al. Mastering diverse control tasks through world models[J]. Nature, 2025, 640: 647-653.</tspan></text>
+<text x="73.6" y="618.46" text-anchor="start" xml:space="preserve" font-size="18.67" fill="#000000"><tspan>[11] Yao S, Zhao J, Yu D, et al. </tspan><tspan>ReAct</tspan><tspan>: Synergizing reasoning and acting in language models[C]. ICLR, 2023.</tspan></text>
+</g></svg>

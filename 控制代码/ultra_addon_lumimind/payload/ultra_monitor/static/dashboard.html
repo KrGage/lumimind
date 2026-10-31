@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ULTRA 光监测 · LumiMind</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#0b1320;color:#e6edf6}
+*{box-sizing:border-box}body{max-width:1200px;margin:auto;padding:32px 22px}a{color:#81caff}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px}h1{font-size:27px;margin:0 0 8px}
+p{color:#a5b7cb;line-height:1.7}.badge{padding:8px 14px;border:1px solid #415670;border-radius:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:24px 0}
+.card,.panel{background:#142135;border:1px solid #2b3c52;border-radius:15px;padding:20px}
+.value{font-size:32px;font-weight:650;margin-top:10px}.unit,.meta{font-size:13px;color:#99acc2}
+.plots{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel h2{font-size:16px;margin-top:0}
+canvas{width:100%;height:225px;display:block}.warn{color:#ffc779}
+select{background:#192d47;color:#edf5ff;padding:8px;border-radius:8px;border:1px solid #405571}
+#error{color:#ffc779;overflow-wrap:anywhere}#control{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+@media(max-width:700px){.plots{grid-template-columns:1fr}body{padding:24px 14px}}
+</style>
+</head>
+<body>
+<header><div><h1>ULTRA 光监测</h1><div class="meta" id="device">正在连接监测接口…</div></div><span class="badge" id="status">等待数据</span></header>
+<p>传感器实测值 · 约每 12 秒一轮 · 不进行自动达标判断或纠偏　<a href="/page/chat">返回 agent</a></p>
+<div id="error" role="status"></div><div class="meta" id="time">尚无测量记录</div>
+<div class="cards" id="cards"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h2 style="font-size:18px">实测趋势</h2><select id="hours" aria-label="历史时间范围"><option value="1">最近 1 小时</option><option value="6">最近 6 小时</option><option value="24">最近 24 小时</option></select></div>
+<div class="plots"><section class="panel"><h2>照度 · lx</h2><canvas id="lux" role="img" aria-label="实测照度趋势"></canvas></section><section class="panel"><h2>CCT · K</h2><canvas id="cct" role="img" aria-label="实测色温趋势"></canvas></section></div>
+<section class="panel" style="margin-top:20px"><h2>最近一次 agent 调光目标与下发状态</h2><div id="control">本次服务启动后尚无调光记录。</div><p class="meta">UDP 已发送不代表实际出光已达标。预测值与实测值分别显示。测量历史保存在本机，默认保留 30 天。</p></section>
+<script>
+'use strict';
+const base=location.pathname.replace(/\/dashboard\/?$/, '');
+const metrics=[['lux','照度','lx',1],['cct','色温 CCT','K',0],['eml','等效黑视素照度','EML',1],['rf','TM-30 Rf','',1],['rg','TM-30 Rg','',1],['caf','CAF','',3],['cs','CS','',3],['m_edi','m-EDI','lx',1],['frequency','频率','Hz',1],['flicker','频闪指数','',3],['percent_flicker','频闪百分比','%',2]];
+const nodes={};
+for(const [key,label,unit] of metrics){
+ const card=document.createElement('div');card.className='card';
+ const name=document.createElement('div');name.className='meta';name.textContent=label;
+ const val=document.createElement('div');val.className='value';val.textContent='—';
+ const u=document.createElement('span');u.className='unit';u.textContent=unit;
+ card.append(name,val,u);document.getElementById('cards').append(card);nodes[key]=val;
+}
+let samples=[],busy=false,lastHistory=0;
+const time=t=>t?new Date(t).toLocaleString():'—';
+function plot(key){
+ const canvas=document.getElementById(key),width=canvas.clientWidth,height=225,dpr=window.devicePixelRatio||1;
+ canvas.width=width*dpr;canvas.height=height*dpr;
+ const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,width,height);
+ const pts=samples.filter(s=>Number.isFinite(s[key]));ctx.font='12px system-ui';ctx.fillStyle='#96abc4';
+ if(!pts.length){ctx.fillText('暂无实测数据',20,40);return;}
+ let low=Math.min(...pts.map(s=>s[key])),high=Math.max(...pts.map(s=>s[key]));
+ const pad=Math.max((high-low)*.12,1);low-=pad;high+=pad;
+ const l=58,r=width-12,top=14,bottom=height-40;ctx.strokeStyle='#31435b';
+ for(let i=0;i<4;i++){const y=top+(bottom-top)*i/3;ctx.beginPath();ctx.moveTo(l,y);ctx.lineTo(r,y);ctx.stroke();ctx.fillText(Math.round(high-(high-low)*i/3),2,y+4);}
+ const t0=Date.parse(pts[0].measured_at),t1=Date.parse(pts[pts.length-1].measured_at);
+ ctx.strokeStyle=key==='lux'?'#70dec2':'#8ab9ff';ctx.lineWidth=2;ctx.beginPath();
+ pts.forEach((s,i)=>{const x=l+(r-l)*(t1===t0?0.5:(Date.parse(s.measured_at)-t0)/(t1-t0)),y=bottom-(s[key]-low)/(high-low)*(bottom-top);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);if(pts.length===1){ctx.moveTo(x-3,y);ctx.lineTo(x+3,y);}});ctx.stroke();
+ ctx.fillStyle='#96abc4';ctx.textAlign='left';ctx.fillText(new Date(t0).toLocaleTimeString(),l,height-12);ctx.textAlign='right';ctx.fillText(new Date(t1).toLocaleTimeString(),r,height-12);ctx.textAlign='left';
+}
+async function request(path){
+ const response=await fetch(base+path,{cache:'no-store',signal:AbortSignal.timeout(10000)});
+ if(!response.ok)throw new Error('监测接口错误 '+response.status);return response.json();
+}
+async function refresh(){
+ if(busy)return;busy=true;
+ try{
+  const data=await request('/api/latest'),c=data.connection,s=data.sample||{};
+  document.getElementById('device').textContent=c.device_id+' · '+c.ble_address;
+  const labels={connecting:'正在连接',measuring:'采集中',disconnected:'已断线 · 自动重连',stopped:'已停止'};
+  document.getElementById('status').textContent=!data.enabled?'采集已禁用':(labels[c.state]||c.state)+(data.stale?' · 暂无新数据':'');
+  document.getElementById('status').className='badge'+(data.stale?' warn':'');
+  document.getElementById('error').textContent=c.error||'';
+  document.getElementById('time').textContent='最后实测：'+time(s.measured_at)+(data.stale?'（旧数据或尚无数据）':'')+'　测量触发：'+time(s.triggered_at);
+  for(const [key,label,unit,digits]of metrics)nodes[key].textContent=Number.isFinite(s[key])?s[key].toFixed(digits):'—';
+  if(data.lighting){const t=data.lighting.target,result=data.lighting.result;document.getElementById('control').textContent='目标：'+t.cct_k+' K / '+t.illuminance_lux+' lx\n状态：'+(result.status==='sent'?'UDP 已发送，实际效果请查看实测':result.status)+'\n'+(result.error||'')+(result.predicted?'\nSDK 预测：'+JSON.stringify(result.predicted):'');}
+  if(Date.now()-lastHistory>10000){samples=(await request('/api/history?hours='+document.getElementById('hours').value+'&limit=10000')).samples;lastHistory=Date.now();plot('lux');plot('cct');}
+ }catch(e){document.getElementById('status').textContent='监测接口不可用';document.getElementById('error').textContent=e.message+'；当前显示值可能已过期。';}
+ finally{busy=false;}
+}
+document.getElementById('hours').addEventListener('change',()=>{lastHistory=0;refresh();});
+window.addEventListener('resize',()=>{plot('lux');plot('cct');});refresh();setInterval(refresh,3000);
+</script></body></html>

@@ -70,6 +70,20 @@ class LightModeUpdateModel(Base):
     operator_note: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
+class ManualLightCommandModel(Base):
+    __tablename__ = "manual_light_commands"
+
+    command_id: Mapped[str] = mapped_column(String, primary_key=True)
+    session_id: Mapped[str | None] = mapped_column(String, nullable=True)
+    cct_k: Mapped[int] = mapped_column(Integer)
+    illuminance_lux: Mapped[float] = mapped_column(Float)
+    status: Mapped[str] = mapped_column(String)
+    result_json: Mapped[str | None] = mapped_column(Text, nullable=True)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
 class FeedbackModel(Base):
     __tablename__ = "feedback"
 

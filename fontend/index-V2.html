@@ -668,6 +668,7 @@
                 <a href="/page/home" class="nav-link">🏠 首页</a>
                 <a href="/page/monitor" class="nav-link active">📊 数据监测</a>
                 <a href="/page/chat" class="nav-link">💬 AI问答</a>
+                <a href="/page/library" class="nav-link">📚 知识库</a>
                 <a href="/page/settings" class="nav-link">⚙️ 设置</a>
             </nav>
             <div class="nav-right">
@@ -692,6 +693,7 @@
             </select>
         </label>
         <button type="button" class="btn-action" id="btnStartSession">开始实验</button>
+        <button type="button" class="btn-action secondary" id="btnPreviewPopup">预览调光弹窗</button>
         <span style="font-size:0.7rem;color:#94A3B8;" id="apiBaseHint"></span>
     </div>
 
@@ -883,28 +885,38 @@
     </div>
     <p id="globalStatus"></p>
     <div class="footer-note">
-        💡 cube 由实验员手动切换 · 前端同步光模式至后端 · 心率滑条仅本地示意
+        💡 弹窗确认后自动下发单灯 · 参数发送不等于实测达标 · 心率滑条仅本地示意
     </div>
 </div>
 
 <div class="overlay" id="strategyOverlay" role="dialog" aria-modal="true">
     <div class="modal-box">
         <h3>Agent 调光建议</h3>
+        <p id="popupPreviewBadge" style="display:none;color:#B45309;font-weight:700;">仅预览：不会下发灯控或保存反馈</p>
         <p id="popupMessage"></p>
         <p style="font-size:0.78rem;color:#64748B;margin-bottom:12px;" id="popupActionHint"></p>
+        <p id="popupLightingTarget" style="font-weight:700;"></p>
         <div class="modal-actions" id="popupStepAccept">
             <button type="button" class="btn-action secondary" id="btnReject">暂不接受</button>
-            <button type="button" class="btn-action" id="btnAccept">接受建议</button>
+            <button type="button" class="btn-action" id="btnAccept">使用推荐参数</button>
+            <button type="button" class="btn-action secondary" id="btnCustom">自定义参数</button>
         </div>
-        <div class="modal-actions" id="popupStepExecute" style="display:none;">
-            <button type="button" class="btn-action" id="btnExecuted">实验员已完成 cube 切换</button>
+        <div id="popupStepExecute" style="display:none; margin-top:12px;">
+            <label>色温 (K) <input type="number" id="popupCustomCct" min="1500" max="20000" step="1"></label>
+            <label>照度 (lx) <input type="number" id="popupCustomLux" min="1" max="30000" step="1"></label>
+            <div class="modal-actions">
+                <button type="button" class="btn-action secondary" id="btnCustomBack">返回</button>
+                <button type="button" class="btn-action" id="btnExecuted">下发自定义参数</button>
+            </div>
         </div>
+        <p id="popupDispatchStatus" role="status" aria-live="polite"></p>
+        <button type="button" class="btn-action secondary" id="btnPreviewClose" style="display:none;">关闭预览</button>
     </div>
 </div>
 
 <script>
 (function() {
-    const API_BASE = window.LUMIMIND_API_BASE ?? (location.port === "8080" ? "" : "http://127.0.0.1:8000");
+    const API_BASE = window.LUMIMIND_API_BASE ?? "";
 
     const LIGHT_MODE_VISUAL = {
         normal_office_light: { kelvin: 4500, brightness: 0.72, label: "正常办公光", breathing: false },
@@ -951,6 +963,7 @@
     let currentTemp = 4500;
     let previewOverride = false;
     let pendingStrategy = null;
+    let popupPreviewOnly = false;
     let lastFeedbackStrategyId = null;
     let pendingAccepted = false;
     let selectedFeedbackLabel = null;
@@ -1144,11 +1157,23 @@
         }
     }
 
-    function openStrategyPopup(strategy) {
+    function openStrategyPopup(strategy, previewOnly = false) {
         pendingStrategy = strategy;
+        popupPreviewOnly = previewOnly;
         pendingAccepted = false;
+        $("popupPreviewBadge").style.display = previewOnly ? "block" : "none";
+        $("btnPreviewClose").style.display = previewOnly ? "inline-block" : "none";
         $("popupMessage").textContent = strategy.message;
         $("popupActionHint").textContent = ACTION_LABELS[strategy.recommended_action] || strategy.recommended_action;
+        const target = strategy.recommended_lighting;
+        $("popupLightingTarget").textContent = target
+            ? `推荐预设：${target.cct_k} K / ${target.illuminance_lux} lx`
+            : "当前建议没有可下发的数值参数";
+        $("popupCustomCct").value = target?.cct_k || 4500;
+        $("popupCustomLux").value = target?.illuminance_lux || 300;
+        $("popupDispatchStatus").textContent = "";
+        for (const id of ["btnReject", "btnCustom", "btnExecuted", "btnCustomBack"]) $(id).disabled = false;
+        $("btnAccept").disabled = !target;
         $("popupStepAccept").style.display = "flex";
         $("popupStepExecute").style.display = "none";
         $("strategyOverlay").classList.add("open");
@@ -1157,6 +1182,7 @@
     function closeStrategyPopup() {
         $("strategyOverlay").classList.remove("open");
         pendingStrategy = null;
+        popupPreviewOnly = false;
     }
 
     function handleStrategyResponse(strategy) {
@@ -1249,6 +1275,18 @@
     }
 
     $("btnStartSession").addEventListener("click", startSession);
+    $("btnPreviewPopup").addEventListener("click", () => {
+        const adjustment = currentLightMode !== "adjustment_light";
+        openStrategyPopup({
+            strategy_id: "preview-only",
+            recommended_action: adjustment ? "switch_to_adjustment_light" : "switch_to_normal_office_light",
+            message: "预览调光建议弹窗，可查看推荐值并试填自定义参数。",
+            recommended_lighting: adjustment
+                ? {cct_k: 5000, illuminance_lux: 300}
+                : {cct_k: 4500, illuminance_lux: 300},
+        }, true);
+    });
+    $("btnPreviewClose").addEventListener("click", closeStrategyPopup);
     document.querySelectorAll(".emotion-btn").forEach((btn) => {
         btn.addEventListener("click", () => submitModelEmotion(btn));
     });
@@ -1257,15 +1295,66 @@
     brightnessSlider.addEventListener("input", (e) => setBrightnessLocal(parseInt(e.target.value, 10)));
     tempSlider.addEventListener("input", (e) => setTemperatureLocal(parseInt(e.target.value, 10)));
 
+    async function dispatchPopupLighting(target, accepted) {
+        if (!pendingStrategy) return;
+        const cct = Number(target.cct_k);
+        const lux = Number(target.illuminance_lux);
+        if (!Number.isInteger(cct) || cct < 1500 || cct > 20000 || !Number.isFinite(lux) || lux <= 0 || lux > 30000) {
+            $("popupDispatchStatus").textContent = "请输入有效的色温和照度。";
+            return;
+        }
+        if (popupPreviewOnly) {
+            $("popupDispatchStatus").textContent = `预览选择：${cct} K / ${lux} lx；未发送灯控指令。`;
+            return;
+        }
+        const strategy = pendingStrategy;
+        const commandId = crypto.randomUUID();
+        for (const id of ["btnAccept", "btnReject", "btnCustom", "btnExecuted", "btnCustomBack"]) $(id).disabled = true;
+        $("popupDispatchStatus").textContent = "正在计算配方并下发…";
+        try {
+            await api("/api/light/manual", {
+                method: "POST",
+                body: JSON.stringify({command_id: commandId, cct_k: cct, illuminance_lux: lux,
+                    session_id: $("sessionId").value.trim()}),
+            });
+        } catch (err) {
+            $("popupDispatchStatus").textContent = `下发未确认：${err.message}。请核对灯具，勿立即重复发送。`;
+            setGlobalStatus("灯控结果未确认，请核对灯具和执行记录", "error");
+            $("btnAccept").disabled = true;
+            $("btnExecuted").disabled = true;
+            $("btnCustom").disabled = true;
+            return;
+        }
+        for (const id of ["btnAccept", "btnReject", "btnCustom", "btnExecuted", "btnCustomBack"]) $(id).disabled = false;
+        pendingAccepted = accepted;
+        lastFeedbackStrategyId = strategy.strategy_id;
+        closeStrategyPopup();
+        $("feedbackPanel").classList.add("open");
+        setGlobalStatus(`已发送 ${cct} K / ${lux} lx，请用监测数据核对实测值`, "ok");
+        if (accepted) {
+            const mode = TARGET_LIGHT_MODE[strategy.recommended_action];
+            if (mode) {
+                try { await updateLightMode(mode, `接受推荐参数 ${cct}K / ${lux}lx`); }
+                catch (err) { setGlobalStatus(`灯已发送，但光模式同步失败：${err.message}`, "error"); }
+            }
+        }
+    }
+
     $("btnAccept").addEventListener("click", () => {
-        pendingAccepted = true;
+        if (pendingStrategy?.recommended_lighting) dispatchPopupLighting(pendingStrategy.recommended_lighting, true);
+    });
+    $("btnCustom").addEventListener("click", () => {
         $("popupStepAccept").style.display = "none";
-        $("popupStepExecute").style.display = "flex";
-        setGlobalStatus("请实验员手动调节 cube 后确认", "ok");
+        $("popupStepExecute").style.display = "block";
+    });
+    $("btnCustomBack").addEventListener("click", () => {
+        $("popupStepAccept").style.display = "flex";
+        $("popupStepExecute").style.display = "none";
     });
 
     $("btnReject").addEventListener("click", async () => {
         if (!pendingStrategy) return closeStrategyPopup();
+        if (popupPreviewOnly) return closeStrategyPopup();
         try {
             await submitFeedback({
                 session_id: $("sessionId").value.trim(),
@@ -1281,23 +1370,10 @@
         }
     });
 
-    $("btnExecuted").addEventListener("click", async () => {
-        if (!pendingStrategy) return;
-        const target = TARGET_LIGHT_MODE[pendingStrategy.recommended_action];
-        if (!target) {
-            closeStrategyPopup();
-            return setGlobalStatus("当前建议无需切换光模式", "ok");
-        }
-        try {
-            await updateLightMode(target, `V2 确认：${ACTION_LABELS[pendingStrategy.recommended_action]}`);
-            lastFeedbackStrategyId = pendingStrategy.strategy_id;
-            closeStrategyPopup();
-            $("feedbackPanel").classList.add("open");
-            setGlobalStatus("光模式已同步，请提交主观反馈", "ok");
-        } catch (err) {
-            setGlobalStatus(err.message, "error");
-        }
-    });
+    $("btnExecuted").addEventListener("click", () => dispatchPopupLighting({
+        cct_k: Number($("popupCustomCct").value),
+        illuminance_lux: Number($("popupCustomLux").value),
+    }, false));
 
     document.querySelectorAll("#feedbackTags .btn-action").forEach((btn) => {
         btn.addEventListener("click", () => {

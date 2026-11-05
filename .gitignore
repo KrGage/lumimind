@@ -28,3 +28,17 @@ dataset/
 _*.png
 fontend/_*.png
 light_control/runtime/Logs/
+
+# Runtime state and generated model assets
+models/*.json
+data/
+backend/*.log
+*.pt
+*.pth
+*.png
+*.jpg
+*.jpeg
+*.webp
+控制代码/**/runtime/Logs/
+控制代码/**/runtime/*.dll
+控制代码/**/runtime/*.exe

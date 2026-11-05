@@ -41,7 +41,11 @@ ai_agent/
 │   ├── scripts/            #   ECG 数据处理、情绪识别模型、光谱绘制等脚本
 │   ├── data/               #   数据（All_Data.xlsx、ecg_data.pkl、C-data 等）
 │   └── outputs/            #   输出结果（工作室光谱图等）
-├── models/                 # 本地模型产物（vector_store.json 向量库、semantic_cache.json 语义缓存）
+├── light_control/          # 灯光控制接口及本地桥接程序
+├── 控制代码/              # 情绪调光与监控插件的安装包源码
+├── scripts/               # 项目数据处理、模型验证及演示脚本
+├── creation_tools/        # PPT、图片等展示材料的制作脚本与源文件
+├── models/                 # 本地生成的向量库和缓存（不提交）
 ├── ingest_knowledge_base.py  # 知识库构建脚本（PDF/DOCX 解析入库）
 ├── oupu_lighting_agent.py    # 智能体主入口脚本
 ├── requirements.txt          # Python 依赖清单
@@ -82,7 +86,8 @@ python oupu_lighting_agent.py
 | `fontend` | 静态 HTML 前端，含 AI 对话与系统主页面（注：目录名沿用历史拼写 fontend） |
 | `prompts` / `custom_prompts` | 医疗/照明专用提示词体系，支持扩展注册 |
 | `Oupu_Lighting` | 生理信号（ECG/HRV）情绪识别实验脚本与工作室光谱分析 |
-| `models` | RAG 向量库与语义缓存的本地持久化产物 |
+| `models` | RAG 向量库与语义缓存的本地持久化产物，不纳入版本控制 |
+| `creation_tools` | 展示材料制作，与应用运行代码分开存放 |
 
 ## 注意事项
 
